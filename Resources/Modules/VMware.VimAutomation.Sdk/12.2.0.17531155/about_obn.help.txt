@@ -1,0 +1,94 @@
+﻿TOPIC
+    about_obn
+
+SHORT DESCRIPTION
+    A feature for specifying an object by its name. Instead of passing an object
+    to a cmdlet parameter through a pipeline or by a variable, users can
+    directly assign to the parameter the object name.
+
+LONG DESCRIPTION
+    The Object-by-Name (OBN) selection is a feature for specifying an object by
+    its name. Instead of passing an object to a cmdlet parameter through a
+    pipeline or a variable, users can directly assign to the parameter the
+    object name. A lot of PowerCLI cmdlets parameters support OBN.
+
+Example 1: The following three lines are interchangeable:
+    1. Remove-VM -VM "Win XP SP2"
+    2. Get-VM -Name "Win XP SP2" | Remove-VM
+    3. Remove-VM -VM (Get-VM -Name "Win XP SP2")
+
+    If one of the provided object names is not recognized, a non-terminating
+    error is generated and the cmdlet runs ignoring the invalid name. This is
+    called an "OBN failure".
+
+Example 2: An "OBN Failure".
+    Set-VM -VM "VM1", "VM2", "VM3" -Server $server1, $server2 -MemoryGB 2
+
+    If the VM2 virtual machine does not exist on either of the specified
+    servers, a non-terminating error is thrown and the command runs only on the
+    VM1 and VM3 virtual machines.
+
+OBN AND WILDCARDS
+    When specifying objects by name, you can use the standard PowerShell
+    wildcards.
+
+DETERMINING THE OBN SERVER LIST
+    You can use the Server parameter of a cmdlet to specify the servers from
+    which to retrieve the objects specified by name. In such cases, the Server
+    parameter can be set only if the parameter that takes an object name is
+    specified.
+
+Example 3: Using OBN and the cmdlets Server parameter.
+    Stop-VM -Server $svr1
+
+    To make the upper command work, you must provide at least one virtual
+    machine name to the cmdlet VM parameter.
+
+    Stop-VM -Server $svr1 -VM "Win XP SP2"
+
+    If the Server parameter is not specified, OBN uses the servers associated
+    with the objects passed as arguments to the other cmdlet parameters. If the
+    arguments objects are associated with different servers, OBN is aborted for
+    the current call and a non-terminating error is generated. The Server
+    parameter also supports OBN. You can specify servers either by their
+    corresponding VIServer objects, or  by their names.
+
+Example 4: Using OBN with a server associated with the specified objects.
+    Move-VM -VM "Win XP SP2" -VMHost $myHost
+
+    The upper command will work only if the Win XP SP2 virtual machine and the
+    $myHost host are associated with one and the same server. Otherwise, an
+    error is generated.
+    If there are no servers specified by the Server parameter or associated with
+    the provided objects, the default server is used for OBN.
+
+Example 5: Using OBN with the default server.
+    Move-VM -VM "Win XP SP2" -VMHost $myHost
+
+    If no server is associated with the specified objects, the default server is
+    used for OBN. If a cmdlet parameter receives both managed objects and names,
+    the Server parameter applies only to the names and the managed objects are
+    not filtered based on the servers. If all cmdlet parameters receive only
+    objects, and if a server list is specified, the server list is ignored.
+
+OBN ARGUMENT MULTIPLICITY AND PARAMETER MULTIPLICITY
+    After the object selection by name is performed, the returned objects are
+    passed to the parameter together with the objects specified directly, if
+    any, and the process continues.
+
+    Remove-VM -VM $vm1, $vm2, "Win XP SP2", $vm3, "linux*"
+    # ...is equivalent to...
+    Remove-VM -VM $vm1, $vm2, <the one or more objects named "Win XP SP2">, $vm3, <the zero or more objects, whose names start with "linux">
+
+    If a parameter receives multiple names specified by OBN as a part of its
+    argument, and if the OBN for two of these names retrieves duplicate objects,
+    these duplicates are not eliminated and the cmdlet works as if invoked with
+    duplicate objects.
+    If the OBN selection returns no objects for a parameter that is specified as
+    mandatory, or returns more than one object for a parameter that takes a
+    single argument, an error is generated.
+
+COPYRIGHT
+    Copyright (C) VMware, Inc. All rights reserved. Protected by one or more
+    U.S. Patents listed at http://www.vmware.com/go/patents.
+

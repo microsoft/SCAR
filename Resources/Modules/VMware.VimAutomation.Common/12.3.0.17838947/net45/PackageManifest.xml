@@ -1,0 +1,17 @@
+<ModulePackages>
+   <Package Id="VMware.Binding.Ls2" Version="12.3.0.17838947" />
+   <Package Id="VMware.Binding.Sts" Version="12.3.0.17838947" />
+   <Package Id="VMware.Binding.WsTrust" Version="12.3.0.17838947" />
+   <Package Id="VMware.Util.Sspi" Version="12.3.0.17838947" />
+   <Package Id="VMware.VimAutomation.Common.Interop" Version="12.3.0.17838947" />
+   <Package Id="VMware.VimAutomation.Common.Types" Version="12.3.0.17838947" />
+   <Package Id="VMware.VimAutomation.Common.Util10" Version="12.3.0.17838947" />
+   <Package Id="VMware.VimAutomation.Common.Util10Ps" Version="12.3.0.17838947" />
+   <Package Id="VMware.VimAutomation.SsoAuthentication" Version="12.3.0.17838947" />
+   <Package Id="VMware.Http.Handlers" Version="12.3.0.17838947" />
+   <Package Id="VMware.Util.OAuth2" Version="12.3.0.17838947" />
+   <Package Id="SharpZipLib" Version="1.1.0" />
+   <Package Id="Newtonsoft.Json" Version="10.0.3" />
+   <Package Id="Common.Logging" Version="2.0.0" />
+   <Package Id="Spring.Rest" Version="1.1.1" />
+</ModulePackages>

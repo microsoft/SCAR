@@ -1,0 +1,23 @@
+<ComponentDescriptor>
+	<Name>VMware.VimAutomation.ViCore</Name>
+	<Assembly>VMware.VimAutomation.ViCore.Impl</Assembly>
+	<ImplementingType>VMware.VimAutomation.ViCore.Impl.ViCoreComponentImpl</ImplementingType>
+
+	<IsSnapin>false</IsSnapin>
+
+	<ProvidedServiceList>
+		<ServiceDescriptor>
+			<Name>ViCoreService</Name>
+			<Version>1.0</Version>
+		</ServiceDescriptor>
+	</ProvidedServiceList>
+
+	<RequiredServiceList>
+    <ServiceDescriptor>
+      <Name>CisCoreService</Name>
+      <Version>1.0</Version>
+    </ServiceDescriptor>
+  </RequiredServiceList>
+
+	<ExtendedServiceList></ExtendedServiceList>
+</ComponentDescriptor>

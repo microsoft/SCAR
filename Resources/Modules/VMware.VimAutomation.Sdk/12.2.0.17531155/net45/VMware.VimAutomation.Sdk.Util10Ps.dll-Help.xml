@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<helpItems schema="maml" xmlns="http://msh">
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-ErrorReport</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>ErrorReport</command:noun>
+      <maml:description>
+        <maml:para>This cmdlet collects debugging information in order to investigate a problem in PowerCLI or the work environment.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>This cmdlet collects debugging information in order to investigate a problem in PowerCLI or the work environment. The cmdlet runs a script that reproduces the problem and captures any relevant information in a single .zip file. Then, you can send the .zip file to the PowerCLI support for analysis.</maml:para>
+      <maml:para>To generate an error report:</maml:para>
+      <maml:para>1. Isolate the problem into a simple script.</maml:para>
+      <maml:para>2. Run Get-ErrorReport to generate the support bundle.</maml:para>
+      <maml:para>Customers can use the following portals to upload support bundles:</maml:para>
+      <maml:para>- ftpsite.vmware.com (instructions for upload - https://kb.vmware.com/s/article/2070100 )</maml:para>
+      <maml:para>- sftpsite.vmware.com (instructions for upload - https://kb.vmware.com/s/article/2069559 )</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-ErrorReport</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
+          <maml:name>ProblemScript</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the script that reproduces the error that you want to report.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">ScriptBlock</command:parameterValue>
+          <dev:type>
+            <maml:name>ScriptBlock</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+          <maml:name>Destination</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the directory where you want to save the error report. If no value is specified for this parameter, the error report is saved in the current file system location.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">DirectoryInfo</command:parameterValue>
+          <dev:type>
+            <maml:name>DirectoryInfo</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+          <maml:name>ProblemDescription</maml:name>
+          <maml:Description>
+            <maml:para>Provides a description of the problem you want to capture in the error report bundle.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>MaxDataDepth</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the amount of object data that should be included in the report.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>int.MaxValue</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>IncludeServerLogs</maml:name>
+          <maml:Description>
+            <maml:para>Indicates that you want the server logs (for example - from vCenter Server) to be included in the error report.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <maml:name>Destination</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the directory where you want to save the error report. If no value is specified for this parameter, the error report is saved in the current file system location.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">DirectoryInfo</command:parameterValue>
+        <dev:type>
+          <maml:name>DirectoryInfo</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>MaxDataDepth</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the amount of object data that should be included in the report.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>int.MaxValue</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>IncludeServerLogs</maml:name>
+        <maml:Description>
+          <maml:para>Indicates that you want the server logs (for example - from vCenter Server) to be included in the error report.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+        <maml:name>ProblemDescription</maml:name>
+        <maml:Description>
+          <maml:para>Provides a description of the problem you want to capture in the error report bundle.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
+        <maml:name>ProblemScript</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the script that reproduces the error that you want to report.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">ScriptBlock</command:parameterValue>
+        <dev:type>
+          <maml:name>ScriptBlock</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Management.Automation.ScriptBlock</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.IO.FileInfo</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>A single .zip file containing diagnostic information for VMware tech support.</maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code># Saves the script that reproduces the error into a variable and passes the script to Get-ErrorReport. The command provides a destination for storing the error report and a description of the observed problem.
+$script = {
+    Connect-VIServer 10.23.34.36
+    $vapp = Get-VApp
+    Get-VM VM -Location $vapp
+}
+$script | Get-ErrorReport -Destination "D:\error-reports" -ProblemDescription "No VM is returned. There are several VMs in this vApp. The vApp is in a DRS-enabled cluster. All VMs part of the vApp are expected to be returned"</dev:code>
+        <dev:remarks>
+          <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Get-ErrorReport</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+</helpItems>

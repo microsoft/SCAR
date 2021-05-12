@@ -1,0 +1,50 @@
+﻿TOPIC
+    about_server_authentication
+
+SHORT DESCRIPTION
+    When connecting to a vSphere or vCloud server, you need to authenticate by
+    providing valid credentials.
+
+LONG DESCRIPTION
+    When connecting to a vSphere or vCloud server, you need to authenticate by
+    providing valid credentials. PowerCLI follows a certain logic for
+    authenticating a server session. When you connect to a server with the
+    Connect-VIServer or Connect-CIServer cmdlets, you can provide either a user
+    name and password through the User and Password parameters, or a
+    PSCredential object through the Credential parameter. If you provide both
+    User/Password and Credential, the cmdlet accepts only the value of the
+    Credential parameter and discards the User and Password parameters.
+
+Authenticating Using a Pscredential Object
+    When you run the Connect-VIServer or Connect-CIServer to establish a server
+    connection, you can use the Credential parameter to provide a PSCredential
+    object that contains credentials for the specified server. If the provided
+    credentials are not valid, the cmdlets show an error message.
+
+Authenticating Through the User and Password Parameters
+    Instead of providing a PSCredential object, you can directly specify a user
+    name and password through the User and Password parameters of
+    Connect-VIServer or Connect-CIServer.
+    If you specify only the User parameter without providing a value to
+    Password, the cmdlet searches the credential store for credentials that
+    correspond to the specified server and user. If such a credential is found,
+    the cmdlet uses it to authenticate with the server. If no such a credential
+    is found, you are prompted to provide credentials.
+    If you run Connect-VIServer or Connect-CIServer without specifying the User,
+    Password, or Credential parameters, the cmdlet searches the credential store
+    for available credentials for the specified server. If only one credential
+    object is found, the cmdlet uses it to authenticate with the server. If none
+    or more than one PSCredential objects are found, the cmdlet tries to perform
+    a SSPI authentication. If the SSPI authentication fails, the cmdlet prompts
+    you to provide credentials.
+
+NOTE
+    If PowerCLI runs in a non-interactive mode, Connect-VIServer and
+    Connect-CIServer will not prompt you for new credentials after the server
+    authentication fails. To try to authenticate using new credentials, run the
+    cmdlet again.
+
+COPYRIGHT
+    Copyright (C) VMware, Inc. All rights reserved. Protected by one or more
+    U.S. Patents listed at http://www.vmware.com/go/patents.
+

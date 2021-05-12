@@ -1,0 +1,13 @@
+<ModulePackages>
+   <Package Id="VMware.VimAutomation.Sdk.Interop" Version="12.2.0.17531155" />
+   <Package Id="VMware.VimAutomation.Sdk.Types" Version="12.2.0.17531155" />
+   <Package Id="VMware.VimAutomation.Sdk.Util10Ps" Version="12.2.0.17531155" />
+   <Package Id="VMware.VimAutomation.Sdk.Util10" Version="12.2.0.17531155" />
+   <Package Id="VMware.VimAutomation.Ceip" Version="12.2.0.17531155" />
+   <Package Id="VMware.Security.CredentialStore" Version="12.2.0.17531155" />
+   <Package Id="log4net" Version="2.0.8" />
+   <Package Id="PhClient" Version="1.0.2" />
+   <Package Id="EnterpriseLibrary.Common" Version="6.0.1304" />
+   <Package Id="EnterpriseLibrary.Logging" Version="6.0.1304" />
+   <Package Id="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
+</ModulePackages>

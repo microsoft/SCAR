@@ -1,0 +1,54 @@
+﻿TOPIC
+    about_security_context
+
+SHORT DESCRIPTION
+    The general workflow for using a security context is as follows: 1. Create a
+    security context by directly authenticating the user who runs the
+    New-*SecuritContext command. 2. Pass the security context to a
+    Connect-*Server command that indirectly authenticates the user who runs the context.
+    To create an OAuth2 security context for VMware Cloud Service, use the
+    New-VcsOAuthSecurityContext
+    command.
+    To create a SAML2 security context for the vCenter Server service, use the
+    New-VISamlSecurityContext
+    command.
+
+LONG DESCRIPTION
+    When a user is directly authenticated, a security context object is created.
+    ThÐµ security context object allows the user to be authenticated later when
+    it is needed by another command.
+    There are different ways to authenticate the user. For example, username and
+    password, Windows-integrated authentication, multifactor authentication, and
+    so on. How the security context will later indirectly authenticate the user
+    depends on the authentication protocol supported by the authentication server.
+    The general workflow for using a security context is as follows: 1. Create a
+    security context by directly authenticating the user who runs the
+    New-*SecuritContext command. 2. Pass the security context to a
+    Connect-*Server command that indirectly authenticates the user who runs the context.
+    Currently, VMware PowerCLI supports the following types of security context:
+    - OAuth2 security context - for authentication servers that support
+    authentication based on OAuth2 bearer tokens.
+    - SAML2 security context - for authentication servers that support
+    authentication based on SAML2 bearer tokens.
+    The VMware Cloud Services family of products supports authentication with an
+    OAuth2 security context.
+    To create an OAuth2 security context for VMware Cloud Service, use the
+    New-VcsOAuthSecurityContext
+    command.
+    The vCenter Server family of products supports mainly authentication with a
+    SAML2 security context.
+    To create a SAML2 security context for the vCenter Server service, use the
+    New-VISamlSecurityContext
+    command.
+    If the vCenter Server supports OAuth2, you can create a SAML2 security
+    context based on an OAuth2 security context from the trusted OAuth2
+    authentication server. For more information, see
+    New-VISamlSecurityContext
+    .
+    You can call the Dispose method on a security context object to invalidate a
+    security context so that it cannot be used anymore.
+
+COPYRIGHT
+    Copyright (C) VMware, Inc. All rights reserved. Protected by one or more
+    U.S. Patents listed at http://www.vmware.com/go/patents.
+

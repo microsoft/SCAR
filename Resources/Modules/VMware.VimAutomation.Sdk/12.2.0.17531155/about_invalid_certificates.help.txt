@@ -1,0 +1,70 @@
+﻿TOPIC
+    about_invalid_certificates
+
+SHORT DESCRIPTION
+    When you connect to a server, VMware PowerCLI checks if the server
+    certificate is valid. If the certificate is not trusted for this server, by
+    default VMware PowerCLI fails to connect to thе server.
+
+LONG DESCRIPTION
+    When you connect to a server, VMware PowerCLI checks if the server
+    certificate is valid. If the certificate is not trusted for this server and
+    use, by default VMware PowerCLI fails to connect to the server. Most VMware
+    PowerCLI connect cmdlets support the Force parameter that forces the
+    connection, even if there is an issue with the server certificate for this
+    connection only. The InvalidCertificateAction parameter can change behavior
+    based on the following options:
+
+    - Fail (default) - the cmdlet will not establish a connection if the
+    certificate is not valid.
+    - Warn - the cmdlet will display a warning saying that the certificate is
+    not valid, the reason why it is not considered valid, and then will print
+    additional information about the certificate.
+    - Prompt - if the server certificate is not trusted, the cmdlet will prompt
+    you for a course of action before it continues.
+    - Ignore - the cmdlet will establish the connection without taking into
+    account that the certificate is invalid.
+    On PowerShell Core, only the Fail and Ignore values are supported. If you
+    want to check the current InvalidCertificateAction parameter, run the
+    Get-PowerCLIConfiguration cmdlet. If you want to change the
+    InvalidCertificateAction parameter, run Set-PowerCLIConfiguration
+    -InvalidCertificateAction <new value>. If the InvalidCertificateAction
+    parameter is set to Prompt, the the Invalid Certificate prompt appears.
+    You can select one of the four options provided by the Invalid Certificate
+    prompt:
+
+    - Deny - Cancel the server connection.
+    - Connect once - Establish the server connection and suppress further
+    warnings for the current PowerShell session.
+    - Add a permanent exception for the server_address/certificate pair -
+    Persist the server certificate in the PowerCLI Trusted Certificate Store
+    (PCTCS) for the current user and establish the server connection.
+    - Add a permanent exception for all users - Persist the server/certificate
+    pair both in the current user PowerCLI Trusted Certificate Store (PCTCS) and
+    in All Users PCTCS, and establish the server connection.
+    To set the default behavior of vSphere PowerCLI when no valid certificates
+    are recognized, use the InvalidCertificateAction parameter of the
+    Set-PowerCLIConfiguration cmdlet.
+
+POWERCLI TRUSTED CERTIFICATE STORE (PSTCS)
+    The PowerCLI Trusted Certificate Store (SslCertificateExceptions.csv) is a
+    CSV file with two columns: server_address and certificate_thumbprint. You
+    can edit the (PSTCS) manually by using a text editor.
+
+    There are two PSTCS files:
+
+    - The current user PSTCS is located in the <PowerCLI user
+    settings>/VMware/PowerCLI directory.
+    - The All Users PSTCS is located in the <PowerCLI all user
+    settings>/VMware/PowerCLI directory. For more information about the exact
+    location depending on your operating system, see the Configuring VMware
+    PowerCLI chapter in the VMware PowerCLI User's Guide.
+    If you want to make changes to the All Users PSTCS, administrator/root
+    privileges might be required. The local certificate storage file is
+    purposely simple and you can easily import and export certificates from one
+    machine to another or fill it with certificates automatically.
+
+COPYRIGHT
+    Copyright (C) VMware, Inc. All rights reserved. Protected by one or more
+    U.S. Patents listed at http://www.vmware.com/go/patents.
+

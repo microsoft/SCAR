@@ -1,0 +1,89 @@
+﻿TOPIC
+    about_uid
+
+SHORT DESCRIPTION
+    You can uniquely identify a PowerCLI object on a server or across multiple
+    servers by specifying its Uid.
+
+LONG DESCRIPTION
+    A Uid is a string that consists of one or more key-value pairs separated by
+    a slash ("/"). The key and the value within a pair are separated by an equal
+    sign ("="). For example, the Uid if a virtual CD Drive might be
+    "/VIServer=powershell@vc41-ga.pc:443/VirtualMachine=VirtualMachine-vm-88/CDDrive=3001/".
+    To retrieve the Uid of an object, use its Uid property. For example:
+
+    $vm = Get-VM -Name aaa
+    $vm.Uid
+
+    To ease work with Uids, there is a global Powershell variable $UidUtil that
+    provides methods for processing Uids. Although the name of an object is
+    unique within a server, PowerCLI allows you to run cmdlets on multiple
+    servers and this can lead to ambiguity. This means that the name or the
+    short ID you have provided to a cmdlet might correspond to multiple objects
+    on different servers. To avoid this, you can identify a PowerCLI object on a
+    server or across multiple servers by specifying its Uid (unique identifier).
+    The Uid contains information about the target server. A Uid is a string that
+    consists of one or more key-value pairs separated by a slash ("/"). The key
+    and the value within a pair are separated by an equal sign ("="). The first
+    key-value pair represents the server connection. The objects which have no
+    server-side analog and only live in the local memory start with "/Local=/".
+    A Uid is said to be parent of another Uid if it can be obtained from the
+    child Uid by removing one or more key-value pairs from the end of the child
+    Uid.
+
+Processing UIDs
+    The global variable $UidUtil provides the following methods for processing UIds:
+    bool IsUid(string str)  -  Checks if the specified string is a valid Uid.
+    string Append(string uid, string key, string value)  -  Appends the
+    specified key and value to the specified Uid to form a child Uid. Any
+    special characters will be encoded (in the same way as EncodeValue method).
+    string GetKey(string uid)  -  Retrieves the key of the rightmost Uid element.
+    string GetValue(string uid)  -  Retrieves the value of the rightmost Uid element.
+    string GetValue(string uid, string key)  -  Retrieves the value of the
+    leftmost Uid element which has the specified key. If the key is not present,
+    returns $null.
+    string EncodeValue(string plainString)  -  Encodes a string so that it can
+    be used as a value of a Uid element (escapes delimiters).
+    string DecodeValue(string encodedString)  -  Reverses the effect of Encode.
+    string GetParentUid(string uid)  -  Returns the parent Uid of 'uid'.
+    string GetParentUid(string uid, string parentKey)  -  Returns the shortest
+    parent Uid of 'uid' which has a rightmost Uid element with the specified
+    key. If the key is not present, returns $null.
+    string GetConnectionUid(string uid)  -  Gets the Uid which represents the
+    connection for this object. The connection Uid element is the first Uid element.
+    bool IsOnConnection(string uid, string connectionKey, string
+    connectionValue) - Reports whether uid belongs to the specified connection.
+    void GetHelp() - Displays an about_ article with help information about the
+    Uid concept and description of the methods functionality.
+    The $UidUtil Powershell variable also exposes the following properties:
+    string ElementDelimiter  -  The delimiter used to separate the different
+    elements of a Uid.
+    string KeyValueDelimiter  -  The delimiter used to separate the key and the
+    value of a Uid element.
+
+EXAMPLES
+Example 1: GetParentUid(string uid)
+    #if $uid is equal to:
+    "/VIServer=powershell@vc41-ga.pc:443/VirtualMachine=VirtualMachine-vm-88/CDDrive=3001/"
+    
+    #Then $UidUtil.GetParentUid($uid) will return:
+    "/VIServer=powershell@vc41-ga.pc:443/VirtualMachine=VirtualMachine-vm-88/"
+
+Example 2: GetParentUid(string uid, string parentKey)
+    # If $uid is equal to:
+    "/VIServer=powershell@vc41-ga.pc:443/VirtualMachine=VirtualMachine-vm-88/CDDrive=3001/"
+    
+    # Then the call below
+    $UidUtil.GetParentUid($uid, "VirtualMachine")
+    #will return:
+    "/VIServer=powershell@vc41-ga.pc:443/VirtualMachine=VirtualMachine-vm-88/"
+    
+    #And
+    $UidUtil.GetParentUid($uid, "VIServer")
+    #will return:
+    "/VIServer=powershell@vc41-ga.pc:443/"
+
+COPYRIGHT
+    Copyright (C) VMware, Inc. All rights reserved. Protected by one or more
+    U.S. Patents listed at http://www.vmware.com/go/patents.
+

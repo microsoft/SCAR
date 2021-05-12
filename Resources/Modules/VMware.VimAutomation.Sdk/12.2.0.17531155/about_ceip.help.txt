@@ -1,0 +1,44 @@
+﻿TOPIC
+    about_ceip
+
+SHORT DESCRIPTION
+    VMware's Customer Experience Improvement Program ("CEIP") provides VMware
+    with information that enables VMware to improve its products and services
+    and to fix problems.
+
+LONG DESCRIPTION
+    VMware's Customer Experience Improvement Program ("CEIP") provides VMware
+    with information that enables VMware to improve its products and services
+    and to fix problems.  When you choose to participate in CEIP, VMware will
+    collect technical information listed below about your use of the VMware
+    products and services in CEIP reports on a regular basis.  This information
+    does not personally identify you.
+
+I. Configuration Data
+    Data about how you have configured VMware products and services and related
+    environment information. Examples of Configuration Data include version
+    information for VMware products, product environment information, and
+    product configuration settings.  Configuration Data may include obfuscated
+    versions of your device IDs and MAC and Internet Protocol addresses.
+
+II. Feature Usage Data
+    Data about how you use VMware products and services.  Examples of Feature
+    Usage Data include details about which product features you use and metrics
+    of user interface activity.
+
+III. Performance Data
+    Data about the performance of VMware products and services. Examples of
+    Performance Data include metrics of the performance and scale of VMware
+    products and services, response times for user interfaces, and details about
+    your API calls.
+    VMware collects the above CEIP reporting information in connection with a
+    unique CEIP instance identifier that is stored on your device and which does
+    not personally identify you.  This identifier enables VMware to distinguish
+    one report from another.
+    You can join or leave the program at any time by running:
+    Set-PowerCLIConfiguration -Scope User -ParticipateInCEIP $true or $false
+
+COPYRIGHT
+    Copyright (C) VMware, Inc. All rights reserved. Protected by one or more
+    U.S. Patents listed at http://www.vmware.com/go/patents.
+

@@ -1,0 +1,802 @@
+open_source_licenses.txt
+
+VMware PowerCLI 12.3.0 GA
+
+======================================================================
+
+The following copyright statements and licenses apply to various open
+source software packages (or portions thereof) that are distributed with
+this VMware Product.
+
+The VMware Product may also include other VMware components, which may
+contain additional open source software packages. One or more such
+open_source_licenses.txt files may therefore accompany this VMware
+Product.
+
+The VMware Product that includes this file does not necessarily use all
+the open source software packages referred to below and may also only
+use portions of a given package.
+
+=============== TABLE OF CONTENTS =============================
+
+The following is a listing of the open source components detailed in
+this document. This list is provided for your convenience; please read
+further if you wish to review the copyright notice(s) and the full text
+of the license associated with each component.
+
+
+SECTION 1: Apache License, V2.0
+
+   >>> common.logging.log4net-2.0.0.0
+   >>> spring.net-rest-client-1.1.1
+
+
+SECTION 2: BSD-STYLE, MIT-STYLE, OR SIMILAR STYLE LICENSES
+
+   >>> dotnet-wcf-2.0.0
+   >>> newtonsoft.json-10.0.3
+   >>> sharpziplib-1.1.0
+
+
+APPENDIX. Standard License Files
+
+   >>> Apache License, V2.0
+
+
+
+--------------- SECTION 1: Apache License, V2.0 ----------
+
+Apache License, V2.0 is applicable to the following component(s).
+
+
+>>> common.logging.log4net-2.0.0.0
+
+Copyright 2002-2009 the original author or authors.
+ 
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+ 
+http://www.apache.org/licenses/LICENSE-2.0
+ 
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+>>> spring.net-rest-client-1.1.1
+
+Licensed to the Apache Software Foundation (ASF) under one or more
+contributor license agreements.  See the NOTICE file distributed with
+this work for additional information regarding copyright ownership.
+The ASF licenses this file to You under the Apache License, Version 2.0
+(the "License"); you may not use this file except in compliance with
+the License.  You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the License for the specific language governing permissions and
+limitations under the License.
+
+avalon-framework-4.2.0.jar
+batik-all-1.7.jar
+commons-io-1.3.1.jar
+xercesImpl-2.7.1.jar
+xml-apis-1.3.04.jar
+xml-apis-ext-1.3.04.jar
+xmlgraphics-commons-1.3.1.jar
+
+ADDITIONAL LICENSE INFORMATION:
+
+>MIT
+
+spring-net-rest-1.1.1.GA\doc\reference\lib\docbook-xsl-snapshot\highlighting\ xslthl-config.xml
+
+Copyright (C) 2005-2008 Michal Molhanec, Jirka Kosek, Michiel Hendriks
+
+This software is provided 'as-is', without any express or implied
+warranty.  In no event will the authors be held liable for any damages
+arising from the use of this software.
+
+Permission is granted to anyone to use this software for any purpose,
+including commercial applications, and to alter it and redistribute it
+freely, subject to the following restrictions:
+
+1. The origin of this software must not be misrepresented; you must not
+claim that you wrote the original software. If you use this software
+in a product, an acknowledgment in the product documentation would be
+appreciated but is not required.
+2. Altered source versions must be plainly marked as such, and must not be
+misrepresented as being the original software.
+3. This notice may not be removed or altered from any source distribution.
+
+Michal Molhanec <mol1111 at users.sourceforge.net>
+Jirka Kosek <kosek at users.sourceforge.net>
+Michiel Hendriks <elmuerte at users.sourceforge.net>
+
+xml-apis-1.3.04.jar
+
+>Apache 1.1
+
+spring-net-rest-1.1.1.GA\doc\reference\lib\fop-0.95\build\fop.jar\ org\apache\fop\render\awt\viewer\resources\Viewer_cs.properties
+
+Copyright (C) The Apache Software Foundation. All rights reserved.
+-------------------------------------------------------------------------
+This software is published under the terms of the Apache Software License
+version 1.1, a copy of which has been included with this distribution in
+the LICENSE file.
+
+xalan-2.7.0.jar
+xml-apis-1.3.04.jar
+
+>Creative Commons Attribution 2.5
+
+spring-net-rest-1.1.1.GA\doc\reference\lib\fop-0.95\lib\batik-all-1.7.jar\org\apache\batik\apps\svgbrowser\resources\ README.icons.txt
+
+All of these image files are licensed under the Creative Commons Attribution
+Share-Alike 2.5 License (http://creativecommons.org/licenses/by-sa/2.5/),
+which is in the LICENSE.icons.txt file.
+
+>MIT
+
+spring-net-rest-1.1.1.GA\doc\reference\lib\fop-0.95\lib\batik-all-1.7.jar\org\apache\batik\dom\svg\resources\svg-animation.mod
+
+This is SVG, a language for describing two-dimensional graphics in XML.
+Copyright 2001, 2002 W3C (MIT, INRIA, Keio), All Rights Reserved.
+Revision: $Id: svg-animation.mod 201058 2002-11-13 09:51:12Z vhardy $
+
+This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+
+PUBLIC "-//W3C//ELEMENTS SVG 1.1 Animation//EN"
+SYSTEM http://www.w3.org/Graphics/SVG/1.1/DTD/svg-animation.mod
+
+xml-apis-1.3.04.jar
+
+>Various FOSS Licenses
+
+spring-net-rest-1.1.1.GA\doc\reference\lib\fop-0.95\lib\README.txt
+
+Information on Apache FOP dependencies
+=========================================
+The Apache Licenses can also be found here:
+http://www.apache.org/licenses/
+
+Normal Dependencies
+----------------------
+- Apache Jakarta Commons IO
+
+commons-io-.jar
+http://jakarta.apache.org/commons/io/
+(I/O routines)
+
+Apache License v2.0
+
+- Apache Jakarta Commons Logging
+
+commons-logging-.jar
+http://jakarta.apache.org/commons/logging/
+(Logging adapter for various logging backends like JDK 1.4 logging or Log4J)
+
+Apache License v2.0
+
+- Apache Avalon Framework
+
+avalon-framework-.jar
+http://excalibur.apache.org/framework/
+(Avalon Framework, maintained by the Apache Excalibur project)
+
+Apache License v2.0
+
+- Apache XML Graphics Commons
+
+xmlgraphics-commons-.jar
+http://xmlgraphics.apache.org/
+(Common Library for Apache Batik and Apache FOP)
+
+Apache License v2.0
+
+- Apache Batik
+
+batik-.jar
+http://xmlgraphics.apache.org/batik/
+(SVG Implementation)
+
+Apache License v2.0
+
+- Apache XML Commons Externals (JAXP API)
+
+xml-apis.jar
+http://xml.apache.org/commons/components/external/
+(the JAXP API, plus SAX and various W3C DOM Java bindings,
+maintained in XML Commons Externals)
+
+Apache License v2.0 (applies to the distribution)
+SAX is in the public domain
+http://www.saxproject.org/copying.html
+W3C Software Notice and License (applies to the various DOM Java bindings)
+W3C Document License (applies to the DOM documentation)
+http://www.w3.org/Consortium/Legal/copyright-software
+http://www.w3.org/Consortium/Legal/copyright-documents
+http://www.w3.org/Consortium/Legal/
+
+xml-apis-ext-.jar
+http://xml.apache.org/commons/components/external/
+(additional DOM APIs from W3C, like SVG, SMIL and Simple API for CSS)
+
+Apache License v2.0 (applies to the distribution)
+W3C Software Notice and License (applies to the various DOM Java bindings)
+W3C Document License (applies to the DOM documentation)
+http://www.w3.org/Consortium/Legal/copyright-software
+http://www.w3.org/Consortium/Legal/copyright-documents
+http://www.w3.org/Consortium/Legal/
+
+- Apache Xalan-J
+
+xalan-.jar and serializer-.jar
+http://xalan.apache.org
+(JAXP-compliant XSLT and XPath implementation)
+
+Apache License v2.0 (applies to Xalan-J)
+Apache License v1.1 (applies to Apache BCEL and Apache REGEXP bundled in the JAR)
+Historical Permission Notice and Disclaimer (applies to CUP Parser Generator)
+http://www.opensource.org/licenses/historical.php
+(see xalan.runtime.LICENSE.txt)
+
+Special Dependencies
+-----------------------
+- Apache Xerces-J
+
+xercesImpl-.jar
+http://xerces.apache.org
+(JAXP-compliant XML parser and DOM Level 3 implementation)
+
+Apache License v2.0
+
+Xerces-J is not directly referenced by FOP or any of its dependencies.
+
+A note on JAXP
+-----------------------
+Since Java 1.4, JAXP (Java API for XML Processing) is part of the
+JRE/JDK. Every JVM includes the APIs and an implementation. However,
+older JREs often contain implementations with bugs that are triggered
+by code in Apache FOP and therefore need to be overridden. Now, since
+JAXP is part of the class library, special precautions are necessary
+to replace the original implementations. This is not done by simply
+adding new JARs to the classpath as these classes would never be
+loaded (due to Java's class loader hierarchy).
+
+Replacing the default implementations involves understanding the
+"Endorsed Standards Override Mechanism".
+More information can be found here:
+http://java.sun.com/j2se/1.4.2/docs/guide/standards/index.html
+
+See also:
+http://xml.apache.org/xalan-j/faq.htmlfaq-N100EF
+
+Essentially, you have two different possibilities:
+- add the replacement JARs in the jre/lib/endorsed directory of your JRE.
+- Use the -Xbootclasspath/p: option when starting the JVM (may not be
+available for every JVM).
+
+Optional Dependencies
+------------------------
+The following libraries are not bundled with FOP and must be installed manually.
+Please make sure you've read the license of each package.
+
+- JAI Image I/O Tools
+
+https://jai-imageio.dev.java.net/
+BSD license
+
+Note: This is not the same as JAI! Only the ImageIO-compatible codecs
+are packaged as "Image I/O Tools". The name may be misleading.
+
+- JAI (Java Advanced Imaging API)
+
+http://java.sun.com/products/java-media/jai
+Java Research License and Java Distribution License (Check which one applies to you!)
+
+Currently used for:
+- Grayscale error diffusion dithering in the PCL Renderer
+
+- JEuclid (MathML implementation, for the MathML extension)
+
+http://jeuclid.sourceforge.net/
+http://sourceforge.net/projects/jeuclid
+Apache License v1.1
+
+Additional development-time dependencies
+-------------------------------------------
+- Servlet API
+
+servlet-.jar
+http://jakarta.apache.org/tomcat/
+(Servlet API, javax.servlet)
+
+Apache License v1.1
+
+- Apache Ant
+
+(not bundled, requires pre-installation)
+http://ant.apache.org
+(XML-based build system
+
+Apache License V2.0
+
+- JUnit
+
+(not bundled, provided by Apache Ant or your IDE)
+http://www.junit.org
+Common Public License V1.0
+
+- XMLUnit (optional)
+
+(not bundled, to be added to your Apache Ant installation)
+http://xmlunit.sourceforge.net/
+BSD style license
+
+>Public Domain
+
+spring-net-rest-1.1.1.GA\doc\reference\lib\fop-0.95\lib\xml-apis-1.3.04.jar\license\LICENSE.sax.txt
+
+xml-commons/java/external/LICENSE.sax.txt $Id: LICENSE.sax.txt 225954 2002-01-31 23:26:48Z curcuru $
+
+This license came from: http://www.megginson.com/SAX/copying.html
+However please note future versions of SAX may be covered
+under http://saxproject.org/?selected=pd
+
+This page is now out of date -- see the new SAX site at
+http://www.saxproject.org/ for more up-to-date
+releases and other information. Please change your bookmarks.
+
+SAX2 is Free!
+
+I hereby abandon any property rights to SAX 2.0 (the Simple API for
+XML), and release all of the SAX 2.0 source code, compiled code, and
+documentation contained in this distribution into the Public Domain.
+SAX comes with NO WARRANTY or guarantee of fitness for any
+purpose.
+
+David Megginson, david@megginson.com
+2000-05-05
+
+>MIT-Style
+
+pring-net-rest-1.1.1.GA\doc\reference\lib\fop-0.95\lib\xmlgraphics-commons-1.3.1.jar\org\apache\xmlgraphics\fonts\glyphlist.txt
+
+Copyright (c) 1997,1998,2002,2007 Adobe Systems Incorporated
+
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this documentation file to use, copy, publish, distribute,
+sublicense, and/or sell copies of the documentation, and to permit
+others to do the same, provided that:
+- No modification, editing or other alteration of this document is
+allowed; and
+- The above copyright notice and this permission notice shall be
+included in all copies of the documentation.
+
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this documentation file, to create their own derivative works
+from the content of this document to use, copy, publish, distribute,
+sublicense, and/or sell the derivative works, and to permit others to do
+the same, provided that the derived work is not represented as being a
+copy or version of this document.
+
+Adobe shall not be liable to any party for any loss of revenue or profit
+or for indirect, incidental, special, consequential, or other similar
+damages, whether based on tort (including without limitation negligence
+or strict liability), contract or other legal or equitable grounds even
+if Adobe has been advised or had reason to know of the possibility of
+such damages.Ê The Adobe materials are provided on an "AS IS" basis.Ê
+Adobe specifically disclaims all express, statutory, or implied
+warranties relating to the Adobe materials, including but not limited to
+those concerning merchantability or fitness for a particular purpose or
+non-infringement of any third party rights regarding the Adobe
+materials.
+
+>GPL 2.0
+
+spring-net-rest-1.1.1.GA\tools\NAnt\COPYING.txt
+
+LICENSE: GPL 2.0
+
+> KIWINOVA LTD PERSONAL LICENCE
+
+[VMWARE DOES NOT DISTRIBUTE THE "tools\NCoverExplorer" SUBPACKAGE.  THE LICENSE TERMS ARE SET FORTH BELOW SOLELY FOR REFERENCE.]
+
+spring-net-rest-1.1.1.GA\tools\NCoverExplorer\ LicencePersonal.rtf
+
+KIWINOVA LTD 
+PERSONAL LICENCE AND SUPPORT AGREEMENT
+
+NOTICE TO USER: PLEASE READ THIS AGREEMENT CAREFULLY. BY CLICKING “I ACCEPT” AND/OR BY DOWNLOADING AND/OR USING ALL OR ANY PORTION OF THE SOFTWARE YOU (“LICENSEE”) ACCEPT THE FOLLOWING TERMS FROM KIWINOVA LTD OF 24 AEGEAN APARTMENTS, 19 WESTERN GATEWAY, LONDON E16 1AR (“KIWINOVA”). YOU AGREE TO BE BOUND BY ALL THE TERMS AND CONDITIONS OF THIS AGREEMENT.  YOU AGREE THAT IT IS ENFORCEABLE AS IF IT WERE A WRITTEN NEGOTIATED AGREEMENT SIGNED BY YOU. IF YOU DO NOT AGREE TO THE TERMS OF THIS AGREEMENT DO NOT CLICK “I ACCEPT” AND DO NOT DOWNLOAD OR USE THE SOFTWARE. 
+
+1.	DEFINITIONS
+1.1	“Agreement” means this Licence and Support Agreement.
+1.2	“Documentation” means the electronic user information supplied with the Software.
+1.3	“Effective Date” means the date on which the Licensee accepts this Agreement.
+1.4	“Minimum Requirements” means a minimum technical specification of the PC or laptop on which the Software is used which is required to enable the Software to function, as set out in the Documentation.
+1.5	“Software” means the object code form of the personal version of the software product entitled Testdriven.net.
+
+2.	GRANT OF RIGHTS; RESTRICTIONS
+2.1	Subject to all the terms and conditions of this Agreement, KiwiNova hereby grants Licensee a perpetual, worldwide, nonexclusive, nontransferable licence to install and use the Software on one PC or laptop for Licensee’s own use only. This licence is in respect of use of the Software by the Licensee only and no subsidiaries or holding company of the Licensee may use the Software.
+2.2	Except as expressly permitted in this Agreement, Licensee shall not, and shall not permit others to: (i) modify, translate, create derivative copies of or copy the Software (other than one backup copy which reproduces all proprietary notices), in whole or in part; (ii) reverse engineer, decompile, disassemble or otherwise reduce the Software to source code form; (iii) distribute, sublicense, assign, share, timeshare, sell, rent, lease, grant a security interest in, use for service bureau purposes, or otherwise transfer the Software or Licensee’s right to use the Software;  (iv) remove or modify any copyright, trademark, or other proprietary notices of KiwiNova affixed to the media containing the Software or contained within the Software; or (v) use the Software in any manner not expressly authorised by this Agreement.  
+
+3	PROPRIETARY RIGHTS
+4.1	KiwiNova has sole and exclusive ownership of all right, title, and interest in and to the Software, including all copyright and any other intellectual property rights therein.  This Agreement conveys a limited licence to use the Software and shall not be construed to convey title to or ownership of the Software to Licensee.  All rights in and to the Software not expressly granted to Licensee are reserved by KiwiNova.
+4.2	For the avoidance of doubt, the Software does not include:
+	4.2.1	Actipro Software which is provided by http://actiprosoftware.com/ on the terms and conditions set out at: ActiproEULA.html
+	4.2.4	CommandBars which is distributed with permission from Lutz Roeder <roeder@aisto.com>
+
+4	TERM AND TERMINATION
+4.1	This Agreement shall commence on the Effective Date and continue in effect for consecutive annual periods, unless and until terminated in accordance with clause 4.2, or unless terminated by Mutant on the provision of not less than thirty (30) days notice to the Licensee, such notice to be provided to the Licensee via KiwiNova’s website. 
+4.2	If either party breaches this Agreement in any material respect, the other party may give written notice to the breaching party of its intent to terminate, and if such breach is not cured within thirty (30) days after the breaching party’s receipt of such notice, this Agreement shall terminate without any further notice required (but no cure period is required for any breach that cannot be cured).
+4.3	Upon any termination of this Agreement, (a) the rights and licences granted to Licensee herein shall terminate; (b) Licensee shall cease all use of the Software; (c) Licensee shall delete all copies of the Software and Documentation in Licensee’s possession or under its control; and (d) Licensee shall certify in writing to KiwiNova its compliance with the foregoing.  Clauses 1, 2.2, 3, 4.3, 5, 6 and 7 shall survive any termination of this Agreement.
+
+5	REPRESENTATIONS AND WARRANTIES
+5.1	LICENSEE ACKNOWLEDGES AND AGREES THAT KIWINOVA HAS PROVIDED NO EXPRESS OR IMPLIED WARRANTIES, ORAL OR WRITTEN, TO LICENSEE REGARDING THE SOFTWARE OR DOCUMENTATION AND THAT THEY ARE PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND.  TO THE MAXIMUM EXTENT PERMITTED BY LAW KIWINOVA HEREBY EXCLUDES AND DISCLAIMS ALL WARRANTIES WITH REGARD TO THE SOFTWARE AND DOCUMENTATION, EXPRESS OR IMPLIED, INCLUDING, WITHOUT LIMITATION THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND ANY WARRANTIES ARISING BY STATUTE OR OTHERWISE IN LAW OR FROM COURSE OF DEALING, COURSE OF PERFORMANCE, OR USE OF TRADE.
+5.2  	The Licensee hereby represents that it shall (i) comply with all applicable local and foreign laws and regulations which may govern the use of the Software, and (ii) use the Software only for lawful purposes and in accordance with the terms of this Agreement.
+6	LIMITATION OF LIABILITY/INDEMNITY
+6.1	SAVE IN RESPECT OF DEATH OR PERSONAL INJURY, FOR WHICH THE LIABILITY OF THE PARTIES SHALL BE UNLIMITED, IN NO EVENT SHALL KIWINOVA BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, INCLUDING LOSS OF PROFITS AND GOODWILL, BUSINESS OR BUSINESS BENEFIT, OR THE COST OF PROCUREMENT OF SUBSTITUTE PRODUCTS BY LICENSEE EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.  IN NO CIRCUMSTANCES SHALL KIWINOVA BE LIABLE FOR ANY FAILURE OF THE SOFTWARE TO PERFORM IN ACCORDANCE WITH THE DOCUMENTATION, OR AT ALL, RESULTING FROM A FAILURE BY THE LICENSEE TO COMPLY WITH THE MINIMUM REQUIREMENTS.  ADDITIONALLY, LICENSEE ACKNOWLEDGES THAT WHILST THE SOFTWARE MAY BE USED IN COMBINATION WITH THIRD PARTY SOFTWARE, KIWINOVA BEARS NO LIABILITY, HOWSOEVER ARISING, FOR ANY LOSS, DAMAGE OR COST THAT ARISES FROM A FAILURE OF THE SOFTWARE TO INTEGRATE WITH LICENSEE OR THIRD PARTY SOFTWARE.
+8.3	LICENSEE HEREBY INDEMNIFIES KIWINOVA IN FULL AND ON DEMAND IN RESPECT OF ALL COSTS, DAMAGES AND LIABILITIES ARISING FROM ANY BREACH BY THE LICENSEE OF ANY TERM OF THIS AGREEMENT.
+7	GENERAL
+7.1	Licensee shall not assign this Agreement, in whole or in part, without the written consent of KiwiNova.
+7.2	Licensee consents to the use by KiwiNova of Licensee’s name in customer lists and other publicity, including interviews, case studies, and conference discussions, provided that such publicity accurately describes the nature of the relationship between Licensee and KiwiNova.
+7.3	This Agreement and its performance shall be governed by and construed in accordance with and the parties hereby submit to the exclusive jurisdiction of the laws of England and Wales.
+7.4	Licensee agrees that because of the unique nature of the Software and KiwiNova’s proprietary rights therein, a demonstrated breach of this Agreement by Licensee would irreparably harm KiwiNova and monetary damages would be inadequate compensation.  Therefore, Licensee agrees that KiwiNova shall be entitled to preliminary and permanent injunctive relief, as determined by any court of competent jurisdiction to enforce the provisions of this Agreement.
+7.5	If any provision of this Agreement or the Software thereof is declared void, illegal, or unenforceable, the remainder of this Agreement will be valid and enforceable to the extent permitted by applicable law.  In such event, the parties agree to use their best efforts to replace the invalid or unenforceable provision by a provision that, to the extent permitted by the applicable law, achieves the purposes intended under the invalid or unenforceable provision.
+7.6	Any failure by any party to this Agreement to enforce at any time any term or condition under this Agreement will not be considered a waiver of that party’s right thereafter to enforce each and every term and condition of this Agreement.
+7.7	Neither party will be responsible for delays resulting from circumstances beyond the reasonable control of such party, provided that the nonperforming party uses reasonable efforts to avoid or remove such causes of nonperformance and continues performance hereunder with reasonable dispatch whenever such causes are removed.
+7.8	This Agreement (i) constitutes the entire agreement and understanding between the parties with respect to the subject matter hereof and supersedes all prior agreements, oral and written, made with respect to the subject matter hereof, and (ii) cannot be altered except by agreement in writing executed by an authorised representative of each party.  No purchase order and/or standard terms of purchase provided by Licensee shall supersede this Agreement.
+7.9	Nothing in this Agreement shall give, directly or indirectly, any third party any enforceable benefit or any right of action against KiwiNova and such third parties shall not be entitled to enforce any term of this Agreement against KiwiNova..
+If you have any questions regarding this Licence and Support Agreement or if you wish to discuss the terms and conditions contained herein please contact KiwiNova Ltd using the contact details at http://www.kiwidude.com or at 24 Aegean Apartments, 19 Western Gateway, London E16 1AR.
+
+--------------- SECTION 2: BSD-STYLE, MIT-STYLE, OR SIMILAR STYLE LICENSES ----------
+
+BSD-STYLE, MIT-STYLE, OR SIMILAR STYLE LICENSES are applicable to the following component(s).
+
+
+>>> dotnet-wcf-2.0.0
+
+The MIT License (MIT)
+
+Copyright (c) .NET Foundation and Contributors
+
+All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+ADDITIONAL LICENSE INFORMATION :
+
+wcf-2.0.0.tar.gz\wcf-2.0.0.tar\wcf-2.0.0\THIRD-PARTY-NOTICES.TXT
+
+.NET Core uses third-party libraries or other resources that may be
+distributed under licenses different than the .NET Core software.
+
+Attributions and license notices for test cases originally authored by
+third parties can be found in the respective test directories.
+
+In the event that we accidentally failed to list a required notice, please
+bring it to our attention. Post an issue or email us:
+
+           dotnet@microsoft.com
+
+The attached notices are provided for information only.
+
+License notice for Bouncy Castle
+--------------------------------
+
+Bouncy Castle C# Crypto Library v1.7.4137.9688
+Copyright (c) 2000-2014 The Legion of the Bouncy Castle Inc. (http://www.bouncycastle.org)
+Provided for Informational Purposes Only
+MIT License 
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the Software), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: 
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE 
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION 
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION 
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+License notice for .NET Foundation and Contributors (CoreFX)
+------------------------------------------------------------
+
+The MIT License (MIT)
+
+Copyright (c) .NET Foundation and Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+>>> newtonsoft.json-10.0.3
+
+The MIT License (MIT)
+
+Copyright (c) 2007 James Newton-King
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+>>> sharpziplib-1.1.0
+
+Copyright © 2000-2018 SharpZipLib Contributors
+
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this
+
+software and associated documentation files (the "Software"), to deal in the Software
+
+without restriction, including without limitation the rights to use, copy, modify, merge,
+
+publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons
+
+to whom the Software is furnished to do so, subject to the following conditions:
+
+
+
+The above copyright notice and this permission notice shall be included in all copies or
+
+substantial portions of the Software.
+
+
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+
+PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+
+FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+
+DEALINGS IN THE SOFTWARE.
+
+=============== APPENDIX. Standard License Files ============== 
+
+
+
+--------------- SECTION 1: Apache License, V2.0 -----------
+
+Apache License 
+
+Version 2.0, January 2004 
+http://www.apache.org/licenses/ 
+
+TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION 
+
+1. Definitions.
+
+"License" shall mean the terms and conditions for use, reproduction,
+and distribution as defined by Sections 1 through 9 of this document.
+
+"Licensor" shall mean the copyright owner or entity authorized by the
+copyright owner that is granting the License.  
+
+"Legal Entity" shall mean the union of the acting entity and all other
+entities that control, are controlled by, or are under common control
+with that entity. For the purposes of this definition, "control" means
+(i) the power, direct or indirect, to cause the direction or management
+of such entity, whether by contract or otherwise, or (ii) ownership
+of fifty percent (50%) or more of the outstanding shares, or (iii)
+beneficial ownership of such entity.
+
+"You" (or "Your") shall mean an individual or Legal Entity exercising
+permissions granted by this License.  
+
+"Source" form shall mean the preferred form for making modifications,
+including but not limited to software source code, documentation source,
+and configuration files.
+
+"Object" form shall mean any form resulting from mechanical transformation
+or translation of a Source form, including but not limited to compiled
+object code, generated documentation, and conversions to other media
+types.  
+
+"Work" shall mean the work of authorship, whether in Source or
+Object form, made available under the License, as indicated by a copyright
+notice that is included in or attached to the work (an example is provided
+in the Appendix below).  
+
+"Derivative Works" shall mean any work, whether in Source or Object form,
+that is based on (or derived from) the Work and for which the editorial
+revisions, annotations, elaborations, or other modifications represent,
+as a whole, an original work of authorship. For the purposes of this
+License, Derivative Works shall not include works that remain separable
+from, or merely link (or bind by name) to the interfaces of, the Work
+and Derivative Works thereof.
+
+"Contribution" shall mean any work of authorship, including the
+original version of the Work and any modifications or additions to
+that Work or Derivative Works thereof, that is intentionally submitted
+to Licensor for inclusion in the Work by the copyright owner or by an
+individual or Legal Entity authorized to submit on behalf of the copyright
+owner. For the purposes of this definition, "submitted" means any form of
+electronic, verbal, or written communication sent to the Licensor or its
+representatives, including but not limited to communication on electronic
+mailing lists, source code control systems, and issue tracking systems
+that are managed by, or on behalf of, the Licensor for the purpose of
+discussing and improving the Work, but excluding communication that is
+conspicuously marked or otherwise designated in writing by the copyright
+owner as "Not a Contribution."
+
+"Contributor" shall mean Licensor and any individual or Legal Entity
+on behalf of whom a Contribution has been received by Licensor and
+subsequently incorporated within the Work.
+
+2. Grant of Copyright License.
+Subject to the terms and conditions of this License, each Contributor
+hereby grants to You a perpetual, worldwide, non-exclusive, no-charge,
+royalty-free, irrevocable copyright license to reproduce, prepare
+Derivative Works of, publicly display, publicly perform, sublicense, and
+distribute the Work and such Derivative Works in Source or Object form.
+
+3. Grant of Patent License.
+Subject to the terms and conditions of this License, each Contributor
+hereby grants to You a perpetual, worldwide, non-exclusive, no-charge,
+royalty- free, irrevocable (except as stated in this section) patent
+license to make, have made, use, offer to sell, sell, import, and
+otherwise transfer the Work, where such license applies only to those
+patent claims licensable by such Contributor that are necessarily
+infringed by their Contribution(s) alone or by combination of
+their Contribution(s) with the Work to which such Contribution(s)
+was submitted. If You institute patent litigation against any entity
+(including a cross-claim or counterclaim in a lawsuit) alleging that the
+Work or a Contribution incorporated within the Work constitutes direct
+or contributory patent infringement, then any patent licenses granted
+to You under this License for that Work shall terminate as of the date
+such litigation is filed.
+
+4. Redistribution.
+You may reproduce and distribute copies of the Work or Derivative Works
+thereof in any medium, with or without modifications, and in Source or
+Object form, provided that You meet the following conditions:
+
+  a. You must give any other recipients of the Work or Derivative Works
+     a copy of this License; and
+
+  b. You must cause any modified files to carry prominent notices stating
+     that You changed the files; and
+
+  c. You must retain, in the Source form of any Derivative Works that
+     You distribute, all copyright, patent, trademark, and attribution
+     notices from the Source form of the Work, excluding those notices
+     that do not pertain to any part of the Derivative Works; and
+
+  d. If the Work includes a "NOTICE" text file as part of its
+     distribution, then any Derivative Works that You distribute must
+     include a readable copy of the attribution notices contained
+     within such NOTICE file, excluding those notices that do not
+     pertain to any part of the Derivative Works, in at least one of
+     the following places: within a NOTICE text file distributed as part
+     of the Derivative Works; within the Source form or documentation,
+     if provided along with the Derivative Works; or, within a display
+     generated by the Derivative Works, if and wherever such third-party
+     notices normally appear. The contents of the NOTICE file are for
+     informational purposes only and do not modify the License. You
+     may add Your own attribution notices within Derivative Works that
+     You distribute, alongside or as an addendum to the NOTICE text
+     from the Work, provided that such additional attribution notices
+     cannot be construed as modifying the License.  You may add Your own
+     copyright statement to Your modifications and may provide additional
+     or different license terms and conditions for use, reproduction, or
+     distribution of Your modifications, or for any such Derivative Works
+     as a whole, provided Your use, reproduction, and distribution of the
+     Work otherwise complies with the conditions stated in this License.
+
+5. Submission of Contributions.
+Unless You explicitly state otherwise, any Contribution intentionally
+submitted for inclusion in the Work by You to the Licensor shall be
+under the terms and conditions of this License, without any additional
+terms or conditions.  Notwithstanding the above, nothing herein shall
+supersede or modify the terms of any separate license agreement you may
+have executed with Licensor regarding such Contributions.
+
+6. Trademarks.
+This License does not grant permission to use the trade names, trademarks,
+service marks, or product names of the Licensor, except as required for
+reasonable and customary use in describing the origin of the Work and
+reproducing the content of the NOTICE file.
+
+7. Disclaimer of Warranty.
+Unless required by applicable law or agreed to in writing, Licensor
+provides the Work (and each Contributor provides its Contributions) on
+an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+express or implied, including, without limitation, any warranties or
+conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR
+A PARTICULAR PURPOSE. You are solely responsible for determining the
+appropriateness of using or redistributing the Work and assume any risks
+associated with Your exercise of permissions under this License.
+
+8. Limitation of Liability.
+In no event and under no legal theory, whether in tort (including
+negligence), contract, or otherwise, unless required by applicable law
+(such as deliberate and grossly negligent acts) or agreed to in writing,
+shall any Contributor be liable to You for damages, including any direct,
+indirect, special, incidental, or consequential damages of any character
+arising as a result of this License or out of the use or inability to
+use the Work (including but not limited to damages for loss of goodwill,
+work stoppage, computer failure or malfunction, or any and all other
+commercial damages or losses), even if such Contributor has been advised
+of the possibility of such damages.
+
+9. Accepting Warranty or Additional Liability.
+While redistributing the Work or Derivative Works thereof, You may
+choose to offer, and charge a fee for, acceptance of support, warranty,
+indemnity, or other liability obligations and/or rights consistent with
+this License. However, in accepting such obligations, You may act only
+on Your own behalf and on Your sole responsibility, not on behalf of
+any other Contributor, and only if You agree to indemnify, defend, and
+hold each Contributor harmless for any liability incurred by, or claims
+asserted against, such Contributor by reason of your accepting any such
+warranty or additional liability.
+
+END OF TERMS AND CONDITIONS 
+
+
+======================================================================
+
+To the extent any open source components are licensed under the GPL
+and/or LGPL, or other similar licenses that require the source code
+and/or modifications to source code to be made available (as would be
+noted above), you may obtain a copy of the source code corresponding to
+the binaries for such open source components and modifications thereto,
+if any, (the "Source Files"), by downloading the Source Files from
+VMware's website at http://www.vmware.com/download/open_source.html, or
+by sending a request, with your name and address to: VMware, Inc., 3401
+Hillview Avenue, Palo Alto, CA 94304, United States of America. All such
+requests should clearly specify: OPEN SOURCE FILES REQUEST, Attention
+General Counsel. VMware shall mail a copy of the Source Files to you on
+a CD or equivalent physical medium. This offer to obtain a copy of the
+Source Files is valid for three years from the date you acquired this
+Software product. Alternatively, the Source Files may accompany the
+VMware product.
+
+[POWERCLICOMMON1230GATR031121]

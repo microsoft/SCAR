@@ -1,0 +1,18 @@
+<ComponentDescriptor>
+	<Name>VMware.VimAutomation.Cis.Core</Name>
+	<Assembly>VMware.VimAutomation.Cis.Core.Impl</Assembly>
+	<ImplementingType>VMware.VimAutomation.Cis.Core.Impl.V1.CisComponentImpl</ImplementingType>
+	<IsSnapin>false</IsSnapin>
+
+	<ProvidedServiceList>
+		<ServiceDescriptor>
+			<Name>CisCoreService</Name>
+			<Version>1.0</Version>
+		</ServiceDescriptor>
+	</ProvidedServiceList>
+
+	<RequiredServiceList>
+  </RequiredServiceList>
+
+	<ExtendedServiceList></ExtendedServiceList>
+</ComponentDescriptor>

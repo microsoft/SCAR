@@ -1,0 +1,46 @@
+﻿TOPIC
+    about_runasync_help
+
+SHORT DESCRIPTION
+    Specifying the RunAsync parameter indicates that the command is invoked
+    asynchronously. In this mode, the command returns immediately without
+    waiting for the task to complete and the output is a Task object.
+
+LONG DESCRIPTION
+    By default, PowerCLI cmdlets return only after completion of the requested
+    tasks. If you want the cmdlet to return immediately, without waiting for the
+    tasks to complete, you can specify the RunAsync parameter. In this case, the
+    cmdlet returns Task objects instead of its usual output. The Status property
+    of a returned Task object contains a snapshot of the task initial state.
+    This state is not automatically updated and has one of the following values
+    - Error, Queued, Running, and Success. To refresh the task status, pass the
+    Task object to the Get-Task cmdlet. To interrupt a running task, use the
+    Stop-Task cmdlet. If you want to observe the progress of a running task and
+    wait for its completion before initiating other commands, use the Wait-Task
+    cmdlet.
+
+EXAMPLE 1:  RUNNING REMOVE-VM WITH AND WITHOUT THE RUNASYNC PARAMETER.
+    # The command returns without an output when all virtual machines
+    # stored in the $vmList variable are removed (simultaneously or not).
+    Remove-VM $vmList
+    
+    #The command returns immediately and the output is one or more Task objects.
+    Remove-VM $vmList -RunAsync
+
+    In PowerCLI,  the RunAsync parameter affects only the cmdlets invocation and
+    does not control whether the initiated tasks run consecutively or in
+    parallel. For example, the virtual machines passed to the Remove-VM cmdlet
+    might be removed simultaneously or consecutively depending on the PowerCLI
+    internal design.
+    To make sure that tasks initiated by a cmdlet do not run in parallel, run
+    the cmdlet in a loop, each time applying it to a single object.
+
+EXAMPLE 2: REMOVING VIRTUAL MACHINES CONSECUTIVELY.
+    foreach ($vm in $vmList){
+       Remove-VM $vm1
+    }
+
+COPYRIGHT
+    Copyright (C) VMware, Inc. All rights reserved. Protected by one or more
+    U.S. Patents listed at http://www.vmware.com/go/patents.
+

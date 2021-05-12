@@ -1,0 +1,19 @@
+<ComponentDescriptor>
+   <Name>VMware.VimAutomation.Storage</Name>
+   <Assembly>VMware.VimAutomation.Storage.Impl</Assembly>
+   <ImplementingType>VMware.VimAutomation.Storage.Impl.V1.StorageComponentImpl</ImplementingType>
+   <IsSnapin>false</IsSnapin>
+   <ProvidedServiceList>
+      <ServiceDescriptor>
+         <Name>StorageCoreService</Name>
+         <Version>1.0</Version>
+      </ServiceDescriptor>
+   </ProvidedServiceList>
+   <RequiredServiceList>
+      <ServiceDescriptor>
+         <Name>ViCoreService</Name>
+         <Version>1.0</Version>
+      </ServiceDescriptor>
+   </RequiredServiceList>
+   <ExtendedServiceList></ExtendedServiceList>
+</ComponentDescriptor>

@@ -1,0 +1,74 @@
+﻿TOPIC
+    about_powercli_objects
+
+SHORT DESCRIPTION
+    Describes some importatant characteristics of the VMware PowerCLI objects.
+
+LONG DESCRIPTION
+    For their input and output, the VMware PowerCLI cmdlets use a set of .NET
+    types that reside in the VMware.VimAutomation.ViCore.Types namespace. For
+    example, the VMware.VimAutomation.ViCore.Types.V1.Inventory.VirtualMachine
+    type describes virtual machine objects.  Each PowerCLI object represents a
+    snapshot of the initial state of a server-side object by the time the
+    PowerCLI object is created. Note that when the server-side object state
+    changes, the state of the PowerCLI object is not automatically updated. To
+    obtain the latest version, you have to retrieve the PowerCLI object from the
+    server again. This behavior of the PowerCLI objects has some implications
+    illustrated by the following example scenarios.
+
+    SCENARIO 1:
+    1. User A obtains an OSCustomizationSpec object (and stores it in a
+    PowerShell variable).
+    2. User B runs the Set-OSCustomizationSpec cmdlet to change the
+    Administrator's Password in the OS customization specification.
+    3. User A runs the Set-VM cmdlet providing the OSCustomizationSpec object
+    obtained in step 1 as a parameter input.
+    In result, User A unsuccessfully tries to perform the virtual machine OS
+    customization, without knowing that the AdminPassword property of the
+    OSCustomizationSpec server-side object has been changed by User B.
+
+    SCENARIO 2:
+    1. User A obtains a VirtualMachine object (and stores it in a PowerShell
+    variable). The virtual machine is powered off.
+    2. User B powers the virtual machine on.
+    3. The PowerState property of the VirtualMachine object stored by User A is
+    not updated and its value is PowerOff. User A tries to power on the virtual
+    machine by using the Start-VM cmdlet.
+    In result, Start-VM reports an error because the virtual machine is already
+    powered on by User B. Another important case is working with Task objects.
+    The Get-Task cmdlet returns a Task object and the state of this object is a
+    snapshot of the initial server-side task state. Once you save the retrieved
+    Task object in a PowerShell variable, its State property is never updated
+    with the current state of the task on the server. To check if the
+    server-side task has changed its state, run the Wait-Task cmdlet by using
+    the Task object variable as a parameter.
+    In all cases, when you run a cmdlet, it always retrieves and uses the latest
+    version of the object properties for the specified parameters.
+
+Properties Loaded On-Demand
+    Some of the properties of the PowerCLI objects return other PowerCLI
+    objects. Usually, when you first call such a property, it returns the output
+    object and caches it for a faster return. Thus, every subsequent call to
+    this property returns the cached object. However, every time when you
+    retrieve an object through a cmdlet, the cached values of its properties are
+    erased and the on-demand retrieving of the properties begins again.
+
+Circular References
+    To address new properties of objects returned by PowerCLI cmdlets, PowerCLI
+    introduces circular references. For example, the VirtualMachine object has a
+    property named VMResourceConfiguration that is of type
+    VMResourceConfiguration. The VMResourceConfiguration type has a property
+    named VM that is of type VirtualMachine.  In this case, the following
+    expression is true:
+
+    $vm.VMResourceConfiguration.VM.Uid -eq $vm.Uid
+
+    The circular references should be taken into account when you use the
+    Format-Custom cmdlet.  By default, the Format-Custom cmdlet makes a full
+    traversal of an object and its references, and this might cause an infinite
+    loop (for example, Get-VM | Format-Custom).
+
+COPYRIGHT
+    Copyright (C) VMware, Inc. All rights reserved. Protected by one or more
+    U.S. Patents listed at http://www.vmware.com/go/patents.
+

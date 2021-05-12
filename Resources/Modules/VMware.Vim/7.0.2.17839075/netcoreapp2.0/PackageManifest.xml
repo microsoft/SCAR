@@ -1,0 +1,8 @@
+<ModulePackages>
+   <Package Id="VMware.Vim" Version="7.0.2.17839075" />
+   <Package Id="VimService" Version="7.0.2.17839075" />
+   <Package Id="InternalVimService50.Wcf" Version="7.0.2.17839075" />
+   <Package Id="InternalVimService70.Wcf" Version="7.0.2.17839075" />
+   <Package Id="InventoryService55.Wcf" Version="7.0.2.17839075" />
+   <Package Id="VMware.Binding.Wcf" Version="7.0.2.17839075" />
+</ModulePackages>

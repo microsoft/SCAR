@@ -1,0 +1,1203 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<helpItems schema="maml" xmlns="http://msh">
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-PowerCLIContext</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>PowerCLIContext</command:noun>
+      <maml:description>
+        <maml:para>This cmdlet retrieves the VMware PowerCLI execution context which you can use to simplify the use of PowerCLI in PowerShell runspaces.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>This cmdlet retrieves the VMware PowerCLI execution context which you can use to simplify the use of PowerCLI in PowerShell runspaces. The PowerCLI execution context includes the imported VMware PowerCLI modules and their established connections.</maml:para>
+      <maml:para>When you use VMware PowerCLI in PowerShell runspaces you have two options.</maml:para>
+      <maml:para>The first option is to import your connections manually, for example, a vCenter Server system connection, and pass them to the corresponding cmdlets using the Server parameter.</maml:para>
+      <maml:para>The second option is to use the Get-PowerCLIContext () cmdlet to retrieve VMware PowerCLI execution context and then use the [Use-PowerCLIContext]()cmdlet prior to using VMware PowerCLI cmdlets in the new PowerShell runspace.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-PowerCLIContext</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+          </maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>VMware.VimAutomation.Common.Types.V1.ExecutionContext.PowerCliContext</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+          </maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>
+        </maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; $context = Get-PowerCLIContext</dev:code>
+        <dev:remarks>
+          <maml:para>Retrieves the current VMware PowerCLI context into the $context variable.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; $context = Get-PowerCLIContext
+PS C:\&gt; 1..5 | ForEach-Object -Parallel {
+   Use-PowerCLIContext -PowerCLIContext $using:context
+   New-VM -Name "MyVM_$_" -VMHost (Get-VMHost 'MyVMHost') -MemoryMB 128 -DiskMB 256
+}</dev:code>
+        <dev:remarks>
+          <maml:para>Retrieves the current PowerCLI execution context and initializes each new PowerShell runspace created by ForEach-Object -Parallel.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Use-PowerCLIContext</maml:linkText>
+        <maml:uri>
+        </maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-Task</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>Task</command:noun>
+      <maml:description>
+        <maml:para>This cmdlet retrieves the tasks on the specified VMware Server.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>This cmdlet retrieves the tasks on the specified VMware Server. The cmdlet retrieves information about the current or recent tasks. Use the Status parameter to filter tasks by their current status. To specify a server different from the default one, use the Server parameter.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-Task</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Id</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the IDs of the tasks that you want to retrieve.</maml:para>
+            <maml:para>Note: When a list of values is specified for the Id parameter, objects with duplicate Id values are filtered out from the result list.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="true" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Server</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the VMware Servers on which you want to run the cmdlet. If no value is given to this parameter, the command runs on all connected servers.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">VIConnection[]</command:parameterValue>
+          <dev:type>
+            <maml:name>VIConnection[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-Task</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none">
+          <maml:name>Status</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the status of the tasks you want to retrieve. The valid values are Error, Queued, Running, and Success. Passing values to this parameter through a pipeline is deprecated and will be disabled in a future release.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">TaskState</command:parameterValue>
+          <dev:type>
+            <maml:name>TaskState</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="true" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Server</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the VMware Servers on which you want to run the cmdlet. If no value is given to this parameter, the command runs on all connected servers.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">VIConnection[]</command:parameterValue>
+          <dev:type>
+            <maml:name>VIConnection[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Id</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the IDs of the tasks that you want to retrieve.</maml:para>
+          <maml:para>Note: When a list of values is specified for the Id parameter, objects with duplicate Id values are filtered out from the result list.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="true" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Server</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the VMware Servers on which you want to run the cmdlet. If no value is given to this parameter, the command runs on all connected servers.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">VIConnection[]</command:parameterValue>
+        <dev:type>
+          <maml:name>VIConnection[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none">
+        <maml:name>Status</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the status of the tasks you want to retrieve. The valid values are Error, Queued, Running, and Success. Passing values to this parameter through a pipeline is deprecated and will be disabled in a future release.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">TaskState</command:parameterValue>
+        <dev:type>
+          <maml:name>TaskState</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>Zero or more Task objects</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+          </maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>
+        </maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>Import-Module VMware.VimAutomation.Core
+
+$server = Connect-VIServer -Server 10.23.112.235
+
+$task = Get-Task -Server $server -Status Error
+
+$task</dev:code>
+        <dev:remarks>
+          <maml:para>Retrieves information on all tasks on the server with IP address 10.23.112.235, whose state is "Error". This example uses commands from the VMware.VimAutomation.Core module.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>http://developer.vmware.com/docs/powercli/latest/vmware.vimautomation.common/commands/get-task</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Stop-Task</maml:linkText>
+        <maml:uri>
+        </maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Wait-Task</maml:linkText>
+        <maml:uri>
+        </maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>New-OAuthSecurityContext</command:name>
+      <command:verb>New</command:verb>
+      <command:noun>OAuthSecurityContext</command:noun>
+      <maml:description>
+        <maml:para>Creates an OAuth2 security context object that you can use to authenticate to any system that is configured to trust the specified authentication server.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Creates an OAuth2 security context object that you can use to authenticate to any system that is configured to trust the specified authentication server.</maml:para>
+      <maml:para>For more information about security contexts, see the about_security_context article.</maml:para>
+      <maml:para>To use this command, you need to create an OAuth client in the authentication server. Take a note of the client ID and secret generated by the server as you need to pass them to the command. Some authentication servers might not require a client secret in some cases.</maml:para>
+      <maml:para>To use this command, you need to know the URLs where the authentication server is listening for requests. You can find these in the openid-configuration file of your server or in the documentation for your server. The system that you try to login might also be able to provide these URLs or the URL to the openid-configuration file. For example, if a vCenter server is configured to trust an Open ID server, you can see the required URLs in the vCenter server configuration user interface. For Microsoft Active Directory Federation Service, the openid-configuration file is located at https://.../adfs/.well-known/openid-configuration.</maml:para>
+      <maml:para>Some authentication servers might require you to pass additional parameters that are not specified in the OAuth2 specification but are custom for your particular server. You should check the documentation of the authentication server for information about these. You can use the OtherArguments parameter to pass the additional parameters. For example, if you work with the Microsoft Active Directory Federation Service and the Application Group, you must use the "resource" custom parameter to pass the Application Group identifier.</maml:para>
+      <maml:para>This command supports the following authentication options: - authorization_code grant type: authenticate as a user by using the web browser. For this flow, you need to create an OAuth2 client with a redirect URL on localhost and a free port. See example 1.</maml:para>
+      <maml:para>- client_credentials grant type: authenticate as a service that is identified by the client ID. For this flow, you need to create an OAuth2 client that has a client secret. See example 2.</maml:para>
+      <maml:para>- refresh_token grant type: authenticate as a user by using a refresh token from a previous authentication. For this flow, you need to have access to a refresh token and the client credentials of the OAuth2 client that this token was given to.</maml:para>
+      <maml:para>- password grant type: authenticate as a user by using the user's credentials. For this flow, you need to create an OAuth2 client that can use the password grant type. See example 3.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>New-OAuthSecurityContext</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>AuthorizationEndpointUrl</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the base URL at the authentication server where users are redirected in order to authenticate. You can see this value in the openid-configuration file under the authorization_endpoint key.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Uri</command:parameterValue>
+          <dev:type>
+            <maml:name>Uri</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ClientId</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the ID of the OAuth client registered in the authentication server.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ClientSecret</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the client secret for this OAuth client (if the server requires a client secret).</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+          <dev:type>
+            <maml:name>SecureString</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>DisablePKCE</maml:name>
+          <maml:Description>
+            <maml:para>If specified, the authorization code exchange is not protected using the Proof Key for Code Exchange by OAuth Public Clients (https://tools.ietf.org/html/rfc7636). You can use this if the server cannot process the additional parameters introduced by PKCE.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>IgnoreSslValidationErrors</maml:name>
+          <maml:Description>
+            <maml:para>If specified, you can force the connection even if the SSL certificate of the server is not valid.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>OtherArguments</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the hashtable of (string, string) pairs that represent arguments to the server-specific parameters.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Hashtable</command:parameterValue>
+          <dev:type>
+            <maml:name>Hashtable</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>RedirectUrl</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the Redirect URL associated with this OAuth client. This URL must be on localhost and a free port on the machine where PowerCLI is running. This URL must use the http schema.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Uri</command:parameterValue>
+          <dev:type>
+            <maml:name>Uri</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Scope</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the OAuth2 scope of the access tokens that would be generated by this security context.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>TokenEndpointUrl</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the URL where the authentication server listens for requests to issue access tokens. You can see this value in the openid-configuration file of the authentication server under the token_endpoint key.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Uri</command:parameterValue>
+          <dev:type>
+            <maml:name>Uri</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>New-OAuthSecurityContext</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ClientId</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the ID of the OAuth client registered in the authentication server.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ClientSecret</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the client secret for this OAuth client (if the server requires a client secret).</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+          <dev:type>
+            <maml:name>SecureString</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>IgnoreSslValidationErrors</maml:name>
+          <maml:Description>
+            <maml:para>If specified, you can force the connection even if the SSL certificate of the server is not valid.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>OtherArguments</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the hashtable of (string, string) pairs that represent arguments to the server-specific parameters.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Hashtable</command:parameterValue>
+          <dev:type>
+            <maml:name>Hashtable</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Password</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the password of the user.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+          <dev:type>
+            <maml:name>SecureString</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Scope</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the OAuth2 scope of the access tokens that would be generated by this security context.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>TokenEndpointUrl</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the URL where the authentication server listens for requests to issue access tokens. You can see this value in the openid-configuration file of the authentication server under the token_endpoint key.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Uri</command:parameterValue>
+          <dev:type>
+            <maml:name>Uri</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Username</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the username of the user.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>New-OAuthSecurityContext</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ClientId</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the ID of the OAuth client registered in the authentication server.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ClientSecret</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the client secret for this OAuth client (if the server requires a client secret).</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+          <dev:type>
+            <maml:name>SecureString</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>IgnoreSslValidationErrors</maml:name>
+          <maml:Description>
+            <maml:para>If specified, you can force the connection even if the SSL certificate of the server is not valid.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>OtherArguments</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the hashtable of (string, string) pairs that represent arguments to the server-specific parameters.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Hashtable</command:parameterValue>
+          <dev:type>
+            <maml:name>Hashtable</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>RefreshToken</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the refresh token issued for this OAuth client.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+          <dev:type>
+            <maml:name>SecureString</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Scope</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the OAuth2 scope of the access tokens that would be generated by this security context.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>TokenEndpointUrl</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the URL where the authentication server listens for requests to issue access tokens. You can see this value in the openid-configuration file of the authentication server under the token_endpoint key.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Uri</command:parameterValue>
+          <dev:type>
+            <maml:name>Uri</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>New-OAuthSecurityContext</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ClientId</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the ID of the OAuth client registered in the authentication server.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ClientSecret</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the client secret for this OAuth client (if the server requires a client secret).</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+          <dev:type>
+            <maml:name>SecureString</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>IgnoreSslValidationErrors</maml:name>
+          <maml:Description>
+            <maml:para>If specified, you can force the connection even if the SSL certificate of the server is not valid.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>OtherArguments</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the hashtable of (string, string) pairs that represent arguments to the server-specific parameters.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Hashtable</command:parameterValue>
+          <dev:type>
+            <maml:name>Hashtable</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Scope</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the OAuth2 scope of the access tokens that would be generated by this security context.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>TokenEndpointUrl</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the URL where the authentication server listens for requests to issue access tokens. You can see this value in the openid-configuration file of the authentication server under the token_endpoint key.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Uri</command:parameterValue>
+          <dev:type>
+            <maml:name>Uri</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>AuthorizationEndpointUrl</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the base URL at the authentication server where users are redirected in order to authenticate. You can see this value in the openid-configuration file under the authorization_endpoint key.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Uri</command:parameterValue>
+        <dev:type>
+          <maml:name>Uri</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ClientId</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the ID of the OAuth client registered in the authentication server.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ClientSecret</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the client secret for this OAuth client (if the server requires a client secret).</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+        <dev:type>
+          <maml:name>SecureString</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>DisablePKCE</maml:name>
+        <maml:Description>
+          <maml:para>If specified, the authorization code exchange is not protected using the Proof Key for Code Exchange by OAuth Public Clients (https://tools.ietf.org/html/rfc7636). You can use this if the server cannot process the additional parameters introduced by PKCE.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>IgnoreSslValidationErrors</maml:name>
+        <maml:Description>
+          <maml:para>If specified, you can force the connection even if the SSL certificate of the server is not valid.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>OtherArguments</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the hashtable of (string, string) pairs that represent arguments to the server-specific parameters.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Hashtable</command:parameterValue>
+        <dev:type>
+          <maml:name>Hashtable</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Password</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the password of the user.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+        <dev:type>
+          <maml:name>SecureString</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>RedirectUrl</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the Redirect URL associated with this OAuth client. This URL must be on localhost and a free port on the machine where PowerCLI is running. This URL must use the http schema.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Uri</command:parameterValue>
+        <dev:type>
+          <maml:name>Uri</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>RefreshToken</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the refresh token issued for this OAuth client.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+        <dev:type>
+          <maml:name>SecureString</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Scope</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the OAuth2 scope of the access tokens that would be generated by this security context.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>TokenEndpointUrl</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the URL where the authentication server listens for requests to issue access tokens. You can see this value in the openid-configuration file of the authentication server under the token_endpoint key.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Uri</command:parameterValue>
+        <dev:type>
+          <maml:name>Uri</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Username</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the username of the user.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+          </maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>VMware.VimAutomation.Common.Types.V1.Authentication.GenericOAuth2SecurityContext</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+          </maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>
+        </maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; $oauthCtx = New-OAuthSecurityContext `
+    -TokenEndpointUrl "https://&lt;ADFS FQDN&gt;/adfs/oauth2/token/" `
+    -AuthorizationEndpointUrl "https://&lt;ADFS FQDN&gt;/adfs/oauth2/authorize/" `
+    -RedirectUrl "http://localhost:8844/auth" `
+    -ClientId "powercli-native" `
+    -OtherArguments @{ "resource" = "my-vcenter" }</dev:code>
+        <dev:remarks>
+          <maml:para>Creates an OAuth2 security context object by authenticating through the authorization server using a browser. In this example, the authentication server is Microsoft Active Directory Federation Service. There is an Application Group with the ID of "my-vcenter". There is also a native client in that group with the ID of "powercli-native" and a redirect URL of "http://localhost:8844/auth".</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; $oauthCtx = New-OAuthSecurityContext `
+    -TokenEndpointUrl "https://&lt;ADFS FQDN&gt;/adfs/oauth2/token/" `
+    -ClientId "powercli-service" `
+    -ClientSecret "...." `
+    -OtherArguments @{ "resource" = "my-vcenter" }</dev:code>
+        <dev:remarks>
+          <maml:para>Creates an OAuth2 security context object by authenticating as a service application using the client ID and secret. In this example, the authentication server is Microsoft Active Directory Federation Service. There is an Application Group with the ID of "my-vcenter". There is also a native client in that group with the ID of "powercli-service" and a client secret.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; $oauthCtx = New-OAuthSecurityContext `
+    -TokenEndpointUrl "https://&lt;ADFS FQDN&gt;/adfs/oauth2/token/" `
+    -ClientId "powercli-native" `
+    -Username "user@your.domain" `
+    -Password "the password" `
+    -OtherArguments @{ "resource" = "my-vcenter" }</dev:code>
+        <dev:remarks>
+          <maml:para>Creates an OAuth2 security context object by authenticating as the user using his credentials. In this example, the authentication server is Microsoft Active Directory Federation Service. An Application Group is created with the ID of "my-vcenter". There is also a native client in that group with the ID of "powercli-native".</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>about_security_context</maml:linkText>
+        <maml:uri>
+        </maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Stop-Task</command:name>
+      <command:verb>Stop</command:verb>
+      <command:noun>Task</command:noun>
+      <maml:description>
+        <maml:para>This cmdlet stops the specified tasks.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>This cmdlet stops the tasks specified by the Task parameter.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Stop-Task</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none">
+          <maml:name>Task</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the tasks you want to stop.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Task[]</command:parameterValue>
+          <dev:type>
+            <maml:name>Task[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:Description>
+            <maml:para>If the value is $true, indicates that the cmdlet asks for confirmation before running. If the value is $false, the cmdlet runs without asking for user confirmation.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>$true</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:Description>
+            <maml:para>Indicates that the cmdlet is run only to display the changes that would be made and actually no objects are modified.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none">
+        <maml:name>Task</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the tasks you want to stop.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Task[]</command:parameterValue>
+        <dev:type>
+          <maml:name>Task[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:Description>
+          <maml:para>If the value is $true, indicates that the cmdlet asks for confirmation before running. If the value is $false, the cmdlet runs without asking for user confirmation.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>$true</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:Description>
+          <maml:para>Indicates that the cmdlet is run only to display the changes that would be made and actually no objects are modified.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+          </maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>
+        </maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>Import-Module VMware.VimAutomation.Core
+
+$vm = Get-VM -Name "VM1"
+
+$datacenter = Get-Datacenter -Name "Datacenter1"
+
+$task = New-Template -Name "Template1" -Location $datacenter -VM $vm -RunAsync
+
+Stop-Task -Task $task</dev:code>
+        <dev:remarks>
+          <maml:para>Stops the process of creating a new template from a virtual machine. This example uses commands from the VMware.VimAutomation.Core module.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>http://developer.vmware.com/docs/powercli/latest/vmware.vimautomation.common/commands/stop-task</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-Task</maml:linkText>
+        <maml:uri>
+        </maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Wait-Task</maml:linkText>
+        <maml:uri>
+        </maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Use-PowerCLIContext</command:name>
+      <command:verb>Use</command:verb>
+      <command:noun>PowerCLIContext</command:noun>
+      <maml:description>
+        <maml:para>This cmdlet initializes a PowerShell runspace with a PowerCLI execution context retrieved from another PowerShell runspace.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>This cmdlet initializes a PowerShell runspace with a PowerCLI execution context retrieved from another PowerShell runspace.</maml:para>
+      <maml:para>When you use VMware PowerCLI in PowerShell runspaces you have two options.</maml:para>
+      <maml:para>The first option is to import your connections manually, for example, a vCenter Server system connection, and pass them to the corresponding cmdlets using the Server parameter.</maml:para>
+      <maml:para>The second option is to use the Get-PowerCLIContext () cmdlet to retrieve VMware PowerCLI execution context and then use the [Use-PowerCLIContext]()cmdlet prior to using VMware PowerCLI cmdlets in the new PowerShell runspace.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Use-PowerCLIContext</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
+          <maml:name>PowerCLIContext</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the VMware PowerCLI execution context to apply.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">PowerCliContext</command:parameterValue>
+          <dev:type>
+            <maml:name>PowerCliContext</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>SkipImportModuleChecks</maml:name>
+          <maml:Description>
+            <maml:para>Specifies to skip checks whether the imported VMware PowerCLI modules come in the same version and from the same installation location as the source session modules.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
+        <maml:name>PowerCLIContext</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the VMware PowerCLI execution context to apply.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">PowerCliContext</command:parameterValue>
+        <dev:type>
+          <maml:name>PowerCliContext</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>SkipImportModuleChecks</maml:name>
+        <maml:Description>
+          <maml:para>Specifies to skip checks whether the imported VMware PowerCLI modules come in the same version and from the same installation location as the source session modules.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>VMware.VimAutomation.Common.Types.V1.ExecutionContext.PowerCliContext</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+          </maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Void</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+          </maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>
+        </maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; Use-PowerCLIContext -PowerCLIContext $context</dev:code>
+        <dev:remarks>
+          <maml:para>Initializes the current PowerShell runspace with the $context execution context.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- Example 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; $context = Get-PowerCLIContext
+PS C:\&gt; 1..5 | ForEach-Object -Parallel {
+   Use-PowerCLIContext -PowerCLIContext $using:context
+   New-VM -Name "MyVM_$_" -VMHost (Get-VMHost 'MyVMHost') -MemoryMB 128 -DiskMB 256
+}</dev:code>
+        <dev:remarks>
+          <maml:para>Retrieves the current PowerCLI execution context and initializes each new PowerShell runspace created by ForEach-Object -Parallel.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Get-PowerCLIContext</maml:linkText>
+        <maml:uri>
+        </maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Wait-Task</command:name>
+      <command:verb>Wait</command:verb>
+      <command:noun>Task</command:noun>
+      <maml:description>
+        <maml:para>This cmdlet waits for the completion of the specified tasks.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>This cmdlet waits for the specified tasks to complete or fail before allowing the next command input. The task progress is observed in real time on the console screen.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Wait-Task</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none">
+          <maml:name>Task</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the tasks you want to wait to complete.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Task[]</command:parameterValue>
+          <dev:type>
+            <maml:name>Task[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none">
+        <maml:name>Task</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the tasks you want to wait to complete.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Task[]</command:parameterValue>
+        <dev:type>
+          <maml:name>Task[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>The output of the operation specified by the Task parameter</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+          </maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>
+        </maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>Import-Module VMware.VimAutomation.Core
+
+$task = Remove-VM -VM "VM1" -Confirm -RunAsync
+
+Wait-Task -Task $task</dev:code>
+        <dev:remarks>
+          <maml:para>Waits for the virtual machine with name "VM1" to be removed before allowing the next command input. This example uses commands from the VMware.VimAutomation.Core module.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>http://developer.vmware.com/docs/powercli/latest/vmware.vimautomation.common/commands/wait-task</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-Task</maml:linkText>
+        <maml:uri>
+        </maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Stop-Task</maml:linkText>
+        <maml:uri>
+        </maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+</helpItems>

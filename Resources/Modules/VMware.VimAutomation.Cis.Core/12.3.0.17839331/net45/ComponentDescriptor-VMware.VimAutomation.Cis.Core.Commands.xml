@@ -1,0 +1,26 @@
+<ComponentDescriptor>
+  <Name>VMware.VimAutomation.Cis.Core.Commands</Name>
+  <Assembly>VMware.VimAutomation.Cis.Core.Commands</Assembly>
+  <ImplementingType>VMware.VimAutomation.Cis.Core.Commands.CisCommandsComponentImpl</ImplementingType>
+  <IsSnapin>true</IsSnapin>
+  <ProvidedServiceList>
+  </ProvidedServiceList>
+  <RequiredServiceList>
+    <ServiceDescriptor>
+      <Name>CisCoreService</Name>
+      <Version>1.0</Version>
+    </ServiceDescriptor>
+  </RequiredServiceList>
+  <ExtendedServiceList>
+  </ExtendedServiceList>
+  <Version>
+    <Major>12</Major>
+    <Minor>3</Minor>
+    <Revision>0</Revision>
+    <Build>17839331</Build>
+    <Company>VMware Inc.</Company>
+    <Copyright>Copyright 2014</Copyright>
+    <UserFriendlyVersion>VMware Cis Core PowerCLI Component PowerCLI Component 12.3 build 17839331</UserFriendlyVersion>
+    <Description>Provides core cmdlets for managing VMware Cloud Infrastructure Suite.</Description>
+  </Version>
+</ComponentDescriptor>

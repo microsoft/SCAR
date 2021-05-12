@@ -1,0 +1,9 @@
+<ModulePackages>
+   <Package Id="VMware.VimAutomation.ViCore.Cmdlets" Version="12.3.0.17839688" />
+   <Package Id="VMware.VimAutomation.ViCore.Impl" Version="12.3.0.17839688" />
+   <Package Id="VMware.VimAutomation.ViCore.Interop" Version="12.3.0.17839688" />
+   <Package Id="VMware.VimAutomation.ViCore.Types" Version="12.3.0.17839688" />
+   <Package Id="VMware.VimAutomation.ViCore.Util10Ps" Version="12.3.0.17839688" />
+   <Package Id="VMware.VimAutomation.ViCore.Util10" Version="12.3.0.17839688" />
+   <Package Id="Microsoft.Management.Infrastructure" Version="1000.0.2" />
+</ModulePackages>

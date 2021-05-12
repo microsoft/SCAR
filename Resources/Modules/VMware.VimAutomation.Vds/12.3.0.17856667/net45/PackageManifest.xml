@@ -1,0 +1,6 @@
+<ModulePackages>
+   <Package Id="VMware.VimAutomation.Vds.Commands" Version="12.3.0.17856667" />
+   <Package Id="VMware.VimAutomation.Vds.Impl" Version="12.3.0.17856667" />
+   <Package Id="VMware.VimAutomation.Vds.Interop" Version="12.3.0.17856667" />
+   <Package Id="VMware.VimAutomation.Vds.Types" Version="12.3.0.17856667" />
+</ModulePackages>

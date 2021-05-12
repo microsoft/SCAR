@@ -1,0 +1,101 @@
+﻿TOPIC
+    about_vimdatastore
+
+SHORT DESCRIPTION
+    The Datastore Provider (VimDatastore) provides filesystem-style view and
+    access to the contents of datastores. The items in a datastore are files
+    that contain configuration, virtual disk, and other data associated with a
+    virtual machine. All file operations are case-sensitive.
+
+LONG DESCRIPTION
+    The Datastore Provider (VimDatastore) provides filesystem-style view and
+    access to the contents of datastores. The items in a datastore are files
+    that contain configuration, virtual disk, and other data associated with a
+    virtual machine. All file operations are case-sensitive.
+    Note that on VirtualCenter 2.0 and ESX 3.0 Datastore Provider supports only
+    browsing and deleting items. On VirtualCenter 2.5 and ESX 3.5 all file
+    operations are available, including moving, copying, and renaming items.
+
+Default Datastore Drives
+    When you connect to a server with Connect-VIServer, the cmdlet builds two
+    default datastore drives. You can use the default drives or map custom
+    drives based on the default ones.
+    The first default drive is called "vmstores" and shows all datastores
+    available on all vSphere servers connected within the current PowerCLI
+    session. The hierarchy of the "vmstore" drive looks like that:
+    1. vmstores - a common root for all connected vSphere servers
+    2. <vSphere_server_name>
+    3. Objects as they appear in the Datastores view of vClient
+    4. Objects as they appear in the Datastores Browser component of vClient
+    For example, the following is a valid "vmstores" datastore path:
+
+    powershell
+    vmstores:\ViServer1\Datacenter1\Datastore1\My WinXP\My WinXP.vmx
+
+    The second drive is called "vmstore" and displays the datastores available
+    only on the last connected vSphere server. The root of the "vmstore" drive
+    is the last connected vSphere server. The hierarchy of the "vmstore" drive
+    looks like that:
+    1. <vSphere_server_name>
+    2. Objects as they appear in the Datastores view of vClient
+    3. Objects as they appear in the Datastores Browser component of vClient
+    For example, the following is a valid "vmstore" datastore path:
+
+    powershell
+    vmstore:\Datacenter1\Datastore1\My WinXP\My WinXP.vmx
+
+    The place where the Datastores view is glued to the Datastore Browser
+    hierarchy is the datastore object (as part of the Datastores view) and the
+    datastore root folder (as part of Datastore Browser hierarchy). Both are
+    represented by the same provider location and a Datastore typed object is
+    exposed at it. However, the location also supports datastore folder-specific
+    operations such as receiving datastore files.
+
+Custom Datastore Drives
+    For their convenience, users can create custom datastore drives from
+    existing paths. To create a custom datastore drive, use the New-PSDrive cmdlet.
+    A different way to create a datastore drive is to use the New-DatastoreDrive
+    command, which is an alias of New-PSDrive. It creates a new datastore drive
+    using the Name and Datastore parameters.
+
+Basic Operations with the Datastore Provider
+    You can use the Datastore Provider to copy, rename, delete files, and move
+    files between datastores and local directories.
+
+EXAMPLES
+Example 1: Creating custom datastore drive with different roots.
+    New-PSDrive -Provider VIM -Name ds_a -Root vmstore:\Datacenter1
+    New-PSDrive -Provider VIM -Name ds_ab -Root vmstore:\Datacenter1\Datastore1
+    New-PSDrive -Provider VIM -Name ds_abc -Root vmstore:\Datacenter1\Datastore1\DsFolder1
+
+Example 2: Creating a datastore drive by using the New-DatastoreDrive command:
+    Get-Datastore Storage1 | New-DatastoreDrive -Name ds
+    # To access the new drive, run:
+    cd ds:
+    # To list the drive content, use:
+    Get-ChildItem
+
+Example 3: Renaming a file in a datastore drive.
+    cd VirtualMachines\XPVirtualMachine
+    Rename-Item vmware-3.log vmware-3old.log
+
+Example 4: Delete a file.
+    Remove-Item ds:\VirtualMachines\XPVirtualMachine\vmware-2.log
+
+Example 5: Copying a file to another datastore location:
+    # 1. Create a new folder:
+    New-Item -Path "ds:\VirtualMachines" -Name XPUpdates -ItemType Directory
+    
+    # 2. Copy the file to the new directory:
+    Copy-Item "ds:\VirtualMachines\XPVirtualMachine\vmware-3old.log" "ds:\VirtualMachines\XPUpdates\vmware-3.log"
+
+Example 6: Copy a file from the datastore drive to a local directory.
+    Copy-DatastoreItem "ds:\VirtualMachines\XPVirtualMachine\vmware-3.log" "C:\Temp\vmware-3.log"
+
+Example 7: Copy a file from the local machine to a location on the datastore drive.
+    Copy-DatastoreItem "C:\Temp\vmware-3.log" "ds:\VirtualMachines\XPVirtualMachine\vmware-3new.log"
+
+COPYRIGHT
+    Copyright (C) VMware, Inc. All rights reserved. Protected by one or more
+    U.S. Patents listed at http://www.vmware.com/go/patents.
+

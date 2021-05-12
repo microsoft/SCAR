@@ -1,0 +1,30 @@
+<ComponentDescriptor>
+  <Name>VMware.VimAutomation.Storage.Commands</Name>
+  <Assembly>VMware.VimAutomation.Storage.Commands</Assembly>
+  <ImplementingType>VMware.VimAutomation.Storage.Commands.StorageCommandsComponentImpl</ImplementingType>
+  <IsSnapin>true</IsSnapin>
+  <ProvidedServiceList>
+  </ProvidedServiceList>
+  <RequiredServiceList>
+    <ServiceDescriptor>
+      <Name>ViCoreService</Name>
+      <Version>1.0</Version>
+    </ServiceDescriptor>
+    <ServiceDescriptor>
+      <Name>StorageCoreService</Name>
+      <Version>1.0</Version>
+    </ServiceDescriptor>
+  </RequiredServiceList>
+  <ExtendedServiceList>
+  </ExtendedServiceList>
+  <Version>
+    <Major>12</Major>
+    <Minor>3</Minor>
+    <Revision>0</Revision>
+    <Build>17855705</Build>
+    <Company>VMware Inc.</Company>
+    <Copyright>Copyright 2012</Copyright>
+    <UserFriendlyVersion>VMware VimAutomation Storage PowerCLI Component PowerCLI Component 12.3 build 17855705</UserFriendlyVersion>
+    <Description>Provides cmdlets for managing VMware Storage components.</Description>
+  </Version>
+</ComponentDescriptor>

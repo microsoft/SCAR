@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type='text/xsl' href='STIG_unclass.xsl'?><Benchmark xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cpe="http://cpe.mitre.org/language/2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" id="F5_BIG-IP_Application_Security_Manager_11.x_STIG" xml:lang="en" xsi:schemaLocation="http://checklists.nist.gov/xccdf/1.1 http://nvd.nist.gov/schema/xccdf-1.1.4.xsd http://cpe.mitre.org/dictionary/2.0 http://cpe.mitre.org/files/cpe-dictionary_2.1.xsd" xmlns="http://checklists.nist.gov/xccdf/1.1"><status date="2015-06-02">accepted</status><title>F5 BIG-IP Application Security Manager 11.x Security Technical Implementation Guide</title><description>This Security Technical Implementation Guide is published as a tool to improve the security of Department of Defense (DoD) information systems. The requirements are derived from the National Institute of Standards and Technology (NIST) 800-53 and related documents. Comments or proposed revisions to this document should be sent via email to the following address: disa.stig_spt@mail.mil.</description><notice id="terms-of-use" xml:lang="en"></notice><reference href="http://iase.disa.mil"><dc:publisher>DISA, Field Security Operations</dc:publisher><dc:source>STIG.DOD.MIL</dc:source></reference><plain-text id="release-info">Release: 1 Benchmark Date: 29 May 2015</plain-text><version>1</version><Profile id="MAC-1_Classified"><title>I - Mission Critical Classified</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-60065" selected="true" /><select idref="V-60067" selected="true" /><select idref="V-60069" selected="true" /><select idref="V-60071" selected="true" /><select idref="V-60073" selected="true" /><select idref="V-60075" selected="true" /><select idref="V-60077" selected="true" /><select idref="V-60079" selected="true" /><select idref="V-60081" selected="true" /><select idref="V-60083" selected="true" /><select idref="V-60085" selected="true" /><select idref="V-60087" selected="true" /><select idref="V-60089" selected="true" /></Profile><Profile id="MAC-1_Public"><title>I - Mission Critical Public</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-60065" selected="true" /><select idref="V-60067" selected="true" /><select idref="V-60069" selected="true" /><select idref="V-60071" selected="true" /><select idref="V-60073" selected="true" /><select idref="V-60075" selected="true" /><select idref="V-60077" selected="true" /><select idref="V-60079" selected="true" /><select idref="V-60081" selected="true" /><select idref="V-60083" selected="true" /><select idref="V-60085" selected="true" /><select idref="V-60087" selected="true" /><select idref="V-60089" selected="true" /></Profile><Profile id="MAC-1_Sensitive"><title>I - Mission Critical Sensitive</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-60065" selected="true" /><select idref="V-60067" selected="true" /><select idref="V-60069" selected="true" /><select idref="V-60071" selected="true" /><select idref="V-60073" selected="true" /><select idref="V-60075" selected="true" /><select idref="V-60077" selected="true" /><select idref="V-60079" selected="true" /><select idref="V-60081" selected="true" /><select idref="V-60083" selected="true" /><select idref="V-60085" selected="true" /><select idref="V-60087" selected="true" /><select idref="V-60089" selected="true" /></Profile><Profile id="MAC-2_Classified"><title>II - Mission Support Classified</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-60065" selected="true" /><select idref="V-60067" selected="true" /><select idref="V-60069" selected="true" /><select idref="V-60071" selected="true" /><select idref="V-60073" selected="true" /><select idref="V-60075" selected="true" /><select idref="V-60077" selected="true" /><select idref="V-60079" selected="true" /><select idref="V-60081" selected="true" /><select idref="V-60083" selected="true" /><select idref="V-60085" selected="true" /><select idref="V-60087" selected="true" /><select idref="V-60089" selected="true" /></Profile><Profile id="MAC-2_Public"><title>II - Mission Support Public</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-60065" selected="true" /><select idref="V-60067" selected="true" /><select idref="V-60069" selected="true" /><select idref="V-60071" selected="true" /><select idref="V-60073" selected="true" /><select idref="V-60075" selected="true" /><select idref="V-60077" selected="true" /><select idref="V-60079" selected="true" /><select idref="V-60081" selected="true" /><select idref="V-60083" selected="true" /><select idref="V-60085" selected="true" /><select idref="V-60087" selected="true" /><select idref="V-60089" selected="true" /></Profile><Profile id="MAC-2_Sensitive"><title>II - Mission Support Sensitive</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-60065" selected="true" /><select idref="V-60067" selected="true" /><select idref="V-60069" selected="true" /><select idref="V-60071" selected="true" /><select idref="V-60073" selected="true" /><select idref="V-60075" selected="true" /><select idref="V-60077" selected="true" /><select idref="V-60079" selected="true" /><select idref="V-60081" selected="true" /><select idref="V-60083" selected="true" /><select idref="V-60085" selected="true" /><select idref="V-60087" selected="true" /><select idref="V-60089" selected="true" /></Profile><Profile id="MAC-3_Classified"><title>III - Administrative Classified</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-60065" selected="true" /><select idref="V-60067" selected="true" /><select idref="V-60069" selected="true" /><select idref="V-60071" selected="true" /><select idref="V-60073" selected="true" /><select idref="V-60075" selected="true" /><select idref="V-60077" selected="true" /><select idref="V-60079" selected="true" /><select idref="V-60081" selected="true" /><select idref="V-60083" selected="true" /><select idref="V-60085" selected="true" /><select idref="V-60087" selected="true" /><select idref="V-60089" selected="true" /></Profile><Profile id="MAC-3_Public"><title>III - Administrative Public</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-60065" selected="true" /><select idref="V-60067" selected="true" /><select idref="V-60069" selected="true" /><select idref="V-60071" selected="true" /><select idref="V-60073" selected="true" /><select idref="V-60075" selected="true" /><select idref="V-60077" selected="true" /><select idref="V-60079" selected="true" /><select idref="V-60081" selected="true" /><select idref="V-60083" selected="true" /><select idref="V-60085" selected="true" /><select idref="V-60087" selected="true" /><select idref="V-60089" selected="true" /></Profile><Profile id="MAC-3_Sensitive"><title>III - Administrative Sensitive</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-60065" selected="true" /><select idref="V-60067" selected="true" /><select idref="V-60069" selected="true" /><select idref="V-60071" selected="true" /><select idref="V-60073" selected="true" /><select idref="V-60075" selected="true" /><select idref="V-60077" selected="true" /><select idref="V-60079" selected="true" /><select idref="V-60081" selected="true" /><select idref="V-60083" selected="true" /><select idref="V-60085" selected="true" /><select idref="V-60087" selected="true" /><select idref="V-60089" selected="true" /></Profile><Group id="V-60065"><title>SRG-NET-000401-ALG-000127</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-74495r1_rule" severity="medium" weight="10.0"><version>F5BI-AS-000261</version><title>The BIG-IP ASM module must check the validity of all data inputs except those specifically identified by the organization.</title><description>&lt;VulnDiscussion&gt;Invalid user input occurs when a user inserts data or characters into an application's data entry fields and the application is unprepared to process that data. This results in unanticipated application behavior potentially leading to an application or information system compromise. Invalid input is one of the primary methods employed when attempting to compromise an application.
+
+Network devices with the functionality to perform application layer inspection may be leveraged to validate data content of network communications. Checking the valid syntax and semantics of information system inputs (e.g., character set, length, numerical range, and acceptable values) verifies that inputs match specified definitions for format and content. Software typically follows well-defined protocols that use structured messages (i.e., commands or queries) to communicate between software modules or system components. Structured messages can contain raw or unstructured data interspersed with metadata or control information. If network elements use attacker-supplied inputs to construct structured messages without properly encoding such messages, then the attacker could insert malicious commands or special characters that can cause the data to be interpreted as control information or metadata. Consequently, the module or component that receives the tainted output will perform the wrong operations or otherwise interpret the data incorrectly. Pre-screening inputs prior to passing to interpreters prevents the content from being unintentionally interpreted as commands. Input validation helps to ensure accurate and correct inputs and prevents attacks such as cross-site scripting and a variety of injection attacks.
+
+This requirement applies to gateways and firewalls that perform content inspection or have higher-layer proxy functionality.
+
+Note: A limitation of ~200 policies per cluster currently exists on the BIG-IP Core.  If this requirement cannot be met due to this limitation, documentation from the AO is required.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target F5 BIG-IP ASM 11.x</dc:title><dc:publisher>DISA FSO</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>F5 BIG-IP ASM 11.x</dc:subject><dc:identifier>2841</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-001310</ident><fixtext fixref="F-65475r1_fix">If the BIG-IP ASM module is used to support content filtering as part of the traffic management functionality of the BIG-IP Core, configure the BIG-IP ASM module to check the validity of all data inputs except those specifically identified by the organization.</fixtext><fix id="F-65475r1_fix" /><check system="C-60745r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_F5_BIG-IP_Application_Security_Manager_11.x_STIG.xml" /><check-content>If the BIG-IP ASM module is not used to support content filtering as part of the traffic management functions of the BIG-IP Core, this is not applicable.
+
+Verify the BIG-IP ASM module is configured to check the validity of all data inputs except those specifically identified by the organization.
+
+Navigate to the BIG-IP System manager &gt;&gt; Application Security &gt;&gt; Parameters &gt;&gt; Parameters List.
+
+Select the policy for "Current Edited Policy" used for checking data inputs.
+
+Review the parameters under the "Parameters List" section.
+
+Verify parameters are configured to check the validity of all data inputs except those specifically identified by the organization.
+
+If the BIG-IP ASM module is not configured to check the validity of all data inputs except those specifically identified by the organization, this is a finding.</check-content></check></Rule></Group><Group id="V-60067"><title>SRG-NET-000061-ALG-000009</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-74497r1_rule" severity="medium" weight="10.0"><version>F5BI-AS-000031</version><title>The BIG-IP ASM module supporting intermediary services for remote access communications traffic must ensure inbound traffic is monitored for compliance with remote access security policies.</title><description>&lt;VulnDiscussion&gt;Automated monitoring of remote access traffic allows organizations to detect cyber attacks and also ensure ongoing compliance with remote access policies by inspecting connection activities of remote access capabilities.
+
+Remote access methods include both unencrypted and encrypted traffic (e.g., web portals, web content filter, TLS, and webmail). With inbound TLS inspection, the traffic must be inspected prior to being allowed on the enclave's web servers hosting TLS or HTTPS applications. 
+
+Remote access security policies provide the guidance and define the traffic that will be monitored.  These policies consist of local policies, organizational policies, and DoD policies.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target F5 BIG-IP ASM 11.x</dc:title><dc:publisher>DISA FSO</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>F5 BIG-IP ASM 11.x</dc:subject><dc:identifier>2841</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000067</ident><fixtext fixref="F-65477r1_fix">If intermediary services for remote access communications traffic for virtual servers is supported by the BIG-IP ASM module, configure an ASM security policy to monitor inbound traffic for compliance with remote access security policies, to be applied to the applicable virtual servers in the BIG-IP LTM module.</fixtext><fix id="F-65477r1_fix" /><check system="C-60747r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_F5_BIG-IP_Application_Security_Manager_11.x_STIG.xml" /><check-content>If the BIG-IP ASM module does not support intermediary services for remote access traffic (e.g., web content filter, TLS, and webmail) for virtual servers, this is not applicable.
+
+When the BIG-IP ASM module is used to support intermediary services for remote access communications traffic to virtual servers, verify the security policy is configured as follows:
+
+Navigate to the BIG-IP System manager &gt;&gt; Local Traffic &gt;&gt; Virtual Servers &gt;&gt; Virtual Servers List tab.
+
+Select the applicable Virtual Servers(s) from the list to verify.
+
+Navigate to the Security &gt;&gt; Policies tab.
+
+Verify an ASM policy is assigned and Enabled for "Application Security Policy".
+
+Verify configuration of the identified ASM policy:
+
+Navigate to the BIG-IP System manager &gt;&gt; Security &gt;&gt; Application Security &gt;&gt; Security Policies.
+
+Review the list under "Active Security Policies" for a security policy that monitors inbound traffic for compliance with remote access security policies. 
+
+Verify "Enforcement Mode" is set to "Transparent" or "Blocking" in accordance with the requirements for the applicable virtual server.
+
+If the BIG-IP ASM module is not configured with a policy to monitor inbound traffic for compliance with remote access security policies and applied to the applicable virtual servers, this is a finding.</check-content></check></Rule></Group><Group id="V-60069"><title>SRG-NET-000074-ALG-000043</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-74499r1_rule" severity="medium" weight="10.0"><version>F5BI-AS-000039</version><title>The BIG-IP ASM module must be configured to produce ASM Event Logs containing information to establish what type of unauthorized events occurred.</title><description>&lt;VulnDiscussion&gt;Without establishing what type of event occurred, it would be difficult to establish, correlate, and investigate the events leading up to an outage or attack.
+
+Event log content that may be necessary to satisfy this requirement includes, for example, event descriptions, success/fail indications, filenames involved, and access control or flow control rules invoked.
+
+Associating event types with detected events in the event logs provide a means of investigating an attack, recognizing resource utilization or capacity thresholds, or identifying an improperly configured network element.
+
+This requirement does not apply to audit logs generated on behalf of the device itself (management).&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target F5 BIG-IP ASM 11.x</dc:title><dc:publisher>DISA FSO</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>F5 BIG-IP ASM 11.x</dc:subject><dc:identifier>2841</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-000130</ident><fixtext fixref="F-65479r1_fix">Configure the BIG-IP ASM module to produce ASM Event Logs containing information to establish what type of unauthorized events occurred. 
+
+Navigate to the BIG-IP System manager &gt;&gt; Security &gt;&gt; Event Logs &gt;&gt; Logging Profiles.
+
+Click on 'Create'.
+
+Name the Profile.
+
+Check the box next to 'Application Security'.
+
+Set "Request Type" to "Illegal requests, and requests that include staged attack signatures" under "Storage Filter".
+
+Click 'Finished'.
+
+Apply Logging Profile to applicable Virtual Server(s).
+
+Navigate to the BIG-IP System manager &gt;&gt; Local Traffic &gt;&gt; Virtual Servers &gt;&gt; Virtual Servers List tab.
+
+Select Virtual Servers(s) from the list to assign the ASM Event Logging Profile.
+
+Navigate to the Security &gt;&gt; Policies tab.
+
+Set "Policy Settings" to "Advanced".
+
+Verify that "Application Security Policy" is Enabled and "Policy" is set to use an ASM policy for the virtual server.
+
+Under "Log Profile" set to Enabled and move new Logging Profile from "Available" to "Selected".
+
+Click "Update".</fixtext><fix id="F-65479r1_fix" /><check system="C-60749r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_F5_BIG-IP_Application_Security_Manager_11.x_STIG.xml" /><check-content>Verify the BIG-IP ASM module is configured to produce ASM Event Logs containing information to establish what type of unauthorized events occurred.
+
+Navigate to the BIG-IP System manager &gt;&gt; Local Traffic &gt;&gt; Virtual Servers &gt;&gt; Virtual Servers List tab.
+
+Select Virtual Servers(s) from the list to verify the configuration for ASM Event Logging.
+
+Navigate to the Security &gt;&gt; Policies tab.
+
+Set "Policy Settings" to "Advanced".
+
+Verify that "Application Security Policy" is Enabled and "Policy" is set to use an ASM policy for the virtual server.
+
+Verify that "Log Profile" is Enabled and a logging profile is assigned under "Selected".
+
+Navigate to the BIG-IP System manager &gt;&gt; Security &gt;&gt; Event Logs &gt;&gt; Logging Profiles.
+
+Select the Logging Profile that was assigned to the virtual server.
+
+Verify "Request Type" is set to "Illegal requests, and requests that include staged attack signatures" is selected under "Storage Filter".
+
+If the BIG-IP ASM module does not produce ASM Event Logs containing information to establish what type of unauthorized events occurred, this is a finding.</check-content></check></Rule></Group><Group id="V-60071"><title>SRG-NET-000246-ALG-000132</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-74501r1_rule" severity="medium" weight="10.0"><version>F5BI-AS-000109</version><title>The BIG-IP ASM module must be configured to update malicious code protection mechanisms and signature definitions when providing content filtering to virtual servers for whenever new releases are available in accordance with organizational configuration management policy and procedures.</title><description>&lt;VulnDiscussion&gt;Malicious code protection mechanisms include, but are not limited to, anti-virus and malware detection software. In order to minimize any potential negative impact to the organization caused by malicious code, malicious code must be identified and eradicated. Malicious code includes viruses, worms, Trojan horses, and Spyware.
+
+This requirement is limited to ALGs, web content filters, and packet inspection firewalls that perform malicious code detection as part of their functionality.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target F5 BIG-IP ASM 11.x</dc:title><dc:publisher>DISA FSO</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>F5 BIG-IP ASM 11.x</dc:subject><dc:identifier>2841</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-001240</ident><fixtext fixref="F-65481r1_fix">If the BIG-IP Core performs content filtering as part of the traffic management functionality, configure the BIG-IP ASM module to update malicious code protection mechanisms and signature definitions whenever new releases are available in accordance with organizational configuration management policies and procedures.</fixtext><fix id="F-65481r1_fix" /><check system="C-60751r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_F5_BIG-IP_Application_Security_Manager_11.x_STIG.xml" /><check-content>If the BIG-IP ASM module is not used to support content filtering as part of the traffic management functions of the BIG-IP Core, this is not applicable.
+
+When content filtering is performed as part of the traffic management functionality, verify the BIG-IP ASM module is configured to update malicious code protection mechanisms and signature definitions whenever new releases are available in accordance with organizational configuration management policies and procedures.
+
+Verify the BIG-IP ASM module is configured to update malicious code protection mechanisms and signature definitions when providing content filtering to virtual servers for whenever new releases are available in accordance with organizational configuration management policies and procedures.
+
+Navigate to the BIG-IP System manager &gt;&gt; Security &gt;&gt; Options &gt;&gt; Application Security &gt;&gt; Attack Signatures &gt;&gt; Attack Signature Updates.
+
+Review the following settings to confirm compliance with organizational configuration management policies and procedures:
+
+Update Mode is set to "Manual", unless defined differently by the Organization.
+
+Delivery Mode is set to "Automatic", unless defined differently by the Organization.
+
+Verify that "Auto Apply New Signatures Configurations After Update" is NOT "Enabled", unless defined differently by the Organization.
+
+If the BIG-IP ASM module does not update malicious code protection mechanisms and signature definitions whenever new releases are available in accordance with organizational configuration management policies and procedures, this is a finding.</check-content></check></Rule></Group><Group id="V-60073"><title>SRG-NET-000251-ALG-000131</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-74503r1_rule" severity="medium" weight="10.0"><version>F5BI-AS-000119</version><title>The BIG-IP ASM module must be configured to automatically update malicious code protection mechanisms when providing content filtering to virtual servers.</title><description>&lt;VulnDiscussion&gt;The malicious software detection functionality on network elements needs to be constantly updated in order to identify new threats as they are discovered.
+
+All malicious software detection functions must come with an update mechanism that automatically updates the application and any associated signature definitions. The organization (including any contractor to the organization) is required to promptly install security-relevant malicious code protection updates. Examples of relevant updates include anti-virus signatures, detection heuristic rule sets, and/or file reputation data employed to identify and/or block malicious software from executing.
+
+Malicious code includes viruses, worms, Trojan horses, and Spyware.
+
+This requirement is limited to ALGs, web content filters, and packet inspection firewalls that perform malicious code detection as part of their functionality.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target F5 BIG-IP ASM 11.x</dc:title><dc:publisher>DISA FSO</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>F5 BIG-IP ASM 11.x</dc:subject><dc:identifier>2841</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-001247</ident><fixtext fixref="F-65483r1_fix">If the BIG-IP Core performs content filtering as part of the traffic management functionality, configure the BIG-IP ASM module to update malicious code protection mechanisms whenever new releases are available in accordance with organizational configuration management policies and procedures.</fixtext><fix id="F-65483r1_fix" /><check system="C-60753r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_F5_BIG-IP_Application_Security_Manager_11.x_STIG.xml" /><check-content>If the BIG-IP ASM module is not used to support content filtering as part of the traffic management functions of the BIG-IP Core, this is not applicable.
+
+When content filtering is performed as part of the traffic management functionality, verify the BIG-IP ASM module is configured to update malicious code protection mechanisms and signature definitions whenever new releases are available in accordance with organizational configuration management policies and procedures.
+
+Verify the BIG-IP ASM module is configured to update malicious code protection mechanisms when providing content filtering to virtual servers for whenever new releases are available in accordance with organizational configuration management policies and procedures.
+
+Navigate to the BIG-IP System manager &gt;&gt; Security &gt;&gt; Options &gt;&gt; Application Security &gt;&gt; Attack Signatures &gt;&gt; Attack Signature Updates.
+
+Review the following settings to confirm compliance with organizational configuration management policies and procedures:
+
+Update Mode is set to "Manual", unless defined differently by the Organization.
+
+Delivery Mode is set to "Automatic", unless defined differently by the Organization.
+
+Verify that "Auto Apply New Signatures Configurations After Update" is NOT "Enabled", unless defined differently by the Organization.
+
+If the BIG-IP ASM module does not update malicious code protection mechanisms whenever new releases are available in accordance with organizational configuration management policies and procedures, this is a finding.</check-content></check></Rule></Group><Group id="V-60075"><title>SRG-NET-000318-ALG-000014</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-74505r1_rule" severity="medium" weight="10.0"><version>F5BI-AS-000157</version><title>To protect against data mining, the BIG-IP ASM module must be configured to prevent code injection attacks from being launched against data storage objects, including, at a minimum, databases, database records, queries, and fields when providing content filtering to virtual servers.</title><description>&lt;VulnDiscussion&gt;Data mining is the analysis of large quantities of data to discover patterns and is used in intelligence gathering. Failure to prevent attacks launched against organizational information from unauthorized data mining may result in the compromise of information.
+
+Injection attacks allow an attacker to inject code into a program or query or inject malware into a computer to execute remote commands that can read or modify a database or change data on a website. Web applications frequently access databases to store, retrieve, and update information. An attacker can construct inputs that the database will execute. This is most commonly referred to as a code injection attack. This type of attack includes XPath and LDAP injections.
+
+Compliance requires the Application Layer Gateway (ALG) to have the capability to prevent code injections. Examples include Web Application Firewalls (WAFs) or database application gateways.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target F5 BIG-IP ASM 11.x</dc:title><dc:publisher>DISA FSO</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>F5 BIG-IP ASM 11.x</dc:subject><dc:identifier>2841</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-002346</ident><fixtext fixref="F-65485r1_fix">If the BIG-IP ASM module is used to support content filtering as part of the traffic management functionality of the BIG-IP Core, configure the BIG-IP ASM module to prevent code injection attacks from being launched against data storage objects, including, at a minimum, databases, database records, queries, and fields.</fixtext><fix id="F-65485r1_fix" /><check system="C-60755r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_F5_BIG-IP_Application_Security_Manager_11.x_STIG.xml" /><check-content>If the BIG-IP ASM module is not used to support content filtering as part of the traffic management functions of the BIG-IP Core, this is not applicable.
+
+Verify the BIG-IP ASM module prevents code injection attacks from being launched against data storage objects, including, at a minimum, databases, database records, queries, and fields.
+
+Navigate to the BIG-IP System manager &gt;&gt; Local Traffic &gt;&gt; Virtual Servers &gt;&gt; Virtual Servers List tab.
+
+Select Virtual Servers(s) from the list to verify the configuration of an ASM policy to prevent code injection attacks.
+
+Navigate to the Security &gt;&gt; Policies tab.
+
+Set "Policy Settings" to "Advanced".
+
+Verify that "Application Security Policy" is Enabled and "Policy" is set to use an ASM policy for the virtual server.
+
+Navigate to the BIG-IP System manager &gt;&gt; Security &gt;&gt; Application Security &gt;&gt; Security Policies.
+
+Select the Security Policy that has been assigned to the Virtual Server(s).
+
+Verify the "Enforcement Mode" is Blocking.
+
+Click "Attack Signatures Configurations" for "Signature Staging" under the "Configuration" section.
+
+Review the list under "Assigned Signature Sets" for the following signatures:
+
+Generic Detection Signatures
+
+Custom Systems Signature Set (based on systems identified in the application make-up).
+
+Verify the "Assigned Signature Sets" listed above have the "Block" button checked.
+
+If the BIG-IP ASM module is not configured to prevent code injection attacks from being launched against data storage objects, including, at a minimum, databases, database records, queries, and fields, this is a finding.</check-content></check></Rule></Group><Group id="V-60077"><title>SRG-NET-000318-ALG-000151</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-74507r1_rule" severity="medium" weight="10.0"><version>F5BI-AS-000159</version><title>To protect against data mining, the BIG-IP ASM module must be configured to prevent code injection attacks launched against application objects, including, at a minimum, application URLs and application code when providing content filtering to virtual servers.</title><description>&lt;VulnDiscussion&gt;Data mining is the analysis of large quantities of data to discover patterns and is used in intelligence gathering. Failure to prevent attacks launched against organizational information from unauthorized data mining may result in the compromise of information.
+
+Injection attacks allow an attacker to inject code into a program or query or inject malware into a computer to execute remote commands that can read or modify a database or change data on a website. These attacks include buffer overrun, XML, JavaScript, and HTML injections.
+
+Compliance requires the ALG to have the capability to prevent code injections. Examples include Web Application Firewalls (WAFs) or database application gateways.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target F5 BIG-IP ASM 11.x</dc:title><dc:publisher>DISA FSO</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>F5 BIG-IP ASM 11.x</dc:subject><dc:identifier>2841</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-002346</ident><fixtext fixref="F-65487r1_fix">If the BIG-IP ASM module is used to support content filtering as part of the traffic management functionality of the BIG-IP Core, configure the BIG-IP ASM module to prevent code injection attacks from being launched against application objects, including, at a minimum, application URLs and application code.</fixtext><fix id="F-65487r1_fix" /><check system="C-60757r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_F5_BIG-IP_Application_Security_Manager_11.x_STIG.xml" /><check-content>If the BIG-IP ASM module is not used to support content filtering as part of the traffic management functions of the BIG-IP Core, this is not applicable.
+
+Verify the BIG-IP ASM module is configured to prevent code injection attacks from being launched against application objects, including, at a minimum, application URLs and application code.
+
+Navigate to the BIG-IP System manager &gt;&gt; Local Traffic &gt;&gt; Virtual Servers &gt;&gt; Virtual Servers List tab.
+
+Select Virtual Servers(s) from the list to verify the configuration of an ASM policy to prevent code injection attacks.
+
+Navigate to the Security &gt;&gt; Policies tab.
+
+Set "Policy Settings" to "Advanced".
+
+Verify that "Application Security Policy" is Enabled and "Policy" is set to use an ASM policy for the virtual server.
+
+Navigate to the BIG-IP System manager &gt;&gt; Security &gt;&gt; Application Security &gt;&gt; Security Policies.
+
+Select the Security Policy that has been assigned to the Virtual Server(s).
+
+Verify the "Enforcement Mode" is Blocking.
+
+Click "Attack Signatures Configurations" for "Signature Staging" under the "Configuration" section.
+
+Review the list under "Assigned Signature Sets" for the following signatures:
+
+Generic Detection Signatures
+
+Custom Systems Signature Set (based on systems identified in the application make-up).
+
+Verify the "Assigned Signature Sets" listed above have the "Block" button checked.
+
+If the BIG-IP ASM module is not configured to prevent code injection attacks from being launched against application objects, including, at a minimum, application URLs and application code, this is a finding.</check-content></check></Rule></Group><Group id="V-60079"><title>SRG-NET-000318-ALG-000152</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-74509r1_rule" severity="medium" weight="10.0"><version>F5BI-AS-000161</version><title>To protect against data mining, The BIG-IP ASM module must be configured to prevent SQL injection attacks launched against data storage objects, including, at a minimum, databases, database records, and database fields when providing content filtering to virtual servers.</title><description>&lt;VulnDiscussion&gt;Data mining is the analysis of large quantities of data to discover patterns and is used in intelligence gathering. Failure to prevent attacks launched against organizational information from unauthorized data mining may result in the compromise of information.
+
+SQL injection attacks are the most prevalent attacks against web applications and databases. These attacks inject SQL commands that can read, modify, or compromise the meaning of the original SQL query. An attacker can spoof identity; expose, tamper, destroy, or make existing data unavailable; or gain unauthorized privileges on the database server.
+
+Compliance requires the ALG to have the capability to prevent SQL code injections. Examples include Web Application Firewalls (WAFs) or database application gateways.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target F5 BIG-IP ASM 11.x</dc:title><dc:publisher>DISA FSO</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>F5 BIG-IP ASM 11.x</dc:subject><dc:identifier>2841</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-002346</ident><fixtext fixref="F-65573r1_fix">If the BIG-IP ASM module is used to support content filtering as part of the traffic management functionality of the BIG-IP Core, configure the BIG-IP ASM module to prevent SQL injection attacks launched against data storage objects, including, at a minimum, databases, database records, and database fields.</fixtext><fix id="F-65573r1_fix" /><check system="C-60841r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_F5_BIG-IP_Application_Security_Manager_11.x_STIG.xml" /><check-content>If the BIG-IP ASM module is not used to support content filtering as part of the traffic management functions of the BIG-IP Core, this is not applicable.
+
+Verify the BIG-IP ASM module is configured to prevent SQL injection attacks launched against data storage objects, including, at a minimum, databases, database records, and database fields.
+
+Navigate to the BIG-IP System manager &gt;&gt; Local Traffic &gt;&gt; Virtual Servers &gt;&gt; Virtual Servers List tab.
+
+Select Virtual Servers(s) from the list to verify the configuration of an ASM policy to prevent SQL injection attacks.
+
+Navigate to the Security &gt;&gt; Policies tab.
+
+Set "Policy Settings" to "Advanced".
+
+Verify that "Application Security Policy" is Enabled and "Policy" is set to use an ASM policy for the virtual server.
+
+Navigate to the BIG-IP System manager &gt;&gt; Security &gt;&gt; Application Security &gt;&gt; Security Policies.
+
+Select the Security Policy that has been assigned the Virtual Server(s).
+
+Verify the "Enforcement Mode" is Blocking.
+
+Click "Attack Signatures Configurations" for "Signature Staging" under the "Configuration" section.
+
+Verify "Signature Staging" is Enabled.
+
+Review the list under "Assigned Signature Sets" for the following signatures:
+
+Generic Detection Signatures
+
+Custom Systems Signature Set (based on systems identified in the application make-up).
+
+Verify the "Assigned Signature Sets" listed above have the "Block" button checked.
+
+If the BIG-IP ASM module is not configured to prevent SQL injection attacks from being launched against data storage objects, including, at a minimum, databases, database records, and database fields, this is a finding.</check-content></check></Rule></Group><Group id="V-60081"><title>SRG-NET-000319-ALG-000015</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-74511r1_rule" severity="medium" weight="10.0"><version>F5BI-AS-000163</version><title>To protect against data mining, The BIG-IP ASM module must be configured to detect code injection attacks from being launched against data storage objects, including, at a minimum, databases, database records, queries, and fields when providing content filtering to virtual servers.</title><description>&lt;VulnDiscussion&gt;Data mining is the analysis of large quantities of data to discover patterns and is used in intelligence gathering. Failure to detect attacks launched against organizational databases may result in the compromise of information.
+
+Injection attacks allow an attacker to inject code into a program or query or inject malware into a computer to execute remote commands that can read or modify a database or change data on a website. Web applications frequently access databases to store, retrieve, and update information. An attacker can construct inputs that the database will execute. This is most commonly referred to as a code injection attack. This type of attack includes XPath and LDAP injections.
+
+ALGs with anomaly detection must be configured to protect against unauthorized code injections. These devices must include rules and anomaly detection algorithms to monitor for atypical database queries or accesses. Examples include Web Application Firewalls (WAFs) or database application gateways.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target F5 BIG-IP ASM 11.x</dc:title><dc:publisher>DISA FSO</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>F5 BIG-IP ASM 11.x</dc:subject><dc:identifier>2841</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-002347</ident><fixtext fixref="F-65575r1_fix">If the BIG-IP ASM module is used to support content filtering as part of the traffic management functionality of the BIG-IP Core, configure the BIG-IP ASM module to detect code injection attacks launched against data storage objects, including, at a minimum, databases, database records, queries, and fields.</fixtext><fix id="F-65575r1_fix" /><check system="C-60843r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_F5_BIG-IP_Application_Security_Manager_11.x_STIG.xml" /><check-content>If the BIG-IP ASM module is not used to support content filtering as part of the traffic management functions of the BIG-IP Core, this is not applicable.
+
+Verify the BIG-IP ASM module is configured to detect code injection attacks launched against data storage objects, including, at a minimum, databases, database records, queries, and fields.
+
+Navigate to the BIG-IP System manager &gt;&gt; Local Traffic &gt;&gt; Virtual Servers &gt;&gt; Virtual Servers List tab.
+
+Select Virtual Servers(s) from the list to verify the configuration of an ASM policy to prevent code injection attacks.
+
+Navigate to the Security &gt;&gt; Policies tab.
+
+Set "Policy Settings" to "Advanced".
+
+Verify that "Application Security Policy" is Enabled and "Policy" is set to use an ASM policy for the virtual server.
+
+Navigate to the BIG-IP System manager &gt;&gt; Security &gt;&gt; Application Security &gt;&gt; Security Policies.
+
+Select the Security Policy that has been assigned to the Virtual Server(s).
+
+Verify the "Enforcement Mode" is Transparent or Blocking.
+
+Click "Attack Signatures Configurations" for "Signature Staging" under the "Configuration" section.
+
+Review the list under "Assigned Signature Sets" for the following signatures:
+
+Generic Detection Signatures
+
+Custom Systems Signature Set (based on systems identified in the application make-up).
+
+Verify the "Assignment Signature Sets" listed above have the "Alarm" button checked.
+
+If the BIG-IP ASM module is not configured to detect code injection attacks launched against data storage objects, including, at a minimum, databases, database records, queries, and fields, this is a finding.</check-content></check></Rule></Group><Group id="V-60083"><title>SRG-NET-000319-ALG-000020</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-74513r1_rule" severity="medium" weight="10.0"><version>F5BI-AS-000165</version><title>To protect against data mining, The BIG-IP ASM module must be configured to detect SQL injection attacks launched against data storage objects, including, at a minimum, databases, database records, and database fields when providing content filtering to virtual servers.</title><description>&lt;VulnDiscussion&gt;Data mining is the analysis of large quantities of data to discover patterns and is used in intelligence gathering. Failure to detect attacks launched against organizational databases may result in the compromise of information.
+
+SQL injection attacks are the most prevalent attacks against web applications and databases. These attacks inject SQL commands that can read, modify, or compromise the meaning of the original SQL query. An attacker can spoof identity; expose, tamper, destroy, or make existing data unavailable; or gain unauthorized privileges on the database server.
+
+ALGs with anomaly detection must be configured to protect against unauthorized data mining attacks. These devices must include rules and anomaly detection algorithms to monitor for atypical database queries or accesses. Examples include Web Application Firewalls (WAFs) or database application gateways.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target F5 BIG-IP ASM 11.x</dc:title><dc:publisher>DISA FSO</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>F5 BIG-IP ASM 11.x</dc:subject><dc:identifier>2841</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-002347</ident><fixtext fixref="F-65577r1_fix">If the BIG-IP ASM module is used to support content filtering as part of the traffic management functionality of the BIG-IP Core, configure the BIG-IP ASM module to detect SQL injection attacks launched against data storage objects, including, at a minimum, databases, database records, and database fields.</fixtext><fix id="F-65577r1_fix" /><check system="C-60845r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_F5_BIG-IP_Application_Security_Manager_11.x_STIG.xml" /><check-content>If the BIG-IP ASM module is not used to support content filtering as part of the traffic management functions of the BIG-IP Core, this is not applicable.
+
+Verify the BIG-IP ASM module detects SQL injection attacks launched against data storage objects, including, at a minimum, databases, database records, and database fields.
+
+Navigate to the BIG-IP System manager &gt;&gt; Local Traffic &gt;&gt; Virtual Servers &gt;&gt; Virtual Servers List tab.
+
+Select Virtual Servers(s) from the list to verify the configuration of an ASM policy to detect SQL injection attacks.
+
+Navigate to the Security &gt;&gt; Policies tab.
+
+Set "Policy Settings" to "Advanced".
+
+Verify that "Application Security Policy" is Enabled and "Policy" is set to use an ASM policy for the virtual server.
+
+Navigate to the BIG-IP System manager &gt;&gt; Security &gt;&gt; Application Security &gt;&gt; Security Policies.
+
+Select a Security Policy that has been assigned to Virtual Server(s).
+
+Verify the "Enforcement Mode" is Transparent or Blocking.
+
+Click "Attack Signatures Configurations" for "Signature Staging" under the "Configuration" section.
+
+Review the list under "Assigned Signature Sets" for the following signatures:
+
+Generic Detection Signatures
+
+Custom Systems Signature Set (based on systems identified in the application make-up).
+
+Verify the "Assignment Signature Sets" listed above have the "Alarm" button checked.
+
+If the BIG-IP ASM module is not configured to detect SQL injection attacks launched against data storage objects, including, at a minimum, databases, database records, and database fields, this is a finding.</check-content></check></Rule></Group><Group id="V-60085"><title>SRG-NET-000319-ALG-000153</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-74515r1_rule" severity="medium" weight="10.0"><version>F5BI-AS-000167</version><title>The BIG-IP ASM module must be configured to detect code injection attacks launched against application objects including, at a minimum, application URLs and application code, when providing content filtering to virtual servers.</title><description>&lt;VulnDiscussion&gt;Data mining is the analysis of large quantities of data to discover patterns and is used in intelligence gathering. Failure to detect attacks launched against organizational applications may result in the compromise of information.
+
+Injection attacks allow an attacker to inject code into a program or query or inject malware onto a computer to execute remote commands that can read or modify a database, or change data on a website. These attacks include buffer overrun, XML, JavaScript, and HTML injections.
+
+ALGs with anomaly detection must be configured to protect against unauthorized code injections. These devices must include rules and anomaly detection algorithms to monitor for atypical database queries or accesses. Examples include Web Application Firewalls (WAFs) or database application gateways.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target F5 BIG-IP ASM 11.x</dc:title><dc:publisher>DISA FSO</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>F5 BIG-IP ASM 11.x</dc:subject><dc:identifier>2841</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-002347</ident><fixtext fixref="F-65579r1_fix">If the BIG-IP ASM module is used to support content filtering as part of the traffic management functionality of the BIG-IP Core, configure the BIG-IP ASM module to detect code injection attacks launched against application objects, including, at a minimum, application URLs and application code.</fixtext><fix id="F-65579r1_fix" /><check system="C-60847r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_F5_BIG-IP_Application_Security_Manager_11.x_STIG.xml" /><check-content>If the BIG-IP ASM module is not used to support content filtering as part of the traffic management functions of the BIG-IP Core, this is not applicable.
+
+Verify the BIG-IP ASM module is configured to detect code injection attacks launched against application objects, including, at a minimum, application URLs and application code.
+
+Navigate to the BIG-IP System manager &gt;&gt; Local Traffic &gt;&gt; Virtual Servers &gt;&gt; Virtual Servers List tab.
+
+Select Virtual Servers(s) from the list to verify the configuration of an ASM policy to detect code injection attacks.
+
+Navigate to the Security &gt;&gt; Policies tab.
+
+Set "Policy Settings" to "Advanced".
+
+Verify that "Application Security Policy" is Enabled and "Policy" is set to use an ASM policy for the virtual server.
+
+Navigate to the BIG-IP System manager &gt;&gt; Security &gt;&gt; Application Security &gt;&gt; Security Policies.
+
+Select the Security Policy that has been assigned to the Virtual Server(s).
+
+Verify "Enforcement Mode" is Transparent or Blocking.
+
+Click "Attack Signatures Configurations" for "Signature Staging" under the "Configuration" section.
+
+Review the list under "Assigned Signature Sets" for the following signatures:
+
+Generic Detection Signatures
+
+Custom Systems Signature Set (based on systems identified in the application make-up).
+
+Verify the "Assignment Signature Sets" listed above have the "Alarm" button checked.
+
+If the BIG-IP ASM module is not configured to detect code injection attacks launched against application objects, including, at a minimum, application URLs and application code, this is a finding.</check-content></check></Rule></Group><Group id="V-60087"><title>SRG-NET-000380-ALG-000128</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-74517r1_rule" severity="medium" weight="10.0"><version>F5BI-AS-000229</version><title>The BIG-IP ASM module must be configured to handle invalid inputs in a predictable and documented manner that reflects organizational and system objectives.</title><description>&lt;VulnDiscussion&gt;A common vulnerability of network elements is unpredictable behavior when invalid inputs are received. This requirement guards against adverse or unintended system behavior caused by invalid inputs, where information system responses to the invalid input may be disruptive or cause the system to fail into an unsafe state.
+
+The behavior will be derived from the organizational and system requirements and includes, but is not limited to, notifying the appropriate personnel, creating an audit record, and rejecting invalid input.
+
+This requirement applies to gateways and firewalls that perform content inspection or have higher layer proxy functions.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target F5 BIG-IP ASM 11.x</dc:title><dc:publisher>DISA FSO</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>F5 BIG-IP ASM 11.x</dc:subject><dc:identifier>2841</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-002754</ident><fixtext fixref="F-65581r1_fix">Configure the BIG-IP ASM module to handle invalid inputs in a predictable and documented manner that reflects organizational and system objectives.</fixtext><fix id="F-65581r1_fix" /><check system="C-60849r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_F5_BIG-IP_Application_Security_Manager_11.x_STIG.xml" /><check-content>Verify the BIG-IP ASM module is configured to handle invalid inputs in a predictable and documented manner that reflects organizational and system objectives.
+
+This can be demonstrated by the SA sending an invalid input to a virtual server.  Provide evidence that the virtual server was able to handle the invalid input and maintain operation.
+
+If the BIG-IP ASM module is not configured to handle invalid inputs in a predictable and documented manner that reflects organizational and system objectives, this is a finding.</check-content></check></Rule></Group><Group id="V-60089"><title>SRG-NET-000390-ALG-000139</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-74519r1_rule" severity="medium" weight="10.0"><version>F5BI-AS-000239</version><title>The BIG-IP ASM module must continuously monitor inbound communications traffic crossing internal security boundaries for unusual or unauthorized activities or conditions.</title><description>&lt;VulnDiscussion&gt;If inbound communications traffic is not continuously monitored, hostile activity may not be detected and prevented. Output from application and traffic monitoring serves as input to continuous monitoring and incident response programs.
+
+Internal monitoring includes the observation of events occurring on the network crossing internal boundaries at managed interfaces such as web content filters. Depending on the type of ALG, organizations can monitor information systems by monitoring audit activities, application access patterns, characteristics of access, content filtering, or unauthorized exporting of information across boundaries. Unusual/unauthorized activities or conditions may include large file transfers, long-time persistent connections, unusual protocols and ports in use, and attempted communications with suspected malicious external addresses.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target F5 BIG-IP ASM 11.x</dc:title><dc:publisher>DISA FSO</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>F5 BIG-IP ASM 11.x</dc:subject><dc:identifier>2841</dc:identifier></reference><ident system="http://iase.disa.mil/cci">CCI-002661</ident><fixtext fixref="F-65583r1_fix">Configure a policy in the BIG-IP ASM module to continuously monitor inbound communications traffic for unusual or unauthorized activities or conditions.
+
+Apply the ASM policy to the applicable Virtual Server(s) in the BIG-IP LTM module to continuously monitor inbound communications traffic for unusual or unauthorized activities or conditions.</fixtext><fix id="F-65583r1_fix" /><check system="C-60851r1_chk"><check-content-ref name="M" href="DPMS_XCCDF_Benchmark_F5_BIG-IP_Application_Security_Manager_11.x_STIG.xml" /><check-content>If the BIG-IP ASM module is not used to support content filtering as part of the traffic management functions of the BIG-IP Core, this is not applicable.
+
+Verify the BIG-IP ASM module is configured to continuously monitor inbound communications traffic for unusual or unauthorized activities or conditions.
+
+Navigate to the BIG-IP System manager &gt;&gt; Local Traffic &gt;&gt; Virtual Servers &gt;&gt; Virtual Servers List tab.
+
+Select Virtual Servers(s) from the list to verify the configuration for ASM Event Logging.
+
+Navigate to the Security &gt;&gt; Policies tab.
+
+Set "Policy Settings" to "Advanced".
+
+Verify that "Application Security Policy" is Enabled and "Policy" is set to use an ASM policy for the virtual server.
+
+Verify that "Log Profile" is Enabled and a logging profile is assigned under "Selected".
+
+Navigate to the BIG-IP System manager &gt;&gt; Security &gt;&gt; Event Logs &gt;&gt; Logging Profiles.
+
+Select the Logging Profile that was assigned to the virtual server.
+
+Verify "Request Type" is set to "Illegal requests, and requests that include staged attack signatures" is selected under "Storage Filter".
+
+If the BIG-IP ASM module is not configured to continuously monitor inbound communications traffic for unusual or unauthorized activities or conditions, this is a finding.</check-content></check></Rule></Group></Benchmark>

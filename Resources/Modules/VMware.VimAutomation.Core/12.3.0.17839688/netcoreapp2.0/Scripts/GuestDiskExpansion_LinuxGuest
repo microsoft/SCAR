@@ -1,0 +1,196 @@
+#!/bin/bash
+
+# *************************************************************************
+# Copyright 2009 VMware, Inc.  All rights reserved.
+# *************************************************************************/
+
+#
+# Disk resize script for Red Hat 5 Linux guest OS
+# This script is used by Set-HardDisk cmdlet to resize hard disk in the guest OS
+#
+# PARAMETERS
+#	$1 - Bus Number
+#	  The number of the controller that target hard disk is attached to. 
+#    In the Linux OS is displayed as scsi host number.
+#	$2 - Node number
+#	  Node number of the hard disk on the controller. Integer value from the range 0 - 15.
+#	$3 - Partition
+#		The name of the partition to be resized.
+#		If empty string ("") is passed the last partition of the disk is resized.
+#
+# USAGE
+#    The following example will resize last partition of the disk attached to bus 0 and node number 1
+#
+# GuestDiskExpansion_rhel5Guest 0 1 ""
+#
+#   This example will resize "/dev/sda2" partition of the disk attached to bus 0 and node number 0
+#
+# GuestDiskExpansion_rhel5Guest 0 0 "sda2"
+#
+
+# Clean up temp files
+function cleanup {
+   rm -f $temp_output_file
+   rm -f $fdisk_script_input
+}
+
+# Writes error message, perform clean up and exit with error code 1
+function quit {
+  echo $1
+  cleanup
+  exit 1
+}
+
+# Check last exit code, writes command output and exit
+function check_last_error {
+   if [ "$?$?" -ne 0 ] ; 
+   then 
+      cat $temp_output_file
+      exit $?
+   fi 
+}
+
+# Variables
+input_bus_id=$1
+input_bus_node_id=$2
+input_partition=`expr match "$3" '.*/\(.*\)'`
+if [ ! -n "$input_partition" ] ; then input_partition=$3 ; fi
+temp_output_file="/tmp/guest_disk_resize_tmp_output"
+fdisk_script_input="/tmp/guest_disk_resize_fdisk_script"
+
+# Main code
+cleanup
+
+# Rescan disks
+echo "- - -" > /sys/class/scsi_host/host$input_bus_id/scan
+
+# Find disk device name
+ls -la /dev/disk/by-path | grep "pci-[0-9]\{4\}:[0-9]\{2\}:1$input_bus_id.[0-9]\?-scsi-[0-9]:[0-9]:$input_bus_node_id:[0-9]-part" > $temp_output_file
+check_last_error
+
+if [ ! -s $temp_output_file ]
+then
+  quit "Specified disk '$input_bus_id:$input_bus_node_id' was not found"
+fi;
+
+partition=""
+partitions_count=`cat $temp_output_file | wc -l`
+IFS=$'\n'
+for disk_details in $( cat $temp_output_file ); do
+  disk_partition=`expr match "$disk_details" '.*/\(.*\)'`
+  
+  if [ -n "$input_partition" ] ;
+  then 
+    if [ $disk_partition = $input_partition ] ; then
+       partition=$disk_partition ; 
+       break;
+    fi;
+  else
+    partition=$disk_partition ; 
+    break ; # will contain first listed patition of the disk
+  fi;
+done
+unset IFS
+
+if [ ! -n "$partition" ] ;
+then
+  if [ -n "$input_partition" ] ;
+  then
+    quit "Specified partition '$input_partition' was not found"
+  else
+    quit "No partition found on disk '$input_bus_id:$input_bus_node_id'"
+  fi;
+fi;
+
+#Get disk  name from partition name
+disk_name=${partition%?}
+
+# If disk has more than 1 partiton check for last one
+fdisk -l /dev/$disk_name | grep "^/dev/$disk_name" | awk '{if($2 == "*"){ print $1"\t"$4"\t"$6} else {print $1"\t"$3"\t"$5}}' > $temp_output_file
+IFS=$'\n'
+last_partition_end=-1
+all_partition=""
+# loop through partition info and find the one with max end
+for partition_details in $( cat $temp_output_file ); do
+   partition_name=`echo $partition_details | awk '{print $1}'`
+   partition_end=`echo $partition_details | awk '{print $2}'`
+   partition_system_id=`echo $partition_details | awk '{print $3}'`
+   all_partition=$partition_name" "$all_partition
+   
+   if [ $partition_end -gt $last_partition_end ] ;
+   then
+     last_partition_end=$partition_end
+     last_partition=$partition_name
+     last_partition_system_id=$partition_system_id
+   fi;
+done
+unset IFS
+
+if [ ! -n "$last_partition" ] ; then
+ quit "Fail to get last partition of the disk /dev/$disk_name"
+fi;
+
+partition=`expr match "$last_partition" '.*/\(.*\)'`
+partition_sys_id=$last_partition_system_id
+
+if [ -n "$input_partition" ] && [ $partition != $input_partition ] ; then
+ quit "The specified partition '$input_partition' is not last partition of the disk."
+fi;
+
+#Check if partition is part of LVM
+pvs --noheading --ignorelockingfailure &> $temp_output_file
+lvm_partition=`cat $temp_output_file | grep "/dev/$partition" | awk '{print $1}'`
+
+if [ "$lvm_partition" == "/dev/$partition" ] ;
+then
+  quit "Specified partition '/dev/$partition' is part of LVM"
+fi;
+
+# Unmount all disk partitions
+for partition_name in $( echo $all_partition ); do
+  umount $partition_name &> $temp_output_file
+done;
+
+# Run fsck
+fsck -n /dev/$partition &> $temp_output_file
+check_last_error
+
+#Remove the journal from /dev/$partition
+tune2fs -O ^has_journal /dev/$partition &> $temp_output_file
+check_last_error
+
+#Rewrite partition table in order to detect newly added space
+echo -e 'w\n' > $fdisk_script_input
+fdisk /dev/$disk_name < $fdisk_script_input &> $temp_output_file
+check_last_error
+
+#Prepare fdisk script
+if [ $partitions_count -gt 1 ] ; then
+   partition_number=${partition:3:1}
+   echo -e 'd\n'$partition_number'\nn\np\n'$partition_number'\n\n\nt\n'$partition_number'\n'$partition_sys_id'\nw\n' > $fdisk_script_input
+else
+   echo -e 'd\nn\np\n1\n\n\nt\n'$partition_sys_id'\nw\n' > $fdisk_script_input
+fi;
+
+# Run fdisk
+fdisk /dev/$disk_name < $fdisk_script_input &> $temp_output_file
+check_last_error
+
+#Resize file system
+e2fsck -f -p /dev/$partition &> $temp_output_file
+check_last_error
+
+resize2fs /dev/$partition &> $temp_output_file
+check_last_error
+
+fsck -n /dev/$partition &> $temp_output_file
+check_last_error
+
+#Create the journal on /dev/$partition
+tune2fs -j /dev/$partition &> $temp_output_file
+check_last_error
+
+# Ìîunt previously unmounted disk partitions
+mount -a &> $temp_output_file
+
+cleanup

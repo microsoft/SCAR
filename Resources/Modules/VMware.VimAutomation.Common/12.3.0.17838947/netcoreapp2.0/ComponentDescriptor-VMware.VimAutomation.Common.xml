@@ -1,0 +1,18 @@
+<ComponentDescriptor>
+    <Name>VMware.VimAutomation.Common</Name>
+    <Assembly>VMware.VimAutomation.Common.Impl</Assembly>
+    <ImplementingType>VMware.VimAutomation.Common.Impl.V1.ComponentImpl</ImplementingType>
+
+    <IsSnapin>false</IsSnapin>
+
+    <ProvidedServiceList>
+        <ServiceDescriptor>
+            <Name>CommonOAuthService</Name>
+            <Version>1.0</Version>
+        </ServiceDescriptor>
+    </ProvidedServiceList>
+
+    <RequiredServiceList></RequiredServiceList>
+
+    <ExtendedServiceList></ExtendedServiceList>
+</ComponentDescriptor>

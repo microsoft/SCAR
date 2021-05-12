@@ -1,0 +1,991 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type='text/xsl' href='STIG_unclass.xsl'?><Benchmark xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cpe="http://cpe.mitre.org/language/2.0" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xsi:schemaLocation="http://checklists.nist.gov/xccdf/1.1 http://nvd.nist.gov/schema/xccdf-1.1.4.xsd http://cpe.mitre.org/dictionary/2.0 http://cpe.mitre.org/files/cpe-dictionary_2.1.xsd" id="Cisco_IOS_XE_Switch_NDM_STIG" xml:lang="en" xmlns="http://checklists.nist.gov/xccdf/1.1"><status date="2020-09-23">accepted</status><title>Cisco IOS XE Switch NDM Security Technical Implementation Guide</title><description>This Security Technical Implementation Guide is published as a tool to improve the security of Department of Defense (DoD) information systems. The requirements are derived from the National Institute of Standards and Technology (NIST) 800-53 and related documents. Comments or proposed revisions to this document should be sent via email to the following address: disa.stig_spt@mail.mil.</description><notice id="terms-of-use" xml:lang="en"></notice><front-matter xml:lang="en"></front-matter><rear-matter xml:lang="en"></rear-matter><reference href="https://cyber.mil"><dc:publisher>DISA</dc:publisher><dc:source>STIG.DOD.MIL</dc:source></reference><plain-text id="release-info">Release: 1 Benchmark Date: 23 Oct 2020</plain-text><plain-text id="generator">3.1.1.36225</plain-text><plain-text id="conventionsVersion">1.10.0</plain-text><version>2</version><Profile id="MAC-1_Classified"><title>I - Mission Critical Classified</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-220518" selected="true" /><select idref="V-220519" selected="true" /><select idref="V-220520" selected="true" /><select idref="V-220521" selected="true" /><select idref="V-220522" selected="true" /><select idref="V-220523" selected="true" /><select idref="V-220524" selected="true" /><select idref="V-220525" selected="true" /><select idref="V-220526" selected="true" /><select idref="V-220527" selected="true" /><select idref="V-220528" selected="true" /><select idref="V-220529" selected="true" /><select idref="V-220530" selected="true" /><select idref="V-220531" selected="true" /><select idref="V-220532" selected="true" /><select idref="V-220533" selected="true" /><select idref="V-220534" selected="true" /><select idref="V-220535" selected="true" /><select idref="V-220536" selected="true" /><select idref="V-220537" selected="true" /><select idref="V-220538" selected="true" /><select idref="V-220539" selected="true" /><select idref="V-220540" selected="true" /><select idref="V-220541" selected="true" /><select idref="V-220542" selected="true" /><select idref="V-220543" selected="true" /><select idref="V-220544" selected="true" /><select idref="V-220545" selected="true" /><select idref="V-220546" selected="true" /><select idref="V-220547" selected="true" /><select idref="V-220548" selected="true" /><select idref="V-220549" selected="true" /><select idref="V-220550" selected="true" /><select idref="V-220551" selected="true" /><select idref="V-220552" selected="true" /><select idref="V-220553" selected="true" /><select idref="V-220554" selected="true" /><select idref="V-220555" selected="true" /><select idref="V-220556" selected="true" /><select idref="V-220557" selected="true" /><select idref="V-220558" selected="true" /><select idref="V-220559" selected="true" /><select idref="V-220560" selected="true" /><select idref="V-220561" selected="true" /><select idref="V-220563" selected="true" /><select idref="V-220564" selected="true" /><select idref="V-220565" selected="true" /><select idref="V-220566" selected="true" /><select idref="V-220567" selected="true" /><select idref="V-220568" selected="true" /><select idref="V-220569" selected="true" /></Profile><Profile id="MAC-1_Public"><title>I - Mission Critical Public</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-220518" selected="true" /><select idref="V-220519" selected="true" /><select idref="V-220520" selected="true" /><select idref="V-220521" selected="true" /><select idref="V-220522" selected="true" /><select idref="V-220523" selected="true" /><select idref="V-220524" selected="true" /><select idref="V-220525" selected="true" /><select idref="V-220526" selected="true" /><select idref="V-220527" selected="true" /><select idref="V-220528" selected="true" /><select idref="V-220529" selected="true" /><select idref="V-220530" selected="true" /><select idref="V-220531" selected="true" /><select idref="V-220532" selected="true" /><select idref="V-220533" selected="true" /><select idref="V-220534" selected="true" /><select idref="V-220535" selected="true" /><select idref="V-220536" selected="true" /><select idref="V-220537" selected="true" /><select idref="V-220538" selected="true" /><select idref="V-220539" selected="true" /><select idref="V-220540" selected="true" /><select idref="V-220541" selected="true" /><select idref="V-220542" selected="true" /><select idref="V-220543" selected="true" /><select idref="V-220544" selected="true" /><select idref="V-220545" selected="true" /><select idref="V-220546" selected="true" /><select idref="V-220547" selected="true" /><select idref="V-220548" selected="true" /><select idref="V-220549" selected="true" /><select idref="V-220550" selected="true" /><select idref="V-220551" selected="true" /><select idref="V-220552" selected="true" /><select idref="V-220553" selected="true" /><select idref="V-220554" selected="true" /><select idref="V-220555" selected="true" /><select idref="V-220556" selected="true" /><select idref="V-220557" selected="true" /><select idref="V-220558" selected="true" /><select idref="V-220559" selected="true" /><select idref="V-220560" selected="true" /><select idref="V-220561" selected="true" /><select idref="V-220563" selected="true" /><select idref="V-220564" selected="true" /><select idref="V-220565" selected="true" /><select idref="V-220566" selected="true" /><select idref="V-220567" selected="true" /><select idref="V-220568" selected="true" /><select idref="V-220569" selected="true" /></Profile><Profile id="MAC-1_Sensitive"><title>I - Mission Critical Sensitive</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-220518" selected="true" /><select idref="V-220519" selected="true" /><select idref="V-220520" selected="true" /><select idref="V-220521" selected="true" /><select idref="V-220522" selected="true" /><select idref="V-220523" selected="true" /><select idref="V-220524" selected="true" /><select idref="V-220525" selected="true" /><select idref="V-220526" selected="true" /><select idref="V-220527" selected="true" /><select idref="V-220528" selected="true" /><select idref="V-220529" selected="true" /><select idref="V-220530" selected="true" /><select idref="V-220531" selected="true" /><select idref="V-220532" selected="true" /><select idref="V-220533" selected="true" /><select idref="V-220534" selected="true" /><select idref="V-220535" selected="true" /><select idref="V-220536" selected="true" /><select idref="V-220537" selected="true" /><select idref="V-220538" selected="true" /><select idref="V-220539" selected="true" /><select idref="V-220540" selected="true" /><select idref="V-220541" selected="true" /><select idref="V-220542" selected="true" /><select idref="V-220543" selected="true" /><select idref="V-220544" selected="true" /><select idref="V-220545" selected="true" /><select idref="V-220546" selected="true" /><select idref="V-220547" selected="true" /><select idref="V-220548" selected="true" /><select idref="V-220549" selected="true" /><select idref="V-220550" selected="true" /><select idref="V-220551" selected="true" /><select idref="V-220552" selected="true" /><select idref="V-220553" selected="true" /><select idref="V-220554" selected="true" /><select idref="V-220555" selected="true" /><select idref="V-220556" selected="true" /><select idref="V-220557" selected="true" /><select idref="V-220558" selected="true" /><select idref="V-220559" selected="true" /><select idref="V-220560" selected="true" /><select idref="V-220561" selected="true" /><select idref="V-220563" selected="true" /><select idref="V-220564" selected="true" /><select idref="V-220565" selected="true" /><select idref="V-220566" selected="true" /><select idref="V-220567" selected="true" /><select idref="V-220568" selected="true" /><select idref="V-220569" selected="true" /></Profile><Profile id="MAC-2_Classified"><title>II - Mission Support Classified</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-220518" selected="true" /><select idref="V-220519" selected="true" /><select idref="V-220520" selected="true" /><select idref="V-220521" selected="true" /><select idref="V-220522" selected="true" /><select idref="V-220523" selected="true" /><select idref="V-220524" selected="true" /><select idref="V-220525" selected="true" /><select idref="V-220526" selected="true" /><select idref="V-220527" selected="true" /><select idref="V-220528" selected="true" /><select idref="V-220529" selected="true" /><select idref="V-220530" selected="true" /><select idref="V-220531" selected="true" /><select idref="V-220532" selected="true" /><select idref="V-220533" selected="true" /><select idref="V-220534" selected="true" /><select idref="V-220535" selected="true" /><select idref="V-220536" selected="true" /><select idref="V-220537" selected="true" /><select idref="V-220538" selected="true" /><select idref="V-220539" selected="true" /><select idref="V-220540" selected="true" /><select idref="V-220541" selected="true" /><select idref="V-220542" selected="true" /><select idref="V-220543" selected="true" /><select idref="V-220544" selected="true" /><select idref="V-220545" selected="true" /><select idref="V-220546" selected="true" /><select idref="V-220547" selected="true" /><select idref="V-220548" selected="true" /><select idref="V-220549" selected="true" /><select idref="V-220550" selected="true" /><select idref="V-220551" selected="true" /><select idref="V-220552" selected="true" /><select idref="V-220553" selected="true" /><select idref="V-220554" selected="true" /><select idref="V-220555" selected="true" /><select idref="V-220556" selected="true" /><select idref="V-220557" selected="true" /><select idref="V-220558" selected="true" /><select idref="V-220559" selected="true" /><select idref="V-220560" selected="true" /><select idref="V-220561" selected="true" /><select idref="V-220563" selected="true" /><select idref="V-220564" selected="true" /><select idref="V-220565" selected="true" /><select idref="V-220566" selected="true" /><select idref="V-220567" selected="true" /><select idref="V-220568" selected="true" /><select idref="V-220569" selected="true" /></Profile><Profile id="MAC-2_Public"><title>II - Mission Support Public</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-220518" selected="true" /><select idref="V-220519" selected="true" /><select idref="V-220520" selected="true" /><select idref="V-220521" selected="true" /><select idref="V-220522" selected="true" /><select idref="V-220523" selected="true" /><select idref="V-220524" selected="true" /><select idref="V-220525" selected="true" /><select idref="V-220526" selected="true" /><select idref="V-220527" selected="true" /><select idref="V-220528" selected="true" /><select idref="V-220529" selected="true" /><select idref="V-220530" selected="true" /><select idref="V-220531" selected="true" /><select idref="V-220532" selected="true" /><select idref="V-220533" selected="true" /><select idref="V-220534" selected="true" /><select idref="V-220535" selected="true" /><select idref="V-220536" selected="true" /><select idref="V-220537" selected="true" /><select idref="V-220538" selected="true" /><select idref="V-220539" selected="true" /><select idref="V-220540" selected="true" /><select idref="V-220541" selected="true" /><select idref="V-220542" selected="true" /><select idref="V-220543" selected="true" /><select idref="V-220544" selected="true" /><select idref="V-220545" selected="true" /><select idref="V-220546" selected="true" /><select idref="V-220547" selected="true" /><select idref="V-220548" selected="true" /><select idref="V-220549" selected="true" /><select idref="V-220550" selected="true" /><select idref="V-220551" selected="true" /><select idref="V-220552" selected="true" /><select idref="V-220553" selected="true" /><select idref="V-220554" selected="true" /><select idref="V-220555" selected="true" /><select idref="V-220556" selected="true" /><select idref="V-220557" selected="true" /><select idref="V-220558" selected="true" /><select idref="V-220559" selected="true" /><select idref="V-220560" selected="true" /><select idref="V-220561" selected="true" /><select idref="V-220563" selected="true" /><select idref="V-220564" selected="true" /><select idref="V-220565" selected="true" /><select idref="V-220566" selected="true" /><select idref="V-220567" selected="true" /><select idref="V-220568" selected="true" /><select idref="V-220569" selected="true" /></Profile><Profile id="MAC-2_Sensitive"><title>II - Mission Support Sensitive</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-220518" selected="true" /><select idref="V-220519" selected="true" /><select idref="V-220520" selected="true" /><select idref="V-220521" selected="true" /><select idref="V-220522" selected="true" /><select idref="V-220523" selected="true" /><select idref="V-220524" selected="true" /><select idref="V-220525" selected="true" /><select idref="V-220526" selected="true" /><select idref="V-220527" selected="true" /><select idref="V-220528" selected="true" /><select idref="V-220529" selected="true" /><select idref="V-220530" selected="true" /><select idref="V-220531" selected="true" /><select idref="V-220532" selected="true" /><select idref="V-220533" selected="true" /><select idref="V-220534" selected="true" /><select idref="V-220535" selected="true" /><select idref="V-220536" selected="true" /><select idref="V-220537" selected="true" /><select idref="V-220538" selected="true" /><select idref="V-220539" selected="true" /><select idref="V-220540" selected="true" /><select idref="V-220541" selected="true" /><select idref="V-220542" selected="true" /><select idref="V-220543" selected="true" /><select idref="V-220544" selected="true" /><select idref="V-220545" selected="true" /><select idref="V-220546" selected="true" /><select idref="V-220547" selected="true" /><select idref="V-220548" selected="true" /><select idref="V-220549" selected="true" /><select idref="V-220550" selected="true" /><select idref="V-220551" selected="true" /><select idref="V-220552" selected="true" /><select idref="V-220553" selected="true" /><select idref="V-220554" selected="true" /><select idref="V-220555" selected="true" /><select idref="V-220556" selected="true" /><select idref="V-220557" selected="true" /><select idref="V-220558" selected="true" /><select idref="V-220559" selected="true" /><select idref="V-220560" selected="true" /><select idref="V-220561" selected="true" /><select idref="V-220563" selected="true" /><select idref="V-220564" selected="true" /><select idref="V-220565" selected="true" /><select idref="V-220566" selected="true" /><select idref="V-220567" selected="true" /><select idref="V-220568" selected="true" /><select idref="V-220569" selected="true" /></Profile><Profile id="MAC-3_Classified"><title>III - Administrative Classified</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-220518" selected="true" /><select idref="V-220519" selected="true" /><select idref="V-220520" selected="true" /><select idref="V-220521" selected="true" /><select idref="V-220522" selected="true" /><select idref="V-220523" selected="true" /><select idref="V-220524" selected="true" /><select idref="V-220525" selected="true" /><select idref="V-220526" selected="true" /><select idref="V-220527" selected="true" /><select idref="V-220528" selected="true" /><select idref="V-220529" selected="true" /><select idref="V-220530" selected="true" /><select idref="V-220531" selected="true" /><select idref="V-220532" selected="true" /><select idref="V-220533" selected="true" /><select idref="V-220534" selected="true" /><select idref="V-220535" selected="true" /><select idref="V-220536" selected="true" /><select idref="V-220537" selected="true" /><select idref="V-220538" selected="true" /><select idref="V-220539" selected="true" /><select idref="V-220540" selected="true" /><select idref="V-220541" selected="true" /><select idref="V-220542" selected="true" /><select idref="V-220543" selected="true" /><select idref="V-220544" selected="true" /><select idref="V-220545" selected="true" /><select idref="V-220546" selected="true" /><select idref="V-220547" selected="true" /><select idref="V-220548" selected="true" /><select idref="V-220549" selected="true" /><select idref="V-220550" selected="true" /><select idref="V-220551" selected="true" /><select idref="V-220552" selected="true" /><select idref="V-220553" selected="true" /><select idref="V-220554" selected="true" /><select idref="V-220555" selected="true" /><select idref="V-220556" selected="true" /><select idref="V-220557" selected="true" /><select idref="V-220558" selected="true" /><select idref="V-220559" selected="true" /><select idref="V-220560" selected="true" /><select idref="V-220561" selected="true" /><select idref="V-220563" selected="true" /><select idref="V-220564" selected="true" /><select idref="V-220565" selected="true" /><select idref="V-220566" selected="true" /><select idref="V-220567" selected="true" /><select idref="V-220568" selected="true" /><select idref="V-220569" selected="true" /></Profile><Profile id="MAC-3_Public"><title>III - Administrative Public</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-220518" selected="true" /><select idref="V-220519" selected="true" /><select idref="V-220520" selected="true" /><select idref="V-220521" selected="true" /><select idref="V-220522" selected="true" /><select idref="V-220523" selected="true" /><select idref="V-220524" selected="true" /><select idref="V-220525" selected="true" /><select idref="V-220526" selected="true" /><select idref="V-220527" selected="true" /><select idref="V-220528" selected="true" /><select idref="V-220529" selected="true" /><select idref="V-220530" selected="true" /><select idref="V-220531" selected="true" /><select idref="V-220532" selected="true" /><select idref="V-220533" selected="true" /><select idref="V-220534" selected="true" /><select idref="V-220535" selected="true" /><select idref="V-220536" selected="true" /><select idref="V-220537" selected="true" /><select idref="V-220538" selected="true" /><select idref="V-220539" selected="true" /><select idref="V-220540" selected="true" /><select idref="V-220541" selected="true" /><select idref="V-220542" selected="true" /><select idref="V-220543" selected="true" /><select idref="V-220544" selected="true" /><select idref="V-220545" selected="true" /><select idref="V-220546" selected="true" /><select idref="V-220547" selected="true" /><select idref="V-220548" selected="true" /><select idref="V-220549" selected="true" /><select idref="V-220550" selected="true" /><select idref="V-220551" selected="true" /><select idref="V-220552" selected="true" /><select idref="V-220553" selected="true" /><select idref="V-220554" selected="true" /><select idref="V-220555" selected="true" /><select idref="V-220556" selected="true" /><select idref="V-220557" selected="true" /><select idref="V-220558" selected="true" /><select idref="V-220559" selected="true" /><select idref="V-220560" selected="true" /><select idref="V-220561" selected="true" /><select idref="V-220563" selected="true" /><select idref="V-220564" selected="true" /><select idref="V-220565" selected="true" /><select idref="V-220566" selected="true" /><select idref="V-220567" selected="true" /><select idref="V-220568" selected="true" /><select idref="V-220569" selected="true" /></Profile><Profile id="MAC-3_Sensitive"><title>III - Administrative Sensitive</title><description>&lt;ProfileDescription&gt;&lt;/ProfileDescription&gt;</description><select idref="V-220518" selected="true" /><select idref="V-220519" selected="true" /><select idref="V-220520" selected="true" /><select idref="V-220521" selected="true" /><select idref="V-220522" selected="true" /><select idref="V-220523" selected="true" /><select idref="V-220524" selected="true" /><select idref="V-220525" selected="true" /><select idref="V-220526" selected="true" /><select idref="V-220527" selected="true" /><select idref="V-220528" selected="true" /><select idref="V-220529" selected="true" /><select idref="V-220530" selected="true" /><select idref="V-220531" selected="true" /><select idref="V-220532" selected="true" /><select idref="V-220533" selected="true" /><select idref="V-220534" selected="true" /><select idref="V-220535" selected="true" /><select idref="V-220536" selected="true" /><select idref="V-220537" selected="true" /><select idref="V-220538" selected="true" /><select idref="V-220539" selected="true" /><select idref="V-220540" selected="true" /><select idref="V-220541" selected="true" /><select idref="V-220542" selected="true" /><select idref="V-220543" selected="true" /><select idref="V-220544" selected="true" /><select idref="V-220545" selected="true" /><select idref="V-220546" selected="true" /><select idref="V-220547" selected="true" /><select idref="V-220548" selected="true" /><select idref="V-220549" selected="true" /><select idref="V-220550" selected="true" /><select idref="V-220551" selected="true" /><select idref="V-220552" selected="true" /><select idref="V-220553" selected="true" /><select idref="V-220554" selected="true" /><select idref="V-220555" selected="true" /><select idref="V-220556" selected="true" /><select idref="V-220557" selected="true" /><select idref="V-220558" selected="true" /><select idref="V-220559" selected="true" /><select idref="V-220560" selected="true" /><select idref="V-220561" selected="true" /><select idref="V-220563" selected="true" /><select idref="V-220564" selected="true" /><select idref="V-220565" selected="true" /><select idref="V-220566" selected="true" /><select idref="V-220567" selected="true" /><select idref="V-220568" selected="true" /><select idref="V-220569" selected="true" /></Profile><Group id="V-220518"><title>SRG-APP-000001-NDM-000200</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220518r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000010</version><title>The Cisco switch must be configured to limit the number of concurrent management sessions to an organization-defined number.</title><description>&lt;VulnDiscussion&gt;Device management includes the ability to control the number of administrators and management sessions that manage a device. Limiting the number of allowed administrators and sessions per administrator based on account type, role, or access type is helpful in limiting risks related to DoS attacks.
+
+This requirement addresses concurrent sessions for administrative accounts and does not address concurrent sessions by a single administrator via multiple administrative accounts. The maximum number of concurrent sessions should be defined based upon mission needs and the operational environment for each system. At a minimum, limits must be set for SSH, HTTPS, account of last resort, and root account sessions.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">SV-110473</ident><ident system="http://cyber.mil/legacy">V-101369</ident><ident system="http://cyber.mil/cci">CCI-000054</ident><fixtext fixref="F-22222r508499_fix">Configure the switch to limit the number of concurrent management sessions to an organization-defined number as shown in the example below:
+
+SW4(config)#ip http max-connections 2
+SW4(config)#line vty 0 4
+SW4(config)#session-limit 2</fixtext><fix id="F-22222r508499_fix" /><check system="C-22233r508498_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Note: This requirement is not applicable to file transfer actions such as FTP, SCP, and SFTP.
+
+Review the switch configuration to determine if concurrent management sessions are limited as show in the example below:
+
+ip http secure-server
+ip http max-connections 2
+…
+…
+…
+line vty 0 4
+ session-limit 2
+ transport input ssh
+
+For those platforms that do not support the session-limit command, the sessions can also be limited by reducing the number of active vty lines as shown in the example below.
+
+line vty 0 1
+ transport input ssh
+line vty 2 4
+ transport input none
+
+
+If the switch is not configured to limit the number of concurrent management sessions, this is a finding.</check-content></check></Rule></Group><Group id="V-220519"><title>SRG-APP-000026-NDM-000208</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220519r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000090</version><title>The Cisco switch must be configured to automatically audit account creation.</title><description>&lt;VulnDiscussion&gt;Upon gaining access to a network device, an attacker will often first attempt to create a persistent method of reestablishing access. One way to accomplish this is to create a new account. Notification of account creation helps to mitigate this risk. Auditing account creation provides the necessary reconciliation that account management procedures are being followed. Without this audit trail, personnel without the proper authorization may gain access to critical network nodes.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">SV-110475</ident><ident system="http://cyber.mil/legacy">V-101371</ident><ident system="http://cyber.mil/cci">CCI-000018</ident><fixtext fixref="F-22223r508502_fix">Configure the switch to log account creation using the following commands:
+
+SW4(config)#archive
+SW4(config-archive)#log config
+SW4(config-archive-log-cfg)#logging enable
+SW4(config-archive-log-cfg)#end</fixtext><fix id="F-22223r508502_fix" /><check system="C-22234r508501_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the switch configuration to determine if it automatically audits account creation. The configuration should look similar to the example below:
+
+archive
+ log config
+ logging enable
+
+Note: Configuration changes can be viewed using the show archive log config all command.
+
+If account creation is not automatically audited, this is a finding.</check-content></check></Rule></Group><Group id="V-220520"><title>SRG-APP-000027-NDM-000209</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220520r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000100</version><title>The Cisco switch must be configured to automatically audit account modification.</title><description>&lt;VulnDiscussion&gt;Since the accounts in the network device are privileged or system-level accounts, account management is vital to the security of the network device. Account management by a designated authority ensures access to the network device is being controlled in a secure manner by granting access to only authorized personnel with the appropriate and necessary privileges. Auditing account modification along with an automatic notification to appropriate individuals will provide the necessary reconciliation that account management procedures are being followed. If modifications to management accounts are not audited, reconciliation of account management procedures cannot be tracked.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">SV-110477</ident><ident system="http://cyber.mil/legacy">V-101373</ident><ident system="http://cyber.mil/cci">CCI-001403</ident><fixtext fixref="F-22224r508505_fix">Configure the switch to log account modification using the following commands:
+
+SW4(config)#archive
+SW4(config-archive)#log config
+SW4(config-archive-log-cfg)#logging enable
+SW4(config-archive-log-cfg)#end</fixtext><fix id="F-22224r508505_fix" /><check system="C-22235r508504_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the switch configuration to determine if it automatically audits account modification. The configuration should look similar to the example below:
+
+archive
+ log config
+ logging enable
+
+Note: Configuration changes can be viewed using the show archive log config all command.
+
+If account modification is not automatically audited, this is a finding.</check-content></check></Rule></Group><Group id="V-220521"><title>SRG-APP-000028-NDM-000210</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220521r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000110</version><title>The Cisco switch must be configured to automatically audit account disabling actions.</title><description>&lt;VulnDiscussion&gt;Account management, as a whole, ensures access to the network device is being controlled in a secure manner by granting access to only authorized personnel. Auditing account disabling actions will support account management procedures. When device management accounts are disabled, user or service accessibility may be affected. Auditing also ensures authorized active accounts remain enabled and available for use when required.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">SV-110497</ident><ident system="http://cyber.mil/legacy">V-101393</ident><ident system="http://cyber.mil/cci">CCI-001404</ident><fixtext fixref="F-22225r508508_fix">Configure the switch to log account disabling using the following commands:
+
+SW4(config)#archive
+SW4(config-archive)#log config
+SW4(config-archive-log-cfg)#logging enable
+SW4(config-archive-log-cfg)#end</fixtext><fix id="F-22225r508508_fix" /><check system="C-22236r508507_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the switch configuration to determine if it automatically audits account disabling. The configuration should look similar to the example below:
+
+archive
+ log config
+ logging enable
+
+Note: Configuration changes can be viewed using the show archive log config all command.
+
+If account disabling is not automatically audited, this is a finding.</check-content></check></Rule></Group><Group id="V-220522"><title>SRG-APP-000029-NDM-000211</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220522r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000120</version><title>The Cisco switch must be configured to automatically audit account removal actions.</title><description>&lt;VulnDiscussion&gt;Account management, as a whole, ensures access to the network device is being controlled in a secure manner by granting access to only authorized personnel. Auditing account removal actions will support account management procedures. When device management accounts are terminated, user or service accessibility may be affected. Auditing also ensures authorized active accounts remain enabled and available for use when required.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101395</ident><ident system="http://cyber.mil/legacy">SV-110499</ident><ident system="http://cyber.mil/cci">CCI-001405</ident><fixtext fixref="F-22226r508511_fix">Configure the switch to log account removal using the following commands:
+
+SW4(config)#archive
+SW4(config-archive)#log config
+SW4(config-archive-log-cfg)#logging enable
+SW4(config-archive-log-cfg)#end</fixtext><fix id="F-22226r508511_fix" /><check system="C-22237r508510_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the switch configuration to determine if it automatically audits account removal. The configuration should look similar to the example below:
+
+archive
+ log config
+ logging enable
+
+Note: Configuration changes can be viewed using the show archive log config all command.
+
+If account removal is not automatically audited, this is a finding.</check-content></check></Rule></Group><Group id="V-220523"><title>SRG-APP-000038-NDM-000213</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220523r539418_rule" weight="10.0" severity="medium"><version>CISC-ND-000140</version><title>The Cisco switch must be configured to enforce approved authorizations for controlling the flow of management information within the device based on control policies.</title><description>&lt;VulnDiscussion&gt;A mechanism to detect and prevent unauthorized communication flow must be configured or provided as part of the system design. If management information flow is not enforced based on approved authorizations, the network device may become compromised. Information flow control regulates where management information is allowed to travel within a network device. The flow of all management information must be monitored and controlled so it does not introduce any unacceptable risk to the network device or data. 
+
+Application-specific examples of enforcement occur in systems that employ rule sets or establish configuration settings that restrict information system services or message-filtering capability based on message content (e.g., implementing key word searches or using document characteristics).
+
+Applications providing information flow control must be able to enforce approved authorizations for controlling the flow of management information within the system in accordance with applicable policy.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101397</ident><ident system="http://cyber.mil/legacy">SV-110501</ident><ident system="http://cyber.mil/cci">CCI-001368</ident><fixtext fixref="F-22227r539417_fix">Configure the Cisco switch to restrict management access to specific IP addresses via SSH as shown in the example below:
+
+SW2(config)#ip access-list standard MANAGEMENT_NET 
+SW2(config-std-nacl)#permit x.x.x.0 0.0.0.255 
+SW2(config-std-nacl)#exit 
+SW2(config)#line vty 0 4 
+SW2(config-line)#transport input ssh 
+SW2(config-line)#access-class MANAGEMENT_NET in 
+SW2(config-line)#end
+</fixtext><fix id="F-22227r539417_fix" /><check system="C-22238r539416_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement. Administrative access to the switch must only be allowed from hosts residing in the management network.
+
+Step 1: Verify that the line vty has an ACL inbound applied as shown in the example below:
+
+line vty 0 4
+ access-class MANAGEMENT_NET in
+ transport input ssh
+
+Step 2: Verify that the ACL permits only hosts from the management network to access the switch.
+
+ip access-list extended MANAGEMENT_NET 
+permit ip x.x.x.0 0.0.0.255 any
+deny   ip any any log-input
+
+
+If the Cisco switch is not configured to enforce approved authorizations for controlling the flow of management information within the device based on control policies, this is a finding.</check-content></check></Rule></Group><Group id="V-220524"><title>SRG-APP-000065-NDM-000214</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220524r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000150</version><title>The Cisco switch must be configured to enforce the limit of three consecutive invalid logon attempts, after which time it must lock out the user account from accessing the device for 15 minutes.</title><description>&lt;VulnDiscussion&gt;By limiting the number of failed logon attempts, the risk of unauthorized system access via user password guessing, otherwise known as brute-forcing, is reduced.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101399</ident><ident system="http://cyber.mil/legacy">SV-110503</ident><ident system="http://cyber.mil/cci">CCI-000044</ident><fixtext fixref="F-22228r508517_fix">Configure the Cisco switch to enforce the limit of three consecutive invalid logon attempts as shown in the example below:
+
+SW2(config)#login block-for 900 attempts 3 within 120</fixtext><fix id="F-22228r508517_fix" /><check system="C-22239r508516_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it enforces the limit of three consecutive invalid logon attempts as shown in the example below:
+
+login block-for 900 attempts 3 within 120
+
+Note: The configuration example above will block any login attempt for 15 minutes after three consecutive invalid logon attempts within a two-minute period.
+
+If the Cisco switch is not configured to enforce the limit of three consecutive invalid logon attempts, this is a finding.</check-content></check></Rule></Group><Group id="V-220525"><title>SRG-APP-000068-NDM-000215</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220525r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000160</version><title>The Cisco switch must be configured to display the Standard Mandatory DoD Notice and Consent Banner before granting access to the device.</title><description>&lt;VulnDiscussion&gt;Display of the DoD-approved use notification before granting access to the network device ensures privacy and security notification verbiage used is consistent with applicable federal laws, executive orders, directives, policies, regulations, standards, and guidance.
+
+System use notifications are required only for access via logon interfaces with human users.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101401</ident><ident system="http://cyber.mil/legacy">SV-110505</ident><ident system="http://cyber.mil/cci">CCI-000048</ident><fixtext fixref="F-22229r508520_fix">Configure the Cisco switch to display the Standard Mandatory DoD Notice and Consent Banner before granting access as shown in the following example:
+
+SW1(config)#banner login #
+Enter TEXT message. End with the character '#'.
+You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only.
+
+By using this IS (which includes any device attached to this IS), you consent to the following conditions:
+
+-The USG routinely intercepts and monitors communications on this IS for purposes including, but not limited to, penetration testing, COMSEC monitoring, network operations and defense, personnel misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations.
+
+-At any time, the USG may inspect and seize data stored on this IS.
+
+-Communications using, or data stored on, this IS are not private, are subject to routine monitoring, interception, and search, and may be disclosed or used for any USG-authorized purpose.
+
+-This IS includes security measures (e.g., authentication and access controls) to protect USG interests--not for your personal benefit or privacy.
+
+-Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details. #
+SW1(config)#end</fixtext><fix id="F-22229r508520_fix" /><check system="C-22240r508519_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement as shown in the example below:
+
+banner login ^C
+You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only.
+
+By using this IS (which includes any device attached to this IS), you consent to the following conditions:
+
+-The USG routinely intercepts and monitors communications on this IS for purposes including, but not limited to, penetration testing, COMSEC monitoring, network operations and defense, personnel misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations.
+
+-At any time, the USG may inspect and seize data stored on this IS.
+
+-Communications using, or data stored on, this IS are not private, are subject to routine monitoring, interception, and search, and may be disclosed or used for any USG-authorized purpose.
+
+-This IS includes security measures (e.g., authentication and access controls) to protect USG interests--not for your personal benefit or privacy.
+
+-Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details.
+^C
+
+If the Cisco switch is not configured to display the Standard Mandatory DoD Notice and Consent Banner before granting access to the device, this is a finding.</check-content></check></Rule></Group><Group id="V-220526"><title>SRG-APP-000080-NDM-000220</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220526r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000210</version><title>The Cisco switch must be configured to protect against an individual falsely denying having performed organization-defined actions to be covered by non-repudiation.</title><description>&lt;VulnDiscussion&gt;This requirement supports non-repudiation of actions taken by an administrator and is required in order to maintain the integrity of the configuration management process. All configuration changes to the network device are logged, and administrators authenticate with two-factor authentication before gaining administrative access. Together, these processes will ensure the administrators can be held accountable for the configuration changes they implement.
+
+To meet this requirement, the network device must log administrator access and activity.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101403</ident><ident system="http://cyber.mil/legacy">SV-110507</ident><ident system="http://cyber.mil/cci">CCI-000166</ident><fixtext fixref="F-22230r508523_fix">Configure the switch to log administrator activity as shown in the example below:
+
+SW1(config)#logging userinfo
+SW1(config)#archive
+SW1(config-archive)#log config
+SW1(config-archive-log-cfg)#logging enable
+SW1(config-archive-log-cfg)#end</fixtext><fix id="F-22230r508523_fix" /><check system="C-22241r508522_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement as shown in the example below:
+
+hostname R1
+!
+logging userinfo
+!
+…
+…
+…
+archive
+ log config
+ logging enable
+!
+
+Note: The logging userinfo global configuration command will generate a log when a user increases his or her privilege level.
+
+If logging of administrator activity is not configured, this is a finding.</check-content></check></Rule></Group><Group id="V-220527"><title>SRG-APP-000091-NDM-000223</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220527r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000250</version><title>The Cisco switch must be configured to generate audit records when successful/unsuccessful attempts to log on with access privileges occur.</title><description>&lt;VulnDiscussion&gt;Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one. 
+
+Audit records can be generated from various components within the information system (e.g., module or policy filter).&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101405</ident><ident system="http://cyber.mil/legacy">SV-110509</ident><ident system="http://cyber.mil/cci">CCI-000172</ident><fixtext fixref="F-22231r508526_fix">Configure the Cisco switch to log all logon attempts as shown in the example below:
+
+SW1(config)#login on-failure log
+SW1(config)#login on-success log
+SW1(config)#end</fixtext><fix id="F-22231r508526_fix" /><check system="C-22242r508525_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement. The configuration example below will log all logon attempts.
+
+login on-failure log
+login on-success log
+
+If the Cisco switch is not configured to generate audit records when successful/unsuccessful attempts to logon, this is a finding.</check-content></check></Rule></Group><Group id="V-220528"><title>SRG-APP-000096-NDM-000226</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220528r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000280</version><title>The Cisco switch must produce audit records containing information to establish when (date and time) the events occurred.</title><description>&lt;VulnDiscussion&gt;It is essential for security personnel to know what is being done, what was attempted, where it was done, when it was done, and by whom it was done in order to compile an accurate risk assessment. Logging the date and time of each detected event provides a means of investigating an attack; recognizing resource utilization or capacity thresholds; or identifying an improperly configured network device. In order to establish and correlate the series of events leading up to an outage or attack, it is imperative the date and time are recorded in all log records.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101407</ident><ident system="http://cyber.mil/legacy">SV-110511</ident><ident system="http://cyber.mil/cci">CCI-000131</ident><fixtext fixref="F-22232r508529_fix">Configure the switch to include the date and time on all log records as shown in the example below:
+
+SW1(config)#service timestamps log datetime localtime</fixtext><fix id="F-22232r508529_fix" /><check system="C-22243r508528_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Verify that the switch is configured to include the date and time on all log records as shown in the configuration example below:
+
+service timestamps log datetime localtime
+
+If time stamps is not configured, this is a finding.</check-content></check></Rule></Group><Group id="V-220529"><title>SRG-APP-000097-NDM-000227</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220529r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000290</version><title>The Cisco switch must produce audit records containing information to establish where the events occurred.</title><description>&lt;VulnDiscussion&gt;In order to compile an accurate risk assessment and provide forensic analysis, it is essential for security personnel to know where events occurred, such as device hardware components, device software modules, session identifiers, filenames, host names, and functionality.
+
+Associating information about where the event occurred within the network device provides a means of investigating an attack; recognizing resource utilization or capacity thresholds; or identifying an improperly configured device.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101409</ident><ident system="http://cyber.mil/legacy">SV-110513</ident><ident system="http://cyber.mil/cci">CCI-000132</ident><fixtext fixref="F-22233r508532_fix">Configure the log-input parameter after any deny statements to provide the location as to where packets have been dropped via an ACL.
+
+SW1(config)#ip access-list extended BLOCK_INBOUND
+SW1(config-ext-nacl)#deny icmp any any log-input</fixtext><fix id="F-22233r508532_fix" /><check system="C-22244r508531_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the deny statements in all ACLs to determine if the log-input parameter has been configured as shown in the example below:
+
+ip access-list extended BLOCK_INBOUND
+ deny icmp any any log-input
+
+If the switch is not configured with the log-input parameter after any deny statements to note where packets have been dropped via an ACL, this is a finding.</check-content></check></Rule></Group><Group id="V-220530"><title>SRG-APP-000101-NDM-000231</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220530r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000330</version><title>The Cisco switch must be configured to generate audit records containing the full-text recording of privileged commands.</title><description>&lt;VulnDiscussion&gt;Reconstruction of harmful events or forensic analysis is not possible if audit records do not contain enough information. 
+
+Organizations consider limiting the additional audit information to only that information explicitly needed for specific audit requirements. The additional information required is dependent on the type of information (i.e., sensitivity of the data and the environment within which it resides). At a minimum, the organization must audit full-text recording of privileged commands. The organization must maintain audit trails in sufficient detail to reconstruct events to determine the cause and impact of compromise.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">SV-110515</ident><ident system="http://cyber.mil/legacy">V-101411</ident><ident system="http://cyber.mil/cci">CCI-000135</ident><fixtext fixref="F-22234r508535_fix">Configure the Cisco switch to log all configuration changes as shown in the example below:
+
+SW4(config)#archive
+SW4(config-archive)#log config
+SW4(config-archive-log-cfg)#logging enable
+SW4(config-archive-log-cfg)#end</fixtext><fix id="F-22234r508535_fix" /><check system="C-22245r508534_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement. The configuration example below will log all configuration changes.
+
+archive
+ log config
+ logging enable
+
+Note: Configuration changes can be viewed using the show archive log config all command.
+
+If the Cisco switch is not configured to generate audit records of configuration changes, this is a finding.</check-content></check></Rule></Group><Group id="V-220531"><title>SRG-APP-000119-NDM-000236</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220531r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000380</version><title>The Cisco switch must be configured to protect audit information from unauthorized modification.</title><description>&lt;VulnDiscussion&gt;Audit information includes all information (e.g., audit records, audit settings, and audit reports) needed to successfully audit network device activity.
+
+If audit data were to become compromised, then forensic analysis and discovery of the true source of potentially malicious system activity is impossible to achieve. 
+
+To ensure the veracity of audit data, the network device must protect audit information from unauthorized modification. 
+
+This requirement can be achieved through multiple methods, which will depend upon system architecture and design. Some commonly employed methods include ensuring log files receive the proper file system permissions and limiting log data locations. 
+
+Network devices providing a user interface to audit data will leverage user permissions and roles identifying the user accessing the data and the corresponding rights that the user enjoys in order to make access decisions regarding the modification of audit data.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101413</ident><ident system="http://cyber.mil/legacy">SV-110517</ident><ident system="http://cyber.mil/cci">CCI-000163</ident><fixtext fixref="F-22235r508538_fix">If persistent logging is enabled, configure the switch to only allow administrators with privilege level "15" access to the file system as shown in the example below:
+
+SW4(config)#file privilege 15</fixtext><fix id="F-22235r508538_fix" /><check system="C-22246r508537_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement.
+
+Step 1: If persistent logging is enabled as shown in the example below, go to Step 2. Otherwise, this requirement is not applicable.
+
+logging persistent url disk0:/logfile size 134217728 filesize 16384
+
+Step 2: Verify that the switch is not configured with a privilege level other than "15" to allow access to the file system as shown in the example below:
+
+file privilege 10 
+
+Note: The default privilege level required for access to the file system is "15"; hence, the command file privilege "15" will not be shown in the configuration.
+
+If the switch is configured with a privilege level other than "15" to allow access to the file system, this is a finding.</check-content></check></Rule></Group><Group id="V-220532"><title>SRG-APP-000120-NDM-000237</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220532r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000390</version><title>The Cisco switch must be configured to protect audit information from unauthorized deletion.</title><description>&lt;VulnDiscussion&gt;Audit information includes all information (e.g., audit records, audit settings, and audit reports) needed to successfully audit information system activity.
+
+If audit data were to become compromised, then forensic analysis and discovery of the true source of potentially malicious system activity is impossible to achieve. 
+
+To ensure the veracity of audit data, the network device must protect audit information from unauthorized deletion. This requirement can be achieved through multiple methods, which will depend upon system architecture and design. Some commonly employed methods include: ensuring log files receive the proper file system permissions utilizing file system protections, restricting access, and backing up log data to ensure log data is retained. 
+
+Network devices providing a user interface to audit data will leverage user permissions and roles identifying the user accessing the data and the corresponding rights the user enjoys in order to make access decisions regarding the deletion of audit data.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101415</ident><ident system="http://cyber.mil/legacy">SV-110519</ident><ident system="http://cyber.mil/cci">CCI-000164</ident><fixtext fixref="F-22236r508541_fix">If persistent logging is enabled, configure the switch to only allow administrators with privilege level "15" access to the file system as shown in the example below:
+
+SW4(config)#file privilege 15</fixtext><fix id="F-22236r508541_fix" /><check system="C-22247r508540_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement.
+
+Step 1: If persistent logging is enabled as shown in the example below, go to Step 2. Otherwise, this requirement is not applicable.
+
+logging persistent url disk0:/logfile size 134217728 filesize 16384
+
+Step 2: Verify that the switch is not configured with a privilege level other than "15" to allow access to the file system as shown in the example below:
+
+file privilege 10 
+
+Note: The default privilege level required for access to the file system is "15"; hence, the command file privilege "15" will not be shown in the configuration.
+
+If the switch is configured with a privilege level other than "15" to allow access to the file system, this is a finding.</check-content></check></Rule></Group><Group id="V-220533"><title>SRG-APP-000133-NDM-000244</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220533r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000460</version><title>The Cisco switch must be configured to limit privileges to change the software resident within software libraries.</title><description>&lt;VulnDiscussion&gt;Changes to any software components of the network device can have significant effects on the overall security of the network. Therefore, only qualified and authorized individuals should be allowed administrative access to the network device for implementing any changes or upgrades. If the network device were to enable non-authorized users to make changes to software libraries, those changes could be implemented without undergoing testing, validation, and approval.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">SV-110521</ident><ident system="http://cyber.mil/legacy">V-101417</ident><ident system="http://cyber.mil/cci">CCI-001499</ident><fixtext fixref="F-22237r508544_fix">If persistent logging is enabled, configure the switch to only allow administrators with privilege level "15" access to the file system as shown in the example below:
+
+SW4(config)#file privilege 15</fixtext><fix id="F-22237r508544_fix" /><check system="C-22248r508543_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement.
+
+Step 1: If persistent logging is enabled as shown in the example below, go to Step 2. Otherwise, this requirement is not applicable.
+
+logging persistent url disk0:/logfile size 134217728 filesize 16384
+
+Step 2: Verify that the switch is not configured with a privilege level other than "15" to allow access to the file system as shown in the example below:
+
+file privilege 10 
+
+Note: The default privilege level required for access to the file system is "15"; hence, the command file privilege "15" will not be shown in the configuration.
+
+If the switch is configured with a privilege level other than "15" to allow access to the file system, this is a finding.</check-content></check></Rule></Group><Group id="V-220534"><title>SRG-APP-000142-NDM-000245</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220534r531084_rule" weight="10.0" severity="high"><version>CISC-ND-000470</version><title>The Cisco switch must be configured to prohibit the use of all unnecessary and nonsecure functions and services.</title><description>&lt;VulnDiscussion&gt;Network devices are capable of providing a wide variety of functions and services. Some of the functions and services provided by default may not be necessary to support essential organizational operations. Additionally, it is sometimes convenient to provide multiple services from a single component (e.g., email and web services); however, doing so increases risk over limiting the services provided by any one component. 
+
+To support the requirements and principles of least functionality, the network device must support the organizational requirements providing only essential capabilities and limiting the use of ports, protocols, and/or services to only those required, authorized, and approved. Some network devices have capabilities enabled by default; if these capabilities are not necessary, they must be disabled. If a particular capability is used, then it must be documented and approved.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101419</ident><ident system="http://cyber.mil/legacy">SV-110523</ident><ident system="http://cyber.mil/cci">CCI-000382</ident><fixtext fixref="F-22238r508547_fix">Disable the following services if enabled as shown in the example below:
+
+SW2(config)#no boot network
+SW2(config)#no ip boot server
+SW2(config)#no ip bootp server
+SW2(config)#no ip dns server
+SW2(config)#no ip identd
+SW2(config)#no ip finger
+SW2(config)#no ip http server
+SW2(config)#no ip rcmd rcp-enable
+SW2(config)#no ip rcmd rsh-enable
+SW2(config)#no service config
+SW2(config)#no service finger
+SW2(config)#no service tcp-small-servers
+SW2(config)#no service udp-small-servers
+SW2(config)#no service pad
+SW2(config)#end</fixtext><fix id="F-22238r508547_fix" /><check system="C-22249r508546_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Verify that the switch does not have any unnecessary or non-secure ports, protocols and services enabled. For example, the following commands should not be in the configuration:
+
+boot network
+ip boot server
+ip bootp server
+ip dns server
+ip identd
+ip finger
+ip http server
+ip rcmd rcp-enable
+ip rcmd rsh-enable
+service config
+service finger
+service tcp-small-servers
+service udp-small-servers
+
+If any unnecessary or non-secure ports, protocols, or services are enabled, this is a finding.</check-content></check></Rule></Group><Group id="V-220535"><title>SRG-APP-000148-NDM-000346</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220535r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000490</version><title>The Cisco switch must be configured with only one local account to be used as the account of last resort in the event the authentication server is unavailable.</title><description>&lt;VulnDiscussion&gt;Authentication for administrative (privileged level) access to the device is required at all times. An account can be created on the device's local database for use when the authentication server is down or connectivity between the device and the authentication server is not operable. This account is referred to as the account of last resort since it is intended to be used as a last resort and when immediate administrative access is absolutely necessary.
+
+The account of last resort logon credentials must be stored in a sealed envelope and kept in a safe. The safe must be periodically audited to verify the envelope remains sealed. The signature of the auditor and the date of the audit should be added to the envelope as a record. Administrators should secure the credentials and disable the root account (if possible) when not needed for system administration functions.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101421</ident><ident system="http://cyber.mil/legacy">SV-110525</ident><ident system="http://cyber.mil/cci">CCI-001358</ident><ident system="http://cyber.mil/cci">CCI-002111</ident><fixtext fixref="F-22239r508550_fix">Step 1: Configure a local account with the necessary privilege level to troubleshoot network outage and restore operations as shown in the following example: 
+
+SW2(config)#username xxxxxxxxxxx privilege 10 common-criteria-policy PASSWORD_POLICY password xxxxxxxxxx
+
+Step 2: Configure the authentication order to use the local account if the authentication server is not reachable as shown in the following example:
+
+SW2(config)#aaa authentication login default group tacacs+ local</fixtext><fix id="F-22239r508550_fix" /><check system="C-22250r508549_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Step 1: Review the Cisco switch configuration to verify that a local account for last resort has been configured with a privilege level that will enable the administrator to troubleshoot connectivity to the authentication server.
+
+username xxxxxxxxxxx privilege 10 common-criteria-policy PASSWORD_POLICY password xxxxxxxxxx
+
+Note: The configured Common Criteria policy must be used when creating or changing the local account password as shown in the example above.
+
+Step 2: Verify that local is defined after radius or tacacs+ in the authentication order as shown in the example below:
+
+aaa authentication login default group tacacs+ local
+
+If the Cisco switch is not configured with only one local account to be used as the account of last resort in the event the authentication server is unavailable, this is a finding.</check-content></check></Rule></Group><Group id="V-220536"><title>SRG-APP-000156-NDM-000250</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220536r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000530</version><title>The Cisco switch must be configured to implement replay-resistant authentication mechanisms for network access to privileged accounts.</title><description>&lt;VulnDiscussion&gt;A replay attack may enable an unauthorized user to gain access to the application. Authentication sessions between the authenticator and the application validating the user credentials must not be vulnerable to a replay attack.
+
+An authentication process resists replay attacks if it is impractical to achieve a successful authentication by recording and replaying a previous authentication message.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">SV-110527</ident><ident system="http://cyber.mil/legacy">V-101423</ident><ident system="http://cyber.mil/cci">CCI-001941</ident><fixtext fixref="F-22240r508553_fix">Configure SSH to use FIPS-140-2 compliant HMACs as shown in the example below:
+
+SW1(config)#ip ssh version 2
+SW1(config)#iip ssh server algorithm encryption aes256-ctr aes192-ctr aes128-ctr 
+
+Note: An SSH configuration enables a server and client to authorize the negotiation of only those algorithms that are configured from the allowed list. If a user tries to negotiate using an algorithm that is not part of the allowed list, the request is rejected and the session is not established.</fixtext><fix id="F-22240r508553_fix" /><check system="C-22251r508552_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that SSH is configured to use FIPS-140-2 compliant HMACs as shown in the example below:
+
+ip ssh version 2
+ip ssh server algorithm encryption aes256-ctr aes192-ctr aes128-ctr 
+
+Note: An SSH configuration enables a server and client to authorize the negotiation of only those algorithms that are configured from the allowed list. If a remote party tries to negotiate using an algorithm that is not part of the allowed list, the request is rejected and the session is not established. 
+
+If the switch is not configured to implement replay-resistant authentication mechanisms for network access to privileged accounts, this is a finding.</check-content></check></Rule></Group><Group id="V-220537"><title>SRG-APP-000164-NDM-000252</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220537r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000550</version><title>The Cisco switch must be configured to enforce a minimum 15-character password length.</title><description>&lt;VulnDiscussion&gt;Password complexity, or strength, is a measure of the effectiveness of a password in resisting attempts at guessing and brute-force attacks. Password length is one factor of several that helps to determine strength and how long it takes to crack a password.
+
+The shorter the password, the lower the number of possible combinations that need to be tested before the password is compromised. Use of more characters in a password helps to exponentially increase the time and/or resources required to compromise the password.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">SV-110529</ident><ident system="http://cyber.mil/legacy">V-101425</ident><ident system="http://cyber.mil/cci">CCI-000205</ident><fixtext fixref="F-22241r508556_fix">Configure the Cisco switch to enforce a minimum 15-character password length as shown in the example below:
+
+SW1(config)#aaa common-criteria policy PASSWORD_POLICY
+SW1(config-cc-policy)#min-length 15
+SW1(config-cc-policy)#exit</fixtext><fix id="F-22241r508556_fix" /><check system="C-22252r508555_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement as shown in the example below:
+
+aaa new-model
+!
+!
+aaa common-criteria policy PASSWORD_POLICY
+ min-length 15
+
+If the Cisco switch is not configured to enforce a minimum 15-character password length, this is a finding.</check-content></check></Rule></Group><Group id="V-220538"><title>SRG-APP-000166-NDM-000254</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220538r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000570</version><title>The Cisco switch must be configured to enforce password complexity by requiring that at least one upper-case character be used.</title><description>&lt;VulnDiscussion&gt;Use of a complex passwords helps to increase the time and resources required to compromise the password. Password complexity, or strength, is a measure of the effectiveness of a password in resisting attempts at guessing and brute-force attacks.
+
+Password complexity is one factor of several that determine how long it takes to crack a password. The more complex the password is, the greater the number of possible combinations that need to be tested before the password is compromised.
+
+Multifactor authentication (MFA) is required for all administrative and user accounts on network devices, except for an account of last resort and (where applicable) a root account. Passwords should only be used when MFA using PKI is not available, and for the account of last resort and root account.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">SV-110531</ident><ident system="http://cyber.mil/legacy">V-101427</ident><ident system="http://cyber.mil/cci">CCI-000192</ident><fixtext fixref="F-22242r508559_fix">Configure the Cisco switch to enforce password complexity by requiring that at least one upper-case character be used as shown in the example below:
+
+SW1(config)#aaa common-criteria policy PASSWORD_POLICY
+SW1(config-cc-policy)#upper-case 1
+SW1(config-cc-policy)#exit</fixtext><fix id="F-22242r508559_fix" /><check system="C-22253r508558_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement as shown in the example below:
+
+aaa new-model
+!
+!
+aaa common-criteria policy PASSWORD_POLICY
+ upper-case 1
+
+If the Cisco switch is not configured to enforce password complexity by requiring that at least one upper-case character be used, this is a finding.</check-content></check></Rule></Group><Group id="V-220539"><title>SRG-APP-000167-NDM-000255</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220539r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000580</version><title>The Cisco switch must be configured to enforce password complexity by requiring that at least one lower-case character be used.</title><description>&lt;VulnDiscussion&gt;Use of a complex password helps to increase the time and resources required to compromise the password. Password complexity, or strength, is a measure of the effectiveness of a password in resisting attempts at guessing and brute-force attacks.
+
+Password complexity is one factor of several that determine how long it takes to crack a password. The more complex the password, the greater the number of possible combinations that need to be tested before the password is compromised.
+
+Multifactor authentication (MFA) is required for all administrative and user accounts on network devices, except for an account of last resort and (where applicable) a root account. Passwords should only be used when MFA using PKI is not available, and for the account of last resort and root account.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">SV-110533</ident><ident system="http://cyber.mil/legacy">V-101429</ident><ident system="http://cyber.mil/cci">CCI-000193</ident><fixtext fixref="F-22243r508562_fix">Configure the Cisco switch to enforce password complexity by requiring that at least one lower-case character be used as shown in the example below:
+
+SW1(config)#aaa common-criteria policy PASSWORD_POLICY
+SW1(config-cc-policy)#lower-case 1
+SW1(config-cc-policy)#exit</fixtext><fix id="F-22243r508562_fix" /><check system="C-22254r508561_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement as shown in the example below:
+
+aaa new-model
+!
+!
+aaa common-criteria policy PASSWORD_POLICY
+lower-case 1
+
+If the Cisco switch is not configured to enforce password complexity by requiring that at least one lower-case character be used, this is a finding.</check-content></check></Rule></Group><Group id="V-220540"><title>SRG-APP-000168-NDM-000256</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220540r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000590</version><title>The Cisco switch must be configured to enforce password complexity by requiring that at least one numeric character be used.</title><description>&lt;VulnDiscussion&gt;Use of a complex password helps to increase the time and resources required to compromise the password. Password complexity, or strength, is a measure of the effectiveness of a password in resisting attempts at guessing and brute-force attacks.
+
+Password complexity is one factor of several that determine how long it takes to crack a password. The more complex the password, the greater the number of possible combinations that need to be tested before the password is compromised.
+
+Multifactor authentication (MFA) is required for all administrative and user accounts on network devices, except for an account of last resort and (where applicable) a root account. Passwords should only be used when MFA using PKI is not available, and for the account of last resort and root account.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">SV-110535</ident><ident system="http://cyber.mil/legacy">V-101431</ident><ident system="http://cyber.mil/cci">CCI-000194</ident><fixtext fixref="F-22244r508565_fix">Configure the Cisco switch to enforce password complexity by requiring that at least one numeric character be used as shown in the example below:
+
+SW1(config)#aaa common-criteria policy PASSWORD_POLICY
+SW1(config-cc-policy)#numeric-count 1
+SW1(config-cc-policy)#exit</fixtext><fix id="F-22244r508565_fix" /><check system="C-22255r508564_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement as shown in the example below:
+
+aaa new-model
+!
+!
+aaa common-criteria policy PASSWORD_POLICY
+ numeric-count 1
+
+If the Cisco switch is not configured to enforce password complexity by requiring that at least one numeric character be used, this is a finding.</check-content></check></Rule></Group><Group id="V-220541"><title>SRG-APP-000169-NDM-000257</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220541r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000600</version><title>The Cisco switch must be configured to enforce password complexity by requiring that at least one special character be used.</title><description>&lt;VulnDiscussion&gt;Use of a complex password helps to increase the time and resources required to compromise the password. Password complexity, or strength, is a measure of the effectiveness of a password in resisting attempts at guessing and brute-force attacks.
+
+Password complexity is one factor of several that determine how long it takes to crack a password. The more complex the password, the greater the number of possible combinations that need to be tested before the password is compromised.
+
+Multifactor authentication (MFA) is required for all administrative and user accounts on network devices, except for an account of last resort and (where applicable) a root account. Passwords should only be used when MFA using PKI is not available, and for the account of last resort and root account.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">SV-110537</ident><ident system="http://cyber.mil/legacy">V-101433</ident><ident system="http://cyber.mil/cci">CCI-001619</ident><fixtext fixref="F-22245r508568_fix">Configure the Cisco switch to enforce password complexity by requiring that at least one special character be used as shown in the example below:
+
+SW1(config)#aaa common-criteria policy PASSWORD_POLICY
+SW1(config-cc-policy)#special-case 1
+SW1(config-cc-policy)#exit</fixtext><fix id="F-22245r508568_fix" /><check system="C-22256r508567_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement as shown in the example below:
+
+aaa new-model
+!
+!
+aaa common-criteria policy PASSWORD_POLICY
+ special-case 1
+
+If the Cisco switch is not configured to enforce password complexity by requiring that at least one special character be used, this is a finding.</check-content></check></Rule></Group><Group id="V-220542"><title>SRG-APP-000170-NDM-000329</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220542r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000610</version><title>The Cisco switch must be configured to require that when a password is changed, the characters are changed in at least eight of the positions within the password.</title><description>&lt;VulnDiscussion&gt;If the application allows the user to consecutively reuse extensive portions of passwords, this increases the chances of password compromise by increasing the window of opportunity for attempts at guessing and brute-force attacks.
+
+The number of changed characters refers to the number of changes required with respect to the total number of positions in the current password. In other words, characters may be the same within the two passwords; however, the positions of the like characters must be different.
+
+Multifactor authentication (MFA) is required for all administrative and user accounts on network devices, except for an account of last resort and (where applicable) a root account. Passwords should only be used when MFA using PKI is not available, and for the account of last resort and root account.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">SV-110539</ident><ident system="http://cyber.mil/legacy">V-101435</ident><ident system="http://cyber.mil/cci">CCI-000195</ident><fixtext fixref="F-22246r508571_fix">Configure the Cisco switch to enforce password complexity by requiring that when a password is changed, the characters are changed in at least eight of the positions within the password as shown in the example below:
+
+SW1(config)#aaa common-criteria policy PASSWORD_POLICY
+SW1(config-cc-policy)#char-changes 8
+SW1(config-cc-policy)#exit</fixtext><fix id="F-22246r508571_fix" /><check system="C-22257r508570_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement as shown in the example below:
+
+aaa new-model
+!
+!
+aaa common-criteria policy PASSWORD_POLICY
+ char-changes 8
+
+If the Cisco switch is not configured to require that when a password is changed, the characters are changed in at least eight of the positions within the password, this is a finding.</check-content></check></Rule></Group><Group id="V-220543"><title>SRG-APP-000171-NDM-000258</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220543r531084_rule" weight="10.0" severity="high"><version>CISC-ND-000620</version><title>The Cisco switch must only store cryptographic representations of passwords.</title><description>&lt;VulnDiscussion&gt;Passwords need to be protected at all times, and encryption is the standard method for protecting passwords. If passwords are not encrypted, they can be plainly read (i.e., clear text) and easily compromised.
+
+Network devices must enforce cryptographic representations of passwords when storing passwords in databases, configuration files, and log files. Passwords must be protected at all times; using a strong one-way hashing encryption algorithm with a salt is the standard method for providing a means to validate a password without having to store the actual password.
+
+Performance and time required to access are factors that must be considered, and the one way hash is the most feasible means of securing the password and providing an acceptable measure of password security. If passwords are stored in clear text, they can be plainly read and easily compromised.
+
+In many instances, verifying the user knows a password is performed using a password verifier. In its simplest form, a password verifier is a computational function that is capable of creating a hash of a password and determining if the value provided by the user matches the stored hash.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101437</ident><ident system="http://cyber.mil/legacy">SV-110541</ident><ident system="http://cyber.mil/cci">CCI-000196</ident><fixtext fixref="F-22247r508574_fix">Configure the switch to encrypt all passwords:
+
+SW4(config)#service password-encryption 
+SW4(config)#enable secret xxxxxxxxxxxx
+SW4(config)#end</fixtext><fix id="F-22247r508574_fix" /><check system="C-22258r508573_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the switch configuration to determine if passwords are encrypted as shown in the example below:
+
+service password-encryption
+…
+…
+…
+Enable secret 5 xxxxxxxxxxxxxxxxxxxxxxxxxx
+
+If the switch is not configured to encrypt passwords, this is a finding.</check-content></check></Rule></Group><Group id="V-220544"><title>SRG-APP-000190-NDM-000267</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220544r531084_rule" weight="10.0" severity="high"><version>CISC-ND-000720</version><title>The Cisco switch must be configured to terminate all network connections associated with device management after 10 minutes of inactivity.</title><description>&lt;VulnDiscussion&gt;Terminating an idle session within a short time period reduces the window of opportunity for unauthorized personnel to take control of a management session enabled on the console or console port that has been left unattended. In addition, quickly terminating an idle session will also free up resources committed by the managed network element. 
+
+Terminating network connections associated with communications sessions includes, for example, de-allocating associated TCP/IP address/port pairs at the operating system level, or de-allocating networking assignments at the application level if multiple application sessions are using a single, operating system-level network connection. This does not mean that the device terminates all sessions or network access; it only ends the inactive session and releases the resources associated with that session.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101439</ident><ident system="http://cyber.mil/legacy">SV-110543</ident><ident system="http://cyber.mil/cci">CCI-001133</ident><fixtext fixref="F-22248r508577_fix">Set the idle timeout value to "10" minutes or less on all configured login classes as shown in the example below:
+
+SW1(config)#line vty 0 4
+SW1(config-line)#exec-timeout 10 0
+SW1(config-line)#exit
+SW1(config)#line con 0
+SW1(config-line)#exec-timeout 10 0
+SW1(config-line)#exit
+SW2(config)#ip http timeout-policy idle 600 life nnnn requests nn</fixtext><fix id="F-22248r508577_fix" /><check system="C-22259r508576_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that all network connections associated with a device management have an idle timeout value set to 10 minutes or less as shown in the following example:
+
+ip http secure-server
+ip http timeout-policy idle 600 life nnnn requests nn
+…
+…
+…
+line con 0
+ exec-timeout 10 0
+line vty 0 4
+ exec-timeout 10 0
+
+If the Cisco switch is not configured to terminate all network connections associated with a device management after "10" minutes of inactivity, this is a finding.</check-content></check></Rule></Group><Group id="V-220545"><title>SRG-APP-000319-NDM-000283</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220545r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000880</version><title>The Cisco switch must be configured to automatically audit account enabling actions.</title><description>&lt;VulnDiscussion&gt;Once an attacker establishes initial access to a system, the attacker often attempts to create a persistent method of reestablishing access. One way to accomplish this is for the attacker to simply enable a new or disabled account. Notification of account enabling is one method for mitigating this risk. A comprehensive account management process will ensure an audit trail which documents the creation of application user accounts and notifies administrators and Information System Security Officers (ISSO). Such a process greatly reduces the risk that accounts will be surreptitiously created and provides logging that can be used for forensic purposes.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101441</ident><ident system="http://cyber.mil/legacy">SV-110545</ident><ident system="http://cyber.mil/cci">CCI-002130</ident><fixtext fixref="F-22249r508580_fix">Configure the switch to log account enabling using the following commands:
+
+SW4(config)#archive
+SW4(config-archive)#log config
+SW4(config-archive-log-cfg)#logging enable
+SW4(config-archive-log-cfg)#end</fixtext><fix id="F-22249r508580_fix" /><check system="C-22260r508579_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the switch configuration to determine if it automatically audits account enabling. The configuration should look similar to the example below:
+
+archive
+ log config
+ logging enable
+
+Note: Configuration changes can be viewed using the show archive log config all command.
+
+If account enabling is not automatically audited, this is a finding.</check-content></check></Rule></Group><Group id="V-220546"><title>SRG-APP-000343-NDM-000289</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220546r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000940</version><title>The Cisco switch must be configured to audit the execution of privileged functions.</title><description>&lt;VulnDiscussion&gt;Misuse of privileged functions, either intentionally or unintentionally by authorized users, or by unauthorized external entities that have compromised information system accounts, is a serious and ongoing concern and can have significant adverse impacts on organizations. Auditing the use of privileged functions is one way to detect such misuse and identify the risk from insider threats and the advanced persistent threat.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101443</ident><ident system="http://cyber.mil/legacy">SV-110547</ident><ident system="http://cyber.mil/cci">CCI-002234</ident><fixtext fixref="F-22250r508583_fix">Configure the Cisco switch to log all commands entered from the command line interface as well as log all configuration changes as shown in the following example:
+
+SW1(config)#logging userinfo
+SW1(config)#archive
+SW1(config-archive)#log config
+SW1(config-archive-log-cfg)#logging enable
+SW1(config-archive-log-cfg)#end</fixtext><fix id="F-22250r508583_fix" /><check system="C-22261r508582_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement. The configuration example below will log all commands entered from the command line interface as well as log all configuration changes.
+
+hostname R1
+!
+logging userinfo
+!
+…
+…
+…
+archive
+ log config
+ logging enable
+!
+
+Note: The logging userinfo global configuration command will generate a log when a user increases his or her privilege level.
+
+If the Cisco switch is not configured to log all commands entered from the command line interface as well as log all configuration changes, this is a finding.</check-content></check></Rule></Group><Group id="V-220547"><title>SRG-APP-000357-NDM-000293</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220547r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-000980</version><title>The Cisco switch must be configured to allocate audit record storage capacity in accordance with organization-defined audit record storage requirements.</title><description>&lt;VulnDiscussion&gt;In order to ensure network devices have a sufficient storage capacity in which to write the audit logs, they need to be able to allocate audit record storage capacity. The task of allocating audit record storage capacity is usually performed during initial device setup if it is modifiable. 
+
+The value for the organization-defined audit record storage requirement will depend on the amount of storage available on the network device, the anticipated volume of logs, the frequency of transfer from the network device to centralized log servers, and other factors.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101445</ident><ident system="http://cyber.mil/legacy">SV-110549</ident><ident system="http://cyber.mil/cci">CCI-001849</ident><fixtext fixref="F-22251r508586_fix">Configure the buffer size for logging as shown in the example below:
+
+SW2(config)#logging buffered xxxxxxxx informational</fixtext><fix id="F-22251r508586_fix" /><check system="C-22262r508585_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Verify that the Cisco switch is configured with a logging buffer size. The configuration should look like the example below:
+
+logging buffered xxxxxxxx informational
+
+If a logging buffer size is not configured, this is a finding.
+
+If the Cisco switch is not configured to allocate audit record storage capacity in accordance with organization-defined audit record storage requirements, this is a finding.</check-content></check></Rule></Group><Group id="V-220548"><title>SRG-APP-000360-NDM-000295</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220548r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-001000</version><title>The Cisco switch must be configured to generate an alert for all audit failure events.</title><description>&lt;VulnDiscussion&gt;It is critical for the appropriate personnel to be aware if a system is at risk of failing to process audit logs as required. Without a real-time alert, security personnel may be unaware of an impending failure of the audit capability and system operation may be adversely affected. 
+
+Alerts provide organizations with urgent messages. Real-time alerts provide these messages immediately (i.e., the time from event detection to alert occurs in seconds or less).&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101447</ident><ident system="http://cyber.mil/legacy">SV-110551</ident><ident system="http://cyber.mil/cci">CCI-001858</ident><fixtext fixref="F-22252r508589_fix">Configure the Cisco switch to send critical to emergency log messages to the syslog server as shown in the example below:
+
+4(config)#logging host x.x.x.x
+SW4(config)#logging trap critical
+
+Note: The parameter "critical" can replaced with a lesser severity level (i.e., error, warning, notice, informational).</fixtext><fix id="F-22252r508589_fix" /><check system="C-22263r508588_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement as shown in the example below:
+
+logging trap critical
+logging x.x.x.x
+
+Note: The parameter "critical" can replaced with a lesser severity level (i.e. error, warning, notice, informational). Informational is the default severity level; hence, if the severity level is configured to informational, the logging trap command will not be shown in the configuration.
+
+If the Cisco switch is not configured to generate an alert for all audit failure events, this is a finding.</check-content></check></Rule></Group><Group id="V-220549"><title>SRG-APP-000373-NDM-000298</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220549r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-001030</version><title>The Cisco switch must be configured to synchronize its clock with the primary and secondary time sources using redundant authoritative time sources.</title><description>&lt;VulnDiscussion&gt;The loss of connectivity to a particular authoritative time source will result in the loss of time synchronization (free-run mode) and increasingly inaccurate time stamps on audit events and other functions. 
+
+Multiple time sources provide redundancy by including a secondary source. Time synchronization is usually a hierarchy; clients synchronize time to a local source while that source synchronizes its time to a more accurate source. The network device must utilize an authoritative time server and/or be configured to use redundant authoritative time sources. This requirement is related to the comparison done in CCI-001891.
+
+DoD-approved solutions consist of a combination of a primary and secondary time source using a combination or multiple instances of the following: a time server designated for the appropriate DoD network (NIPRNet/SIPRNet); United States Naval Observatory (USNO) time servers; and/or the Global Positioning System (GPS). The secondary time source must be located in a different geographic region than the primary time source.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101449</ident><ident system="http://cyber.mil/legacy">SV-110553</ident><ident system="http://cyber.mil/cci">CCI-001893</ident><ident system="http://cyber.mil/cci">CCI-000366</ident><fixtext fixref="F-22253r508592_fix">Configure the Cisco switch to synchronize its clock with redundant authoritative time sources as shown in the example below:
+
+SW2(config)#ntp server x.x.x.x
+SW2(config)#ntp server y.y.y.y</fixtext><fix id="F-22253r508592_fix" /><check system="C-22264r508591_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement as shown in the configuration example below:
+
+ntp server x.x.x.x
+ntp server y.y.y.y
+
+If the Cisco switch is not configured to synchronize its clock with redundant authoritative time sources, this is a finding.</check-content></check></Rule></Group><Group id="V-220550"><title>SRG-APP-000375-NDM-000300</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220550r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-001040</version><title>The Cisco switch must record time stamps for audit records that meet a granularity of one second for a minimum degree of precision.</title><description>&lt;VulnDiscussion&gt;Without sufficient granularity of time stamps, it is not possible to adequately determine the chronological order of records. Time stamps generated by the application include date and time. Granularity of time measurements refers to the degree of synchronization between information system clocks and reference clocks.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101451</ident><ident system="http://cyber.mil/legacy">SV-110555</ident><ident system="http://cyber.mil/cci">CCI-001889</ident><fixtext fixref="F-22254r508595_fix">Configure the Cisco switch to record time stamps that meet a granularity of one second as shown in the example below:
+
+SW2(config)#service timestamps log datetime localtime</fixtext><fix id="F-22254r508595_fix" /><check system="C-22265r508594_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement as shown in the example below:
+
+service timestamps log datetime 
+
+If the switch is not configured to record time stamps that meet a granularity of one second, this is a finding.</check-content></check></Rule></Group><Group id="V-220551"><title>SRG-APP-000374-NDM-000299</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220551r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-001050</version><title>The Cisco switch must be configured to record time stamps for log records that can be mapped to Coordinated Universal Time (UTC) or Greenwich Mean Time (GMT).</title><description>&lt;VulnDiscussion&gt;If time stamps are not consistently applied and there is no common time reference, it is difficult to perform forensic analysis.
+
+Time stamps generated by the application include date and time. Time is commonly expressed in Coordinated Universal Time (UTC), a modern continuation of Greenwich Mean Time (GMT), or local time with an offset from UTC.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101453</ident><ident system="http://cyber.mil/legacy">SV-110557</ident><ident system="http://cyber.mil/cci">CCI-001890</ident><fixtext fixref="F-22255r508598_fix">Configure the Cisco switch to record time stamps for audit records that can be mapped to UTC or GMT as shown in the example below:
+
+SW2(config)#clock timezone EST -5
+SW2(config)#service timestamps log datetime localtime</fixtext><fix id="F-22255r508598_fix" /><check system="C-22266r508597_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement as shown in the example below:
+
+service timestamps log datetime localtime
+!
+hostname R2
+…
+…
+…
+clock timezone EST -5
+
+Note: UTC is the default; hence, the command set time-zone may not be seen in the configuration. This can be verified using the show system uptime command.
+
+If the switch is not configured to record time stamps for audit records that can be mapped to UTC GMT, this is a finding.</check-content></check></Rule></Group><Group id="V-220552"><title>SRG-APP-000395-NDM-000310</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220552r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-001130</version><title>The Cisco switch must be configured to authenticate SNMP messages using a FIPS-validated Keyed-Hash Message Authentication Code (HMAC).</title><description>&lt;VulnDiscussion&gt;Without authenticating devices, unidentified or unknown devices may be introduced, thereby facilitating malicious activity. Bidirectional authentication provides stronger safeguards to validate the identity of other devices for connections that are of greater risk.
+
+A local connection is any connection with a device communicating without the use of a network. A network connection is any connection with a device that communicates through a network (e.g., local area or wide area network, Internet). A remote connection is any connection with a device communicating through an external network (e.g., the Internet).
+
+Because of the challenges of applying this requirement on a large scale, organizations are encouraged to only apply the requirement to those limited number (and type) of devices that truly need to support this capability.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101455</ident><ident system="http://cyber.mil/legacy">SV-110559</ident><ident system="http://cyber.mil/cci">CCI-001967</ident><fixtext fixref="F-22256r508601_fix">Configure the Cisco switch to authenticate SNMP messages as shown in the example below:
+
+SW4(config)#snmp-server group V3GROUP v3 auth read V3READ write V3WRITE
+SW4(config)#snmp-server user V3USER V3GROUP v3 auth sha xxxxxxx
+SW4(config)#snmp-server view V3READ iso included
+SW4(config)#snmp-server view V3WRITE iso included
+SW4(config)#snmp-server host x.x.x.x version 3 auth V3USER</fixtext><fix id="F-22256r508601_fix" /><check system="C-22267r508600_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement as shown in the example below:
+
+snmp-server group V3GROUP v3 auth read V3READ write V3WRITE 
+snmp-server view V3READ iso included
+snmp-server view V3WRITE iso included
+snmp-server host x.x.x.x version 3 auth V3USER
+
+Authentication used by the SNMP users can be viewed via the show snmp user command as shown in the example below:
+
+R4#show snmp user
+
+User name: V3USER
+Engine ID: 800000090300C2042B540000
+storage-type: nonvolatile active
+Authentication Protocol: SHA
+Privacy Protocol: None
+Group-name: V3GROUP
+
+If the Cisco switch is not configured to authenticate SNMP messages using a FIPS-validated HMAC, this is a finding.</check-content></check></Rule></Group><Group id="V-220553"><title>SRG-APP-000395-NDM-000310</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220553r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-001140</version><title>The Cisco switch must be configured to encrypt SNMP messages using a FIPS 140-2 approved algorithm.</title><description>&lt;VulnDiscussion&gt;Without the strong encryption that is provided by the SNMP Version 3 User-based Security Model (USM), an unauthorized user can gain access to network management information that can be used to create a network outage.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101457</ident><ident system="http://cyber.mil/legacy">SV-110561</ident><ident system="http://cyber.mil/cci">CCI-000068</ident><fixtext fixref="F-22257r508604_fix">Configure the Cisco switch to encrypt SNMP messages using a FIPS 140-2 approved algorithm as shown in the example below:
+
+SW4(config)#snmp-server group V3GROUP v3 priv read V3READ write V3WRITE
+SW4(config)#snmp-server user V3USER V3GROUP v3 auth sha xxxxxx priv aes 256 xxxxxx</fixtext><fix id="F-22257r508604_fix" /><check system="C-22268r508603_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement as shown in the example below:
+
+snmp-server group V3GROUP v3 priv read V3READ write V3WRITE
+snmp-server view V3READ iso included
+snmp-server view V3WRITE iso included
+snmp-server host x.x.x.x version 3 auth V3USER
+
+Encryption used by the SNMP users can be viewed via the show snmp user command as shown in the example below:
+
+R4#show snmp user
+
+User name: V3USER
+Engine ID: 800000090300C2042B540000
+storage-type: nonvolatile active
+Authentication Protocol: SHA
+Privacy Protocol: AES256
+Group-name: V3GROUP
+
+If the Cisco switch is not configured to encrypt SNMP messages using a FIPS 140-2 approved algorithm, this is a finding.</check-content></check></Rule></Group><Group id="V-220554"><title>SRG-APP-000395-NDM-000347</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220554r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-001150</version><title>The Cisco switch must be configured to authenticate Network Time Protocol (NTP) sources using authentication that is cryptographically based.</title><description>&lt;VulnDiscussion&gt;If Network Time Protocol is not authenticated, an attacker can introduce a rogue NTP server. This rogue server can then be used to send incorrect time information to network devices, which will make log timestamps inaccurate and affect scheduled actions. NTP authentication is used to prevent this tampering by authenticating the time source.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">SV-110563</ident><ident system="http://cyber.mil/legacy">V-101459</ident><ident system="http://cyber.mil/cci">CCI-001967</ident><fixtext fixref="F-22258r508607_fix">Configure the Cisco switch to authenticate NTP sources using authentication that is cryptographically based as shown in the example below:
+
+SW2(config)#ntp authenticate
+SW2(config)#ntp authentication-key 1 md5 xxxxxx
+SW2(config)#ntp trusted-key 1
+SW2(config)#ntp server x.x.x.x key 1
+SW2(config)#ntp server y.y.y.y key 1</fixtext><fix id="F-22258r508607_fix" /><check system="C-22269r508606_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement as shown in the configuration example below:
+
+ntp authentication-key 1 md5 121B0A151012 7
+ntp authenticate
+ntp trusted-key 1
+ntp server x.x.x.x key 1
+ntp server y.y.y.y key 1
+
+If the Cisco switch is not configured to authenticate NTP sources using authentication that is cryptographically based, this is a finding.</check-content></check></Rule></Group><Group id="V-220555"><title>SRG-APP-000411-NDM-000330</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220555r531084_rule" weight="10.0" severity="high"><version>CISC-ND-001200</version><title>The Cisco switch must be configured to use FIPS-validated Keyed-Hash Message Authentication Code (HMAC) to protect the integrity of remote maintenance sessions.</title><description>&lt;VulnDiscussion&gt;Unapproved mechanisms that are used for authentication to the cryptographic module are not verified and therefore cannot be relied upon to provide confidentiality or integrity, and DoD data may be compromised.
+
+Nonlocal maintenance and diagnostic activities are those activities conducted by individuals communicating through a network, either an external network (e.g., the Internet) or an internal network. 
+
+Currently, HMAC is the only FIPS-approved algorithm for generating and verifying message/data authentication codes in accordance with FIPS 198-1. Products that are FIPS 140-2 validated will have an HMAC that meets specification; however, the option must be configured for use as the only message authentication code used for authentication to cryptographic modules.
+
+Separate requirements for configuring applications and protocols used by each application (e.g., SNMPv3, SSHv2, NTP, HTTPS, and other protocols and applications that require server/client authentication) are required to implement this requirement. Where SSH is used, the SSHv2 protocol suite is required because it includes Layer 7 protocols such as SCP and SFTP, which can be used for secure file transfers.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101461</ident><ident system="http://cyber.mil/legacy">SV-110565</ident><ident system="http://cyber.mil/cci">CCI-002890</ident><fixtext fixref="F-22259r508610_fix">Configure SSH to use FIPS-validated HMAC for remote maintenance sessions as shown in the following example:
+
+SW1(config)#ip ssh version 2
+SW1(config)#iip ssh server algorithm mac hmac-sha2-512 hmac-sha2-256</fixtext><fix id="F-22259r508610_fix" /><check system="C-22270r508609_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement as shown in the example below:
+
+ip ssh version 2
+ip ssh server algorithm mac hmac-sha2-512 hmac-sha2-256
+
+If the Cisco switch is not configured to use FIPS-validated HMAC to protect the integrity of remote maintenance sessions, this is a finding.</check-content></check></Rule></Group><Group id="V-220556"><title>SRG-APP-000412-NDM-000331</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220556r531084_rule" weight="10.0" severity="high"><version>CISC-ND-001210</version><title>The Cisco switch must be configured to implement cryptographic mechanisms to protect the confidentiality of remote maintenance sessions.</title><description>&lt;VulnDiscussion&gt;This requires the use of secure protocols instead of their unsecured counterparts, such as SSH instead of telnet, SCP instead of FTP, and HTTPS instead of HTTP. If unsecured protocols (lacking cryptographic mechanisms) are used for sessions, the contents of those sessions will be susceptible to eavesdropping, potentially putting sensitive data (including administrator passwords) at risk of compromise and potentially allowing hijacking of maintenance sessions.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101463</ident><ident system="http://cyber.mil/legacy">SV-110567</ident><ident system="http://cyber.mil/cci">CCI-003123</ident><fixtext fixref="F-22260r508613_fix">Configure the Cisco switch to implement cryptographic mechanisms to protect the confidentiality of remote maintenance sessions using a FIPS 140-2 approved algorithm as shown in the example below:
+
+SW1(config)#iip ssh server algorithm encryption aes256-ctr aes192-ctr aes128-ctr</fixtext><fix id="F-22260r508613_fix" /><check system="C-22271r508612_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement.
+
+ip ssh version 2
+ip ssh server algorithm encryption aes256-ctr aes192-ctr aes128-ctr 
+
+If the switch is not configured to implement cryptographic mechanisms to protect the confidentiality of remote maintenance sessions using a FIPS 140-2 approved algorithm, this is a finding.</check-content></check></Rule></Group><Group id="V-220557"><title>SRG-APP-000435-NDM-000315</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220557r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-001220</version><title>The Cisco switch must be configured to protect against known types of denial-of-service (DoS) attacks by employing organization-defined security safeguards.</title><description>&lt;VulnDiscussion&gt;DoS is a condition when a resource is not available for legitimate users. When this occurs, the organization either cannot accomplish its mission or must operate at degraded capacity.
+
+This requirement addresses the configuration of network devices to mitigate the impact of DoS attacks that have occurred or are ongoing on device availability. For each network device, known and potential DoS attacks must be identified and solutions for each type implemented. A variety of technologies exist to limit or, in some cases, eliminate the effects of DoS attacks (e.g., limiting processes or restricting the number of sessions the device opens at one time). Employing increased capacity and bandwidth, combined with service redundancy, may reduce the susceptibility to some DoS attacks.
+
+The security safeguards cannot be defined at the DoD level because they vary according to the capabilities of the individual network devices and the security controls applied on the adjacent networks (e.g., firewalls performing packet filtering to block DoS attacks).&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">SV-110569</ident><ident system="http://cyber.mil/legacy">V-101465</ident><ident system="http://cyber.mil/cci">CCI-002385</ident><fixtext fixref="F-22261r508616_fix">Configure the Cisco switch protect against known types of DoS attacks on the route processor. Implementing a CoPP policy as shown in the example below is a best practice method.
+
+Step 1: Configure ACLs specific traffic types.
+
+SW1(config)#ip access-list extended CoPP_CRITICAL
+SW1(config-ext-nacl)#remark our control plane adjacencies are critical
+SW1(config-ext-nacl)#permit ospf host x.x.x.x any
+SW1(config-ext-nacl)#permit ospf host x.x.x.x any
+SW1(config-ext-nacl)#permit pim host x.x.x.x any
+SW1(config-ext-nacl)#permit pim host x.x.x.x any
+SW1(config-ext-nacl)#permit igmp any 224.0.0.0 15.255.255.255
+SW1(config-ext-nacl)#permit tcp host x.x.x.x eq bgp host x.x.x.x
+SW1(config-ext-nacl)#deny ip any any
+SW1(config-ext-nacl)#exit
+
+SW1(config)#ip access-list extended CoPP_IMPORTANT
+SW1(config-ext-nacl)#permit tcp host x.x.x.x eq tacacs any
+SW1(config-ext-nacl)#permit tcp x.x.x.x 0.0.0.255 any eq 22
+SW1(config-ext-nacl)#permit udp host x.x.x.x any eq snmp
+SW1(config-ext-nacl)#permit udp host x.x.x.x eq ntp any
+SW1(config-ext-nacl)#deny ip any any
+SW1(config-ext-nacl)#exit
+
+SW1(config)#ip access-list extended CoPP_NORMAL
+SW1(config-ext-nacl)#remark we will want to rate limit ICMP traffic
+SW1(config-ext-nacl)#permit icmp any any echo
+SW1(config-ext-nacl)#permit icmp any any echo-reply
+SW1(config-ext-nacl)#permit icmp any any time-exceeded
+SW1(config-ext-nacl)#permit icmp any any unreachable
+SW1(config-ext-nacl)#deny ip any any
+SW1(config-ext-nacl)#exit
+
+SW1(config)#ip access-list extended CoPP_UNDESIRABLE
+SW1(config-ext-nacl)#remark management plane traffic that should not be received
+SW1(config-ext-nacl)#permit udp any any eq ntp
+SW1(config-ext-nacl)#permit udp any any eq snmp
+SW1(config-ext-nacl)#permit tcp any any eq 22
+SW1(config-ext-nacl)#permit tcp any any eq 23
+SW1(config-ext-nacl)#remark control plane traffic not configured on switch
+SW1(config-ext-nacl)#permit eigrp any any
+SW1(config-ext-nacl)#permit udp any any eq rip
+SW1(config-ext-nacl)#deny ip any any
+SW1(config-ext-nacl)#exit
+SW1(config)#ip access-list extended CoPP_DEFAULT
+SW1(config-ext-nacl)#permit ip any any
+SW1(config-ext-nacl)#exit
+
+Step 2: Configure class maps referencing each of the ACLs.
+
+SW1(config)#class-map match-all CoPP_CRITICAL
+SW1(config-cmap)#match access-group name CoPP_CRITICAL
+SW1(config-cmap)#class-map match-any CoPP_IMPORTANT
+SW1(config-cmap)#match access-group name CoPP_IMPORTANT
+SW1(config-cmap)#match protocol arp
+SW1(config-cmap)#class-map match-all CoPP_NORMAL
+SW1(config-cmap)#match access-group name CoPP_NORMAL
+SW1(config-cmap)#class-map match-any CoPP_UNDESIRABLE
+SW1(config-cmap)#match access-group name CoPP_UNDESIRABLE
+SW1(config-cmap)#class-map match-all CoPP_DEFAULT
+SW1(config-cmap)#match access-group name CoPP_DEFAULT
+SW1(config-cmap)#exit
+
+Step 3: Configure a policy map referencing the configured class maps and apply appropriate bandwidth allowance and policing attributes.
+
+SW1(config)#policy-map CONTROL_PLANE_POLICY
+SW1(config-pmap)#class CoPP_CRITICAL
+SW1(config-pmap-c)#police 512000 8000 conform-action transmit exceed-action transmit
+SW1(config-pmap-c-police)#class CoPP_IMPORTANT
+SW1(config-pmap-c)#police 256000 4000 conform-action transmit exceed-action drop
+SW1(config-pmap-c-police)#class CoPP_NORMAL
+SW1(config-pmap-c)#police 128000 2000 conform-action transmit exceed-action drop
+SW1(config-pmap-c-police)#class CoPP_UNDESIRABLE
+SW1(config-pmap-c)#police 8000 1000 conform-action drop exceed-action drop
+SW1(config-pmap-c-police)#class CoPP_DEFAULT
+SW1(config-pmap-c)#police 64000 1000 conform-action transmit exceed-action drop
+SW1(config-pmap-c-police)#exit
+SW1(config-pmap-c)#exit
+SW1(config-pmap)#exit
+
+Step 4: Apply the policy map to the control plane.
+
+SW1(config)#control-plane
+SW1(config-cp)#service-policy input CONTROL_PLANE_POLICY
+SW1(config-cp)#end</fixtext><fix id="F-22261r508616_fix" /><check system="C-22272r508615_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement. 
+
+Step 1: Verify traffic types have been classified based on importance levels. The following is an example configuration: 
+
+class-map match-all CoPP_CRITICAL 
+match access-group name CoPP_CRITICAL 
+class-map match-any CoPP_IMPORTANT 
+match access-group name CoPP_IMPORTANT 
+match protocol arp 
+class-map match-all CoPP_NORMAL 
+match access-group name CoPP_NORMAL 
+class-map match-any CoPP_UNDESIRABLE 
+match access-group name CoPP_UNDESIRABLE 
+class-map match-all CoPP_DEFAULT 
+match access-group name CoPP_DEFAULT 
+
+Step 2: Review the ACLs referenced by the class maps to determine if the traffic is being classified appropriately. The following is an example configuration: 
+
+ip access-list extended CoPP_CRITICAL 
+remark our control plane adjacencies are critical 
+permit ospf host [OSPF neighbor A] any 
+permit ospf host [OSPF neighbor B] any 
+permit pim host [PIM neighbor A] any 
+permit pim host [PIM neighbor B] any 
+permit pim host [RP addr] any 
+permit igmp any 224.0.0.0 15.255.255.255 
+permit tcp host [BGP neighbor] eq bgp host [local BGP addr] 
+permit tcp host [BGP neighbor] host [local BGP addr] eq bgp 
+deny ip any any 
+
+ip access-list extended CoPP_IMPORTANT 
+permit tcp host [TACACS server] eq tacacs any 
+permit tcp [management subnet] 0.0.0.255 any eq 22 
+permit udp host [SNMP manager] any eq snmp 
+permit udp host [NTP server] eq ntp any 
+deny ip any any 
+
+ip access-list extended CoPP_NORMAL 
+remark we will want to rate limit ICMP traffic 
+permit icmp any any echo 
+permit icmp any any echo-reply 
+permit icmp any any time-exceeded 
+permit icmp any any unreachable 
+deny ip any any 
+
+ip access-list extended CoPP_UNDESIRABLE 
+remark other management plane traffic that should not be received 
+permit udp any any eq ntp 
+permit udp any any eq snmp
+permit tcp any any eq 22 
+permit tcp any any eq 23 
+remark other control plane traffic not configured on switch 
+permit eigrp any any 
+permit udp any any eq rip 
+deny ip any any 
+
+ip access-list extended CoPP_DEFAULT 
+permit ip any any 
+
+Note: Explicitly defining undesirable traffic with ACL entries enables the network operator to collect statistics. Excessive ARP packets can potentially monopolize Route Processor resources, starving other important processes. Currently, ARP is the only Layer 2 protocol that can be specifically classified using the match protocol command. 
+
+Step 3: Review the policy-map to determine if the traffic is being policed appropriately for each classification. The following is an example configuration: 
+
+policy-map CONTROL_PLANE_POLICY 
+class CoPP_CRITICAL 
+police 512000 8000 conform-action transmit exceed-action transmit 
+class CoPP_IMPORTANT 
+police 256000 4000 conform-action transmit exceed-action drop 
+class CoPP_NORMAL 
+police 128000 2000 conform-action transmit exceed-action drop 
+class CoPP_UNDESIRABLE 
+police 8000 1000 conform-action drop exceed-action drop 
+class CoPP_DEFAULT
+police 64000 1000 conform-action transmit exceed-action drop 
+
+Step 4: Verify that the CoPP policy is enabled. The following is an example configuration: 
+
+control-plane 
+service-policy input CONTROL_PLANE_POLICY 
+
+Note: Control Plane Protection (CPPr) can be used to filter as well as police control plane traffic destined to the RP. CPPr is very similar to CoPP and has the ability to filter and police traffic using finer granularity by dividing the aggregate control plane into three separate categories: (1) host, (2) transit, and (3) CEF-exception. Hence, a separate policy-map could be configured for each traffic category.
+
+If the Cisco switch is not configured to protect against known types of DoS attacks by employing organization-defined security safeguards, this is a finding.</check-content></check></Rule></Group><Group id="V-220558"><title>SRG-APP-000495-NDM-000318</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220558r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-001240</version><title>The Cisco switch must be configured to generate log records when administrator privileges are modified.</title><description>&lt;VulnDiscussion&gt;Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
+
+Audit records can be generated from various components within the network device (e.g., module or policy filter).&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">SV-110571</ident><ident system="http://cyber.mil/legacy">V-101467</ident><ident system="http://cyber.mil/cci">CCI-000172</ident><fixtext fixref="F-22262r508619_fix">Configure the Cisco switch to generate log records when account privileges are modified as shown in the example below:
+
+SW4(config)#logging userinfo 
+SW4(config)#archive
+SW4(config-archive)#log config
+SW4(config-archive-log-cfg)#logging enable
+SW4(config-archive-log-cfg)#end</fixtext><fix id="F-22262r508619_fix" /><check system="C-22273r508618_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement as shown in the examples below:
+
+hostname R4
+!
+!
+logging userinfo
+…
+…
+…
+archive
+ log config
+ logging enable
+
+Note: The logging userinfo command will log when the administrator increases his or her privilege level while the log config command will log all configuration changes such as changing privilege levels for certain commands.
+
+If the Cisco switch is not configured to generate log records when administrator privileges are modified, this is a finding.</check-content></check></Rule></Group><Group id="V-220559"><title>SRG-APP-000499-NDM-000319</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220559r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-001250</version><title>The Cisco switch must be configured to generate log records when administrator privileges are deleted.</title><description>&lt;VulnDiscussion&gt;Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
+
+Audit records can be generated from various components within the network device (e.g., module or policy filter).&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">SV-110573</ident><ident system="http://cyber.mil/legacy">V-101469</ident><ident system="http://cyber.mil/cci">CCI-000172</ident><fixtext fixref="F-22263r508622_fix">Configure the Cisco switch to generate log records when administrator privileges are deleted as shown in the example below:
+
+SW4(config)#archive
+SW4(config-archive)#log config
+SW4(config-archive-log-cfg)#logging enable
+SW4(config-archive-log-cfg)#end</fixtext><fix id="F-22263r508622_fix" /><check system="C-22274r508621_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement as shown in the example below:
+
+archive
+ log config
+ logging enable
+
+If the Cisco switch is not configured to generate log records when administrator privileges are deleted, this is a finding.</check-content></check></Rule></Group><Group id="V-220560"><title>SRG-APP-000503-NDM-000320</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220560r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-001260</version><title>The Cisco switch must be configured to generate audit records when successful/unsuccessful logon attempts occur.</title><description>&lt;VulnDiscussion&gt;Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
+
+Audit records can be generated from various components within the network device (e.g., module or policy filter).&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">SV-110575</ident><ident system="http://cyber.mil/legacy">V-101471</ident><ident system="http://cyber.mil/cci">CCI-000172</ident><fixtext fixref="F-22264r508625_fix">Configure the Cisco switch to generate audit records when successful/unsuccessful logon attempts occur as shown in the example below:
+
+R5(config)#login on-failure log
+R5(config)#login on-success log</fixtext><fix id="F-22264r508625_fix" /><check system="C-22275r508624_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement as shown in the examples below:
+
+login on-failure log
+login on-success log
+
+If the Cisco switch is not configured to generate audit records when successful/unsuccessful logon attempts occur, this is a finding.</check-content></check></Rule></Group><Group id="V-220561"><title>SRG-APP-000504-NDM-000321</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220561r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-001270</version><title>The Cisco switch must be configured to generate log records for privileged activities.</title><description>&lt;VulnDiscussion&gt;Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
+
+Audit records can be generated from various components within the network device (e.g., module or policy filter).&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101473</ident><ident system="http://cyber.mil/legacy">SV-110577</ident><ident system="http://cyber.mil/cci">CCI-000172</ident><fixtext fixref="F-22265r508628_fix">Configure the Cisco switch to generate log records for privileged activities as shown in the example below:
+
+SW4(config)#archive
+SW4(config-archive)#log config
+SW4(config-archive-log-cfg)#logging enable
+SW4(config-archive-log-cfg)#end</fixtext><fix id="F-22265r508628_fix" /><check system="C-22276r508627_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement as shown in the example configurations below:
+
+archive
+ log config
+ logging enable
+
+If the Cisco switch is not configured to generate log records for privileged activities, this is a finding.</check-content></check></Rule></Group><Group id="V-220563"><title>SRG-APP-000506-NDM-000323</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220563r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-001290</version><title>The Cisco switch must be configured to generate log records when concurrent logons from different workstations occur.</title><description>&lt;VulnDiscussion&gt;Without generating audit records that are specific to the security and mission needs of the organization, it would be difficult to establish, correlate, and investigate the events relating to an incident or identify those responsible for one.
+
+Audit records can be generated from various components within the network device (e.g., module or policy filter).&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">SV-110581</ident><ident system="http://cyber.mil/legacy">V-101477</ident><ident system="http://cyber.mil/cci">CCI-000172</ident><fixtext fixref="F-22267r508634_fix">Configure the Cisco switch to generate log records when concurrent logons from different workstations occur as shown in the example below:
+
+R5(config)#login on-success log</fixtext><fix id="F-22267r508634_fix" /><check system="C-22278r508633_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement as shown in the examples below:
+
+login on-success log
+
+If the Cisco switch is not configured to generate log records when concurrent logons from different workstations occur, this is a finding.</check-content></check></Rule></Group><Group id="V-220564"><title>SRG-APP-000515-NDM-000325</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220564r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-001310</version><title>The Cisco switch must be configured to off-load log records onto a different system than the system being audited.</title><description>&lt;VulnDiscussion&gt;Information stored in one location is vulnerable to accidental or incidental deletion or alteration.
+
+Off-loading is a common process in information systems with limited audit storage capacity.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101479</ident><ident system="http://cyber.mil/legacy">SV-110583</ident><ident system="http://cyber.mil/cci">CCI-001851</ident><fixtext fixref="F-22268r508637_fix">Configure the Cisco switch to send log records to a syslog server as shown in the example below:
+
+SW4(config)#logging host x.x.x.x
+SW4(config)#logging trap notifications</fixtext><fix id="F-22268r508637_fix" /><check system="C-22279r508636_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement as shown in the example below:
+
+logging trap notifications
+logging x.x.x.x
+
+Note: Default for sending log messages to the syslog server is informational (level 6); hence, the command logging trap informational will not be seen in the configuration. Level of log messages sent to the syslog server can be verified using the show logging command.
+
+If the Cisco switch is not configured to off-load log records onto a different system than the system being audited, this is a finding.</check-content></check></Rule></Group><Group id="V-220565"><title>SRG-APP-000516-NDM-000336</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220565r531084_rule" weight="10.0" severity="high"><version>CISC-ND-001370</version><title>The Cisco switch must be configured to use an authentication server for the purpose of authenticating users prior to granting administrative access.</title><description>&lt;VulnDiscussion&gt;Centralized management of user accounts and authentication increases the administrative access to the switch. This control is a particularly important protection against the insider threat. With robust centralized management, audit records for administrator account access to the organization's network devices can be more readily analyzed for trends and anomalies. The alternative method of defining administrator accounts on each device exposes the device configuration to remote access authentication attacks and system administrators with multiple authenticators for each network device.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101481</ident><ident system="http://cyber.mil/legacy">SV-110585</ident><ident system="http://cyber.mil/cci">CCI-000366</ident><ident system="http://cyber.mil/cci">CCI-000370</ident><fixtext fixref="F-22269r508640_fix">Step 1: Configure the Cisco switch to use an authentication server as shown in the following example:
+
+SW4(config)#radius host 10.1.48.2 key xxxxxx
+
+Step 2: Configure the authentication order to use the authentication server as primary source for authentication as shown in the following example:
+
+SW4(config)#aaa authentication login LOGIN_AUTHENTICATION group radius local
+
+Step 3: Configure all network connections associated with a device management to use an authentication server for the purpose of login authentication.
+
+SW4(config)#line vty 0 4
+SW4(config-line)#login authentication LOGIN_AUTHENTICATION
+SW4(config-line)#exit
+SW4(config)#line con 0
+SW4(config-line)#login authentication LOGIN_AUTHENTICATION
+SW4(config-line)#exit 
+SW4(config)#ip http authentication aaa login-authentication LOGIN_AUTHENTICATION</fixtext><fix id="F-22269r508640_fix" /><check system="C-22280r508639_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that the device is configured to use an authentication server as primary source for authentication as shown in the following example:
+
+aaa new-model
+!
+aaa authentication login LOGIN_AUTHENTICATION group radius local
+…
+…
+…
+ip http authentication aaa login-authentication LOGIN_AUTHENTICATION
+ip http secure-server
+…
+…
+…
+radius-server host x.x.x.x auth-port 1645 acct-port 1646 key xxxxxxx
+…
+…
+…
+line con 0
+ exec-timeout 10 0
+ login authentication LOGIN_AUTHENTICATION
+line vty 0 4
+ exec-timeout 10 0
+ login authentication LOGIN_AUTHENTICATION
+
+If the Cisco switch is not configured to use an authentication server for the purpose of authenticating users prior to granting administrative access, this is a finding.</check-content></check></Rule></Group><Group id="V-220566"><title>SRG-APP-000516-NDM-000340</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220566r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-001410</version><title>The Cisco switch must be configured to support organizational requirements to conduct backups of the configuration when changes occur.</title><description>&lt;VulnDiscussion&gt;System-level information includes default and customized settings and security attributes, including ACLs that relate to the network device configuration, as well as software required for the execution and operation of the device. Information system backup is a critical step in ensuring system integrity and availability. If the system fails and there is no backup of the system-level information, a denial of service condition is possible for all who utilize this critical network component.
+
+This control requires the network device to support the organizational central backup process for system-level information associated with the network device. This function may be provided by the network device itself; however, the preferred best practice is a centralized backup rather than each network device performing discrete backups.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101483</ident><ident system="http://cyber.mil/legacy">SV-110587</ident><ident system="http://cyber.mil/cci">CCI-000366</ident><ident system="http://cyber.mil/cci">CCI-000537</ident><fixtext fixref="F-22270r508643_fix">Configure the Cisco switch to send the configuration to a TFTP or FTP server when a configuration change occurs as shown in the example below:
+
+SW4(config)#event manager applet BACKUP_CONFIG
+SW4(config-applet)#event syslog pattern "%SYS-5-CONFIG_I"
+SW4(config-applet)#action 1 cli command "enable"
+SW4(config-applet)#action 2 info type switchname
+SW4(config-applet)#action 3 cli command "copy run tftp" pattern "remote host"
+SW4(config-applet)#action 4 cli command "x.x.x.x" pattern "filename"
+SW4(config-applet)#action 5 cli command "$_info_switchname-config"
+SW4(config-applet)#action 6 syslog priority informational msg "Configuration backup was executed"
+SW4(config-applet)#end</fixtext><fix id="F-22270r508643_fix" /><check system="C-22281r508642_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the Cisco switch configuration to verify that it is compliant with this requirement. The example configuration below will send the configuration to a TFTP server when a configuration change occurs.
+
+event manager applet BACKUP_CONFIG
+ event syslog pattern "%SYS-5-CONFIG_I"
+ action 1 info type switchname
+ action 2 cli command "enable"
+ action 3 cli command "copy run tftp" pattern "remote host"
+ action 4 cli command "x.x.x.x" pattern "filename"
+ action 5 cli command "$_info_switchname-config"
+ action 6 syslog priority informational msg "Configuration backup was executed"
+
+If the Cisco switch is not configured to conduct backups of the configuration when changes occur, this is a finding.</check-content></check></Rule></Group><Group id="V-220567"><title>SRG-APP-000516-NDM-000344</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220567r531084_rule" weight="10.0" severity="medium"><version>CISC-ND-001440</version><title>The Cisco switch must be configured to obtain its public key certificates from an appropriate certificate policy through an approved service provider.</title><description>&lt;VulnDiscussion&gt;For user certificates, each organization obtains certificates from an approved, shared service provider, as required by OMB policy. For federal agencies operating a legacy public key infrastructure cross-certified with the Federal Bridge Certification Authority at medium assurance or higher, this Certification Authority will suffice.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101485</ident><ident system="http://cyber.mil/legacy">SV-110589</ident><ident system="http://cyber.mil/cci">CCI-001159</ident><ident system="http://cyber.mil/cci">CCI-000366</ident><fixtext fixref="F-22271r508646_fix">Configure the switch to obtain its public key certificates from an appropriate certificate policy through an approved service provider as show in the example below:
+
+SW2(ca-trustpoint)#enrollment url http://trustpoint1.example.com</fixtext><fix id="F-22271r508646_fix" /><check system="C-22282r508645_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Review the switch configuration to determine if a CA trust point has been configured. The CA trust point will contain the URL of the CA in which the switch has enrolled with. Verify this is a DoD or DoD-approved CA. This will ensure the switch has enrolled and received a certificate from a trusted CA. The CA trust point configuration would look similar to the example below:
+
+crypto pki trustpoint CA_X
+ enrollment url http://trustpoint1.example.com
+
+Note: A remote end-point's certificate will always be validated by the switch by verifying the signature of the CA on the certificate using the CA's public key, which is contained in the switch's certificate it received at enrollment.
+
+If the Cisco switch is not configured to obtain its public key certificates from an appropriate certificate policy through an approved service provider, this is a finding.</check-content></check></Rule></Group><Group id="V-220568"><title>SRG-APP-000516-NDM-000350</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220568r531084_rule" weight="10.0" severity="high"><version>CISC-ND-001450</version><title>The Cisco switch must be configured to send log data to a central log server for the purpose of forwarding alerts to the administrators and the ISSO.</title><description>&lt;VulnDiscussion&gt;The aggregation of log data kept on a syslog server can be used to detect attacks and trigger an alert to the appropriate security personnel. The stored log data can used to detect weaknesses in security that enable the network IA team to find and address these weaknesses before breaches can occur. Reviewing these logs, whether before or after a security breach, are important in showing whether someone is an internal employee or an outside threat.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101487</ident><ident system="http://cyber.mil/legacy">SV-110591</ident><ident system="http://cyber.mil/cci">CCI-000366</ident><fixtext fixref="F-22272r508649_fix">Configure the switch to send log messages to the syslog server as shown in the example below:
+
+SW4(config)#logging host x.x.x.x
+SW4(config)#logging trap notifications</fixtext><fix id="F-22272r508649_fix" /><check system="C-22283r508648_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Verify that the switch is configured to send logs to a central log server. The configuration should look similar to the example below:
+
+logging trap notifications
+logging x.x.x.x
+
+Note: Default for sending log messages to the syslog server is informational (level 6); hence, the command logging trap informational will not be seen in the configuration. Level of log messages sent to the syslog server can be verified using the show logging command.
+
+If the switch is not configured to send log data to the syslog server, this is a finding.</check-content></check></Rule></Group><Group id="V-220569"><title>SRG-APP-000516-NDM-000351</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-220569r531084_rule" weight="10.0" severity="high"><version>CISC-ND-001470</version><title>The Cisco switch must be running an IOS release that is currently supported by Cisco Systems.</title><description>&lt;VulnDiscussion&gt;Network devices running an unsupported operating system lack current security fixes required to mitigate the risks associated with recent vulnerabilities. Running a supported release also enables operations to maintain a stable and reliable network provided by improved quality of service and security features.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Cisco IOS XE Switch NDM</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Cisco IOS XE Switch NDM</dc:subject><dc:identifier>4067</dc:identifier></reference><ident system="http://cyber.mil/legacy">V-101489</ident><ident system="http://cyber.mil/legacy">SV-110593</ident><ident system="http://cyber.mil/cci">CCI-000366</ident><ident system="http://cyber.mil/cci">CCI-002605</ident><fixtext fixref="F-22273r508652_fix">Upgrade the switch to a supported release.</fixtext><fix id="F-22273r508652_fix" /><check system="C-22284r508651_chk"><check-content-ref href="Cisco_IOS_XE_Switch_NDM_STIG.xml" name="M" /><check-content>Verify that the switch is in compliance with this requirement by having the switch administrator enter the following command: 
+
+show version
+
+Verify that the release is still supported by Cisco. All releases supported by Cisco can be found on the following URL:
+
+www.cisco.com/c/en/us/support/ios-nx-os-software
+
+If the switch is not running a supported release, this is a finding.</check-content></check></Rule></Group></Benchmark>
