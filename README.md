@@ -10,7 +10,7 @@ ___
 
 The NodeData folder stores Powershell Data files that represent the end nodes that you are targetting. Each NodeData .psd1 file should contain the following:
 
-# Active Directory Systems
+#### Active Directory Systems
 * NodeName - The Active Directory Computer Name of the target node. This is used by DSC to push the configuration MOF to that machine.
 * LocalConfigurationManager Hashtable - Define the Local Configuration Manager settings for your end node(s).
 * AppliedConfigurations Array - Define which configurations you want to apply to your end node(s).
@@ -99,7 +99,7 @@ The NodeData folder stores Powershell Data files that represent the end nodes th
 </pre>
 
 
-Non-Active Directory Systems
+#### Non-Active Directory Systems
 * NodeName - Specifies the name of the system.
 * ManualStigs Array - Specify STIGs that cannot be automated via PowerSTIG. Example: Cisco STIGs.
 * StigChecklist_Type Hashtables - Use hashtables starting with "StigChecklist_" and specify the folder name(s) containing the xccdf(s) and Manual Check files of those STIGs, and use a "Subtypes" array to specify multiple STIGs within those folders. 
