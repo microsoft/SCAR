@@ -1,16 +1,24 @@
 # STIG Compliance Automation Repository (SCAR)
+
 ___
+
 ## What is SCAR?
+
 ___
 **SCAR** is a framework for managing and deploying STIG-compliant DSC Configurations at scale within an existing Active Directory environment. SCAR scans Active Directory to identify systems and their applicable STIGs, builds PowerSTIG configurationdata for each machine, automates the generation for ATO/CCRI documentation thorugh STIG Checklists, and can also parse and report on STIG compliance via PowerBI. SCAR accelerates STIG compliance and cloud readiness through digital transformation by establishing a customizable infrastructure as code platform that organizations can build on top of as needed.
+
 ___
+
 ## Folder Structure
+
 ___
+
 ### NodeData
 
 The NodeData folder stores Powershell Data files that represent the end nodes that you are targetting. Each NodeData .psd1 file should contain the following:
 
 #### Active Directory Systems
+
 * NodeName - The Active Directory Computer Name of the target node. This is used by DSC to push the configuration MOF to that machine.
 * LocalConfigurationManager Hashtable - Define the Local Configuration Manager settings for your end node(s).
 * AppliedConfigurations Array - Define which configurations you want to apply to your end node(s).
@@ -98,18 +106,19 @@ The NodeData folder stores Powershell Data files that represent the end nodes th
     }
 </pre>
 
-
 #### Non-Active Directory Systems
+
 * NodeName - Specifies the name of the system.
 * ManualStigs Array - Specify STIGs that cannot be automated via PowerSTIG. Example: Cisco STIGs.
 * StigChecklist_Type Hashtables - Use hashtables starting with "StigChecklist_" and specify the folder name(s) containing the xccdf(s) and Manual Check files of those STIGs, and use a "Subtypes" array to specify multiple STIGs within those folders. 
 * Example:
 
 <pre>
+
     @{
         NodeName = "CiscoSwitch"
 
-        ManualStigs = 
+        ManualStigs =
         @{
 
             StigChecklist_Cisco  =
@@ -122,6 +131,7 @@ The NodeData folder stores Powershell Data files that represent the end nodes th
         }
     }
 </pre>
+
 ### Configurations
 
 Standardized configuration scripts should be located in the Configurations folder. Follow these guidlines for your configurations:
@@ -129,13 +139,11 @@ Standardized configuration scripts should be located in the Configurations folde
 * Each configuration should be named the exact same as the file name.
 * Use parameters for settings that allow for variance.
 
-### MOFs
-
-Once you run the Start-DscBuild function, the configurations for each defined node will be compiled and executed to generate MOFs for DSC settings and Meta.MOFs for LCM settings. Target this folder with Start-DSCConfiguration to push the compiled/generated configurations to every node.
-
 ### Artifacts
 
-Once you run the Start-DscBuild funtion, the configurations for each defined node will be compiled into their own individual configuration scripts which will be exported into the artifacts folder for reference.
+* DscConfigs: Running Start-DscBuild will generate a custom/compiled DSC Configuration script for each system with a nodedata file.
+* MOFs: Start-DscBuild also executes each compiled script in the DSCConfigs folder to generate a cutomized MOF for each system.
+* Stig Checklists: Get-StigChecklists will execute a compliance SCAN for every system in the nodedata folder and will generate a STIG Checklist (.ckl) file for each PowerSTIG configuration defined in the system's nodedata.
 
 ### Resources
 
@@ -143,26 +151,23 @@ The resources folder is used to store Powershell Modules, DSC Resource Modules, 
 
 Build/Release functions for DSCSM are also stored in the resources folder.
 ___
+
 ## Code of Conduct
+
 ___
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/)
 or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions
 or comments.
 ___
-## How to Contribute
-___
-We welcome all contributions to the development of DSCSM.
-There are several different ways you can help.
-You can add new configurations, add test automation, improve documentation, fix existing issues, or open new ones.
-See our [contributing guide](README.CONTRIBUTING.md) for more info on how to become a contributor.
 
-___
-## Project Contributors
-___
-* Jake Dean [@JakeDean3631](https://github.com/JakeDean3631)
-* Ken Johnson   [@kenjohnson03](https://github.com/kenjohnson03)
-* Cody Aldrich  [@coaldric](https://github.com/coaldric)
+## Trademarks
+
+This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft 
+trademarks or logos is subject to and must follow 
+[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
+Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
+Any use of third-party trademarks or logos are subject to those third-party's policies.
 
 ## Contributing
 
@@ -178,16 +183,10 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
 contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
-## Trademarks
-
-This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft 
-trademarks or logos is subject to and must follow 
-[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
-Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
-Any use of third-party trademarks or logos are subject to those third-party's policies.
-
 ## Project Contributors
+
 ___
+
 * Jake Dean [@JakeDean3631](https://github.com/JakeDean3631)
 * Ken Johnson   [@kenjohnson03](https://github.com/kenjohnson03)
 * Cody Aldrich  [@coaldric](https://github.com/coaldric)
