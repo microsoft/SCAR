@@ -2,7 +2,7 @@
 ___
 ## What is SCAR?
 ___
-**SCAR** is a framework for managing and deploying standardized DSC Configurations at scale within your environment. DSCSM allows service and infrastructure owners to focus on the data important to them by leveraging dynamic DSC configuration scripts and separating configuration scripts from configuration data. Currently, DSCSM is focused on automating the generation/application of STIG configurations and the monitoring and reporting STIG compliance, including STIG checklist generation.
+**SCAR** is a framework for managing and deploying STIG-compliant DSC Configurations at scale within an existing Active Directory environment. SCAR with scan the environment, identify applicable STIGs, build PowerSTIG configurationdata for each machine, automates the generation for ATO/CCRI documentation thorugh STIG Checklists, and is also capable of parsing/reporting STIG compliance via PowerBI. SCAR accelerates STIG compliance and cloud readiness by building a customizable infrastructure as code platform.
 ___
 ## Folder Structure
 ___
