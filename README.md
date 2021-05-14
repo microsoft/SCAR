@@ -185,3 +185,9 @@ trademarks or logos is subject to and must follow
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
 Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
 Any use of third-party trademarks or logos are subject to those third-party's policies.
+
+## Project Contributors
+___
+* Jake Dean [@JakeDean3631](https://github.com/JakeDean3631)
+* Ken Johnson   [@kenjohnson03](https://github.com/kenjohnson03)
+* Cody Aldrich  [@coaldric](https://github.com/coaldric)
