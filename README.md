@@ -5,7 +5,9 @@ ___
 ## What is SCAR?
 
 ___
-**SCAR** is a framework for managing and deploying STIG-compliant DSC Configurations at scale within an existing Active Directory environment. SCAR scans Active Directory to identify systems and their applicable STIGs, builds PowerSTIG configurationdata for each machine, automates the generation for ATO/CCRI documentation thorugh STIG Checklists, and can also parse and report on STIG compliance via PowerBI. SCAR accelerates STIG compliance and cloud readiness through digital transformation by establishing a customizable infrastructure as code platform that organizations can build on top of as needed.
+The **STIG Compliance Automation Repository** (SCAR) is a framework for managing and deploying STIG-compliant DSC Configurations at scale within an existing Active Directory environment. SCAR scans Active Directory to identify systems and their applicable STIGs, builds PowerSTIG configurationdata for each machine, automates the generation for ATO/CCRI documentation (STIG Checklists), and can also parse and report on STIG compliance via PowerBI.
+
+SCAR accelerates Azure readiness and ATO/CCRI processes through automated STIG compliance and digital transformation by establishing an infrastructure as code platform that organizations can customize build on top of to quickly establish and deploy Azure baselines.
 
 ___
 
