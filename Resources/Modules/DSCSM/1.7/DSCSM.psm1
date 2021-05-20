@@ -57,7 +57,7 @@ function Start-DscBuild
         $CleanBuild,
 
         [Parameter()]
-        [array]
+        [System.Collections.ArrayList]
         $NodeDataFiles,
 
         [Parameter()]
@@ -93,19 +93,20 @@ function Start-DscBuild
 
     # Combine PSD1 Files
     $allNodesDataFile = "$artifactPath\DscConfigs\AllNodes.psd1"
+    $NodeDataFiles = New-Object System.Collections.ArrayList
 
-    if ($null -eq $NodeDataFiles)
+    if ('' -eq $NodeDataFiles)
     {
         if ('' -eq $TargetFolder)
         {
-            [array]$NodeDataFiles = Get-ChildItem -Path "$nodeDataPath\*.psd1" -Recurse | Where-Object { ($_.Fullname -notmatch "Staging") -and ($_.Fullname -Notlike "Readme*")}
+            $null = Get-ChildItem -Path "$nodeDataPath\*.psd1" -Recurse | Where-Object { ($_.Fullname -notmatch "Staging") -and ($_.Fullname -Notlike "Readme*")} | ForEach-Object {$null = $nodedatafiles.add($_)}
             Get-CombinedConfigs -RootPath $RootPath -AllNodesDataFile $allNodesDataFile -NodeDataFiles $NodeDataFiles
             Export-DynamicConfigs -NodeDataFiles $NodeDataFiles -ArtifactPath $artifactPath -DscConfigPath $dscConfigPath
             Export-Mofs -RootPath $RootPath
         }
         else
         {
-            [array]$NodeDataFiles = Get-ChildItem -Path "$nodeDataPath\$TargetFolder\*.psd1" -Recurse | Where-Object { ($_.Fullname -notmatch "Staging") -and ($_.Fullname -Notlike "Readme*")}
+            $null = Get-ChildItem -Path "$nodeDataPath\$TargetFolder\*.psd1" -Recurse | Where-Object { ($_.Fullname -notmatch "Staging") -and ($_.Fullname -Notlike "Readme*")} | ForEach-Object {$null = $nodedatafiles.add($_)}
             Get-CombinedConfigs -RootPath $RootPath -AllNodesDataFile $allNodesDataFile -NodeDataFiles $NodeDataFiles -TargetFolder $TargetFolder
             Export-DynamicConfigs -NodeDataFiles $NodeDataFiles -ArtifactPath $artifactPath -DscConfigPath $dscConfigPath -TargetFolder $TargetFolder
             Export-Mofs -RootPath $RootPath -TargetFolder $TargetFolder
@@ -127,7 +128,7 @@ function Get-CombinedConfigs
     <#
 
     .SYNOPSIS
-    Generates configuration data for each node defined within a targetted folder and generates a single .psd1 for each node with
+    Generates configuration data for each node defined within a targeted folder and generates a single .psd1 for each node with
     their combined "AppliedConfigurations" and parameters to generate MOFs off of. Also generates a single configuration data file
     containing all nodes/configurations.
 
@@ -155,21 +156,22 @@ function Get-CombinedConfigs
         $TargetFolder,
 
         [Parameter()]
-        [array]
+        [System.Collections.ArrayList]
         $NodeDataFiles
 
     )
+    $allconfigfiles = New-Object System.Collections.ArrayList
 
     if ($null -eq $NodeDataFiles)
     {
         $nodeDataPath = (Resolve-Path -Path "$Rootpath\*NodeData").Path
         if ('' -ne $targetFolder)
         {
-            [array]$allConfigFiles = Get-ChildItem -Path "$NodeDataPath\*.psd1" -Recurse | Where-Object { ($_.Fullname -notmatch "Staging") -and ($_.Fullname -Notlike "Readme*") }
+            $null = Get-ChildItem -Path "$NodeDataPath\*.psd1" -Recurse | Where-Object { ($_.Fullname -notmatch "Staging") -and ($_.Fullname -Notlike "Readme*") } | ForEach-Object {$null = $allconfigfiles.add($_)}
         }
         else
         {
-            [array]$allConfigFiles = Get-ChildItem -Path "$NodeDataPath\$TargetFolder\*.psd1" -Recurse | Where-Object { ($_.Fullname -notmatch "Staging") -and ($_.Fullname -Notlike "Readme*") }
+            $null = Get-ChildItem -Path "$NodeDataPath\$TargetFolder\*.psd1" -Recurse | Where-Object { ($_.Fullname -notmatch "Staging") -and ($_.Fullname -Notlike "Readme*") } | ForEach-Object {$null = $allconfigfiles.add($_)}
         }
     }
 
@@ -179,7 +181,7 @@ function Get-CombinedConfigs
 
         if ($null -ne $data.AppliedConfigurations)
         {
-            $nodeDataFiles += $configFile
+            $null = $nodeDataFiles.add($configFile)
         }
     }
 
@@ -189,7 +191,7 @@ function Get-CombinedConfigs
     }
     else
     {
-        Write-Output "`n`tBeginning Powershell Data File build for $($NodeDataFiles.count) Targetted Machines.`n"
+        Write-Output "`n`tBeginning Powershell Data File build for $($NodeDataFiles.count) targeted Machines.`n"
         New-Item -Path $AllNodesDataFile -ItemType File -Force | Out-Null
         $string = "@{`n`tAllNodes = @(`n"
         $string | Out-File $AllNodesDataFile -Encoding utf8
@@ -236,7 +238,7 @@ function Export-DynamicConfigs
     param (
 
         [Parameter()]
-        [array]
+        [System.Collections.ArrayList]
         $NodeDataFiles,
 
         [Parameter()]
@@ -252,7 +254,7 @@ function Export-DynamicConfigs
         $DscConfigPath
     )
 
-    $jobs = @()
+    $jobs = New-Object System.Collections.ArrayList
     foreach ($NodeDataFile in $NodeDataFiles)
     {
         $machinename = $NodeDataFile.basename
@@ -298,8 +300,8 @@ function Export-DynamicConfigs
                             Throw "The configuration $appliedConfig was specified in the $($NodeDataFile.fullname) file but no configuration file with the name $appliedConfig was found in the \Configurations folder."
                         }
                     }
-
-                    $mainConfig = "Configuration MainConfig`n{`n`tNode `$AllNodes.Where{`$_.NodeName -eq `"$nodeName`"}.NodeName`n`t{"
+                    $mainConfig = New-Object System.Collections.ArrayList
+                    $null = $mainConfig.add("Configuration MainConfig`n{`n`tNode `$AllNodes.Where{`$_.NodeName -eq `"$nodeName`"}.NodeName`n`t{")
 
                     foreach ($appliedConfig in $appliedConfigs)
                     {
@@ -309,30 +311,31 @@ function Export-DynamicConfigs
                         $appliedConfigParameters    = [Regex]::Matches($syntax, "\[{1,2}\-[a-zA-Z0-9]+") |
                         Select-Object @{l = "Name"; e = { $_.Value.Substring($_.Value.IndexOf('-') + 1) } },
                         @{l = "Mandatory"; e = { if ($_.Value.IndexOf('-') -eq 1) { $true }else { $false } } }
-                        $mainConfig += "`n`t`t$appliedConfig $appliedConfig`n`t`t{`n"
+                        $null = $mainconfig.add("`n`t`t$appliedConfig $appliedConfig`n`t`t{`n")
 
                         foreach ($appliedConfigParameter in $appliedConfigParameters)
                         {
                             if ($null -ne $data.appliedconfigurations.$appliedConfig[$appliedConfigParameter.name])
                             {
-                                $mainConfig += "`t`t`t$($appliedConfigParameter.name) = `$node.appliedconfigurations.$appliedConfig[`"$($appliedConfigParameter.name)`"]`n"
+                                $null = $mainConfig.add("`t`t`t$($appliedConfigParameter.name) = `$node.appliedconfigurations.$appliedConfig[`"$($appliedConfigParameter.name)`"]`n")
                             }
                             elseif ($true -eq $appliedConfigParameter.mandatory)
                             {
-                                $errorMessage = "$nodeName configuration $appliedConfig has a mandatory parameter $($appliedConfigParameter.name) and was not specified.`n`n"
-                                $errorMessage += "$appliedConfig = @{`n"
+                                $errorMessage = New-Object System.Collections.ArrayList
+                                $null = $errorMessage.add("$nodeName configuration $appliedConfig has a mandatory parameter $($appliedConfigParameter.name) and was not specified.`n`n")
+                                $null = $errorMessage.add("$appliedConfig = @{`n")
                                 foreach ($appliedConfigParameter in $appliedConfigParameters)
                                 {
-                                    $errorMessage += "`t$($appliedconfigParameter.name) = `"VALUE`"`n"
+                                    $null = $errorMessage.add("`t$($appliedconfigParameter.name) = `"VALUE`"`n")
                                 }
-                                $errorMessage += "}"
+                                $null = $errorMessage.add("}")
                                 Throw $errorMessage
                             }
                         }
-                        $mainConfig += "`t`t}`n"
+                        $null = $mainConfig.add("`t`t}`n")
                     }
-                    $mainConfig += "`t}`n}`n"
-                    $mainConfig | Out-file $nodeConfigScript -Append -Encoding utf8
+                    $null = $mainConfig.add("`t}`n}`n")
+                    $mainConfig | Out-file $nodeConfigScript -nonewline -Append -Encoding utf8
                     #endregion Build configurations and generate MOFs
 
                     #region Generate data for meta.mof (Local Configuration Manager)
@@ -341,28 +344,29 @@ function Export-DynamicConfigs
                     {
                         Write-Output "`t`tGenerating LCM Configuration"
                         [array]$lcmParameters = "ActionAfterReboot", "AllowModuleOverWrite", "CertificateID", "ConfigurationDownloadManagers", "ConfigurationID", "ConfigurationMode", "ConfigurationModeFrequencyMins", "DebugMode", "StatusRetentionTimeInDays", "SignatureValidationPolicy", "SignatureValidations", "MaximumDownloadSizeMB", "PartialConfigurations", "RebootNodeIfNeeded", "RefreshFrequencyMins", "RefreshMode", "ReportManagers", "ResourceModuleManagers"
-                        $localConfig = "[DscLocalConfigurationManager()]`n"
-                        $localConfig += "Configuration LocalConfigurationManager`n{`n`tNode `$AllNodes.Where{`$_.NodeName -eq `"$nodeName`"}.NodeName`n`t{`n`t`tSettings {`n"
+                        $localConfig = New-Object System.Collections.ArrayList
+                        $null = $localConfig.add("[DscLocalConfigurationManager()]`n")
+                        $null = $localConfig.add("Configuration LocalConfigurationManager`n{`n`tNode `$AllNodes.Where{`$_.NodeName -eq `"$nodeName`"}.NodeName`n`t{`n`t`tSettings {`n")
 
                         foreach ($setting in $lcmConfig)
                         {
                             if ($null -ne ($lcmParameters | Where-Object { $setting -match $_ }))
                             {
-                                $localConfig += "`t`t`t$setting = `$Node.LocalconfigurationManager.$Setting`n"
+                                $null = $localConfig.add("`t`t`t$setting = `$Node.LocalconfigurationManager.$Setting`n")
                             }
                             else
                             {
                                 Write-Warning "The term `"$setting`" is not a configurable setting within the Local Configuration Manager."
                             }
                         }
-                        $localConfig += "`t`t}`n`t}`n}"
-                        $localConfig | Out-file $nodeConfigScript -Append -Encoding utf8
+                        $null = $localConfig.add("`t`t}`n`t}`n}")
+                        $localConfig | Out-file $nodeConfigScript -nonewline -Append -Encoding utf8
                     }
                     Write-Output "`n`t$nodeName configuration file successfully generated.`r`n"
                 }
             }
         }
-        $jobs += $job.Id
+        $null = $jobs.add($job.Id)
     }
     Write-Output "`n`tJob Creation complete. Waiting for $($jobs.count) Jobs to finish processing. Output from Jobs will be displayed below once complete.`n`n"
     Get-Job -ID $jobs | Wait-Job | Receive-Job
@@ -394,7 +398,7 @@ function Export-Mofs
         $TargetFolder,
 
         [Parameter()]
-        [array]
+        [System.Collections.ArrayList]
         $NodeDataFiles
 
     )
@@ -402,20 +406,22 @@ function Export-Mofs
     $mofPath            = (Resolve-Path -Path "$RootPath\*Artifacts\Mofs").Path
     $dscConfigPath      = (Resolve-Path -Path "$RootPath\*Artifacts\DscConfigs").Path
     $allNodesDataFile   = (Resolve-Path -Path "$dscConfigPath\Allnodes.psd1").path
-    $dscNodeConfigs     = @()
-    $jobs               = @()
+    $NodeDataFiles      = New-Object System.Collections.ArrayList
+    $dscNodeConfigs     = New-Object System.Collections.ArrayList
+    $jobs               = New-Object System.Collections.ArrayList
 
     if ($NodeDataFiles.count -lt 1)
     {
         if ('' -ne $TargetFolder)
         {
-            $nodeDataFiles = Get-Childitem "$RootPath\NodeData\$TargetFolder\*.psd1" -recurs
+            $null = Get-Childitem "$RootPath\NodeData\$TargetFolder\*.psd1" -Recurse | ForEach-Object {$null = $nodedatafiles.add($_)}
         }
         else
         {
-            $nodeDataFiles = Get-Childitem "$RootPath\NodeData\*.psd1" -Recurse
+            $NodeDataFiles      = New-Object System.Collections.ArrayList 
+            $null = Get-Childitem "$RootPath\NodeData\*.psd1" -Recurse | ForEach-Object {$null = $nodedatafiles.add($_)}
         }
-    }
+    } 
 
     foreach ($file in $nodeDataFiles)
     {
@@ -423,7 +429,7 @@ function Export-Mofs
         $basename = $file.basename
         if (Test-Path "$dscConfigPath\$basename.ps1")
         {
-            $dscNodeConfigs += Get-Item -path "$dscConfigPath\$basename.ps1" -erroraction SilentlyContinue
+            $null = Get-Item -path "$dscConfigPath\$basename.ps1" -erroraction SilentlyContinue | ForEach-Object {$null = $dscNodeConfigs.add($_)}
         }
         else
         {
@@ -467,7 +473,7 @@ function Export-Mofs
                     Write-Output "`t`tGenerating Meta MOF for $nodeName"
                     $null = LocalConfigurationManager -ConfigurationData $allNodesDataFile -Outputpath $mofPath -Erroraction Stop 3> $null
                 }
-                $jobs += $job.id
+                $null = $jobs.add($job.id)
             }
             catch
             {
@@ -644,24 +650,26 @@ function Set-WinRM
         $IncludeStaging,
 
         [Parameter()]
-        [array]
+        [System.Collections.ArrayList]
         $TargetMachines
 
     )
 
-    $nodeDataPath = (Resolve-Path -Path "$RootPath\NodeData").Path
-    $jobs = @()
+    $nodeDataPath   = (Resolve-Path -Path "$RootPath\NodeData").Path
+    $jobs           = new-object System.Collections.ArrayList
+  
 
     if ($null -eq $TargetMachines)
     {
-        $TargetMachines = (Get-Childitem -Path $nodeDataPath -recurse | Where-Object { $_.FullName -like "*.psd1" -and $_.fullname -notlike "*staging*" }).basename
+        $TargetMachines = new-object System.Collections.ArrayList
+        $null = (Get-Childitem -Path $nodeDataPath -recurse | Where-Object { $_.FullName -like "*.psd1" -and $_.fullname -notlike "*staging*" }).basename | ForEach-Object {$null = $targetmachines.add($_)}
     }
 
     Write-Output "`tBUILD: Performing WinRM Validation and configuration."
 
     if ($IncludeStaging)
     {
-        $TargetMachines += (Get-ChildItem -Path $nodeDataPath -recurse | Where-Object { $_.FullName -like "*.psd1" }).basename
+        $null = (Get-ChildItem -Path $nodeDataPath -recurse | Where-Object { $_.FullName -like "*.psd1" }).basename | ForEach-Object {$null = $targetmachines.add($_)}
     }
 
     foreach ($machine in $TargetMachines)
@@ -673,7 +681,6 @@ function Set-WinRM
             $machine                = $using:machine
             $RootPath               = $using:rootPath
             $MaxEnvelopeSize        = $using:MaxEnvelopeSize
-            $currentMachineCount    += 1
 
             try
             {
@@ -715,7 +722,7 @@ function Set-WinRM
                 }
             }
         }
-        [array]$jobs += $job.ID
+        $null = $jobs.add($job.ID)
     }
     Get-Job -ID $jobs | Wait-Job | Receive-Job
     Write-Output "`tBUILD: WinRM Validation Complete.`n"
@@ -1019,7 +1026,6 @@ function New-ConfigData
     $NodeDataPath       = (Resolve-Path -Path "$RootPath\*NodeData").Path
     $targetMachineOus   = New-Object System.Collections.ArrayList
     $targetMachines     = New-Object System.Collections.ArrayList
-    $jobs               = New-Object System.Collections.ArrayList
     $orgUnits           = New-Object System.Collections.ArrayList
 
         Write-Output "`tBeginning DSC Configuration Data Build - Identifying Target Systems."
@@ -1057,7 +1063,7 @@ function New-ConfigData
                 elseif ($targetMachine.distinguishedName -like "*OU=Servers*")
                 {
                     $oustring = ''
-                    ($targetMachine.DistinguishedName.split(',')[3..10] | foreach { $null = $oustring.add("$_,")})
+                    ($targetMachine.DistinguishedName.split(',')[3..10] | ForEach-Object { $null = $oustring += "$_," })
                     $null = $targetMachineOus.add($ouString.trimend(','))
                 }
                 else
@@ -1065,11 +1071,10 @@ function New-ConfigData
                     $null = $targetMachineOus.add($targetMachine.distinguishedname.Replace("CN=$($targetMachine.name),",""))
                 }
             }
-            $targetMachineOus | Get-Unique | ForEach-Object { Get-ADOrganizationalUnit -Filter {Distinguishedname -eq $_}} | ForEach-Object {$null = $orgunits.add($_)}
+            $targetMachineOus | Get-Unique | ForEach-Object {Get-ADOrganizationalUnit -Filter {DistinguishedName -eq $_}} | ForEach-Object {$null = $orgunits.add($_)}
 
             if ($Scope -eq "Full")
             {
-                #$orgUnits += "Computers"
                 $null = $orgUnits.add("Computers")
             }
         }
@@ -1083,6 +1088,7 @@ function New-ConfigData
 
     foreach ($ou in $orgUnits)
     {
+        $jobs = New-Object System.Collections.ArrayList
         if ($LocalHost)
         {
             $targetMachines = $env:ComputerName
@@ -1116,6 +1122,7 @@ function New-ConfigData
             {
                 $currentMachineCount++
                 Write-Output "`t`t`tStarting Job ($currentMachineCount/$ouMachineCount) - Generate NodeData for $machine"
+
                 $job = Start-Job -Scriptblock {
                     # Get Latest STIG files for each Stig Type
                     $rootPath           = $using:RootPath
@@ -1308,318 +1315,337 @@ function New-ConfigData
                     }
 
                     #region Generate Configuration Data
-                    if ($LocalHost)
+                    try
                     {
-                        $compName       = $env:ComputerName
-                        $configContent  = New-Object System.Collections.ArrayList
-                        $null = $configContent.add("@{`n`tNodeName = `"$compName`"`n`n")
-                    }
-                    else
-                    {
-                        $configContent  = New-Object System.Collections.ArrayList
-                        $null = $configContent.add("@{`n`tNodeName = `"$machine`"`n`n")
-                    }
-                    $null = $configContent.add("`tLocalConfigurationManager =")
-                    $null = $configContent.add("`n`t@{")
-
-                    foreach ($setting in $LcmSettings.Keys)
-                    {
-
-                        if (($Null -ne $LcmSettings.$setting) -and ("{}" -ne $lcmsettings.$setting) -and ("" -ne $LcmSettings.$setting))
+                        if ($LocalHost)
                         {
-                            $null = $null = $configContent.add("`n`t`t$($setting)")
+                            $compName       = $env:ComputerName
+                            $configContent  = New-Object System.Collections.ArrayList
+                            $null = $configContent.add("@{`n`tNodeName = `"$compName`"`n`n")
+                        }
+                        else
+                        {
+                            $configContent  = New-Object System.Collections.ArrayList
+                            $null = $configContent.add("@{`n`tNodeName = `"$machine`"`n`n")
+                        }
+                        $null = $configContent.add("`tLocalConfigurationManager =")
+                        $null = $configContent.add("`n`t@{")
 
-                            if ($setting.Length -lt 8)      {$null = $configContent.add("`t`t`t`t`t`t`t= ")}
-                            elseif ($setting.Length -lt 12) {$null = $configContent.add("`t`t`t`t`t`t= ")}
-                            elseif ($setting.Length -lt 16) {$null = $configContent.add("`t`t`t`t`t= ")}
-                            elseif ($setting.Length -lt 20) {$null = $configContent.add("`t`t`t`t= ")}
-                            elseif ($setting.Length -lt 24) {$null = $configContent.add("`t`t`t= ")}
-                            elseif ($setting.Length -lt 28) {$null = $configContent.add("`t`t= ")}
-                            elseif ($setting.Length -lt 32) {$null = $configContent.add("`t= ")}
+                        foreach ($setting in $LcmSettings.Keys)
+                        {
 
-                            if (($LcmSettings.$setting -eq $true) -or ($LcmSettings.$setting -eq $false))
+                            if (($Null -ne $LcmSettings.$setting) -and ("{}" -ne $lcmsettings.$setting) -and ("" -ne $LcmSettings.$setting))
                             {
-                                $null = $configContent.add("`$$($LcmSettings.$setting)")
-                            }
-                            else
-                            {
-                                $null = $configContent.add("`"$($LcmSettings.$setting)`"")
-                            }
-                        }
-                    }
+                                $null = $null = $configContent.add("`n`t`t$($setting)")
 
-                    #Generate STIG ConfigData
-                    $null = $configContent.add("`n`t}")
-                    $null = $configContent.add("`n`n`tAppliedConfigurations  =")
-                    $null = $configContent.add("`n`t@{")
+                                if ($setting.Length -lt 8)      {$null = $configContent.add("`t`t`t`t`t`t`t= ")}
+                                elseif ($setting.Length -lt 12) {$null = $configContent.add("`t`t`t`t`t`t= ")}
+                                elseif ($setting.Length -lt 16) {$null = $configContent.add("`t`t`t`t`t= ")}
+                                elseif ($setting.Length -lt 20) {$null = $configContent.add("`t`t`t`t= ")}
+                                elseif ($setting.Length -lt 24) {$null = $configContent.add("`t`t`t= ")}
+                                elseif ($setting.Length -lt 28) {$null = $configContent.add("`t`t= ")}
+                                elseif ($setting.Length -lt 32) {$null = $configContent.add("`t= ")}
 
-                    switch -Wildcard ($applicableSTIGs)
-                    {
-                        "WindowsServer*"
-                        {
-                            $null = $configContent.add("`n`n`t`tPowerSTIG_WindowsServer =")
-                            $null = $configContent.add("`n`t`t@{")
-                            $null = $configContent.add("`n`t`t`tOSRole               = `"$osRole`"")
-                            $null = $configContent.add("`n`t`t`tOsVersion            = `"$osVersion`"")
-                            $null = $configContent.add("`n`t`t`tOrgSettings          = `"$($osStigFiles.orgSettings)`"")
-                            $null = $configContent.add("`n`t`t`tManualChecks         = `"$($osStigFiles.manualChecks)`"")
-                            $null = $configContent.add("`n`t`t`txccdfPath            = `"$($osStigFiles.xccdfPath)`"")
-                            $null = $configContent.add("`n`t`t}")
-                        }
-                        "InternetExplorer"
-                        {
-                            $null = $configContent.add("`n`n`t`tPowerSTIG_InternetExplorer =")
-                            $null = $configContent.add("`n`t`t@{")
-                            $null = $configContent.add("`n`t`t`tBrowserVersion 		= `"11`"")
-                            $null = $configContent.add("`n`t`t`tOrgSettings			= `"$($ieStigFiles.orgSettings)`"")
-                            $null = $configContent.add("`n`t`t`txccdfPath			= `"$($ieStigFiles.xccdfPath)`"")
-                            $null = $configContent.add("`n`t`t`tSkipRule 			= `"V-46477`"")
-                            $null = $configContent.add("`n`t`t}")
-                        }
-                        "DotnetFrameWork"
-                        {
-                            $null = $configContent.add("`n`n`t`tPowerSTIG_DotNetFrameWork =")
-                            $null = $configContent.add("`n`t`t@{")
-                            $null = $configContent.add("`n`t`t`tFrameWorkVersion 	= `"4`"")
-                            $null = $configContent.add("`n`t`t`txccdfPath			= `"$($dotNetStigFiles.xccdfPath)`"")
-                            $null = $configContent.add("`n`t`t`tOrgSettings			= `"$($dotNetStigFiles.orgSettings)`"")
-                            $null = $configContent.add("`n`t`t`tManualChecks 		= `"$($dotNetStigFiles.manualChecks)`"")
-                            $null = $configContent.add("`n`t`t}")
-                        }
-                        "WindowsClient"
-                        {
-                            $null = $configContent.add("`n`n`t`tPowerSTIG_WindowsClient =")
-                            $null = $configContent.add("`n`t`t@{")
-                            $null = $configContent.add("`n`t`t`tOSVersion            = `"10`"")
-                            $null = $configContent.add("`n`t`t`tOrgSettings          = `"$($win10StigFiles.orgSettings)`"")
-                            $null = $configContent.add("`n`t`t`tManualChecks         = `"$($win10StigFiles.manualChecks)`"")
-                            $null = $configContent.add("`n`t`t`txccdfPath            = `"$($win10StigFiles.xccdfPath)`"")
-                            $null = $configContent.add("`n`t`t}")
-                        }
-                        "WindowsDefender"
-                        {
-                            $null = $configContent.add("`n`n`t`tPowerSTIG_WindowsDefender =")
-                            $null = $configContent.add("`n`t`t@{")
-                            $null = $configContent.add("`n`t`t`tOrgSettings          = `"$($winDefenderStigFiles.orgSettings)`"")
-                            $null = $configContent.add("`n`t`t`tManualChecks         = `"$($winDefenderStigFiles.manualChecks)`"")
-                            $null = $configContent.add("`n`t`t`txccdfPath            = `"$($winDefenderStigFiles.xccdfPath)`"")
-                            $null = $configContent.add("`n`t`t}")
-                        }
-                        "WindowsDnsServer"
-                        {
-                            $null = $configContent.add("`n`n`t`tPowerSTIG_WindowsDNSServer =")
-                            $null = $configContent.add("`n`t`t@{")
-                            $null = $configContent.add("`n`t`t`tOsVersion            = `"$osVersion`"")
-                            $null = $configContent.add("`n`t`t`txccdfPath            = `"$($WindowsDnsStigFiles.xccdfPath)`"")
-                            $null = $configContent.add("`n`t`t`tOrgSettings          = `"$($WindowsDnsStigFiles.orgSettings)`"")
-                            $null = $configContent.add("`n`t`t`tManualChecks         = `"$($WindowsDnsStigFiles.manualChecks)`"")
-                            $null = $configContent.add("`n`t`t}")
-                        }
-                        "Office2016*"
-                        {
-                            $null = $configContent.add("`n`n`t`tPowerSTIG_Office2016_Excel =")
-                            $null = $configContent.add("`n`t`t@{")
-                            $null = $configContent.add("`n`t`t`tOrgSettings  = `"$Excel2016OrgSettings`"")
-                            $null = $configContent.add("`n`t`t`tManualChecks = `"$Excel2016ManualChecks`"")
-                            $null = $configContent.add("`n`t`t`txccdfPath    = `"$Excel2016xccdfPath`"")
-                            $null = $configContent.add("`n`t`t}")
-                            $null = $configContent.add("`n`n`t`tPowerSTIG_Office2016_Outlook =")
-                            $null = $configContent.add("`n`t`t@{")
-                            $null = $configContent.add("`n`t`t`tOrgSettings  = `"$Outlook2016OrgSettings`"")
-                            $null = $configContent.add("`n`t`t`tManualChecks = `"$Outlook2016ManualChecks`"")
-                            $null = $configContent.add("`n`t`t`txccdfPath    = `"$Outlook2016xccdfPath`"")
-                            $null = $configContent.add("`n`t`t}")
-                            $null = $configContent.add("`n`n`t`tPowerSTIG_Office2016_PowerPoint =")
-                            $null = $configContent.add("`n`t`t@{")
-                            $null = $configContent.add("`n`t`t`tOrgSettings  = `"$PowerPoint2016OrgSettings`"")
-                            $null = $configContent.add("`n`t`t`tManualChecks = `"$PowerPoint2016ManualChecks`"")
-                            $null = $configContent.add("`n`t`t`txccdfPath    = `"$PowerPoint2016xccdfPath`"")
-                            $null = $configContent.add("`n`t`t}")
-                            $null = $configContent.add("`n`n`t`tPowerSTIG_Office2016_Word =")
-                            $null = $configContent.add("`n`t`t@{")
-                            $null = $configContent.add("`n`t`t`tOrgSettings  = `"$Word2016OrgSettings`"")
-                            $null = $configContent.add("`n`t`t`tManualChecks = `"$Word2016ManualChecks`"")
-                            $null = $configContent.add("`n`t`t`txccdfPath    = `"$Word2016xccdfPath`"")
-                            $null = $configContent.add("`n`t`t}")
-                        }
-                        "Office2013*"
-                        {
-                            $null = $configContent.add("`n`n`t`tPowerSTIG_Office2013_Excel =")
-                            $null = $configContent.add("`n`t`t@{")
-                            $null = $configContent.add("`n`t`t`tOrgSettings  = `"$Excel2013OrgSettings`"")
-                            $null = $configContent.add("`n`t`t`tManualChecks = `"$Excel2013ManualChecks`"")
-                            $null = $configContent.add("`n`t`t`txccdfPath    = `"$Excel2013xccdfPath`"")
-                            $null = $configContent.add("`n`t`t}")
-                            $null = $configContent.add("`n`n`t`tPowerSTIG_Office2013_Outlook =")
-                            $null = $configContent.add("`n`t`t@{")
-                            $null = $configContent.add("`n`t`t`tOrgSettings  = `"$Outlook2013OrgSettings`"")
-                            $null = $configContent.add("`n`t`t`tManualChecks = `"$Outlook2013ManualChecks`"")
-                            $null = $configContent.add("`n`t`t`txccdfPath    = `"$Outlook2013xccdfPath`"")
-                            $null = $configContent.add("`n`t`t}")
-                            $null = $configContent.add("`n`n`t`tPowerSTIG_Office2013_PowerPoint =")
-                            $null = $configContent.add("`n`t`t@{")
-                            $null = $configContent.add("`n`t`t`tOrgSettings  = `"$PowerPoint2013OrgSettings`"")
-                            $null = $configContent.add("`n`t`t`tManualChecks = `"$PowerPoint2013ManualChecks`"")
-                            $null = $configContent.add("`n`t`t`txccdfPath    = `"$PowerPoint2013xccdfPath`"")
-                            $null = $configContent.add("`n`t`t}")
-                            $null = $configContent.add("`n`n`t`tPowerSTIG_Office2013_Word =")
-                            $null = $configContent.add("`n`t`t@{")
-                            $null = $configContent.add("`n`t`t`tOrgSettings  = `"$Word2013OrgSettings`"")
-                            $null = $configContent.add("`n`t`t`tManualChecks = `"$Word2013ManualChecks`"")
-                            $null = $configContent.add("`n`t`t`txccdfPath    = `"$Word2013xccdfPath`"")
-                            $null = $configContent.add("`n`t`t}")
-                        }
-                        "Website*"
-                        {
-                            $websites = @(Invoke-Command -Computername $Machine -Scriptblock { Import-Module WebAdministration;Return (Get-Childitem "IIS:\Sites").name})
-                            $appPools = @(Invoke-Command -Computername $Machine -Scriptblock { Import-Module WebAdministration;Return (Get-Childitem "IIS:\AppPools").name})
-                            [string]$allWebSites = ''
-                            [string]$allAppPools = ''
-                            if ($websites.count -gt 1)
-                            {
-                                foreach ($site in $websites)
+                                if (($LcmSettings.$setting -eq $true) -or ($LcmSettings.$setting -eq $false))
                                 {
-                                    $allWebsites += "`"$site`","
+                                    $null = $configContent.add("`$$($LcmSettings.$setting)")
                                 }
-                                $websiteString = $allWebsites.TrimEnd(",")
-                            }
-                            else
-                            {
-                                $websiteString = "`"$websites`""
-                            }
-
-                            if ($appPools.count -gt 1)
-                            {
-                                foreach ($appPool in $appPools)
+                                else
                                 {
-                                    $allAppPools += "`"$appPool`","
+                                    $null = $configContent.add("`"$($LcmSettings.$setting)`"")
                                 }
-                                $appPoolString = $allAppPools.TrimEnd(",")
                             }
-                            else
+                        }
+
+                        #Generate STIG ConfigData
+                        $null = $configContent.add("`n`t}")
+                        $null = $configContent.add("`n`n`tAppliedConfigurations  =")
+                        $null = $configContent.add("`n`t@{")
+
+                        switch -Wildcard ($applicableSTIGs)
+                        {
+                            "WindowsServer*"
                             {
-                                $appPoolString = "`"$appPools`""
+                                $null = $configContent.add("`n`n`t`tPowerSTIG_WindowsServer =")
+                                $null = $configContent.add("`n`t`t@{")
+                                $null = $configContent.add("`n`t`t`tOSRole               = `"$osRole`"")
+                                $null = $configContent.add("`n`t`t`tOsVersion            = `"$osVersion`"")
+                                $null = $configContent.add("`n`t`t`tOrgSettings          = `"$($osStigFiles.orgSettings)`"")
+                                $null = $configContent.add("`n`t`t`tManualChecks         = `"$($osStigFiles.manualChecks)`"")
+                                $null = $configContent.add("`n`t`t`txccdfPath            = `"$($osStigFiles.xccdfPath)`"")
+                                $null = $configContent.add("`n`t`t}")
                             }
+                            "InternetExplorer"
+                            {
+                                $null = $configContent.add("`n`n`t`tPowerSTIG_InternetExplorer =")
+                                $null = $configContent.add("`n`t`t@{")
+                                $null = $configContent.add("`n`t`t`tBrowserVersion 		= `"11`"")
+                                $null = $configContent.add("`n`t`t`tOrgSettings			= `"$($ieStigFiles.orgSettings)`"")
+                                $null = $configContent.add("`n`t`t`txccdfPath			= `"$($ieStigFiles.xccdfPath)`"")
+                                $null = $configContent.add("`n`t`t`tSkipRule 			= `"V-46477`"")
+                                $null = $configContent.add("`n`t`t}")
+                            }
+                            "DotnetFrameWork"
+                            {
+                                $null = $configContent.add("`n`n`t`tPowerSTIG_DotNetFrameWork =")
+                                $null = $configContent.add("`n`t`t@{")
+                                $null = $configContent.add("`n`t`t`tFrameWorkVersion 	= `"4`"")
+                                $null = $configContent.add("`n`t`t`txccdfPath			= `"$($dotNetStigFiles.xccdfPath)`"")
+                                $null = $configContent.add("`n`t`t`tOrgSettings			= `"$($dotNetStigFiles.orgSettings)`"")
+                                $null = $configContent.add("`n`t`t`tManualChecks 		= `"$($dotNetStigFiles.manualChecks)`"")
+                                $null = $configContent.add("`n`t`t}")
+                            }
+                            "WindowsClient"
+                            {
+                                $null = $configContent.add("`n`n`t`tPowerSTIG_WindowsClient =")
+                                $null = $configContent.add("`n`t`t@{")
+                                $null = $configContent.add("`n`t`t`tOSVersion            = `"10`"")
+                                $null = $configContent.add("`n`t`t`tOrgSettings          = `"$($win10StigFiles.orgSettings)`"")
+                                $null = $configContent.add("`n`t`t`tManualChecks         = `"$($win10StigFiles.manualChecks)`"")
+                                $null = $configContent.add("`n`t`t`txccdfPath            = `"$($win10StigFiles.xccdfPath)`"")
+                                $null = $configContent.add("`n`t`t}")
+                            }
+                            "WindowsDefender"
+                            {
+                                $null = $configContent.add("`n`n`t`tPowerSTIG_WindowsDefender =")
+                                $null = $configContent.add("`n`t`t@{")
+                                $null = $configContent.add("`n`t`t`tOrgSettings          = `"$($winDefenderStigFiles.orgSettings)`"")
+                                $null = $configContent.add("`n`t`t`tManualChecks         = `"$($winDefenderStigFiles.manualChecks)`"")
+                                $null = $configContent.add("`n`t`t`txccdfPath            = `"$($winDefenderStigFiles.xccdfPath)`"")
+                                $null = $configContent.add("`n`t`t}")
+                            }
+                            "WindowsDnsServer"
+                            {
+                                $null = $configContent.add("`n`n`t`tPowerSTIG_WindowsDNSServer =")
+                                $null = $configContent.add("`n`t`t@{")
+                                $null = $configContent.add("`n`t`t`tOsVersion            = `"$osVersion`"")
+                                $null = $configContent.add("`n`t`t`txccdfPath            = `"$($WindowsDnsStigFiles.xccdfPath)`"")
+                                $null = $configContent.add("`n`t`t`tOrgSettings          = `"$($WindowsDnsStigFiles.orgSettings)`"")
+                                $null = $configContent.add("`n`t`t`tManualChecks         = `"$($WindowsDnsStigFiles.manualChecks)`"")
+                                $null = $configContent.add("`n`t`t}")
+                            }
+                            "Office2016*"
+                            {
+                                $null = $configContent.add("`n`n`t`tPowerSTIG_Office2016_Excel =")
+                                $null = $configContent.add("`n`t`t@{")
+                                $null = $configContent.add("`n`t`t`tOrgSettings  = `"$Excel2016OrgSettings`"")
+                                $null = $configContent.add("`n`t`t`tManualChecks = `"$Excel2016ManualChecks`"")
+                                $null = $configContent.add("`n`t`t`txccdfPath    = `"$Excel2016xccdfPath`"")
+                                $null = $configContent.add("`n`t`t}")
+                                $null = $configContent.add("`n`n`t`tPowerSTIG_Office2016_Outlook =")
+                                $null = $configContent.add("`n`t`t@{")
+                                $null = $configContent.add("`n`t`t`tOrgSettings  = `"$Outlook2016OrgSettings`"")
+                                $null = $configContent.add("`n`t`t`tManualChecks = `"$Outlook2016ManualChecks`"")
+                                $null = $configContent.add("`n`t`t`txccdfPath    = `"$Outlook2016xccdfPath`"")
+                                $null = $configContent.add("`n`t`t}")
+                                $null = $configContent.add("`n`n`t`tPowerSTIG_Office2016_PowerPoint =")
+                                $null = $configContent.add("`n`t`t@{")
+                                $null = $configContent.add("`n`t`t`tOrgSettings  = `"$PowerPoint2016OrgSettings`"")
+                                $null = $configContent.add("`n`t`t`tManualChecks = `"$PowerPoint2016ManualChecks`"")
+                                $null = $configContent.add("`n`t`t`txccdfPath    = `"$PowerPoint2016xccdfPath`"")
+                                $null = $configContent.add("`n`t`t}")
+                                $null = $configContent.add("`n`n`t`tPowerSTIG_Office2016_Word =")
+                                $null = $configContent.add("`n`t`t@{")
+                                $null = $configContent.add("`n`t`t`tOrgSettings  = `"$Word2016OrgSettings`"")
+                                $null = $configContent.add("`n`t`t`tManualChecks = `"$Word2016ManualChecks`"")
+                                $null = $configContent.add("`n`t`t`txccdfPath    = `"$Word2016xccdfPath`"")
+                                $null = $configContent.add("`n`t`t}")
+                            }
+                            "Office2013*"
+                            {
+                                $null = $configContent.add("`n`n`t`tPowerSTIG_Office2013_Excel =")
+                                $null = $configContent.add("`n`t`t@{")
+                                $null = $configContent.add("`n`t`t`tOrgSettings  = `"$Excel2013OrgSettings`"")
+                                $null = $configContent.add("`n`t`t`tManualChecks = `"$Excel2013ManualChecks`"")
+                                $null = $configContent.add("`n`t`t`txccdfPath    = `"$Excel2013xccdfPath`"")
+                                $null = $configContent.add("`n`t`t}")
+                                $null = $configContent.add("`n`n`t`tPowerSTIG_Office2013_Outlook =")
+                                $null = $configContent.add("`n`t`t@{")
+                                $null = $configContent.add("`n`t`t`tOrgSettings  = `"$Outlook2013OrgSettings`"")
+                                $null = $configContent.add("`n`t`t`tManualChecks = `"$Outlook2013ManualChecks`"")
+                                $null = $configContent.add("`n`t`t`txccdfPath    = `"$Outlook2013xccdfPath`"")
+                                $null = $configContent.add("`n`t`t}")
+                                $null = $configContent.add("`n`n`t`tPowerSTIG_Office2013_PowerPoint =")
+                                $null = $configContent.add("`n`t`t@{")
+                                $null = $configContent.add("`n`t`t`tOrgSettings  = `"$PowerPoint2013OrgSettings`"")
+                                $null = $configContent.add("`n`t`t`tManualChecks = `"$PowerPoint2013ManualChecks`"")
+                                $null = $configContent.add("`n`t`t`txccdfPath    = `"$PowerPoint2013xccdfPath`"")
+                                $null = $configContent.add("`n`t`t}")
+                                $null = $configContent.add("`n`n`t`tPowerSTIG_Office2013_Word =")
+                                $null = $configContent.add("`n`t`t@{")
+                                $null = $configContent.add("`n`t`t`tOrgSettings  = `"$Word2013OrgSettings`"")
+                                $null = $configContent.add("`n`t`t`tManualChecks = `"$Word2013ManualChecks`"")
+                                $null = $configContent.add("`n`t`t`txccdfPath    = `"$Word2013xccdfPath`"")
+                                $null = $configContent.add("`n`t`t}")
+                            }
+                            "Website*"
+                            {
+                                $websites = @(Invoke-Command -Computername $Machine -Scriptblock { Import-Module WebAdministration;Return (Get-Childitem "IIS:\Sites").name})
+                                $appPools = @(Invoke-Command -Computername $Machine -Scriptblock { Import-Module WebAdministration;Return (Get-Childitem "IIS:\AppPools").name})
+                                [string]$allWebSites = ''
+                                [string]$allAppPools = ''
+                                if ($websites.count -gt 1)
+                                {
+                                    foreach ($site in $websites)
+                                    {
+                                        $allWebsites += "`"$site`","
+                                    }
+                                    $websiteString = $allWebsites.TrimEnd(",")
+                                }
+                                else
+                                {
+                                    $websiteString = "`"$websites`""
+                                }
 
-                            $null = $configContent.add("`n`n`t`tPowerSTIG_WebSite =")
-                            $null = $configContent.add("`n`t`t@{")
-                            $null = $configContent.add("`n`t`t`tIISVersion       = `"$IISVersion`"")
-                            $null = $configContent.add("`n`t`t`tWebsiteName      = $websiteString")
-                            $null = $configContent.add("`n`t`t`tWebAppPool       = $appPoolString")
-                            $null = $configContent.add("`n`t`t`tXccdfPath        = `"$($webSiteStigFiles.XccdfPath)`"")
-                            $null = $configContent.add("`n`t`t`tOrgSettings      = `"$($webSiteStigFiles.OrgSettings)`"")
-                            $null = $configContent.add("`n`t`t`tManualChecks     = `"$($webSiteStigFiles.ManualChecks)`"")
-                            $null = $configContent.add("`n`t`t}")
-                        }
-                        "WebServer*"
-                        {
-                            $null = $configContent.add("`n`n`t`tPowerSTIG_WebServer =")
-                            $null = $configContent.add("`n`t`t@{")
-                            $null = $configContent.add("`n`t`t`tSkipRule         = `"V-214429`"")
-                            $null = $configContent.add("`n`t`t`tIISVersion       = `"$IISVersion`"")
-                            $null = $configContent.add("`n`t`t`tLogPath          = `"C:\InetPub\Logs`"")
-                            $null = $configContent.add("`n`t`t`tXccdfPath        = `"$($webServerStigFiles.XccdfPath)`"")
-                            $null = $configContent.add("`n`t`t`tOrgSettings      = `"$($webServerStigFiles.OrgSettings)`"")
-                            $null = $configContent.add("`n`t`t`tManualChecks     = `"$($webServerStigFiles.ManualChecks)`"")
-                            $null = $configContent.add("`n`t`t}")
-                        }
-                        "FireFox"
-                        {
-                            $null = $configContent.add("`n`n`t`tPowerSTIG_Firefox =")
-                            $null = $configContent.add("`n`t`t@{")
-                            $null = $configContent.add("`n`t`t`tInstallDirectory      = `"C:\Program Files\Mozilla Firefox`"")
-                            $null = $configContent.add("`n`t`t`txccdfPath			= `"$($firefoxStigFiles.XccdfPath)`"")
-                            $null = $configContent.add("`n`t`t`tOrgSettings			= `"$($firefoxStigFiles.OrgSettings)`"")
-                            $null = $configContent.add("`n`t`t`tManualChecks 		= `"$($firefoxStigFiles.ManualChecks)`"")
-                            $null = $configContent.add("`n`t`t}")
-                        }
-                        "Edge"
-                        {
-                            $null = $configContent.add("`n`n`t`tPowerSTIG_Edge =")
-                            $null = $configContent.add("`n`t`t@{")
-                            $null = $configContent.add("`n`t`t`tOrgSettings          = `"$($edgeStigFiles.orgSettings)`"")
-                            $null = $configContent.add("`n`t`t`tManualChecks         = `"$($edgeStigFiles.manualChecks)`"")
-                            $null = $configContent.add("`n`t`t`txccdfPath            = `"$($edgeStigFiles.xccdfPath)`"")
-                            $null = $configContent.add("`n`t`t}")
-                        }
-                        "Chrome"
-                        {
-                            $null = $configContent.add("`n`n`t`tPowerSTIG_Chrome =")
-                            $null = $configContent.add("`n`t`t@{")
-                            $null = $configContent.add("`n`t`t`tOrgSettings          = `"$($chromeStigFiles.orgSettings)`"")
-                            $null = $configContent.add("`n`t`t`tManualChecks         = `"$($chromeStigFiles.manualChecks)`"")
-                            $null = $configContent.add("`n`t`t`txccdfPath            = `"$($chromeStigFiles.xccdfPath)`"")
-                            $null = $configContent.add("`n`t`t}")
-                        }
-                        "OracleJRE"
-                        {
-                            $null = $configContent.add("`n`n`t`tPowerSTIG_OracleJRE =")
-                            $null = $configContent.add("`n`t`t@{")
-                            $null = $configContent.add("`n`t`t`tConfigPath       = `"$ConfigPath`"")
-                            $null = $configContent.add("`n`t`t`tPropertiesPath   = `"$PropertiesPath`"")
-                            $null = $configContent.add("`n`t`t`tXccdfPath        = `"$($oracleStigFiles.XccdfPath)`"")
-                            $null = $configContent.add("`n`t`t`tOrgSettings      = `"$($oracleStigFiles.OrgSettings)`"")
-                            $null = $configContent.add("`n`t`t`tManualChecks     = `"$($oracleStigFiles.ManualChecks)`"")
-                            $null = $configContent.add("`n`t`t}")
-                        }
-                        # "Mcafee"
-                        # {
-                        #     $null = $configContent.add("`n`n`t`tPowerSTIG_McAfee =")
-                        #     $null = $configContent.add("`n`t`t@{")
-                        #     $null = $configContent.add("`n`t`t`tTechnology       = `"VirusScan`"")
-                        #     $null = $configContent.add("`n`t`t`tVersion          = `"8.8`"")
-                        #     $null = $configContent.add("`n`t`t`tXccdfPath        = `"$($mcafeeStigFiles.XccdfPath)`"")
-                        #     $null = $configContent.add("`n`t`t`tOrgSettings      = `"$($mcafeeStigFiles.OrgSettings)`"")
-                        #     $null = $configContent.add("`n`t`t`tManualChecks     = `"$($mcafeeStigFiles.ManualChecks)`"")
-                        #     $null = $configContent.add("`n`t`t}")
-                        # }
-                        # "SqlServerInstance"
-                        # {
-                        #     $null = $configContent.add("`n`n`t`tPowerSTIG_SQLServer_Instance =")
-                        #     $null = $configContent.add("`n`t`t@{")
-                        #     $null = $configContent.add("`n`t`t`tSqlRole          = `"$sqlRole`"")
-                        #     $null = $configContent.add("`n`t`t`tSqlVersion       = `"$sqlVersion`"")
-                        #     $null = $configContent.add("`n`t`t`tServerInstance   = `"$sqlServerInstance`"")
-                        #     $null = $configContent.add("`n`t`t`tXccdfPath        = `"$($sqlinstanceStigFiles.XccdfPath)`"")
-                        #     $null = $configContent.add("`n`t`t`tOrgSettings      = `"$($sqlinstanceStigFiles.OrgSettings)`"")
-                        #     $null = $configContent.add("`n`t`t`tManualChecks     = `"$($sqlinstanceStigFiles.ManualChecks)`"")
-                        #     $null = $configContent.add("`n`t`t}")
-                        #     $null = $configContent.add("`n")
-                        # }
-                        # "SqlServerDatabase"
-                        # {
-                        #     $null = $configContent.add("`n`n`t`tPowerSTIG_SQLServer_Database =")
-                        #     $null = $configContent.add("`n`t`t@{")
-                        #     $null = $configContent.add("`n`t`t`tSqlRole          = `"$sqlRole`"")
-                        #     $null = $configContent.add("`n`t`t`tSqlVersion       = `"$sqlVersion`"")
-                        #     $null = $configContent.add("`n`t`t`tServerInstance   = `"$sqlServerInstance`"")
-                        #     $null = $configContent.add("`n`t`t`tXccdfPath        = `"$($sqlDatabseStigFiles.XccdfPath)`"")
-                        #     $null = $configContent.add("`n`t`t`tOrgSettings      = `"$($sqlDatabaseStigFiles.OrgSettings)`"")
-                        #     $null = $configContent.add("`n`t`t`tManualChecks     = `"$($sqlDatabaseStigFiles.ManualChecks)`"")
-                        #     $null = $configContent.add("`n`t`t}")
-                        #     $null = $configContent.add("`n")
-                        # }
-                    }
+                                if ($appPools.count -gt 1)
+                                {
+                                    foreach ($appPool in $appPools)
+                                    {
+                                        $allAppPools += "`"$appPool`","
+                                    }
+                                    $appPoolString = $allAppPools.TrimEnd(",")
+                                }
+                                else
+                                {
+                                    $appPoolString = "`"$appPools`""
+                                }
 
-                    $null = $configContent.add("`n`t}")
-                    $null = $configContent.add("`n}")
-                    if ($LocalHost)
-                    {
-                        $compName = $env:ComputerName
-                        $nodeDataFile = New-Item -Path "$nodeDataPath\$CompName\$CompName.psd1" -Force
+                                $null = $configContent.add("`n`n`t`tPowerSTIG_WebSite =")
+                                $null = $configContent.add("`n`t`t@{")
+                                $null = $configContent.add("`n`t`t`tIISVersion       = `"$IISVersion`"")
+                                $null = $configContent.add("`n`t`t`tWebsiteName      = $websiteString")
+                                $null = $configContent.add("`n`t`t`tWebAppPool       = $appPoolString")
+                                $null = $configContent.add("`n`t`t`tXccdfPath        = `"$($webSiteStigFiles.XccdfPath)`"")
+                                $null = $configContent.add("`n`t`t`tOrgSettings      = `"$($webSiteStigFiles.OrgSettings)`"")
+                                $null = $configContent.add("`n`t`t`tManualChecks     = `"$($webSiteStigFiles.ManualChecks)`"")
+                                $null = $configContent.add("`n`t`t}")
+                            }
+                            "WebServer*"
+                            {
+                                $null = $configContent.add("`n`n`t`tPowerSTIG_WebServer =")
+                                $null = $configContent.add("`n`t`t@{")
+                                $null = $configContent.add("`n`t`t`tSkipRule         = `"V-214429`"")
+                                $null = $configContent.add("`n`t`t`tIISVersion       = `"$IISVersion`"")
+                                $null = $configContent.add("`n`t`t`tLogPath          = `"C:\InetPub\Logs`"")
+                                $null = $configContent.add("`n`t`t`tXccdfPath        = `"$($webServerStigFiles.XccdfPath)`"")
+                                $null = $configContent.add("`n`t`t`tOrgSettings      = `"$($webServerStigFiles.OrgSettings)`"")
+                                $null = $configContent.add("`n`t`t`tManualChecks     = `"$($webServerStigFiles.ManualChecks)`"")
+                                $null = $configContent.add("`n`t`t}")
+                            }
+                            "FireFox"
+                            {
+                                $null = $configContent.add("`n`n`t`tPowerSTIG_Firefox =")
+                                $null = $configContent.add("`n`t`t@{")
+                                $null = $configContent.add("`n`t`t`tInstallDirectory      = `"C:\Program Files\Mozilla Firefox`"")
+                                $null = $configContent.add("`n`t`t`txccdfPath			= `"$($firefoxStigFiles.XccdfPath)`"")
+                                $null = $configContent.add("`n`t`t`tOrgSettings			= `"$($firefoxStigFiles.OrgSettings)`"")
+                                $null = $configContent.add("`n`t`t`tManualChecks 		= `"$($firefoxStigFiles.ManualChecks)`"")
+                                $null = $configContent.add("`n`t`t}")
+                            }
+                            "Edge"
+                            {
+                                $null = $configContent.add("`n`n`t`tPowerSTIG_Edge =")
+                                $null = $configContent.add("`n`t`t@{")
+                                $null = $configContent.add("`n`t`t`tOrgSettings          = `"$($edgeStigFiles.orgSettings)`"")
+                                $null = $configContent.add("`n`t`t`tManualChecks         = `"$($edgeStigFiles.manualChecks)`"")
+                                $null = $configContent.add("`n`t`t`txccdfPath            = `"$($edgeStigFiles.xccdfPath)`"")
+                                $null = $configContent.add("`n`t`t}")
+                            }
+                            "Chrome"
+                            {
+                                $null = $configContent.add("`n`n`t`tPowerSTIG_Chrome =")
+                                $null = $configContent.add("`n`t`t@{")
+                                $null = $configContent.add("`n`t`t`tOrgSettings          = `"$($chromeStigFiles.orgSettings)`"")
+                                $null = $configContent.add("`n`t`t`tManualChecks         = `"$($chromeStigFiles.manualChecks)`"")
+                                $null = $configContent.add("`n`t`t`txccdfPath            = `"$($chromeStigFiles.xccdfPath)`"")
+                                $null = $configContent.add("`n`t`t}")
+                            }
+                            "OracleJRE"
+                            {
+                                $null = $configContent.add("`n`n`t`tPowerSTIG_OracleJRE =")
+                                $null = $configContent.add("`n`t`t@{")
+                                $null = $configContent.add("`n`t`t`tConfigPath       = `"$ConfigPath`"")
+                                $null = $configContent.add("`n`t`t`tPropertiesPath   = `"$PropertiesPath`"")
+                                $null = $configContent.add("`n`t`t`tXccdfPath        = `"$($oracleStigFiles.XccdfPath)`"")
+                                $null = $configContent.add("`n`t`t`tOrgSettings      = `"$($oracleStigFiles.OrgSettings)`"")
+                                $null = $configContent.add("`n`t`t`tManualChecks     = `"$($oracleStigFiles.ManualChecks)`"")
+                                $null = $configContent.add("`n`t`t}")
+                            }
+                            # "Mcafee"
+                            # {
+                            #     $null = $configContent.add("`n`n`t`tPowerSTIG_McAfee =")
+                            #     $null = $configContent.add("`n`t`t@{")
+                            #     $null = $configContent.add("`n`t`t`tTechnology       = `"VirusScan`"")
+                            #     $null = $configContent.add("`n`t`t`tVersion          = `"8.8`"")
+                            #     $null = $configContent.add("`n`t`t`tXccdfPath        = `"$($mcafeeStigFiles.XccdfPath)`"")
+                            #     $null = $configContent.add("`n`t`t`tOrgSettings      = `"$($mcafeeStigFiles.OrgSettings)`"")
+                            #     $null = $configContent.add("`n`t`t`tManualChecks     = `"$($mcafeeStigFiles.ManualChecks)`"")
+                            #     $null = $configContent.add("`n`t`t}")
+                            # }
+                            # "SqlServerInstance"
+                            # {
+                            #     $null = $configContent.add("`n`n`t`tPowerSTIG_SQLServer_Instance =")
+                            #     $null = $configContent.add("`n`t`t@{")
+                            #     $null = $configContent.add("`n`t`t`tSqlRole          = `"$sqlRole`"")
+                            #     $null = $configContent.add("`n`t`t`tSqlVersion       = `"$sqlVersion`"")
+                            #     $null = $configContent.add("`n`t`t`tServerInstance   = `"$sqlServerInstance`"")
+                            #     $null = $configContent.add("`n`t`t`tXccdfPath        = `"$($sqlinstanceStigFiles.XccdfPath)`"")
+                            #     $null = $configContent.add("`n`t`t`tOrgSettings      = `"$($sqlinstanceStigFiles.OrgSettings)`"")
+                            #     $null = $configContent.add("`n`t`t`tManualChecks     = `"$($sqlinstanceStigFiles.ManualChecks)`"")
+                            #     $null = $configContent.add("`n`t`t}")
+                            #     $null = $configContent.add("`n")
+                            # }
+                            # "SqlServerDatabase"
+                            # {
+                            #     $null = $configContent.add("`n`n`t`tPowerSTIG_SQLServer_Database =")
+                            #     $null = $configContent.add("`n`t`t@{")
+                            #     $null = $configContent.add("`n`t`t`tSqlRole          = `"$sqlRole`"")
+                            #     $null = $configContent.add("`n`t`t`tSqlVersion       = `"$sqlVersion`"")
+                            #     $null = $configContent.add("`n`t`t`tServerInstance   = `"$sqlServerInstance`"")
+                            #     $null = $configContent.add("`n`t`t`tXccdfPath        = `"$($sqlDatabseStigFiles.XccdfPath)`"")
+                            #     $null = $configContent.add("`n`t`t`tOrgSettings      = `"$($sqlDatabaseStigFiles.OrgSettings)`"")
+                            #     $null = $configContent.add("`n`t`t`tManualChecks     = `"$($sqlDatabaseStigFiles.ManualChecks)`"")
+                            #     $null = $configContent.add("`n`t`t}")
+                            #     $null = $configContent.add("`n")
+                            # }
+                        }
+
+                        $null = $configContent.add("`n`t}")
+                        $null = $configContent.add("`n}")
+
+                        if ($LocalHost)
+                        {
+                            $compName = $env:ComputerName
+                            $nodeDataFile = New-Item -Path "$nodeDataPath\$CompName\$CompName.psd1" -Force
+                        }
+                        else
+                        {
+                            $nodeDataFile = New-Item -Path "$ouFolder\$machine.psd1" -Force
+                        }
+                        $null = Set-Content -nonewline -path $nodeDataFile $configContent
+                        Write-Output "`t`t`t$machine - Nodedata successfully generated."
                     }
-                    else
+                    catch
                     {
-                        $nodeDataFile = New-Item -Path "$ouFolder\$machine.psd1" -Force
+                        Write-Output "`t`t$machine - Error Generating Nodedata." 
                     }
-                    $null = Set-Content -nonewline -path $nodeDataFile $configContent
                 }
                 $null = $jobs.add($job.Id)
             }
+            Write-Output "`tJob creation for $($ou.name) nodedata is complete. Waiting on $($jobs.count) jobs to finish processing.`n"
+            
+            do 
+            {
+                Start-Sleep -Seconds 30
+                $completedJobs  = (Get-Job -ID $jobs | where {$_.state -ne "Running"}).count
+                $runningjobs    = (Get-Job -ID $jobs | where {$_.state -eq "Running"}).count
+                Write-Output "`t`tChecklist Job Status:`t$runningJobs Jobs Currently Processing`t$completedJobs/$($jobs.count) Jobs Completed"
+            }
+            while ((Get-Job -ID $jobs).State -contains "Running") 
+            Write-Output "`n`t$($jobs.count) Nodedata jobs completed. Receiving job output"
+            Get-Job -ID $jobs | Wait-Job | Receive-Job
         }
     }
-    Write-Output "`tJob creation for nodedata generation is complete. Waiting on $($jobs.count) jobs to finish processing.`n"
-    Get-Job -ID $jobs | Wait-Job | Receive-Job
 }
 
 function Get-StigFiles
@@ -2089,76 +2115,91 @@ function Get-ApplicableStigs
    Write-Output "`t`tGathering STIG Applicability for $ComputerName"
 
    # Get Windows Version from Active Directory
-    if ($LocalHost)
+    try 
     {
-        $WindowsVersion = 10
-        $ComputerName = 'LocalHost'
-    }
-    else
-    {
-        $windowsVersion = (Get-ADComputer -Identity $computername -Properties OperatingSystem).OperatingSystem
-    }
+        if ($LocalHost)
+        {
+            $WindowsVersion = 10
+            $ComputerName = 'LocalHost'
+        }
+        else
+        {
+            $windowsVersion = (Get-WmiObject -class win32_OperatingSystem -ComputerName $ComputerName -erroraction Stop).caption
+        }
 
-    $windowsVersion         = (Get-ADComputer -Identity $computername -Properties OperatingSystem).OperatingSystem
-    $applicableSTIGs        = @("InternetExplorer","DotnetFramework")
+        $applicableSTIGs = New-Object System.Collections.ArrayList
+        
+        $null = $applicableSTIGs.add("InternetExplorer")
+        $null = $applicableSTIGs.add("DotnetFramework")
 
-    try {
-        # Get Installed Software from Target System
-        $installedSoftware = Invoke-Command -ComputerName $ComputerName -ErrorAction Stop -Scriptblock {
-            $localSoftwareList = @(Get-ItemProperty "HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*" | Select-Object DisplayName, DisplayVersion, Publisher, InstallDate)
-            $localSoftwareList += @(Get-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*" | Select-Object DisplayName, DisplayVersion, Publisher, InstallDate)
+            # Get Installed Software from Target System
+        $session = New-PsSession -ComputerName $Computername -ErrorAction Stop
+        $installedSoftware = Invoke-Command -Session $session -ErrorAction Stop -Scriptblock {
+            $localSoftwareList = New-Object System.Collections.ArrayList
+            $null = (Get-ItemProperty "HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*" | Select-Object DisplayName, DisplayVersion, Publisher, InstallDate) | ForEach-Object {$null = $localSoftwareList.add($_)}
+            $null = (Get-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*" | Select-Object DisplayName, DisplayVersion, Publisher, InstallDate) | ForEach-Object {$null = $localSoftwareList.add($_)}
             return $localSoftwareList
         }
 
-        # Get Installed Roles on Target System
+            # Get Installed Roles on Target System
         if ($windowsVersion -notlike "*Windows 10*")
         {
-            $installedRoles = Invoke-Command -ComputerName $ComputerName -Erroraction Stop -Scriptblock {
-                $localRoleList = @(Get-WindowsFeature | Where { $_.Installed -eq $True })
+            $installedRoles = Invoke-Command -Session $session -Erroraction Stop -Scriptblock {
+                $localRoleList = @(Get-WindowsFeature | Where-Object { $_.Installed -eq $True })
                 return $localRoleList
             }
         }
+
+        switch -Wildcard ($installedSoftware.DisplayName)
+        {
+            "*Adobe Acrobat Reader*"    {$null = $applicableStigs.add("AdobeReader")}
+            "*McAfee*"                  {$null = $applicableStigs.add("McAfee")}
+            "*Office*16*"               {$null = $applicableStigs.add("Office2016")}
+            "*Office*15*"               {$null = $applicableStigs.add("Office2013")}
+            "*FireFox*"                 {$null = $applicableStigs.add("FireFox")}
+            "*Chrome*"                  {$null = $applicableStigs.add("Chrome")}
+            "*Edge*"                    {$null = $applicableStigs.add("Edge")}
+            "*OracleJRE*"               {$null = $applicableStigs.add("OracleJRE")}
+            "Microsoft SQL Server*"     
+            {
+                $null = $applicableStigs.add("SqlServerInstance")
+                $null = $applicableStigs.add("SqlServerDatabase")
+            }
+        }
+
+        switch -WildCard ($installedRoles.Name)
+        {
+            "Web-Server"
+            {
+                $iisVersion = Invoke-Command -Session $Session -ErrorAction Stop -Scriptblock {
+                    $iisData = Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\InetStp"
+                    $localIisVersion = "$($iisData.MajorVersion).$($iisData.MinorVersion)"
+                    return $localiisVersion
+                }
+                $null = $applicableStigs.add("WebServer-$IISVersion")
+                $null = $applicableStigs.add("Website-$IISVersion")
+            }
+            "Windows-Defender"
+            {
+                $null = $applicableStigs.add("WindowsDefender")
+                $null = $applicableStigs.add("WindowsFirewall")
+            }
+            "DNS"                   {$null = $applicableStigs.add("WindowsDnsServer")}
+            "AD-Domain-Services"    {$null = $applicableStigs.add("ActiveDirectory")}
+        }
+
+        switch -WildCard ($windowsVersion)
+        {
+            "*2012*"    {$null = $applicableStigs.add("WindowsServer-2012R2-MemberServer")}
+            "*2016*"    {$null = $applicableStigs.add("WindowsServer-2016-MemberServer")}
+            "*2019*"    {$null = $applicableStigs.add("WindowsServer-2019-MemberServer")}
+            "*10*"      {$null = $applicableStigs.add("WindowsClient")}
+        }
+        Remove-PsSession $Session
     }
     catch
     {
-        Write-Warning "Unable to determine STIG Applicability for $ComputerName. Please verify WinRM connectivity."
-    }
-
-    switch -Wildcard ($installedSoftware.DisplayName)
-    {
-        "*Adobe Acrobat Reader*"    {$applicableStigs += "AdobeReader"}
-        "*McAfee*"                  {$applicableStigs += "McAfee"}
-        "*Office*16*"               {$applicableStigs += "Office2016"}
-        "*Office*15*"               {$applicableStigs += "Office2013"}
-        "*FireFox*"                 {$applicableStigs += "FireFox"}
-        "*Chrome*"                  {$applicableStigs += "Chrome"}
-        "*Edge*"                    {$applicableStigs += "Edge"}
-        "*OracleJRE*"               {$applicableStigs += "OracleJRE"}
-        "Microsoft SQL Server*"     {$applicableStigs += "SqlServerInstance","SqlServerDatabase"}
-    }
-
-    switch -WildCard ($installedRoles.Name)
-    {
-        "Web-Server"
-        {
-            $iisVersion = Invoke-Command -ComputerName $Computername -Scriptblock {
-                $iisData = Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\InetStp"
-                $localIisVersion = "$($iisData.MajorVersion).$($iisData.MinorVersion)"
-                return $localiisVersion
-            }
-            $applicableStigs += "WebServer-$IISVersion","Website-$IISVersion"
-        }
-        "Windows-Defender"      {$applicableStigs += "WindowsDefender","WindowsFirewall"}
-        "DNS"                   {$applicableStigs += "WindowsDnsServer"}
-        "AD-Domain-Services"    {$applicableStigs += "ActiveDirectory"}
-    }
-
-    switch -WildCard ($windowsVersion)
-    {
-        "*2012*"    {$applicableSTIGs += "WindowsServer-2012R2-MemberServer"}
-        "*2016*"    {$applicableSTIGs += "WindowsServer-2016-MemberServer"}
-        "*2019*"    {$applicableSTIGs += "WindowsServer-2019-MemberServer"}
-        "*10*"      {$applicableSTIGs += "WindowsClient"}
+        Write-Output "`t`t`tUnable to determine STIG Applicability for $ComputerName. Please verify WinRM connectivity."
     }
 
     $applicableStigs = $applicableStigs | Select-Object -Unique
@@ -2264,22 +2305,22 @@ function Get-ManualCheckFileFromXccdf
 
     foreach ($path in $XccdfPath)
     {
-        $file           = Get-Item $path
-        [xml]$content   = Get-Content -path $file -Encoding UTF8
-        $split          = $file.basename.split("_")
-        $StigType       = $split[1]
-        $subType        = $split[2] + $split[3] + $split[4] + $split[5]
-        $Vuls           = $content.benchmark.group.id
-        $outfileName    = "$subType-manualchecks.psd1"
+        $file               = Get-Item $path
+        [xml]$content       = Get-Content -path $file -Encoding UTF8
+        $split              = $file.basename.split("_")
+        $StigType           = $split[1]
+        $subType            = $split[2] + $split[3] + $split[4] + $split[5]
+        $Vuls               = $content.benchmark.group.id
+        $outfileName        = "$subType-manualchecks.psd1"
+        $manualCheckContent = New-Object System.Collections.ArrayList
 
-        $manualCheckContent = @()
         foreach ($vul in $vuls)
         {
-            $manualCheckContent += "@{"
-            $manualCheckContent += "    VulID       = `"$vul`""
-            $manualCheckContent += "    Status      = `"NotReviewed`""
-            $manualCheckContent += "    Comments    = `"Input Finding Comments`""
-            $manualCheckContent += "}`n"
+            $null = $manualCheckContent.add("@{")
+            $null = $manualCheckContent.add("    VulID       = `"$vul`"")
+            $null = $manualCheckContent.add("    Status      = `"NotReviewed`"")
+            $null = $manualCheckContent.add("    Comments    = `"Input Finding Comments`"")
+            $null = $manualCheckContent.add("}`n")
         }
         $manualCheckContent | Out-File "$manualCheckPath\$outFileName" -force
     }
@@ -2431,9 +2472,9 @@ function Get-StigChecklists
         $targetMachines = @("$env:ComputerName")
     }
 
-    $dscResults = @()
-    $jobs = @()
-    Write-Output "`tStarting STIG Checklist generation jobs for $($targetMachines.count) targetted machines.`n"
+    #$dscResults = @()
+    $jobs = New-Object System.Collections.ArrayList
+    Write-Output "`tStarting STIG Checklist generation jobs for $($targetMachines.count) targeted machines.`n"
     foreach ($machine in $targetMachines)
     {
         if (-not (Test-Path "$cklContainer\$machine"))
@@ -2640,68 +2681,83 @@ function Get-StigChecklists
                         if ($remoteExecution)
                         {
                             Write-Output "`t`t`tSTIG Checklist - $stigType"
-                            $remoteXccdfPath        = (Copy-Item -Path $xccdfPath -Passthru -Destination "\\$machine\C$\Scar\STIG Data\Xccdfs" -Container -Force -Confirm:$False).fullName.Replace("\\$machine\C$\","C:\")
-                            $remoteCklPath          = "C:\SCAR\STIG Checklists"
-
-                            if ($null -ne $manualCheckFile)
+                            try
                             {
-                                $remoteManualCheckFile  = (Copy-Item -Path $ManualCheckFile -Passthru -Destination "\\$machine\C$\Scar\STIG Data\ManualChecks" -Container -Force -Confirm:$False).FullName.Replace("\\$machine\C$\","C:\")
-                            }
-
-                            $remoteCklJob = Invoke-Command -ComputerName $machine -AsJob -ArgumentList $remoteXccdfPath,$remoteManualCheckFile,$remoteCklPath,$dscResult,$machineFolder,$stigType -ScriptBlock {
-                                param(
-                                    [Parameter(Position=0)]$remoteXccdfPath,
-                                    [Parameter(Position=1)]$remoteManualCheckFile,
-                                    [Parameter(Position=2)]$remoteCklPath,
-                                    [Parameter(Position=3)]$dscResult,
-                                    [Parameter(Position=4)]$machineFolder,
-                                    [Parameter(Position=5)]$stigType
-                                )
-                                Import-Module -Name "C:\Program Files\WindowsPowershell\Modules\PowerSTIG\*\powerstig.psm1"
-                                Import-Module -Name "C:\Program Files\WindowsPowershell\Modules\DSCSM\*\DSCSM.psm1"
-
-                                $params = @{
-                                    xccdfPath       = $remotexccdfPath
-                                    OutputPath      = "$remoteCklPath\$env:computername-$stigType.ckl"
-                                    DscResult       = $dscResult
-                                    Enclave         = $Enclave
-                                }
-                                if ($null -ne $remoteManualCheckFile)
+                                if (Test-Path $xccdfPath)
                                 {
-                                    $params += @{ManualCheckFile = $remoteManualCheckFile}
+                                    $remoteXccdfPath        = (Copy-Item -Path $xccdfPath -Passthru -Destination "\\$machine\C$\Scar\STIG Data\Xccdfs" -Container -Force -Confirm:$False -erroraction Stop).fullName.Replace("\\$machine\C$\","C:\")
                                 }
-                                Get-StigChecklist @params -ErrorAction SilentlyContinue
+                                
+                                $remoteCklPath          = "C:\SCAR\STIG Checklists"
+
+                                if ($null -ne $manualCheckFile)
+                                {
+                                    $remoteManualCheckFile  = (Copy-Item -Path $ManualCheckFile -Passthru -Destination "\\$machine\C$\Scar\STIG Data\ManualChecks" -Container -Force -Confirm:$False).FullName.Replace("\\$machine\C$\","C:\")
+                                }
+
+                                $remoteCklJob = Invoke-Command -ComputerName $machine -AsJob -ArgumentList $remoteXccdfPath,$remoteManualCheckFile,$remoteCklPath,$dscResult,$machineFolder,$stigType -ScriptBlock {
+                                    param(
+                                        [Parameter(Position=0)]$remoteXccdfPath,
+                                        [Parameter(Position=1)]$remoteManualCheckFile,
+                                        [Parameter(Position=2)]$remoteCklPath,
+                                        [Parameter(Position=3)]$dscResult,
+                                        [Parameter(Position=4)]$machineFolder,
+                                        [Parameter(Position=5)]$stigType
+                                    )
+                                    Import-Module -Name "C:\Program Files\WindowsPowershell\Modules\PowerSTIG\*\powerstig.psm1"
+                                    Import-Module -Name "C:\Program Files\WindowsPowershell\Modules\DSCSM\*\DSCSM.psm1"
+
+                                    $params = @{
+                                        xccdfPath       = $remotexccdfPath
+                                        OutputPath      = "$remoteCklPath\$env:computername-$stigType.ckl"
+                                        DscResult       = $dscResult
+                                        Enclave         = $Enclave
+                                    }
+                                    if ($null -ne $remoteManualCheckFile)
+                                    {
+                                        $params += @{ManualCheckFile = $remoteManualCheckFile}
+                                    }
+                                    Get-StigChecklist @params -ErrorAction SilentlyContinue
+                                }
+                                $null = $remoteCklJobs.Add($remoteCklJob)
                             }
-                            $null = $remoteCklJobs.Add($remoteCklJob)
+                            catch
+                            {
+                                Write-Output "Unable to generate STIG Checklists for $machine."
+                            }
                         }
                         else
                         {
                             Write-Output "`t`t`tSTIG Checklist - $stigType"
-                            
-                            $xccdfPath        = (Copy-Item -Path $xccdfPath -Passthru -Destination "C:\ScarData\STIG Data\Xccdfs" -Container -Force -Confirm:$False).FullName
-                            $cklPath          = "C:\SCARData\STIG Checklists\$machine-$stigType.ckl"
-
-                            if ($null -ne $manualCheckFile)
+                            try
                             {
-                                $remoteManualCheckFile  = (Copy-Item -Path $ManualCheckFile -Destination "C:\ScarData\STIG Data\ManualChecks" -Container -Force -Confirm:$False).FullName
-                            }
+                                $xccdfPath        = (Copy-Item -Path $xccdfPath -Passthru -Destination "C:\ScarData\STIG Data\Xccdfs" -Container -Force -Confirm:$False).FullName
+                                $cklPath          = "C:\SCARData\STIG Checklists\$machine-$stigType.ckl"
 
-                            $params = @{
-                                XccdfPath       = $xccdfPath
-                                OutputPath      = $cklPath
-                                DSCResult       = $dscResult
-                                Enclave         = $Enclave
-                            }
+                                if ($null -ne $manualCheckFile)
+                                {
+                                    $remoteManualCheckFile  = (Copy-Item -Path $ManualCheckFile -Destination "C:\ScarData\STIG Data\ManualChecks" -Container -Force -Confirm:$False).FullName
+                                }
 
-                            if ($null -ne $ManualCheckFile)
+                                $params = @{
+                                    XccdfPath       = $xccdfPath
+                                    OutputPath      = $cklPath
+                                    DSCResult       = $dscResult
+                                    Enclave         = $Enclave
+                                }
+
+                                if ($null -ne $ManualCheckFile)
+                                {
+                                    $params += @{ManualCheckFile = $ManualCheckFile}
+                                }
+
+                                Get-StigChecklist @params -ErrorAction SilentlyContinue
+                            }
+                            catch
                             {
-                                $params += @{ManualCheckFile = $ManualCheckFile}
+                                Write-Output "`t`t`tUnable to generate $stigType Checklist for $machine."
                             }
-
-                            Get-StigChecklist @params -ErrorAction SilentlyContinue
                         }
-                        
-
                     }
                     
                     if ($remoteCklJobs.count -gt 0)
@@ -2803,22 +2859,22 @@ function Get-StigChecklists
             }
             Write-Output "`t`t$machine - STIG Checklist job complete"
         }
-        $jobs += $job
+        $null = $jobs.add($job.Id) 
     }
     Write-Output "`n`tJob creation for STIG Checklists Generation is Complete. Waiting for $($jobs.count) jobs to finish processing"
     
     do 
     {
         Start-Sleep -Seconds 60
-        $completedJobs  = (Get-Job -id $jobs.ID | where {$_.state -ne "Running"}).count
-        $runningjobs    = (Get-Job -id $jobs.ID | where {$_.state -eq "Running"}).count
+        $completedJobs  = (Get-Job -id $jobs | where {$_.state -ne "Running"}).count
+        $runningjobs    = (Get-Job -id $jobs | where {$_.state -eq "Running"}).count
         Write-Output "`t`tChecklist Job Status:`t$runningJobs Jobs Currently Processing`t$completedJobs/$($jobs.count) Jobs Completed"
     }
-    while ((Get-Job -ID $jobs.ID).State -contains "Running") 
+    while ((Get-Job -ID $jobs).State -contains "Running") 
     
     Write-Output "`n`t$($jobs.count) STIG Checklist jobs completed. Receiving job output"
 
-    Get-Job -ID $jobs.ID | Wait-Job | Receive-Job
+    Get-Job -ID $jobs | Wait-Job | Receive-Job
 
     $cklCount = (Get-ChildItem "$cklContainer\*.ckl" -Recurse).count
     Write-Output "`tSTIG Checklist generation complete. Total STIG Checklists generated - $cklCount`n"
