@@ -50,7 +50,7 @@
 				</SI_DATA>
 				<SI_DATA>
 					<SID_NAME>uuid</SID_NAME>
-					<SID_DATA>26f14bc3-a522-41a0-9269-6b6b7b97d600</SID_DATA>
+					<SID_DATA>284e912d-1165-403d-bbee-9dbb415916bf</SID_DATA>
 				</SI_DATA>
 				<SI_DATA>
 					<SID_NAME>notice</SID_NAME>
@@ -158,9 +158,9 @@
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -261,9 +261,9 @@
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -366,9 +366,9 @@ If users with administrative privileges do not have separate accounts for admini
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -469,9 +469,9 @@ If users with administrative privileges do not have separate accounts for admini
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -594,9 +594,9 @@ Automated tools, such as Microsoft's LAPS, may be used on domain-joined member s
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -711,9 +711,9 @@ Implement technical measures where feasible such as removal of applications or u
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -816,9 +816,9 @@ Any accounts that are members of the Backup Operators group, including applicati
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -921,9 +921,9 @@ Verify users with accounts in the Backup Operators group have a separate user ac
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -1024,9 +1024,9 @@ Verify users with accounts in the Backup Operators group have a separate user ac
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -1151,9 +1151,9 @@ It is recommended that system-managed service accounts be used where possible.</
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -1260,9 +1260,9 @@ Document required shared accounts with the ISSO. Documentation must include the 
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -1367,9 +1367,9 @@ If an alternate method is used to configure a system (e.g., manually using the D
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -1474,9 +1474,9 @@ Backups must be consistent with organizational recovery time and recovery point 
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -1581,9 +1581,9 @@ Backups shall be consistent with organizational recovery time and recovery point
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>Not_Applicable</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -1684,9 +1684,9 @@ Backups shall be consistent with organizational recovery time and recovery point
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -1791,9 +1791,9 @@ Backups shall be consistent with organizational recovery time and recovery point
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -1927,9 +1927,9 @@ https://www.iad.gov/iad/library/ia-guidance/tech-briefs/application-whitelisting
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -2034,9 +2034,9 @@ Use of this requirement will be limited to situations where the data owner has a
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -2139,9 +2139,9 @@ Selection of a cryptographic mechanism is based on the need to protect the integ
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>Open</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -2244,9 +2244,9 @@ If there is no anti-virus solution installed on the system, this is a finding.</
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -2656,9 +2656,9 @@ These policy settings requires the installation of the SecGuide custom templates
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -2766,9 +2766,9 @@ If any unresolved SIDs exist and are not for currently valid accounts or groups,
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -8283,9 +8283,9 @@ PSComputerName = VM-WS-001
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -8386,9 +8386,9 @@ PSComputerName = VM-WS-001
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -8489,9 +8489,9 @@ PSComputerName = VM-WS-001
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -8592,9 +8592,9 @@ PSComputerName = VM-WS-001
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -15006,9 +15006,9 @@ The US Naval Observatory operates stratum 1 time servers, identified at http://t
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -21960,9 +21960,9 @@ Remove any standard user accounts.</ATTRIBUTE_DATA>
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -22708,9 +22708,9 @@ If the drop-down list box "Default operating system:" shows any operating system
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -22825,9 +22825,9 @@ Standard users will typically be given "Print" permission through the Everyone g
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -22961,9 +22961,9 @@ Inactive accounts that have been reviewed and deemed to be required must be docu
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -23337,9 +23337,9 @@ A properly configured and approved DoD HBSS solution that supports a File Integr
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -23456,9 +23456,9 @@ Remove any unnecessary non-system-created shares.</ATTRIBUTE_DATA>
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -23688,9 +23688,9 @@ This does not apply to server-based applications that have a requirement for cer
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -23928,9 +23928,9 @@ Workstation - Automatic</ATTRIBUTE_DATA>
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -24037,9 +24037,9 @@ If a host-based Intrusion Detection System is not installed on the system, this 
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -24142,9 +24142,9 @@ If the operator is not able to provide a documented configuration for an install
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -24245,9 +24245,9 @@ If the operator is not able to provide a documented configuration for an install
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -24496,9 +24496,9 @@ If accounts with administrator privileges are used to access FTP, this is a CAT 
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -24631,9 +24631,9 @@ If the FTP session indicates access to areas of the system other than the specif
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -24770,9 +24770,9 @@ Delete any temporary user accounts that are no longer necessary.</ATTRIBUTE_DATA
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -24905,9 +24905,9 @@ Local accounts can be configured to expire with the command "Net user [username]
 					<VULN_ATTRIBUTE>TargetKey</VULN_ATTRIBUTE>
 					<ATTRIBUTE_DATA>4214</ATTRIBUTE_DATA>
 				</STIG_DATA>
-				<STATUS>Not_Reviewed</STATUS>
+				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS></COMMENTS>
+				<COMMENTS>EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>

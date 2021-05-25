@@ -4,9 +4,9 @@
 		<ROLE>Member Server</ROLE>
 		<ASSET_TYPE>Computing</ASSET_TYPE>
 		<HOST_NAME>vm-jump-001</HOST_NAME>
-		<HOST_IP></HOST_IP>
-		<HOST_MAC></HOST_MAC>
-		<HOST_FQDN></HOST_FQDN>
+		<HOST_IP>10.0.0.22</HOST_IP>
+		<HOST_MAC>00-22-48-1F-8A-79</HOST_MAC>
+		<HOST_FQDN>vm-jump-001.101ab.army.mil</HOST_FQDN>
 		<TECH_AREA></TECH_AREA>
 		<TARGET_KEY>2350</TARGET_KEY>
 		<WEB_OR_DATABASE>false</WEB_OR_DATABASE>
@@ -50,7 +50,7 @@
 				</SI_DATA>
 				<SI_DATA>
 					<SID_NAME>uuid</SID_NAME>
-					<SID_DATA>acb78942-845f-45e5-811c-b9c00d277b03</SID_DATA>
+					<SID_DATA>431983ab-3901-43c3-bb30-b95a002bd775</SID_DATA>
 				</SI_DATA>
 				<SI_DATA>
 					<SID_NAME>notice</SID_NAME>
@@ -1950,7 +1950,7 @@ ALL RESTRICTED APPLICATION PACKAGES - Read &amp; execute - This folder, subfolde
 				</STIG_DATA>
 				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS>Addressed by PowerStig MOF via MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState</COMMENTS>
+				<COMMENTS>Addressed by PowerStig MOF via [NTFSAccessEntry][V-224833.a][medium][SRG-OS-000312-GPOS-00122]::[WindowsServer]BaseLine::[PowerSTIG_WindowsServer]PowerSTIG_WindowsServer [NTFSAccessEntry][V-224833.b][medium][SRG-OS-000312-GPOS-00122]::[WindowsServer]BaseLine::[PowerSTIG_WindowsServer]PowerSTIG_WindowsServer</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -2317,7 +2317,7 @@ ALL APPLICATION PACKAGES - Read - This key and subkeys</ATTRIBUTE_DATA>
 				</STIG_DATA>
 				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS>Addressed by PowerStig MOF via MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState</COMMENTS>
+				<COMMENTS>Addressed by PowerStig MOF via [RegistryAccessEntry][V-224835.a][medium][SRG-OS-000324-GPOS-00125]::[WindowsServer]BaseLine::[PowerSTIG_WindowsServer]PowerSTIG_WindowsServer [RegistryAccessEntry][V-224835.b][medium][SRG-OS-000324-GPOS-00125]::[WindowsServer]BaseLine::[PowerSTIG_WindowsServer]PowerSTIG_WindowsServer [RegistryAccessEntry][V-224835.c][medium][SRG-OS-000324-GPOS-00125]::[WindowsServer]BaseLine::[PowerSTIG_WindowsServer]PowerSTIG_WindowsServer</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -13236,7 +13236,7 @@ Value: RequireMutualAuthentication=1, RequireIntegrity=1</ATTRIBUTE_DATA>
 				</STIG_DATA>
 				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS>Addressed by PowerStig MOF via MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState</COMMENTS>
+				<COMMENTS>Addressed by PowerStig MOF via [RegistryPolicyFile][V-224921.a][medium][SRG-OS-000480-GPOS-00227]::[WindowsServer]BaseLine::[PowerSTIG_WindowsServer]PowerSTIG_WindowsServer [RegistryPolicyFile][V-224921.b][medium][SRG-OS-000480-GPOS-00227]::[WindowsServer]BaseLine::[PowerSTIG_WindowsServer]PowerSTIG_WindowsServer</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -13511,7 +13511,7 @@ https://technet.microsoft.com/itpro/windows/keep-secure/credential-guard</ATTRIB
 				</STIG_DATA>
 				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS>Addressed by PowerStig MOF via MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState</COMMENTS>
+				<COMMENTS>Addressed by PowerStig MOF via [RegistryPolicyFile][V-224923.a][medium][SRG-OS-000480-GPOS-00227]::[WindowsServer]BaseLine::[PowerSTIG_WindowsServer]PowerSTIG_WindowsServer [RegistryPolicyFile][V-224923.b][medium][SRG-OS-000480-GPOS-00227]::[WindowsServer]BaseLine::[PowerSTIG_WindowsServer]PowerSTIG_WindowsServer</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -16891,7 +16891,7 @@ Configure the policy value for User Configuration &gt;&gt; Administrative Templa
 				</STIG_DATA>
 				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS>Addressed by PowerStig MOF via MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState</COMMENTS>
+				<COMMENTS>Addressed by PowerStig MOF via [RegistryPolicyFile][V-224950.a][medium][SRG-OS-000480-GPOS-00227]::[WindowsServer]BaseLine::[PowerSTIG_WindowsServer]PowerSTIG_WindowsServer [RegistryPolicyFile][V-224950.b][medium][SRG-OS-000480-GPOS-00227]::[WindowsServer]BaseLine::[PowerSTIG_WindowsServer]PowerSTIG_WindowsServer</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -26559,7 +26559,7 @@ The InstallRoot tool is available on Cyber Exchange at https://cyber.mil/pki-pke
 				</STIG_DATA>
 				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS>Addressed by PowerStig MOF via MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState</COMMENTS>
+				<COMMENTS>Addressed by PowerStig MOF via [Script][V-225021.a][medium][[Skip] SRG-OS-000066-GPOS-00034]::[WindowsServer]BaseLine::[PowerSTIG_WindowsServer]PowerSTIG_WindowsServer [Script][V-225021.b][medium][[Skip] SRG-OS-000066-GPOS-00034]::[WindowsServer]BaseLine::[PowerSTIG_WindowsServer]PowerSTIG_WindowsServer [Script][V-225021.c][medium][[Skip] SRG-OS-000066-GPOS-00034]::[WindowsServer]BaseLine::[PowerSTIG_WindowsServer]PowerSTIG_WindowsServer [Script][V-225021.d][medium][[Skip] SRG-OS-000066-GPOS-00034]::[WindowsServer]BaseLine::[PowerSTIG_WindowsServer]PowerSTIG_WindowsServer</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -26728,7 +26728,7 @@ The certificates can be installed using the InstallRoot tool. The tool and user 
 				</STIG_DATA>
 				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS>Addressed by PowerStig MOF via MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState</COMMENTS>
+				<COMMENTS>Addressed by PowerStig MOF via [Script][V-225022.a][medium][[Skip] SRG-OS-000066-GPOS-00034]::[WindowsServer]BaseLine::[PowerSTIG_WindowsServer]PowerSTIG_WindowsServer [Script][V-225022.b][medium][[Skip] SRG-OS-000066-GPOS-00034]::[WindowsServer]BaseLine::[PowerSTIG_WindowsServer]PowerSTIG_WindowsServer</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>

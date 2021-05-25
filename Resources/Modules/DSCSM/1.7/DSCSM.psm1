@@ -418,10 +418,10 @@ function Export-Mofs
         }
         else
         {
-            $NodeDataFiles      = New-Object System.Collections.ArrayList 
+            $NodeDataFiles      = New-Object System.Collections.ArrayList
             $null = Get-Childitem "$RootPath\NodeData\*.psd1" -Recurse | ForEach-Object {$null = $nodedatafiles.add($_)}
         }
-    } 
+    }
 
     foreach ($file in $nodeDataFiles)
     {
@@ -498,7 +498,7 @@ function Remove-ScarRepo
         - Artifacts\Mofs
         - Artifacts\DscConfigs
         - Artifacts\STIG Checklists
-        
+
     .PARAMETER Rootpath
     Path to the root of the SCAR repository/codebase.
 
@@ -657,7 +657,7 @@ function Set-WinRM
 
     $nodeDataPath   = (Resolve-Path -Path "$RootPath\NodeData").Path
     $jobs           = new-object System.Collections.ArrayList
-  
+
 
     if ($null -eq $TargetMachines)
     {
@@ -758,6 +758,10 @@ function Copy-DSCModules
         $RootPath = (Get-Location).Path,
 
         [Parameter()]
+        [array]
+        $ModuleName,
+
+        [Parameter()]
         [switch]
         $LocalHost,
 
@@ -815,7 +819,14 @@ function Copy-DSCModules
 
             if ($destinationPathTest -and $modulePathTest)
             {
-                $modules = Get-Childitem -Path $modulePath -Directory -Depth 0 | Where-Object { $_.Name -ne "DSCEA" -and $_.name -ne "Pester" }
+                if ($null -eq $ModuleName)
+                {
+                    $modules = Get-Childitem -Path $modulePath -Directory -Depth 0 | Where-Object { $_.Name -match $ModuleName }
+                }
+                else
+                {
+                    $modules = Get-Childitem -Path $modulePath -Directory -Depth 0
+                }
 
                 foreach ($module in $modules)
                 {
@@ -1028,21 +1039,28 @@ function New-ConfigData
     $targetMachines     = New-Object System.Collections.ArrayList
     $orgUnits           = New-Object System.Collections.ArrayList
 
-        Write-Output "`tBeginning DSC Configuration Data Build - Identifying Target Systems."
+    Write-Output "`tBeginning DSC Configuration Data Build - Identifying Target Systems."
 
-        if ('' -ne $SearchBase)             {$Scope = "OrgUnit"}
-        elseif ($LocalHost)                 {$Scope = "Local"}
-        elseif ($ComputerName.count -eq 1)  {$Scope = "Targeted"}
+    if ('' -ne $SearchBase)             {$Scope = "OrgUnit"}
+    elseif ($LocalHost)                 {$Scope = "Local"}
+    elseif ($ComputerName.count -eq 1)  {$Scope = "Targeted"}
 
-        switch ($Scope)
-        {
-            "OrgUnit"       {$targetMachines = @(Get-ADComputer -SearchBase $SearchBase -Filter * -Properties "operatingsystem", "distinguishedname")}
-            "MemberServers" {$targetMachines = @(Get-ADComputer -Filter {OperatingSystem -like "**server*"} -Properties "operatingsystem", "distinguishedname" | Where-Object {$_.DistinguishedName -Notlike "*Domain Controllers*"})}
-            "AllServers"    {$targetMachines = @(Get-ADComputer -Filter {OperatingSystem -like "**server*"} -Properties "operatingsystem", "distinguishedname")}
-            "Full"          {$targetMachines = @(Get-ADComputer -Filter * -Properties "operatingsystem", "distinguishedname")}
-            "Local"         {$targetMachines = @(Get-ADComputer -Identity $env:ComputerName -Properties "operatingsystem", "distinguishedname")}
-            "Targeted"      {$targetMachines = @(Get-AdComputer -Identity "$ComputerName" -Properties "operatingsystem","distinguishedname")}
-        }
+    switch ($Scope)
+    {
+        "OrgUnit"       {$targetMachines = @(Get-ADComputer -SearchBase $SearchBase -Filter * -Properties "operatingsystem", "distinguishedname");break}
+        "MemberServers" {$targetMachines = @(Get-ADComputer -Filter {OperatingSystem -like "**server*"} -Properties "operatingsystem", "distinguishedname" | Where-Object {$_.DistinguishedName -Notlike "*Domain Controllers*"});break}
+        "AllServers"    {$targetMachines = @(Get-ADComputer -Filter {OperatingSystem -like "**server*"} -Properties "operatingsystem", "distinguishedname");break}
+        "Full"          {$targetMachines = @(Get-ADComputer -Filter * -Properties "operatingsystem", "distinguishedname");break}
+        "Targeted"      {$targetMachines = @(Get-AdComputer -Identity "$ComputerName" -Properties "operatingsystem","distinguishedname");break}
+        "Local"         {$targetMachines = @(
+                                @{
+                                    Name = $env:computerName
+                                    OperatingSystem     = "Windows 10"
+                                    distinguishedname   = "Computers"
+                                }
+                            )
+                        }
+    }
 
     Write-Output "`tIdentifying Organizational Units for $($targetMachines.count) systems."
 
@@ -1050,7 +1068,7 @@ function New-ConfigData
     {
         if ($RootOrgUnit)
         {
-            $orgUnits = Get-ADOrganizationalUnit -SearchBase $SearchBase -SearchScope OneLevel 
+            $orgUnits = Get-ADOrganizationalUnit -SearchBase $SearchBase -SearchScope OneLevel
         }
         else
         {
@@ -1088,11 +1106,11 @@ function New-ConfigData
 
     foreach ($ou in $orgUnits)
     {
-        $jobs = New-Object System.Collections.ArrayList
-        if ($LocalHost)
+
+        if ($LocalHost -or ($scope -eq "Local"))
         {
             $targetMachines = $env:ComputerName
-            $ouFolder = "$nodeDataPath\LocalHost"
+            $ouFolder = "$nodeDataPath\$env:computerName"
         }
         elseif ($ou -eq "Computers")
         {
@@ -1104,7 +1122,7 @@ function New-ConfigData
             $targetMachines = (Get-ADComputer -filter * -SearchBase $ou.DistinguishedName).name
             $ouFolder = "$nodeDataPath\$($ou.name)"
         }
-
+        $jobs = New-Object System.Collections.ArrayList
         $ouMachineCount = $targetMachines.Count
         $currentMachineCount = 0
 
@@ -1115,8 +1133,8 @@ function New-ConfigData
                 $null = New-Item -Path $ouFolder -ItemType Directory -Force
             }
 
-            if   ($ou -eq "Computers") {Write-Output "`t`t$ou - $ouMachineCount Node(s) identified"}
-            else {Write-Output "`t`t$($ou.name) - $ouMachineCount Node(s) identified"}
+            if   ($ou -eq "Computers") {Write-Output "`n`t`t$ou - $ouMachineCount Node(s) identified"}
+            else {Write-Output "`n`t`t$($ou.name) - $ouMachineCount Node(s) identified"}
 
             foreach ($machine in $TargetMachines)
             {
@@ -1134,7 +1152,7 @@ function New-ConfigData
 
                     if ($LocalHost)
                     {
-                        $applicableStigs = @(Get-ApplicableStigs -Computername "LocalHost" -LocalHost)
+                        $applicableStigs = @(Get-ApplicableStigs -LocalHost)
                     }
                     else
                     {
@@ -1145,7 +1163,9 @@ function New-ConfigData
                     {
                         "WindowsServer*"
                         {
-                            switch -Wildcard ((Get-ADComputer -Identity $machine).DistinguishedName)
+                            $filter = "(&(objectCategory=computer)(objectClass=computer)(cn=$machine))"
+                            $distinguishedName = ([adsisearcher]$filter).FindOne().Properties.distinguishedname
+                            switch -Wildcard ($distinguishedName)
                             {
                                 "*Domain Controllers*"  {$StigType = "DomainController";    $osRole = "DC"}
                                 default                 {$StigType = "WindowsServer";       $osRole = "MS"}
@@ -1188,6 +1208,14 @@ function New-ConfigData
                                 orgSettings  = Get-StigFiles -Rootpath $RootPath -StigType "WindowsDefender" -FileType "OrgSettings" -NodeName $machine
                                 xccdfPath    = Get-StigFiles -Rootpath $RootPath -StigType "WindowsDefender" -FileType "Xccdf" -NodeName $machine
                                 manualChecks = Get-StigFiles -Rootpath $RootPath -StigType "WindowsDefender" -FileType "ManualChecks" -NodeName $machine
+                            }
+                        }
+                        "WindowsFirewall"
+                        {
+                            $WinFirewallStigFiles = @{
+                                orgSettings  = Get-StigFiles -Rootpath $RootPath -StigType "WindowsFirewall" -FileType "OrgSettings" -NodeName $machine
+                                xccdfPath    = Get-StigFiles -Rootpath $RootPath -StigType "WindowsFirewall" -FileType "Xccdf" -NodeName $machine
+                                manualChecks = Get-StigFiles -Rootpath $RootPath -StigType "WindowsFirewall" -FileType "ManualChecks" -NodeName $machine
                             }
                         }
                         "WindowsDnsServer"
@@ -1303,6 +1331,14 @@ function New-ConfigData
                                 manualChecks   = Get-StigFiles -Rootpath $Rootpath -StigType "Chrome" -FileType "ManualChecks" -NodeName $machine
                             }
                         }
+                        "Adobe"
+                        {
+                            $adobeStigFiles = @{
+                                orgsettings  = Get-StigFiles -Rootpath $Rootpath -StigType "Adobe" -FileType "OrgSettings" -NodeName $machine
+                                xccdfPath    = Get-StigFiles -Rootpath $Rootpath -StigType "Adobe" -FileType "Xccdf" -NodeName $machine
+                                manualChecks = Get-StigFiles -Rootpath $Rootpath -StigType "Adobe" -FileType "ManualChecks" -NodeName $machine
+                            }
+                        }
                         "OracleJRE"
                         {
                             $oracleStigFiles = @{
@@ -1317,6 +1353,10 @@ function New-ConfigData
                     #region Generate Configuration Data
                     try
                     {
+
+                        #region Generate ConfigData
+
+                        #region LocalHost Data
                         if ($LocalHost)
                         {
                             $compName       = $env:ComputerName
@@ -1328,38 +1368,10 @@ function New-ConfigData
                             $configContent  = New-Object System.Collections.ArrayList
                             $null = $configContent.add("@{`n`tNodeName = `"$machine`"`n`n")
                         }
-                        $null = $configContent.add("`tLocalConfigurationManager =")
-                        $null = $configContent.add("`n`t@{")
+                        #endregion Localhost Data
 
-                        foreach ($setting in $LcmSettings.Keys)
-                        {
-
-                            if (($Null -ne $LcmSettings.$setting) -and ("{}" -ne $lcmsettings.$setting) -and ("" -ne $LcmSettings.$setting))
-                            {
-                                $null = $null = $configContent.add("`n`t`t$($setting)")
-
-                                if ($setting.Length -lt 8)      {$null = $configContent.add("`t`t`t`t`t`t`t= ")}
-                                elseif ($setting.Length -lt 12) {$null = $configContent.add("`t`t`t`t`t`t= ")}
-                                elseif ($setting.Length -lt 16) {$null = $configContent.add("`t`t`t`t`t= ")}
-                                elseif ($setting.Length -lt 20) {$null = $configContent.add("`t`t`t`t= ")}
-                                elseif ($setting.Length -lt 24) {$null = $configContent.add("`t`t`t= ")}
-                                elseif ($setting.Length -lt 28) {$null = $configContent.add("`t`t= ")}
-                                elseif ($setting.Length -lt 32) {$null = $configContent.add("`t= ")}
-
-                                if (($LcmSettings.$setting -eq $true) -or ($LcmSettings.$setting -eq $false))
-                                {
-                                    $null = $configContent.add("`$$($LcmSettings.$setting)")
-                                }
-                                else
-                                {
-                                    $null = $configContent.add("`"$($LcmSettings.$setting)`"")
-                                }
-                            }
-                        }
-
-                        #Generate STIG ConfigData
-                        $null = $configContent.add("`n`t}")
-                        $null = $configContent.add("`n`n`tAppliedConfigurations  =")
+                        #region AppliedConfigurations
+                        $null = $configContent.add("`tAppliedConfigurations  =")
                         $null = $configContent.add("`n`t@{")
 
                         switch -Wildcard ($applicableSTIGs)
@@ -1412,6 +1424,15 @@ function New-ConfigData
                                 $null = $configContent.add("`n`t`t`tOrgSettings          = `"$($winDefenderStigFiles.orgSettings)`"")
                                 $null = $configContent.add("`n`t`t`tManualChecks         = `"$($winDefenderStigFiles.manualChecks)`"")
                                 $null = $configContent.add("`n`t`t`txccdfPath            = `"$($winDefenderStigFiles.xccdfPath)`"")
+                                $null = $configContent.add("`n`t`t}")
+                            }
+                            "WindowsFirewall"
+                            {
+                                $null = $configContent.add("`n`n`t`tPowerSTIG_WindowsFirewall =")
+                                $null = $configContent.add("`n`t`t@{")
+                                $null = $configContent.add("`n`t`t`tOrgSettings          = `"$($winFirewallStigFiles.orgSettings)`"")
+                                $null = $configContent.add("`n`t`t`tManualChecks         = `"$($winFirewallStigFiles.manualChecks)`"")
+                                $null = $configContent.add("`n`t`t`txccdfPath            = `"$($winFirewallStigFiles.xccdfPath)`"")
                                 $null = $configContent.add("`n`t`t}")
                             }
                             "WindowsDnsServer"
@@ -1560,6 +1581,16 @@ function New-ConfigData
                                 $null = $configContent.add("`n`t`t`txccdfPath            = `"$($chromeStigFiles.xccdfPath)`"")
                                 $null = $configContent.add("`n`t`t}")
                             }
+                            "Adobe"
+                            {
+                                $null = $configContent.add("`n`n`t`tPowerSTIG_Adobe =")
+                                $null = $configContent.add("`n`t`t@{")
+                                $null = $configContent.add("`n`t`t`tAdobeApp            = `"AcrobatReader`"")
+                                $null = $configContent.add("`n`t`t`txccdfPath			= `"$($adobeStigFiles.XccdfPath)`"")
+                                $null = $configContent.add("`n`t`t`tOrgSettings			= `"$($adobeStigFiles.OrgSettings)`"")
+                                $null = $configContent.add("`n`t`t`tManualChecks 		= `"$($adobeStigFiles.ManualChecks)`"")
+                                $null = $configContent.add("`n`t`t}")
+                            }
                             "OracleJRE"
                             {
                                 $null = $configContent.add("`n`n`t`tPowerSTIG_OracleJRE =")
@@ -1609,8 +1640,41 @@ function New-ConfigData
                             #     $null = $configContent.add("`n")
                             # }
                         }
-
                         $null = $configContent.add("`n`t}")
+                        #endregion AppliedConfigurations
+
+                        #region LocalConfigurationManager
+                        $null = $configContent.add("`n`n`tLocalConfigurationManager =")
+                        $null = $configContent.add("`n`t@{")
+
+                        foreach ($setting in $LcmSettings.Keys)
+                        {
+
+                            if (($Null -ne $LcmSettings.$setting) -and ("{}" -ne $lcmsettings.$setting) -and ("" -ne $LcmSettings.$setting))
+                            {
+                                $null = $null = $configContent.add("`n`t`t$($setting)")
+
+                                if ($setting.Length -lt 8)      {$null = $configContent.add("`t`t`t`t`t`t`t= ")}
+                                elseif ($setting.Length -lt 12) {$null = $configContent.add("`t`t`t`t`t`t= ")}
+                                elseif ($setting.Length -lt 16) {$null = $configContent.add("`t`t`t`t`t= ")}
+                                elseif ($setting.Length -lt 20) {$null = $configContent.add("`t`t`t`t= ")}
+                                elseif ($setting.Length -lt 24) {$null = $configContent.add("`t`t`t= ")}
+                                elseif ($setting.Length -lt 28) {$null = $configContent.add("`t`t= ")}
+                                elseif ($setting.Length -lt 32) {$null = $configContent.add("`t= ")}
+
+                                if (($LcmSettings.$setting -eq $true) -or ($LcmSettings.$setting -eq $false))
+                                {
+                                    $null = $configContent.add("`$$($LcmSettings.$setting)")
+                                }
+                                else
+                                {
+                                    $null = $configContent.add("`"$($LcmSettings.$setting)`"")
+                                }
+                            }
+                        }
+                        $null = $configContent.add("`n`t}")
+                        #endregion LocalConfigurationManager
+
                         $null = $configContent.add("`n}")
 
                         if ($LocalHost)
@@ -1627,21 +1691,21 @@ function New-ConfigData
                     }
                     catch
                     {
-                        Write-Output "`t`t$machine - Error Generating Nodedata." 
+                        Write-Output "`t`t$machine - Error Generating Nodedata."
                     }
                 }
                 $null = $jobs.add($job.Id)
             }
-            Write-Output "`tJob creation for $($ou.name) nodedata is complete. Waiting on $($jobs.count) jobs to finish processing.`n"
-            
-            do 
+            Write-Output "`t`tJob creation for $($ou.name) nodedata is complete. Waiting on $($jobs.count) jobs to finish processing.`n"
+
+            do
             {
                 Start-Sleep -Seconds 30
                 $completedJobs  = (Get-Job -ID $jobs | where {$_.state -ne "Running"}).count
                 $runningjobs    = (Get-Job -ID $jobs | where {$_.state -eq "Running"}).count
-                Write-Output "`t`tChecklist Job Status:`t$runningJobs Jobs Currently Processing`t$completedJobs/$($jobs.count) Jobs Completed"
+                Write-Output "`t`tNodeData Job Status:`t$runningJobs Jobs Currently Processing`t$completedJobs/$($jobs.count) Jobs Completed"
             }
-            while ((Get-Job -ID $jobs).State -contains "Running") 
+            while ((Get-Job -ID $jobs).State -contains "Running")
             Write-Output "`n`t$($jobs.count) Nodedata jobs completed. Receiving job output"
             Get-Job -ID $jobs | Wait-Job | Receive-Job
         }
@@ -1745,6 +1809,11 @@ function Get-StigFiles
                     $xccdfContainer     = (Resolve-Path -Path "$xccdfArchive\Chrome" -ErrorAction SilentlyContinue).Path
                     $xccdfs             = (Get-ChildItem -Path "$xccdfContainer\*.xml" | Where-Object { $_.name -like "*chrome*xccdf.xml"}).name
                 }
+                "Adobe"
+                {
+                    $xccdfContainer     = (Resolve-Path -Path "$xccdfArchive\adobe" -ErrorAction SilentlyContinue).Path
+                    $xccdfs             = (Get-ChildItem -Path "$xccdfContainer\*.xml" | Where-Object { $_.name -like "*adobe*xccdf.xml"}).name
+                }
                 "McAfee"
                 {
                     $xccdfContainer     = (Resolve-Path -Path "$xccdfArchive\$StigType" -ErrorAction SilentlyContinue).Path
@@ -1767,15 +1836,15 @@ function Get-StigFiles
                     $xccdfContainer     = (Resolve-Path -Path "$xccdfArchive\Windows.Defender" -ErrorAction SilentlyContinue).Path
                     $xccdfs             = (Get-ChildItem -Path "$xccdfContainer\*.xml" | Where-Object { $_.name -like "*Windows*Defender*xccdf.xml"}).name
                 }
+                "WindowsFirewall"
+                {
+                    $xccdfContainer     = (Resolve-Path -Path "$xccdfArchive\Windows.Firewall" -ErrorAction SilentlyContinue).Path
+                    $xccdfs             = (Get-ChildItem -Path "$xccdfContainer\*.xml" | Where-Object { $_.name -like "*Windows*Firewall*xccdf.xml"}).name
+                }
                 "WindowsDNSServer"
                 {
                     $xccdfContainer     = (Resolve-Path -Path "$xccdfArchive\Windows.Dns" -ErrorAction SilentlyContinue).Path
                     $xccdfs             = (Get-ChildItem -Path "$xccdfContainer\*.xml" | Where-Object { $_.name -like "*xccdf.xml"}).name
-                }
-                "AdobeReader"
-                {
-                    $xccdfContainer     = (Resolve-Path -Path "$xccdfArchive\$StigType" -ErrorAction SilentlyContinue).Path
-                    $xccdfs             = (Get-ChildItem -Path "$xccdfContainer\*.xml" | Where-Object { $_.name -like "*Adobe*Reader*xccdf.xml"}).name
                 }
                 "SqlServerInstance"
                 {
@@ -1841,15 +1910,20 @@ function Get-StigFiles
                     $manualCheckContainer   = (Resolve-Path -Path "$manualCheckFolder\FireFox" -ErrorAction SilentlyContinue).Path
                     $manualCheckFiles       = (Get-ChildItem -Path $manualCheckContainer | Where-Object { $_.name -like "*FireFox*ManualChecks.psd1"}).basename
                 }
+                "Edge"
+                {
+                    $manualCheckContainer   = (Resolve-Path -Path "$manualCheckFolder\Edge" -ErrorAction SilentlyContinue).Path
+                    $manualCheckFiles       = (Get-ChildItem -Path $manualCheckContainer | Where-Object { $_.name -like "*Edge*ManualChecks.psd1"}).basename
+                }
                 "Chrome"
                 {
                     $manualCheckContainer   = (Resolve-Path -Path "$manualCheckFolder\Chrome" -ErrorAction SilentlyContinue).Path
                     $manualCheckFiles       = (Get-ChildItem -Path $manualCheckContainer | Where-Object { $_.name -like "*Chrome*ManualChecks.psd1"}).basename
                 }
-                "Edge"
+                "Adobe"
                 {
-                    $manualCheckContainer   = (Resolve-Path -Path "$manualCheckFolder\Edge" -ErrorAction SilentlyContinue).Path
-                    $manualCheckFiles       = (Get-ChildItem -Path $manualCheckContainer | Where-Object { $_.name -like "*Edge*ManualChecks.psd1"}).basename
+                    $manualCheckContainer   = (Resolve-Path -Path "$manualCheckFolder\adobe" -ErrorAction SilentlyContinue).Path
+                    $manualCheckFiles       = (Get-ChildItem -Path $manualCheckContainer | Where-Object { $_.name -like "*adobe*ManualChecks.psd1"}).basename
                 }
                 "McAfee"
                 {
@@ -1888,15 +1962,15 @@ function Get-StigFiles
                     $manualCheckContainer   = (Resolve-Path -Path "$manualCheckFolder\WindowsDefender" -ErrorAction SilentlyContinue).Path
                     $manualCheckFiles       = (Get-ChildItem -Path $manualCheckContainer | Where-Object { $_.name -like "*WindowsDefender*ManualChecks.psd1"}).basename
                 }
+                "WindowsFirewall"
+                {
+                    $manualCheckContainer   = (Resolve-Path -Path "$manualCheckFolder\WindowsFirewall" -ErrorAction SilentlyContinue).Path
+                    $manualCheckFiles       = (Get-ChildItem -Path $manualCheckContainer | Where-Object { $_.name -like "*WindowsFirewall*ManualChecks.psd1"}).basename
+                }
                 "WindowsDNSServer"
                 {
                     $manualCheckContainer   = (Resolve-Path -Path "$manualCheckFolder\WindowsDnsServer" -ErrorAction SilentlyContinue).Path
                     $manualCheckFiles       = (Get-ChildItem -Path $manualCheckContainer | Where-Object { $_.name -like "*DNSServer*ManualChecks.psd1"}).basename
-                }
-                "AdobeReader"
-                {
-                    $manualCheckContainer   = (Resolve-Path -Path "$manualCheckFolder\Adobe" -ErrorAction SilentlyContinue).Path
-                    $manualCheckFiles       = (Get-ChildItem -Path $manualCheckContainer | Where-Object { $_.name -like "*Adobe*ManualChecks.psd1"}).basename
                 }
                 "SqlServerInstance"
                 {
@@ -1922,7 +1996,7 @@ function Get-StigFiles
         "OrgSettings"
         {
 
-            switch ($stigType)
+            switch -Wildcard ($stigType)
             {
                 "WindowsServer"
                 {
@@ -1969,14 +2043,19 @@ function Get-StigFiles
                 {
                     $orgSettingsFiles   = (Get-ChildItem $orgSettingsFolder | Where-Object { $_.name -like "*$stigType*"}).name
                 }
+                "Adobe"
+                {
+                    $StigType           = "Adobe"
+                    $orgSettingsFiles   = (Get-ChildItem $orgSettingsFolder | Where-Object { $_.name -like "$stigType-*.xml"}).name
+                }
                 "McAfee"
                 {
                     $orgSettingsFiles   = (Get-ChildItem $orgSettingsFolder | Where-Object { $_.name -like "$stigType-$version*"}).name
                 }
                 "Office*"
                 {
-                    $officeApp      = $stigType.split('_')[1]
-                    $officeVersion  = $stigType.split('_')[0].replace('Office','')
+                    $officeApp              = $stigType.split('_')[1]
+                    $officeVersion          = $stigType.split('_')[0].trimstart("Office")
                     $orgSettingsFiles       = (Get-ChildItem "$orgSettingsFolder" | Where-Object { $_.name -like "*$officeApp$officeVersion*"}).name
                     $stigVersions           = $orgSettingsFiles | Select-String "(\d+)\.(\d+)" -AllMatches | Foreach-Object {$_.Matches.Value}
                     $latestVersion          = ($stigVersions | Measure-Object -Maximum).Maximum
@@ -1991,9 +2070,9 @@ function Get-StigFiles
                 {
                     $orgSettingsFiles   = (Get-ChildItem $orgSettingsFolder | Where-Object { $_.name -like "$stigType-$version*"}).name
                 }
-                "WindowsDefender"
+                "WindowsFirewall"
                 {
-                    $orgSettingsFiles   = (Get-ChildItem $orgSettingsFolder | Where-Object { $_.name -like "$stigType-All*"}).name
+                    $orgSettingsFiles   = (Get-ChildItem $orgSettingsFolder | Where-Object { $_.name -like "*$stigType*"}).name
                 }
                 "WindowsDNSServer"
                 {
@@ -2002,10 +2081,6 @@ function Get-StigFiles
                 "OracleJRE"
                 {
                     $orgSettingsFiles   = (Get-ChildItem $orgSettingsFolder | Where-Object { $_.name -like "$stigType-$version"}).name
-                }
-                "AdobeReader"
-                {
-                    $orgSettingsFiles   = (Get-ChildItem $orgSettingsFolder | Where-Object { $_.name -like "Adobe-AcrobatReader-*"}).name
                 }
             }
 
@@ -2115,24 +2190,19 @@ function Get-ApplicableStigs
    Write-Output "`t`tGathering STIG Applicability for $ComputerName"
 
    # Get Windows Version from Active Directory
-    try 
+    try
     {
         if ($LocalHost)
         {
-            $WindowsVersion = 10
-            $ComputerName = 'LocalHost'
+            $WindowsVersion = "Windows 10"
+            $ComputerName   = 'LocalHost'
         }
         else
         {
             $windowsVersion = (Get-WmiObject -class win32_OperatingSystem -ComputerName $ComputerName -erroraction Stop).caption
         }
 
-        $applicableSTIGs = New-Object System.Collections.ArrayList
-        
-        $null = $applicableSTIGs.add("InternetExplorer")
-        $null = $applicableSTIGs.add("DotnetFramework")
-
-            # Get Installed Software from Target System
+        # Get Installed Software from Target System
         $session = New-PsSession -ComputerName $Computername -ErrorAction Stop
         $installedSoftware = Invoke-Command -Session $session -ErrorAction Stop -Scriptblock {
             $localSoftwareList = New-Object System.Collections.ArrayList
@@ -2141,7 +2211,7 @@ function Get-ApplicableStigs
             return $localSoftwareList
         }
 
-            # Get Installed Roles on Target System
+        # Get Installed Roles on Target System
         if ($windowsVersion -notlike "*Windows 10*")
         {
             $installedRoles = Invoke-Command -Session $session -Erroraction Stop -Scriptblock {
@@ -2150,23 +2220,37 @@ function Get-ApplicableStigs
             }
         }
 
+        # Add Applicable STIGs to Array
+        $applicableSTIGs = New-Object System.Collections.ArrayList
+
+        # Windows Operating System STIGs
+        switch -WildCard ($windowsVersion)
+        {
+            "*2012*"    {$null = $applicableStigs.add("WindowsServer-2012R2-MemberServer")}
+            "*2016*"    {$null = $applicableStigs.add("WindowsServer-2016-MemberServer")}
+            "*2019*"    {$null = $applicableStigs.add("WindowsServer-2019-MemberServer")}
+            "*10*"      {$null = $applicableStigs.add("WindowsClient")}
+        }
+
+        # Software STIGs
         switch -Wildcard ($installedSoftware.DisplayName)
         {
-            "*Adobe Acrobat Reader*"    {$null = $applicableStigs.add("AdobeReader")}
-            "*McAfee*"                  {$null = $applicableStigs.add("McAfee")}
-            "*Office*16*"               {$null = $applicableStigs.add("Office2016")}
-            "*Office*15*"               {$null = $applicableStigs.add("Office2013")}
-            "*FireFox*"                 {$null = $applicableStigs.add("FireFox")}
-            "*Chrome*"                  {$null = $applicableStigs.add("Chrome")}
-            "*Edge*"                    {$null = $applicableStigs.add("Edge")}
-            "*OracleJRE*"               {$null = $applicableStigs.add("OracleJRE")}
-            "Microsoft SQL Server*"     
+            "*Adobe Acrobat*"   {$null = $applicableStigs.add("AdobeReader")}
+            "*McAfee*"          {$null = $applicableStigs.add("McAfee")}
+            "*Office*16*"       {$null = $applicableStigs.add("Office2016")}
+            "*Office*15*"       {$null = $applicableStigs.add("Office2013")}
+            "*FireFox*"         {$null = $applicableStigs.add("FireFox")}
+            "*Chrome*"          {$null = $applicableStigs.add("Chrome")}
+            "*Edge*"            {$null = $applicableStigs.add("Edge")}
+            "*OracleJRE*"       {$null = $applicableStigs.add("OracleJRE")}
+            "Microsoft SQL Server*"
             {
                 $null = $applicableStigs.add("SqlServerInstance")
                 $null = $applicableStigs.add("SqlServerDatabase")
             }
         }
 
+        # Server Role-Based STIGs
         switch -WildCard ($installedRoles.Name)
         {
             "Web-Server"
@@ -2188,22 +2272,23 @@ function Get-ApplicableStigs
             "AD-Domain-Services"    {$null = $applicableStigs.add("ActiveDirectory")}
         }
 
-        switch -WildCard ($windowsVersion)
-        {
-            "*2012*"    {$null = $applicableStigs.add("WindowsServer-2012R2-MemberServer")}
-            "*2016*"    {$null = $applicableStigs.add("WindowsServer-2016-MemberServer")}
-            "*2019*"    {$null = $applicableStigs.add("WindowsServer-2019-MemberServer")}
-            "*10*"      {$null = $applicableStigs.add("WindowsClient")}
-        }
+        # Always Applicable
+        $null = $applicableSTIGs.add("InternetExplorer")
+        $null = $applicableSTIGs.add("DotnetFramework")
+        $null = $applicableStigs.add("WindowsDefender")
+        $null = $applicableStigs.add("WindowsFirewall")
+
         Remove-PsSession $Session
+        $applicableStigs = $applicableStigs | Select-Object -Unique
+
+        return $applicableStigs
     }
     catch
     {
         Write-Output "`t`t`tUnable to determine STIG Applicability for $ComputerName. Please verify WinRM connectivity."
+        return $null
+        Remove-PsSession $Session
     }
-
-    $applicableStigs = $applicableStigs | Select-Object -Unique
-    return $applicableStigs
 }
 
 function Get-DscComplianceReports
@@ -2472,18 +2557,23 @@ function Get-StigChecklists
         $targetMachines = @("$env:ComputerName")
     }
 
-    #$dscResults = @()
-    $jobs = New-Object System.Collections.ArrayList
-    Write-Output "`tStarting STIG Checklist generation jobs for $($targetMachines.count) targeted machines.`n"
+    $dscResults = New-Object System.Collections.ArrayList
+    $jobs       = New-Object System.Collections.ArrayList
+
+    Write-Output "`tStarting STIG Checklist generation jobs for $($targetMachines.count) targetted machines.`n"
+
     foreach ($machine in $targetMachines)
     {
-        if (-not (Test-Path "$cklContainer\$machine"))
+        $nodeDataFile       = (Resolve-Path -Path "$nodeDataPath\*\$machine.psd1").path
+        $data               = Invoke-Expression (Get-Content $NodeDataFile | Out-String)
+
+        try
+        {
+            $machineFolder = (New-Item -Path $CklContainer -Name "$($data.nodeName)" -ItemType Directory -Force).FullName
+        }
+        catch
         {
             $machineFolder = (New-Item -Path $CklContainer -Name "$machine" -ItemType Directory -Force).FullName
-        }
-        else
-        {
-            $machineFolder = "$cklContainer\$machine"
         }
 
         Write-Output "`t`tStarting Job - Generate STIG Checklists for $machine"
@@ -2493,13 +2583,13 @@ function Get-StigChecklists
             $machine            = $using:machine
             $RootPath           = $using:RootPath
             $machineFolder      = $using:machinefolder
-            $nodeDataPath       = (Resolve-Path -Path "$RootPath\*NodeData").path
-            $mofPath            = (Resolve-Path -Path "$RootPath\*Artifacts\Mofs").path
-            $resourcePath       = (Resolve-Path -Path "$RootPath\*Resources").path
-            $artifactsPath      = (Resolve-Path -Path "$RootPath\*Artifacts").path
-            $cklContainer       = (Resolve-Path -Path "$artifactsPath\STIG Checklists").Path
-            $nodeDataFile       = (Resolve-Path -Path "$nodeDataPath\*\$machine.psd1").path
-            $data               = Invoke-Expression (Get-Content $NodeDataFile | Out-String)
+            $nodeDataPath       = $using:nodeDataPath
+            $mofPath            = $using:mofPath
+            $resourcePath       = $using:resourcePath
+            $artifactsPath      = $using:artifactsPath
+            $cklContainer       = $using:cklContainer
+            $nodeDataFile       = $using:nodeDataFile
+            $data               = $using:data
             $osVersion          = (Get-WmiObject Win32_OperatingSystem).caption | Select-String "(\d+)([^\s]+)" -AllMatches | Foreach-Object {$_.Matches.Value}
             $dscResult          = $null
             $remoteCklJobs      = New-Object System.Collections.ArrayList
@@ -2650,9 +2740,9 @@ function Get-StigChecklists
                     Write-Output "Unable to execute DSC compliance scan on $machine."
                     exit
                 }
-                else 
+                else
                 {
-                    
+
                     foreach ($stig in $appliedStigs)
                     {
 
@@ -2687,7 +2777,7 @@ function Get-StigChecklists
                                 {
                                     $remoteXccdfPath        = (Copy-Item -Path $xccdfPath -Passthru -Destination "\\$machine\C$\Scar\STIG Data\Xccdfs" -Container -Force -Confirm:$False -erroraction Stop).fullName.Replace("\\$machine\C$\","C:\")
                                 }
-                                
+
                                 $remoteCklPath          = "C:\SCAR\STIG Checklists"
 
                                 if ($null -ne $manualCheckFile)
@@ -2759,7 +2849,7 @@ function Get-StigChecklists
                             }
                         }
                     }
-                    
+
                     if ($remoteCklJobs.count -gt 0)
                     {
                         Get-Job -ID $remoteCklJobs.ID | Wait-Job | Receive-Job
@@ -2785,7 +2875,6 @@ function Get-StigChecklists
                         {
                             Write-Output "`t`t$machine - No STIG Checklists generated."
                         }
-
                     }
                     catch
                     {
@@ -2811,7 +2900,7 @@ function Get-StigChecklists
                             $xccdfHint          = $subtype
                             $manualCheckFile    = (Get-Childitem "$rootpath\Resources\Stig Data\Manual Checks\$stigType\*.psd1"      | Where {$_.name -like "*$manCheckFileHint*"}).FullName
                             $xccdfPath          = (Get-Childitem "$rootpath\Resources\Stig Data\XCCDFs\$stigType\*Manual-xccdf.xml"  | Where {$_.name -like "*$xccdfHint*"}).FullName
-                            $cklPath            = "$machineFolder\$machine-$stigType_$manCheckFileHint.ckl"
+                            $cklPath            = "$machineFolder\$($data.nodename)-$stigType_$manCheckFileHint.ckl"
 
                             $params = @{
                                 xccdfPath       = $xccdfPath
@@ -2831,7 +2920,7 @@ function Get-StigChecklists
 
                         $manualCheckFile    = (Get-Childitem "$rootpath\Resources\Stig Data\Manual Checks\$stigType\*.psd1"     | Select -first 1).FullName
                         $xccdfPath          = (Get-Childitem "$rootpath\Resources\Stig Data\XCCDFs\$stigType\*Manual-xccdf.xml" | Select -first 1).FullName
-                        $cklPath            = "$machineFolder\$machine-$stigType.ckl"
+                        $cklPath            = "$machineFolder\$($data.nodename)-$stigType.ckl"
                         $params = @{
                             xccdfPath       = $xccdfPath
                             OutputPath      = $cklPath
@@ -2859,19 +2948,19 @@ function Get-StigChecklists
             }
             Write-Output "`t`t$machine - STIG Checklist job complete"
         }
-        $null = $jobs.add($job.Id) 
+        $null = $jobs.add($job.Id)
     }
     Write-Output "`n`tJob creation for STIG Checklists Generation is Complete. Waiting for $($jobs.count) jobs to finish processing"
-    
-    do 
+
+    do
     {
         Start-Sleep -Seconds 60
         $completedJobs  = (Get-Job -id $jobs | where {$_.state -ne "Running"}).count
         $runningjobs    = (Get-Job -id $jobs | where {$_.state -eq "Running"}).count
         Write-Output "`t`tChecklist Job Status:`t$runningJobs Jobs Currently Processing`t$completedJobs/$($jobs.count) Jobs Completed"
     }
-    while ((Get-Job -ID $jobs).State -contains "Running") 
-    
+    while ((Get-Job -ID $jobs).State -contains "Running")
+
     Write-Output "`n`t$($jobs.count) STIG Checklist jobs completed. Receiving job output"
 
     Get-Job -ID $jobs | Wait-Job | Receive-Job
@@ -3043,7 +3132,6 @@ function Get-StigCheckList
             else { $serverIP = $serverIPs }
             return $serverIP
         }
-
         $FQDN       = ( Get-ADComputer $hostName -ErrorAction Stop).DnsHostName
     }
     catch
@@ -3054,8 +3142,31 @@ function Get-StigCheckList
         }
     }
 
+    $osVersion = (Get-WmiObject Win32_OperatingSystem -ComputerName $hostName -erroraction silentlycontinue).caption
+
+    switch -wildcard ($osVersion)
+    {
+        "*Server*"
+        {
+            $filter = "(&(objectCategory=computer)(objectClass=computer)(cn=$hostName))"
+            $distinguishedName = ([adsisearcher]$filter).FindOne().Properties.distinguishedname
+
+            if ($distinguishedName -notlike "*Domain Controllers*")
+            {
+                $osRole = "Member Server"
+            }
+            else
+            {
+                $osRole = "Domain Controller"
+            }
+            break
+        }
+        "*Windows 10*"  { $osRole = "Workstation";break}
+        $null           { $osRole = "None"}
+    }
+
     $assetElements = [ordered] @{
-        'ROLE'            = 'Member Server'
+        'ROLE'            = "$osRole"
         'ASSET_TYPE'      = 'Computing'
         'HOST_NAME'       = "$Hostname"
         'HOST_IP'         = "$IPAddress"

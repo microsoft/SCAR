@@ -4,9 +4,9 @@
 		<ROLE>Member Server</ROLE>
 		<ASSET_TYPE>Computing</ASSET_TYPE>
 		<HOST_NAME>vm-jump-001</HOST_NAME>
-		<HOST_IP></HOST_IP>
-		<HOST_MAC></HOST_MAC>
-		<HOST_FQDN></HOST_FQDN>
+		<HOST_IP>10.0.0.22</HOST_IP>
+		<HOST_MAC>00-22-48-1F-8A-79</HOST_MAC>
+		<HOST_FQDN>vm-jump-001.101ab.army.mil</HOST_FQDN>
 		<TECH_AREA></TECH_AREA>
 		<TARGET_KEY>2350</TARGET_KEY>
 		<WEB_OR_DATABASE>false</WEB_OR_DATABASE>
@@ -50,7 +50,7 @@
 				</SI_DATA>
 				<SI_DATA>
 					<SID_NAME>uuid</SID_NAME>
-					<SID_DATA>5b32a1b7-e510-4d3b-a525-08d290f575f8</SID_DATA>
+					<SID_DATA>4921500c-99d6-4db2-b25d-f195fd488422</SID_DATA>
 				</SI_DATA>
 				<SI_DATA>
 					<SID_NAME>notice</SID_NAME>
@@ -1957,7 +1957,7 @@ Under the "Actions" pane, click "Apply".</ATTRIBUTE_DATA>
 				</STIG_DATA>
 				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS>Addressed by PowerStig MOF via MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState</COMMENTS>
+				<COMMENTS>Addressed by PowerStig MOF via [xIisMimeTypeMapping][V-218798.a][medium][SRG-APP-000141-WSR-000081]::[IisServer]Baseline::[PowerSTIG_WebServer]PowerSTIG_WebServer [xIisMimeTypeMapping][V-218798.b][medium][SRG-APP-000141-WSR-000081]::[IisServer]Baseline::[PowerSTIG_WebServer]PowerSTIG_WebServer [xIisMimeTypeMapping][V-218798.c][medium][SRG-APP-000141-WSR-000081]::[IisServer]Baseline::[PowerSTIG_WebServer]PowerSTIG_WebServer [xIisMimeTypeMapping][V-218798.d][medium][SRG-APP-000141-WSR-000081]::[IisServer]Baseline::[PowerSTIG_WebServer]PowerSTIG_WebServer [xIisMimeTypeMapping][V-218798.e][medium][SRG-APP-000141-WSR-000081]::[IisServer]Baseline::[PowerSTIG_WebServer]PowerSTIG_WebServer</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -3070,7 +3070,7 @@ Click "Apply" in the "Actions" pane.</ATTRIBUTE_DATA>
 				</STIG_DATA>
 				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS>Addressed by PowerStig MOF via MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState</COMMENTS>
+				<COMMENTS>Addressed by PowerStig MOF via [xWebConfigProperty][V-218807.a][medium][SRG-APP-000231-WSR-000144]::[IisServer]Baseline::[PowerSTIG_WebServer]PowerSTIG_WebServer [xWebConfigProperty][V-218807.b][medium][SRG-APP-000231-WSR-000144]::[IisServer]Baseline::[PowerSTIG_WebServer]PowerSTIG_WebServer</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -4916,7 +4916,7 @@ With a REG_DWORD value of "0" for "Enabled"</ATTRIBUTE_DATA>
 				</STIG_DATA>
 				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS>Registry Value =         </FINDING_DETAILS>
-				<COMMENTS>Addressed by PowerStig MOF via MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState</COMMENTS>
+				<COMMENTS>Addressed by PowerStig MOF via [Registry][V-218821.a][high][SRG-APP-000439-WSR-000156]::[IisServer]Baseline::[PowerSTIG_WebServer]PowerSTIG_WebServer [Registry][V-218821.b][high][SRG-APP-000439-WSR-000156]::[IisServer]Baseline::[PowerSTIG_WebServer]PowerSTIG_WebServer [Registry][V-218821.c][high][SRG-APP-000439-WSR-000156]::[IisServer]Baseline::[PowerSTIG_WebServer]PowerSTIG_WebServer [Registry][V-218821.d][high][SRG-APP-000439-WSR-000156]::[IisServer]Baseline::[PowerSTIG_WebServer]PowerSTIG_WebServer [Registry][V-218821.e][high][SRG-APP-000439-WSR-000156]::[IisServer]Baseline::[PowerSTIG_WebServer]PowerSTIG_WebServer [Registry][V-218821.f][high][SRG-APP-000439-WSR-000156]::[IisServer]Baseline::[PowerSTIG_WebServer]PowerSTIG_WebServer [Registry][V-218821.g][high][SRG-APP-000439-WSR-000156]::[IisServer]Baseline::[PowerSTIG_WebServer]PowerSTIG_WebServer [Registry][V-218821.h][high][SRG-APP-000439-WSR-000156]::[IisServer]Baseline::[PowerSTIG_WebServer]PowerSTIG_WebServer [Registry][V-218821.i][high][SRG-APP-000439-WSR-000156]::[IisServer]Baseline::[PowerSTIG_WebServer]PowerSTIG_WebServer</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -5271,7 +5271,7 @@ Click "OK".</ATTRIBUTE_DATA>
 				</STIG_DATA>
 				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS>Addressed by PowerStig MOF via MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState</COMMENTS>
+				<COMMENTS>Addressed by PowerStig MOF via [xWebConfigProperty][V-218824.a][medium][SRG-APP-000516-WSR-000174]::[IisServer]Baseline::[PowerSTIG_WebServer]PowerSTIG_WebServer [xWebConfigProperty][V-218824.b][medium][SRG-APP-000516-WSR-000174]::[IisServer]Baseline::[PowerSTIG_WebServer]PowerSTIG_WebServer</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>

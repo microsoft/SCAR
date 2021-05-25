@@ -4,9 +4,9 @@
 		<ROLE>Member Server</ROLE>
 		<ASSET_TYPE>Computing</ASSET_TYPE>
 		<HOST_NAME>vm-jump-001</HOST_NAME>
-		<HOST_IP></HOST_IP>
-		<HOST_MAC></HOST_MAC>
-		<HOST_FQDN></HOST_FQDN>
+		<HOST_IP>10.0.0.22</HOST_IP>
+		<HOST_MAC>00-22-48-1F-8A-79</HOST_MAC>
+		<HOST_FQDN>vm-jump-001.101ab.army.mil</HOST_FQDN>
 		<TECH_AREA></TECH_AREA>
 		<TARGET_KEY>2350</TARGET_KEY>
 		<WEB_OR_DATABASE>false</WEB_OR_DATABASE>
@@ -50,7 +50,7 @@
 				</SI_DATA>
 				<SI_DATA>
 					<SID_NAME>uuid</SID_NAME>
-					<SID_DATA>50206054-c035-4381-a6f7-409316f06856</SID_DATA>
+					<SID_DATA>8dc5cb41-1ce5-47bc-8574-20195be81797</SID_DATA>
 				</SI_DATA>
 				<SI_DATA>
 					<SID_NAME>notice</SID_NAME>
@@ -1349,7 +1349,7 @@ Select "Apply" from the "Actions" pane.</ATTRIBUTE_DATA>
 				</STIG_DATA>
 				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS>Addressed by PowerStig MOF via MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState</COMMENTS>
+				<COMMENTS>Addressed by PowerStig MOF via [xIisMimeTypeMapping][V-218743.a][medium][SRG-APP-000141-WSR-000081:Default Web Site]::[IisSite]Baseline::[PowerSTIG_WebSite]PowerSTIG_WebSite [xIisMimeTypeMapping][V-218743.b][medium][SRG-APP-000141-WSR-000081:Default Web Site]::[IisSite]Baseline::[PowerSTIG_WebSite]PowerSTIG_WebSite [xIisMimeTypeMapping][V-218743.c][medium][SRG-APP-000141-WSR-000081:Default Web Site]::[IisSite]Baseline::[PowerSTIG_WebSite]PowerSTIG_WebSite [xIisMimeTypeMapping][V-218743.d][medium][SRG-APP-000141-WSR-000081:Default Web Site]::[IisSite]Baseline::[PowerSTIG_WebSite]PowerSTIG_WebSite [xIisMimeTypeMapping][V-218743.e][medium][SRG-APP-000141-WSR-000081:Default Web Site]::[IisSite]Baseline::[PowerSTIG_WebSite]PowerSTIG_WebSite</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -4875,7 +4875,7 @@ Select "Apply" from the "Actions" pane.</ATTRIBUTE_DATA>
 				</STIG_DATA>
 				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS>Addressed by PowerStig MOF via MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState</COMMENTS>
+				<COMMENTS>Addressed by PowerStig MOF via [xWebConfigProperty][V-218770.a][medium][SRG-APP-000439-WSR-000154:Default Web Site]::[IisSite]Baseline::[PowerSTIG_WebSite]PowerSTIG_WebSite [xWebConfigProperty][V-218770.b][medium][SRG-APP-000439-WSR-000154:Default Web Site]::[IisSite]Baseline::[PowerSTIG_WebSite]PowerSTIG_WebSite</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>

@@ -4,9 +4,9 @@
 		<ROLE>Member Server</ROLE>
 		<ASSET_TYPE>Computing</ASSET_TYPE>
 		<HOST_NAME>vm-jump-001</HOST_NAME>
-		<HOST_IP></HOST_IP>
-		<HOST_MAC></HOST_MAC>
-		<HOST_FQDN></HOST_FQDN>
+		<HOST_IP>10.0.0.22</HOST_IP>
+		<HOST_MAC>00-22-48-1F-8A-79</HOST_MAC>
+		<HOST_FQDN>vm-jump-001.101ab.army.mil</HOST_FQDN>
 		<TECH_AREA></TECH_AREA>
 		<TARGET_KEY>2350</TARGET_KEY>
 		<WEB_OR_DATABASE>false</WEB_OR_DATABASE>
@@ -50,7 +50,7 @@
 				</SI_DATA>
 				<SI_DATA>
 					<SID_NAME>uuid</SID_NAME>
-					<SID_DATA>46443dc9-e862-4879-b1a8-94abb16a9c97</SID_DATA>
+					<SID_DATA>65d99adf-e411-4408-b679-d555f893d1b0</SID_DATA>
 				</SI_DATA>
 				<SI_DATA>
 					<SID_NAME>notice</SID_NAME>
@@ -4592,7 +4592,7 @@ PSComputerName = vm-jump-001
 				</STIG_DATA>
 				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS>Addressed by PowerStig MOF via MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState</COMMENTS>
+				<COMMENTS>Addressed by PowerStig MOF via [RegistryPolicyFile][V-46609.a][medium][DTBI300-IE11-Configuring History lists]::[InternetExplorer]Baseline::[PowerSTIG_InternetExplorer]PowerSTIG_InternetExplorer [RegistryPolicyFile][V-46609.b][medium][DTBI300-IE11-Configuring History lists]::[InternetExplorer]Baseline::[PowerSTIG_InternetExplorer]PowerSTIG_InternetExplorer</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>
@@ -10652,7 +10652,7 @@ Procedure: Use the Windows Registry Editor to navigate to the following key: HKC
 				</STIG_DATA>
 				<STATUS>NotAFinding</STATUS>
 				<FINDING_DETAILS></FINDING_DETAILS>
-				<COMMENTS>Addressed by PowerStig MOF via MSFT_ResourceInDesiredState MSFT_ResourceInDesiredState</COMMENTS>
+				<COMMENTS>Addressed by PowerStig MOF via [RegistryPolicyFile][V-46815.a][medium][DTBI725-IE11-Auto-complete feature for user names and passwords]::[InternetExplorer]Baseline::[PowerSTIG_InternetExplorer]PowerSTIG_InternetExplorer [RegistryPolicyFile][V-46815.b][medium][DTBI725-IE11-Auto-complete feature for user names and passwords]::[InternetExplorer]Baseline::[PowerSTIG_InternetExplorer]PowerSTIG_InternetExplorer</COMMENTS>
 				<SEVERITY_OVERRIDE></SEVERITY_OVERRIDE>
 				<SEVERITY_JUSTIFICATION></SEVERITY_JUSTIFICATION>
 			</VULN>

@@ -1,9 +1,9 @@
-﻿Configuration PowerSTIG_InternetExplorer
+﻿Configuration PowerSTIG_WindowsDnsServer
 {
     param(
-        [Parameter(Mandatory = $true)]
-        [int]
-        $BrowserVersion,
+        [Parameter()]
+        [string]
+        $OsVersion,
 
         [Parameter()]
         [version]
@@ -19,87 +19,86 @@
 
         [Parameter()]
         [string[]]
-        $SkipRule
+        $SkipRule = @("V-215652","V-215632")
     )
 
-    Import-DscResource -ModuleName 'PowerStig'
-
+    Import-DSCResource -Module PowerSTIG
+    $osVersion = "2012R2"
     if ( $null -eq $OrgSettings -or "" -eq $OrgSettings )
     {
-        if ( $null -eq $SkipRule -and $null -eq $Exception )
+        if ( ($null -eq $SkipRule) -and ($null -eq $Exception) )
         {
-            InternetExplorer Baseline
+            WindowsDnsServer BaseLine
             {
-                BrowserVersion  = $BrowserVersion
+                OsVersion   = $OSVersion
             }
         }
-        elseif ( $null -ne $SkipRule -and $null -eq $Exception )
+        elseif ($null -ne $SkipRule -and $null -eq $Exception)
         {
-            InternetExplorer Baseline
+            WindowsDnsServer BaseLine
             {
-                BrowserVersion  = $BrowserVersion
-                Skiprule        = $SkipRule
+                OsVersion   = $OSVersion
+                SkipRule    = $SkipRule
             }
         }
-        elseif ( $null -eq $SkipRule -and $null -ne $Exception )
+        elseif ($null -eq $skiprule -and $null -ne $Exception)
         {
-            InternetExplorer Baseline
+            WindowsDnsServer BaseLine
             {
-                BrowserVersion  = $BrowserVersion
-                Exception       = $Exception
+                OsVersion   = $OSVersion
+                Exception   = $Exception
             }
         }
-        elseif ( $null -ne $SkipRule -and $null -ne $Exception )
+        elseif ( ($null -ne $Exception ) -and ($null -ne $SkipRule) )
         {
-            InternetExplorer Baseline
+            WindowsDnsServer Baseline
             {
-                BrowserVersion  = $BrowserVersion
-                Skiprule        = $SkipRule
-                Exception       = $Exception
+                OsVersion   = $OSVersion
+                Exception   = $Exception
+                SkipRule    = $SkipRule
             }
         }
     }
-    else
+    elseif ($null-ne $orgsettings)
     {
-        if ( $null -eq $SkipRule -and $null -eq $Exception )
+        if ( ($null -eq $SkipRule) -and ($null -eq $Exception) )
         {
-            InternetExplorer Baseline
+            WindowsDnsServer BaseLine
             {
-                BrowserVersion  = $BrowserVersion
-                OrgSettings     = $OrgSettings
+                OsVersion   = $OSVersion
+                OrgSettings = $OrgSettings
             }
         }
-        elseif ( $null -ne $SkipRule -and $null -eq $Exception )
+        elseif ($null -ne $SkipRule -and $null -eq $exception)
         {
-            InternetExplorer Baseline
+            WindowsDnsServer BaseLine
             {
-                BrowserVersion  = $BrowserVersion
-                OrgSettings     = $OrgSettings
-                Skiprule        = $SkipRule
+                OsVersion   = $OSVersion
+                OrgSettings = $OrgSettings
+                SkipRule    = $SkipRule
             }
         }
-        elseif ( $null -eq $SkipRule -and $null -ne $Exception )
-        {
-            InternetExplorer Baseline
+        elseif ( $null -eq $skiprule -and $null -ne $Exception ) {
+            WindowsDnsServer BaseLine
             {
-                BrowserVersion  = $BrowserVersion
-                OrgSettings     = $OrgSettings
-                Exception       = $Exception
+                OsVersion   = $OSVersion
+                OrgSettings = $OrgSettings
+                Exception   = $Exception
             }
         }
-        elseif ( $null -ne $SkipRule -and $null -ne $Exception )
+        elseif ( ($null -ne $Exception ) -and ($null -ne $SkipRule) )
         {
-            InternetExplorer Baseline
+            WindowsDnsServer Baseline
             {
-                BrowserVersion  = $BrowserVersion
-                OrgSettings     = $OrgSettings
-                Skiprule        = $SkipRule
-                Exception       = $Exception
+                OsVersion   = $OSVersion
+                OrgSettings = $OrgSettings
+                Exception   = $Exception
+                SkipRule    = $SkipRule
             }
         }
     }
 
-    foreach ( $rule in $SkipRule.Keys )
+    foreach($rule in $SkipRule.Keys)
     {
         Registry Exception_Rule
         {
@@ -226,7 +225,7 @@ Configuration PowerSTIG_DotNetFramework
         }
     }
 }
-Configuration PowerSTIG_WindowsDefender
+Configuration PowerSTIG_WindowsFirewall
 {
     param(
         [Parameter()]
@@ -246,32 +245,32 @@ Configuration PowerSTIG_WindowsDefender
         $SkipRule
     )
 
-    Import-DSCResource -Modulename 'PowerSTIG'
+    Import-DSCResource -Module PowerSTIG
 
     if ( $null -eq $OrgSettings -or "" -eq $OrgSettings )
     {
         if ( ($null -eq $SkipRule) -and ($null -eq $Exception) )
         {
-            WindowsDefender BaseLine
+            WindowsFirewall BaseLine
             {
             }
         }
         elseif ($null -ne $SkipRule -and $null -eq $Exception)
         {
-            WindowsDefender BaseLine
+            WindowsFirewall BaseLine
             {
                 SkipRule    = $SkipRule
             }
         }
         elseif ($null -eq $skiprule -and $null -ne $Exception) {
-            WindowsDefender BaseLine
+            WindowsFirewall BaseLine
             {
                 Exception   = $Exception
             }
         }
         elseif ( ($null -ne $Exception ) -and ($null -ne $SkipRule) )
         {
-            WindowsDefender Baseline
+            WindowsFirewall Baseline
             {
                 Exception   = $Exception
                 SkipRule    = $SkipRule
@@ -282,21 +281,21 @@ Configuration PowerSTIG_WindowsDefender
     {
         if ( ($null -eq $SkipRule) -and ($null -eq $Exception) )
         {
-            WindowsDefender BaseLine
+            WindowsFirewall BaseLine
             {
                 OrgSettings = $OrgSettings
             }
         }
         elseif ($null -ne $SkipRule -and $null -eq $exception)
         {
-            WindowsDefender BaseLine
+            WindowsFirewall BaseLine
             {
                 OrgSettings = $OrgSettings
                 SkipRule    = $SkipRule
             }
         }
         elseif ( $null -eq $skiprule -and $null -ne $Exception ) {
-            WindowsDefender BaseLine
+            WindowsFirewall BaseLine
             {
                 OrgSettings = $OrgSettings
                 Exception   = $Exception
@@ -304,7 +303,7 @@ Configuration PowerSTIG_WindowsDefender
         }
         elseif ( ($null -ne $Exception ) -and ($null -ne $SkipRule) )
         {
-            WindowsDefender Baseline
+            WindowsFirewall Baseline
             {
                 OrgSettings = $OrgSettings
                 Exception   = $Exception
@@ -314,6 +313,120 @@ Configuration PowerSTIG_WindowsDefender
     }
 
     foreach($rule in $SkipRule.Keys)
+    {
+        Registry Exception_Rule
+        {
+            Ensure = "Present"
+            Key = "HKEY_LOCAL_MACHINE\SOFTWARE\STIGExceptions\"
+            ValueName = $rule
+            ValueData = $(Get-Date -format "MMddyyyy")
+            ValueType = "String"
+            Force = $true
+        }
+    }
+}
+Configuration PowerSTIG_InternetExplorer
+{
+    param(
+        [Parameter(Mandatory = $true)]
+        [int]
+        $BrowserVersion,
+
+        [Parameter()]
+        [version]
+        $StigVersion,
+
+        [Parameter()]
+        [hashtable]
+        $Exception,
+
+        [Parameter()]
+        [string]
+        $OrgSettings,
+
+        [Parameter()]
+        [string[]]
+        $SkipRule
+    )
+
+    Import-DscResource -ModuleName 'PowerStig'
+
+    if ( $null -eq $OrgSettings -or "" -eq $OrgSettings )
+    {
+        if ( $null -eq $SkipRule -and $null -eq $Exception )
+        {
+            InternetExplorer Baseline
+            {
+                BrowserVersion  = $BrowserVersion
+            }
+        }
+        elseif ( $null -ne $SkipRule -and $null -eq $Exception )
+        {
+            InternetExplorer Baseline
+            {
+                BrowserVersion  = $BrowserVersion
+                Skiprule        = $SkipRule
+            }
+        }
+        elseif ( $null -eq $SkipRule -and $null -ne $Exception )
+        {
+            InternetExplorer Baseline
+            {
+                BrowserVersion  = $BrowserVersion
+                Exception       = $Exception
+            }
+        }
+        elseif ( $null -ne $SkipRule -and $null -ne $Exception )
+        {
+            InternetExplorer Baseline
+            {
+                BrowserVersion  = $BrowserVersion
+                Skiprule        = $SkipRule
+                Exception       = $Exception
+            }
+        }
+    }
+    else
+    {
+        if ( $null -eq $SkipRule -and $null -eq $Exception )
+        {
+            InternetExplorer Baseline
+            {
+                BrowserVersion  = $BrowserVersion
+                OrgSettings     = $OrgSettings
+            }
+        }
+        elseif ( $null -ne $SkipRule -and $null -eq $Exception )
+        {
+            InternetExplorer Baseline
+            {
+                BrowserVersion  = $BrowserVersion
+                OrgSettings     = $OrgSettings
+                Skiprule        = $SkipRule
+            }
+        }
+        elseif ( $null -eq $SkipRule -and $null -ne $Exception )
+        {
+            InternetExplorer Baseline
+            {
+                BrowserVersion  = $BrowserVersion
+                OrgSettings     = $OrgSettings
+                Exception       = $Exception
+            }
+        }
+        elseif ( $null -ne $SkipRule -and $null -ne $Exception )
+        {
+            InternetExplorer Baseline
+            {
+                BrowserVersion  = $BrowserVersion
+                OrgSettings     = $OrgSettings
+                Skiprule        = $SkipRule
+                Exception       = $Exception
+            }
+        }
+    }
+
+    foreach ( $rule in $SkipRule.Keys )
     {
         Registry Exception_Rule
         {
@@ -451,13 +564,9 @@ Configuration PowerSTIG_WindowsServer
         }
     }
 }
-Configuration PowerSTIG_WindowsDnsServer
+Configuration PowerSTIG_WindowsDefender
 {
     param(
-        [Parameter()]
-        [string]
-        $OsVersion,
-
         [Parameter()]
         [version]
         $StigVersion,
@@ -472,78 +581,69 @@ Configuration PowerSTIG_WindowsDnsServer
 
         [Parameter()]
         [string[]]
-        $SkipRule = @("V-215652","V-215632")
+        $SkipRule
     )
 
-    Import-DSCResource -Module PowerSTIG
-    $osVersion = "2012R2"
+    Import-DSCResource -Modulename 'PowerSTIG'
+
     if ( $null -eq $OrgSettings -or "" -eq $OrgSettings )
     {
         if ( ($null -eq $SkipRule) -and ($null -eq $Exception) )
         {
-            WindowsDnsServer BaseLine
+            WindowsDefender BaseLine
             {
-                OsVersion   = $OSVersion
             }
         }
         elseif ($null -ne $SkipRule -and $null -eq $Exception)
         {
-            WindowsDnsServer BaseLine
+            WindowsDefender BaseLine
             {
-                OsVersion   = $OSVersion
                 SkipRule    = $SkipRule
             }
         }
-        elseif ($null -eq $skiprule -and $null -ne $Exception)
-        {
-            WindowsDnsServer BaseLine
+        elseif ($null -eq $skiprule -and $null -ne $Exception) {
+            WindowsDefender BaseLine
             {
-                OsVersion   = $OSVersion
                 Exception   = $Exception
             }
         }
         elseif ( ($null -ne $Exception ) -and ($null -ne $SkipRule) )
         {
-            WindowsDnsServer Baseline
+            WindowsDefender Baseline
             {
-                OsVersion   = $OSVersion
                 Exception   = $Exception
                 SkipRule    = $SkipRule
             }
         }
     }
-    elseif ($null-ne $orgsettings)
+    else
     {
         if ( ($null -eq $SkipRule) -and ($null -eq $Exception) )
         {
-            WindowsDnsServer BaseLine
+            WindowsDefender BaseLine
             {
-                OsVersion   = $OSVersion
                 OrgSettings = $OrgSettings
             }
         }
         elseif ($null -ne $SkipRule -and $null -eq $exception)
         {
-            WindowsDnsServer BaseLine
+            WindowsDefender BaseLine
             {
-                OsVersion   = $OSVersion
                 OrgSettings = $OrgSettings
                 SkipRule    = $SkipRule
             }
         }
         elseif ( $null -eq $skiprule -and $null -ne $Exception ) {
-            WindowsDnsServer BaseLine
+            WindowsDefender BaseLine
             {
-                OsVersion   = $OSVersion
                 OrgSettings = $OrgSettings
                 Exception   = $Exception
             }
         }
         elseif ( ($null -ne $Exception ) -and ($null -ne $SkipRule) )
         {
-            WindowsDnsServer Baseline
+            WindowsDefender Baseline
             {
-                OsVersion   = $OSVersion
                 OrgSettings = $OrgSettings
                 Exception   = $Exception
                 SkipRule    = $SkipRule
@@ -568,11 +668,10 @@ Configuration MainConfig
 {
 	Node $AllNodes.Where{$_.NodeName -eq "vm-dc-001"}.NodeName
 	{
-		PowerSTIG_InternetExplorer PowerSTIG_InternetExplorer
+		PowerSTIG_WindowsDNSServer PowerSTIG_WindowsDNSServer
 		{
-			BrowserVersion = $node.appliedconfigurations.PowerSTIG_InternetExplorer["BrowserVersion"]
-			OrgSettings = $node.appliedconfigurations.PowerSTIG_InternetExplorer["OrgSettings"]
-			SkipRule = $node.appliedconfigurations.PowerSTIG_InternetExplorer["SkipRule"]
+			OsVersion = $node.appliedconfigurations.PowerSTIG_WindowsDNSServer["OsVersion"]
+			OrgSettings = $node.appliedconfigurations.PowerSTIG_WindowsDNSServer["OrgSettings"]
 		}
 
 		PowerSTIG_DotNetFrameWork PowerSTIG_DotNetFrameWork
@@ -581,9 +680,16 @@ Configuration MainConfig
 			OrgSettings = $node.appliedconfigurations.PowerSTIG_DotNetFrameWork["OrgSettings"]
 		}
 
-		PowerSTIG_WindowsDefender PowerSTIG_WindowsDefender
+		PowerSTIG_WindowsFirewall PowerSTIG_WindowsFirewall
 		{
-			OrgSettings = $node.appliedconfigurations.PowerSTIG_WindowsDefender["OrgSettings"]
+			OrgSettings = $node.appliedconfigurations.PowerSTIG_WindowsFirewall["OrgSettings"]
+		}
+
+		PowerSTIG_InternetExplorer PowerSTIG_InternetExplorer
+		{
+			BrowserVersion = $node.appliedconfigurations.PowerSTIG_InternetExplorer["BrowserVersion"]
+			OrgSettings = $node.appliedconfigurations.PowerSTIG_InternetExplorer["OrgSettings"]
+			SkipRule = $node.appliedconfigurations.PowerSTIG_InternetExplorer["SkipRule"]
 		}
 
 		PowerSTIG_WindowsServer PowerSTIG_WindowsServer
@@ -593,14 +699,12 @@ Configuration MainConfig
 			OrgSettings = $node.appliedconfigurations.PowerSTIG_WindowsServer["OrgSettings"]
 		}
 
-		PowerSTIG_WindowsDNSServer PowerSTIG_WindowsDNSServer
+		PowerSTIG_WindowsDefender PowerSTIG_WindowsDefender
 		{
-			OsVersion = $node.appliedconfigurations.PowerSTIG_WindowsDNSServer["OsVersion"]
-			OrgSettings = $node.appliedconfigurations.PowerSTIG_WindowsDNSServer["OrgSettings"]
+			OrgSettings = $node.appliedconfigurations.PowerSTIG_WindowsDefender["OrgSettings"]
 		}
 	}
 }
-
 [DscLocalConfigurationManager()]
 Configuration LocalConfigurationManager
 {

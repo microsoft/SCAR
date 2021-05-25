@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <CHECKLIST>
 	<ASSET>
-		<ROLE>Member Server</ROLE>
+		<ROLE>Workstation</ROLE>
 		<ASSET_TYPE>Computing</ASSET_TYPE>
 		<HOST_NAME>WinClient-1809</HOST_NAME>
 		<HOST_IP></HOST_IP>
@@ -50,7 +50,7 @@
 				</SI_DATA>
 				<SI_DATA>
 					<SID_NAME>uuid</SID_NAME>
-					<SID_DATA>41f90fa2-4d0c-4bfc-bbd9-9961a77ba385</SID_DATA>
+					<SID_DATA>ca74e7f7-288f-4120-bb9c-1ca6fd676a24</SID_DATA>
 				</SI_DATA>
 				<SI_DATA>
 					<SID_NAME>notice</SID_NAME>

@@ -4,9 +4,9 @@
 		<ROLE>Member Server</ROLE>
 		<ASSET_TYPE>Computing</ASSET_TYPE>
 		<HOST_NAME>vm-jump-001</HOST_NAME>
-		<HOST_IP></HOST_IP>
-		<HOST_MAC></HOST_MAC>
-		<HOST_FQDN></HOST_FQDN>
+		<HOST_IP>10.0.0.22</HOST_IP>
+		<HOST_MAC>00-22-48-1F-8A-79</HOST_MAC>
+		<HOST_FQDN>vm-jump-001.101ab.army.mil</HOST_FQDN>
 		<TECH_AREA></TECH_AREA>
 		<TARGET_KEY>2350</TARGET_KEY>
 		<WEB_OR_DATABASE>false</WEB_OR_DATABASE>
@@ -50,7 +50,7 @@
 				</SI_DATA>
 				<SI_DATA>
 					<SID_NAME>uuid</SID_NAME>
-					<SID_DATA>693d81bb-67b5-4625-b49c-57179592c8cb</SID_DATA>
+					<SID_DATA>5ce8d1b6-77eb-4ecd-8010-9b4b62fcbf4f</SID_DATA>
 				</SI_DATA>
 				<SI_DATA>
 					<SID_NAME>notice</SID_NAME>

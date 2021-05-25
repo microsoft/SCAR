@@ -112,6 +112,131 @@
         }
     }
 }
+Configuration PowerSTIG_WindowsServer
+{
+    param(
+        [Parameter()]
+        [string]
+        $OsVersion,
+
+        [Parameter()]
+        [string]
+        $OsRole,
+
+        [Parameter()]
+        [version]
+        $StigVersion,
+
+        [Parameter()]
+        [hashtable]
+        $Exception,
+
+        [Parameter()]
+        [string]
+        $OrgSettings,
+
+        [Parameter()]
+        [string[]]
+        $SkipRule
+    )
+
+    Import-DSCResource -Module PowerSTIG
+
+    if ( $null -eq $OrgSettings -or "" -eq $OrgSettings )
+    {
+        if ( ($null -eq $SkipRule) -and ($null -eq $Exception) )
+        {
+            WindowsServer BaseLine
+            {
+                OsVersion   = $OSVersion
+                OsRole      = $OSRole
+            }
+        }
+        elseif ($null -ne $SkipRule -and $null -eq $Exception)
+        {
+            WindowsServer BaseLine
+            {
+                OsVersion   = $OSVersion
+                OsRole      = $OSRole
+                SkipRule    = $SkipRule
+            }
+        }
+        elseif ($null -eq $skiprule -and $null -ne $Exception)
+        {
+            WindowsServer BaseLine
+            {
+                OsVersion   = $OSVersion
+                OsRole      = $OSRole
+                Exception   = $Exception
+            }
+        }
+        elseif ( ($null -ne $Exception ) -and ($null -ne $SkipRule) )
+        {
+            WindowsServer Baseline
+            {
+                OsVersion   = $OSVersion
+                OsRole      = $OSRole
+                Exception   = $Exception
+                SkipRule    = $SkipRule
+            }
+        }
+    }
+    elseif ($null-ne $orgsettings)
+    {
+        if ( ($null -eq $SkipRule) -and ($null -eq $Exception) )
+        {
+            WindowsServer BaseLine
+            {
+                OsVersion   = $OSVersion
+                OsRole      = $OSRole
+                OrgSettings = $OrgSettings
+            }
+        }
+        elseif ($null -ne $SkipRule -and $null -eq $exception)
+        {
+            WindowsServer BaseLine
+            {
+                OsVersion   = $OSVersion
+                OsRole      = $OSRole
+                OrgSettings = $OrgSettings
+                SkipRule    = $SkipRule
+            }
+        }
+        elseif ( $null -eq $skiprule -and $null -ne $Exception ) {
+            WindowsServer BaseLine
+            {
+                OsVersion   = $OSVersion
+                OsRole      = $OSRole
+                OrgSettings = $OrgSettings
+                Exception   = $Exception
+            }
+        }
+        elseif ( ($null -ne $Exception ) -and ($null -ne $SkipRule) )
+        {
+            WindowsServer Baseline
+            {
+                OsVersion   = $OSVersion
+                OsRole      = $OSRole
+                OrgSettings = $OrgSettings
+                Exception   = $Exception
+                SkipRule    = $SkipRule
+            }
+        }
+    }
+
+    foreach($rule in $SkipRule.Keys)
+    {
+        Registry Exception_Rule
+        {
+            Ensure = "Present"
+            Key = "HKEY_LOCAL_MACHINE\SOFTWARE\STIGExceptions\"
+            ValueName = $rule
+            ValueData = $(Get-Date -format "MMddyyyy")
+            ValueType = "String"
+            Force = $true
+        }
+    }
+}
 Configuration PowerSTIG_DotNetFramework
 {
     param(
@@ -326,17 +451,9 @@ Configuration PowerSTIG_WindowsDefender
         }
     }
 }
-Configuration PowerSTIG_WindowsServer
+Configuration PowerSTIG_WindowsFirewall
 {
     param(
-        [Parameter()]
-        [string]
-        $OsVersion,
-
-        [Parameter()]
-        [string]
-        $OsRole,
-
         [Parameter()]
         [version]
         $StigVersion,
@@ -360,77 +477,60 @@ Configuration PowerSTIG_WindowsServer
     {
         if ( ($null -eq $SkipRule) -and ($null -eq $Exception) )
         {
-            WindowsServer BaseLine
+            WindowsFirewall BaseLine
             {
-                OsVersion   = $OSVersion
-                OsRole      = $OSRole
             }
         }
         elseif ($null -ne $SkipRule -and $null -eq $Exception)
         {
-            WindowsServer BaseLine
+            WindowsFirewall BaseLine
             {
-                OsVersion   = $OSVersion
-                OsRole      = $OSRole
                 SkipRule    = $SkipRule
             }
         }
-        elseif ($null -eq $skiprule -and $null -ne $Exception)
-        {
-            WindowsServer BaseLine
+        elseif ($null -eq $skiprule -and $null -ne $Exception) {
+            WindowsFirewall BaseLine
             {
-                OsVersion   = $OSVersion
-                OsRole      = $OSRole
                 Exception   = $Exception
             }
         }
         elseif ( ($null -ne $Exception ) -and ($null -ne $SkipRule) )
         {
-            WindowsServer Baseline
+            WindowsFirewall Baseline
             {
-                OsVersion   = $OSVersion
-                OsRole      = $OSRole
                 Exception   = $Exception
                 SkipRule    = $SkipRule
             }
         }
     }
-    elseif ($null-ne $orgsettings)
+    else
     {
         if ( ($null -eq $SkipRule) -and ($null -eq $Exception) )
         {
-            WindowsServer BaseLine
+            WindowsFirewall BaseLine
             {
-                OsVersion   = $OSVersion
-                OsRole      = $OSRole
                 OrgSettings = $OrgSettings
             }
         }
         elseif ($null -ne $SkipRule -and $null -eq $exception)
         {
-            WindowsServer BaseLine
+            WindowsFirewall BaseLine
             {
-                OsVersion   = $OSVersion
-                OsRole      = $OSRole
                 OrgSettings = $OrgSettings
                 SkipRule    = $SkipRule
             }
         }
         elseif ( $null -eq $skiprule -and $null -ne $Exception ) {
-            WindowsServer BaseLine
+            WindowsFirewall BaseLine
             {
-                OsVersion   = $OSVersion
-                OsRole      = $OSRole
                 OrgSettings = $OrgSettings
                 Exception   = $Exception
             }
         }
         elseif ( ($null -ne $Exception ) -and ($null -ne $SkipRule) )
         {
-            WindowsServer Baseline
+            WindowsFirewall Baseline
             {
-                OsVersion   = $OSVersion
-                OsRole      = $OSRole
                 OrgSettings = $OrgSettings
                 Exception   = $Exception
                 SkipRule    = $SkipRule
@@ -462,6 +562,13 @@ Configuration MainConfig
 			SkipRule = $node.appliedconfigurations.PowerSTIG_InternetExplorer["SkipRule"]
 		}
 
+		PowerSTIG_WindowsServer PowerSTIG_WindowsServer
+		{
+			OsVersion = $node.appliedconfigurations.PowerSTIG_WindowsServer["OsVersion"]
+			OsRole = $node.appliedconfigurations.PowerSTIG_WindowsServer["OsRole"]
+			OrgSettings = $node.appliedconfigurations.PowerSTIG_WindowsServer["OrgSettings"]
+		}
+
 		PowerSTIG_DotNetFrameWork PowerSTIG_DotNetFrameWork
 		{
 			FrameworkVersion = $node.appliedconfigurations.PowerSTIG_DotNetFrameWork["FrameworkVersion"]
@@ -473,15 +580,12 @@ Configuration MainConfig
 			OrgSettings = $node.appliedconfigurations.PowerSTIG_WindowsDefender["OrgSettings"]
 		}
 
-		PowerSTIG_WindowsServer PowerSTIG_WindowsServer
+		PowerSTIG_WindowsFirewall PowerSTIG_WindowsFirewall
 		{
-			OsVersion = $node.appliedconfigurations.PowerSTIG_WindowsServer["OsVersion"]
-			OsRole = $node.appliedconfigurations.PowerSTIG_WindowsServer["OsRole"]
-			OrgSettings = $node.appliedconfigurations.PowerSTIG_WindowsServer["OrgSettings"]
+			OrgSettings = $node.appliedconfigurations.PowerSTIG_WindowsFirewall["OrgSettings"]
 		}
 	}
 }
-
 [DscLocalConfigurationManager()]
 Configuration LocalConfigurationManager
 {
