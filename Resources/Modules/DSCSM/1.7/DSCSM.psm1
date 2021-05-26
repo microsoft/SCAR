@@ -1371,7 +1371,7 @@ function New-ConfigData
                         #endregion Localhost Data
 
                         #region AppliedConfigurations
-                        $null = $configContent.add("`tAppliedConfigurations  =")
+                        $null = $configContent.add("`n`tAppliedConfigurations  =")
                         $null = $configContent.add("`n`t@{")
 
                         switch -Wildcard ($applicableSTIGs)
@@ -1996,7 +1996,7 @@ function Get-StigFiles
         "OrgSettings"
         {
 
-            switch -Wildcard ($stigType)
+            switch ($stigType)
             {
                 "WindowsServer"
                 {
@@ -2055,7 +2055,7 @@ function Get-StigFiles
                 "Office*"
                 {
                     $officeApp              = $stigType.split('_')[1]
-                    $officeVersion          = $stigType.split('_')[0].trimstart("Office")
+                    $officeVersion          = $stigType.split('_')[0].replace('Office','')
                     $orgSettingsFiles       = (Get-ChildItem "$orgSettingsFolder" | Where-Object { $_.name -like "*$officeApp$officeVersion*"}).name
                     $stigVersions           = $orgSettingsFiles | Select-String "(\d+)\.(\d+)" -AllMatches | Foreach-Object {$_.Matches.Value}
                     $latestVersion          = ($stigVersions | Measure-Object -Maximum).Maximum
@@ -2547,7 +2547,7 @@ function Get-StigChecklists
                 else
                 {
                     Write-Output "$TargetFolder is not a valid nodedata subfolder. Please verify the folder name."
-                    end
+                    exit
                 }
             }
         }
@@ -2557,7 +2557,6 @@ function Get-StigChecklists
         $targetMachines = @("$env:ComputerName")
     }
 
-    $dscResults = New-Object System.Collections.ArrayList
     $jobs       = New-Object System.Collections.ArrayList
 
     Write-Output "`tStarting STIG Checklist generation jobs for $($targetMachines.count) targetted machines.`n"
@@ -2590,7 +2589,6 @@ function Get-StigChecklists
             $cklContainer       = $using:cklContainer
             $nodeDataFile       = $using:nodeDataFile
             $data               = $using:data
-            $osVersion          = (Get-WmiObject Win32_OperatingSystem).caption | Select-String "(\d+)([^\s]+)" -AllMatches | Foreach-Object {$_.Matches.Value}
             $dscResult          = $null
             $remoteCklJobs      = New-Object System.Collections.ArrayList
 
@@ -2598,11 +2596,11 @@ function Get-StigChecklists
 
             if ($null -ne $data.appliedConfigurations)  {$appliedStigs = $data.appliedConfigurations.getenumerator() | Where-Object {$_.name -like "POWERSTIG*"}}
             if ($null -ne $data.manualStigs)            {$manualStigs  = $data.manualStigs.getenumerator()}
-
             if ($null -ne $appliedStigs)
             {
                 $winRmTest  = Test-WSMan -Computername $machine -Authentication Default -Erroraction silentlycontinue
                 $ps5check   = Invoke-Command -ComputerName $machine -ErrorAction SilentlyContinue -Scriptblock {return $psversiontable.psversion.major}
+                $osVersion          = (Get-WmiObject Win32_OperatingSystem).caption | Select-String "(\d+)([^\s]+)" -AllMatches | Foreach-Object {$_.Matches.Value}
 
                 if ($null -eq $winRmTest)
                 {
