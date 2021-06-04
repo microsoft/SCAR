@@ -21,9 +21,8 @@ Requirements
     # Follow the Steps below to execute the SCAR build process
 
     # Step 1 - Build SCAR Repository
-        # Install the DSCSM Module, build the SCAR Repository, and install dependencies.
-        Get-Item ".\Resources\Modules\Dscsm" | Copy-Item -Destination "$env:SystemDrive\Program Files\WindowsPowerShell\Modules" -Recurse -Force -Confirm:$false
-        Import-Module DSCSM -Force
+        # Install the DSCSM Module and build the SCAR Repository
+        Install-Module DSCSM -Force
         Build-ScarRepo
 
     # Step 2 - Generate DSC Configuration Data
