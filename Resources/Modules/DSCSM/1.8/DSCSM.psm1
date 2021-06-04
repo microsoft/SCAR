@@ -3902,23 +3902,23 @@ function Build-ScarRepo
     Write-Output "Beginning Stig Compliance Automation Repository (SCAR) Build"
 
     Write-Output "`tBuilding Repository Folder Structure"
-    $nodeDataPath   = New-Item -Path "$RootPath\NodeData" -ItemType Directory
-    $stagingPath    = New-Item -Path "$nodeDataPath\Staging" -ItemType Directory
+    $nodeDataPath   = New-Item -Path "$RootPath\NodeData" -ItemType Directory -Force -Confirm:$False
+    $stagingPath    = New-Item -Path "$nodeDataPath\Staging" -ItemType Directory -Force -Confirm:$False
 
-    $configPath     = New-Item -Path "$RootPath\Configurations" -ItemType Directory
+    $configPath     = New-Item -Path "$RootPath\Configurations" -ItemType Directory -Force -Confirm:$False
 
-    $artifactPath   = New-Item -Path "$RootPath\Artifacts" -ItemType Directory
-    $dscConfigPath  = New-Item -Path "$artifactPath\DscConfigs" -ItemType Directory
-    $mofPath        = New-Item -Path "$artifactPath\Mofs" -ItemType Directory
-    $CklPath        = New-Item -Path "$artifactPath\Stig Checklists" -ItemType Directory
+    $artifactPath   = New-Item -Path "$RootPath\Artifacts" -ItemType Directory -Force -Confirm:$False
+    $dscConfigPath  = New-Item -Path "$artifactPath\DscConfigs" -ItemType Directory -Force -Confirm:$False
+    $mofPath        = New-Item -Path "$artifactPath\Mofs" -ItemType Directory -Force -Confirm:$False
+    $CklPath        = New-Item -Path "$artifactPath\Stig Checklists" -ItemType Directory -Force -Confirm:$False
 
-    $resourcePath   = New-Item -Path "$RootPath\Resources" -ItemType Directory
-    $modulePath     = New-Item -Path "$resourcePath\Modules" -ItemType Directory
-    $stigDataPath   = New-Item -Path "$resourcePath\Stig Data" -ItemType Directory
-    $xccdfPath      = New-Item -Path "$stigDataPath\Xccdfs" -ItemType Directory
-    $orgSettingPath = New-Item -Path "$stigDataPath\Organizational Settings" -ItemType Directory
-    $mancheckPath   = New-Item -Path "$stigDataPath\Manual Checks" -ItemType Directory
-    $wikiPath       = New-Item -Path "$resourcePath\Wiki" -ItemType Directory
+    $resourcePath   = New-Item -Path "$RootPath\Resources" -ItemType Directory -Force -Confirm:$False
+    $modulePath     = New-Item -Path "$resourcePath\Modules" -ItemType Directory -Force -Confirm:$False
+    $stigDataPath   = New-Item -Path "$resourcePath\Stig Data" -ItemType Directory -Force -Confirm:$False
+    $xccdfPath      = New-Item -Path "$stigDataPath\Xccdfs" -ItemType Directory -Force -Confirm:$False
+    $orgSettingPath = New-Item -Path "$stigDataPath\Organizational Settings" -ItemType Directory -Force -Confirm:$False
+    $mancheckPath   = New-Item -Path "$stigDataPath\Manual Checks" -ItemType Directory -Force -Confirm:$False
+    $wikiPath       = New-Item -Path "$resourcePath\Wiki" -ItemType Directory -Force -Confirm:$False
 
     Write-Output "`tExtracting DSC Configurations and Wiki Files"
     $dscsmPath = (Get-Module DSCSM).Path
