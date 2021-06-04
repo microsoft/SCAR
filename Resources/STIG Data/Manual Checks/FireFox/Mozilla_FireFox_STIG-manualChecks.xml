@@ -1,0 +1,24 @@
+@{
+    VulID       = "V-223151"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\FireFox\Mozilla_Firefox_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-223156"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\FireFox\Mozilla_Firefox_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-223159"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\FireFox\Mozilla_Firefox_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-223179"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\FireFox\Mozilla_Firefox_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+

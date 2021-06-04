@@ -1,0 +1,66 @@
+@{
+    VulID       = "V-225225"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\DotNet\MS_Dot_Net_Framework-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-225226"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\DotNet\MS_Dot_Net_Framework-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-225228"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\DotNet\MS_Dot_Net_Framework-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-225229"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\DotNet\MS_Dot_Net_Framework-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-225230"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\DotNet\MS_Dot_Net_Framework-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-225232"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\DotNet\MS_Dot_Net_Framework-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-225233"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\DotNet\MS_Dot_Net_Framework-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-225234"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\DotNet\MS_Dot_Net_Framework-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-225235"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\DotNet\MS_Dot_Net_Framework-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-225236"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\DotNet\MS_Dot_Net_Framework-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-225237"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\DotNet\MS_Dot_Net_Framework-manualChecks.xml to customize the status/comments for this finding."
+}
+

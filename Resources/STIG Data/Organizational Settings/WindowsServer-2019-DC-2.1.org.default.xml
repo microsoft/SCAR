@@ -35,7 +35,7 @@
   <!-- Ensure ''V-205706'' -le '5'-->
   <OrganizationalSetting id="V-205706" PolicyValue="5" />
   <!-- Ensure ''V-205717'' -match '1|2'-->
-  <OrganizationalSetting id="V-205717" ValueData="2" />
+  <OrganizationalSetting id="V-205717" ValueData="1" />
   <!-- Ensure ''V-205796'' -ge '32768'-->
   <OrganizationalSetting id="V-205796" ValueData="32768" />
   <!-- Ensure ''V-205797'' -ge '196608'-->
@@ -75,7 +75,7 @@
   <!-- Ensure ''V-205795'' -ge '15' -or ''V-205795'' -eq '0'-->
   <OrganizationalSetting id="V-205795" PolicyValue="15" />
   <!-- Ensure ''V-205909'' -ne 'Administrator'-->
-  <OrganizationalSetting id="V-205909" OptionValue="xAdmin" />
+  <OrganizationalSetting id="V-205909" OptionValue="" />
   <!-- Ensure ''V-205910'' -ne 'Guest'-->
-  <OrganizationalSetting id="V-205910" OptionValue="Guests" />
+  <OrganizationalSetting id="V-205910" OptionValue="" />
 </OrganizationalSettings>

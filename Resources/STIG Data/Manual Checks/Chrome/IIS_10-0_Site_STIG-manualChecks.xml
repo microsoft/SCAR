@@ -1,0 +1,54 @@
+@{
+    VulID       = "V-218740"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Chrome\IIS_10-0_Site_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-218750"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Chrome\IIS_10-0_Site_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-218752"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Chrome\IIS_10-0_Site_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-218767"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Chrome\IIS_10-0_Site_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-218771"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Chrome\IIS_10-0_Site_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-218779"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Chrome\IIS_10-0_Site_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-218780"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Chrome\IIS_10-0_Site_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-218781"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Chrome\IIS_10-0_Site_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-218782"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Chrome\IIS_10-0_Site_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+

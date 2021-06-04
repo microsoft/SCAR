@@ -1,0 +1,84 @@
+@{
+    VulID       = "V-40911"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Sql Server\MS_SQL_Server_Database_2012-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-41395"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Sql Server\MS_SQL_Server_Database_2012-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-41397"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Sql Server\MS_SQL_Server_Database_2012-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-41403"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Sql Server\MS_SQL_Server_Database_2012-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-41404"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Sql Server\MS_SQL_Server_Database_2012-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-41406"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Sql Server\MS_SQL_Server_Database_2012-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-41411"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Sql Server\MS_SQL_Server_Database_2012-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-41412"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Sql Server\MS_SQL_Server_Database_2012-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-41415"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Sql Server\MS_SQL_Server_Database_2012-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-41416"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Sql Server\MS_SQL_Server_Database_2012-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-41420"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Sql Server\MS_SQL_Server_Database_2012-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-41422"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Sql Server\MS_SQL_Server_Database_2012-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-41424"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Sql Server\MS_SQL_Server_Database_2012-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-60781"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Sql Server\MS_SQL_Server_Database_2012-manualChecks.xml to customize the status/comments for this finding."
+}
+

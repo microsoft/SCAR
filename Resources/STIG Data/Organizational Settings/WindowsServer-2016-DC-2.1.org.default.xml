@@ -77,7 +77,7 @@
   <!-- Ensure ''V-224872'' -ge '14'-->
   <OrganizationalSetting id="V-224872" PolicyValue="14" />
   <!-- Ensure ''V-225026'' -ne 'Administrator'-->
-  <OrganizationalSetting id="V-225026" OptionValue="xAdmin" />
+  <OrganizationalSetting id="V-225026" OptionValue="" />
   <!-- Ensure ''V-225027'' -ne 'Guest'-->
-  <OrganizationalSetting id="V-225027" OptionValue="Guests" />
+  <OrganizationalSetting id="V-225027" OptionValue="" />
 </OrganizationalSettings>

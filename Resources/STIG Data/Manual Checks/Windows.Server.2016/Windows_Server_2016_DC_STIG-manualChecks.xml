@@ -1,0 +1,258 @@
+@{
+    VulID       = "V-224819"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224820"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224821"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224822"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224823"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224824"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224826"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224827"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224829"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224838"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224839"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224840"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224841"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224843"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224844"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224846"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224848"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224849"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224860"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224861"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224862"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224864"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224865"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224875"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224876"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224964"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224970"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224973"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224975"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224976"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224978"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224979"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224980"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224981"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224982"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224983"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224984"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224985"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224991"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224992"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224994"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-225006"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-224863"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Windows.Server.2016\Windows_Server_2016_DC_STIG-manualChecks.xml to customize the status/comments for this finding."
+}
+

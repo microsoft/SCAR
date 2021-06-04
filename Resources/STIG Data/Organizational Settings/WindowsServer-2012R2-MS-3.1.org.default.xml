@@ -29,7 +29,7 @@
   <!-- Ensure ''V-225373'' -ge '32768'-->
   <OrganizationalSetting id="V-225373" ValueData="32768" />
   <!-- Ensure ''V-225374'' -match '1|2'-->
-  <OrganizationalSetting id="V-225374" ValueData="2" /> 
+  <OrganizationalSetting id="V-225374" ValueData="1" />
   <!-- Ensure ServiceName/StartupType is populated with correct Firewall service information-->
   <OrganizationalSetting id="V-225416" ServiceName="" StartupType="" />
   <!-- Ensure ServiceName/StartupType is populated with correct Certificate Revocation Checking service information-->
@@ -49,9 +49,9 @@
   <!-- Ensure location for US DoD CCEB Interoperability Root CA 2 certificate is present-->
   <OrganizationalSetting id="V-225443" Location="" />
   <!-- Ensure ''V-225450'' -ne 'Administrator'-->
-  <OrganizationalSetting id="V-225450" OptionValue="x_Admin" />
+  <OrganizationalSetting id="V-225450" OptionValue="" />
   <!-- Ensure ''V-225451'' -ne 'Guest'-->
-  <OrganizationalSetting id="V-225451" OptionValue="Visitor" />
+  <OrganizationalSetting id="V-225451" OptionValue="" />
   <!-- Ensure ''V-225460'' -le '30' -and ''V-225460'' -gt '0'-->
   <OrganizationalSetting id="V-225460" ValueData="30" />
   <!-- Ensure ''V-225464'' -le '900' -and ''V-225464'' -gt '0'-->
@@ -81,5 +81,5 @@
   <!-- Ensure ''V-225555'' -match '^(Administrators,NT Virtual Machine\\Virtual Machines|Administrators)$'-->
   <OrganizationalSetting id="V-225555" Identity="Administrators" />
   <!-- Ensure ''V-225557'' -match 'Enterprise Admins,Domain Admins,(Local account and member of Administrators group|Local account),Guests'-->
-  <OrganizationalSetting id="V-225557" Identity="USAFRICOM\Enterprise Admins,USAFRICOM\Domain Admins,Local account and member of Administrators group,Guests" />
+  <OrganizationalSetting id="V-225557" Identity="Enterprise Admins,Domain Admins,Local account and member of Administrators group,Guests" />
 </OrganizationalSettings>

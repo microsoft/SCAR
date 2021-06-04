@@ -1,0 +1,5 @@
+@{
+    VulID       = "V-65677"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Adobe\Adobe_Acrobat_Reader_DC_Continuous_Track_STIG-manualChecks.xml to customize the status/comments for this finding."
+}

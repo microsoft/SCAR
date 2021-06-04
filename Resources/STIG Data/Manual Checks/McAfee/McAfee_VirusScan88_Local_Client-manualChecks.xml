@@ -1,0 +1,72 @@
+@{
+    VulID       = "V-19910"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\McAfee\McAfee_VirusScan88_Local_Client-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-42552"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\McAfee\McAfee_VirusScan88_Local_Client-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-42553"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\McAfee\McAfee_VirusScan88_Local_Client-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-42554"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\McAfee\McAfee_VirusScan88_Local_Client-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-42555"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\McAfee\McAfee_VirusScan88_Local_Client-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-42556"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\McAfee\McAfee_VirusScan88_Local_Client-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-42557"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\McAfee\McAfee_VirusScan88_Local_Client-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-42558"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\McAfee\McAfee_VirusScan88_Local_Client-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-42559"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\McAfee\McAfee_VirusScan88_Local_Client-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-42560"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\McAfee\McAfee_VirusScan88_Local_Client-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-42562"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\McAfee\McAfee_VirusScan88_Local_Client-manualChecks.xml to customize the status/comments for this finding."
+}
+
+@{
+    VulID       = "V-59365"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\McAfee\McAfee_VirusScan88_Local_Client-manualChecks.xml to customize the status/comments for this finding."
+}
+

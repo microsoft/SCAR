@@ -11,7 +11,7 @@
   <!-- Ensure ''V-224924'' -match '1|3|8|ShouldBeAbsent'-->
   <OrganizationalSetting id="V-224924" ValueData="8" />
   <!-- Ensure ''V-224936'' -match '0|1'-->
-  <OrganizationalSetting id="V-224936" ValueData="1" />
+  <OrganizationalSetting id="V-224936" ValueData="0" />
   <!-- Ensure ''V-224937'' -ge '32768'-->
   <OrganizationalSetting id="V-224937" ValueData="32768" />
   <!-- Ensure ''V-224938'' -ge '196608'-->
@@ -19,15 +19,15 @@
   <!-- Ensure ''V-224939'' -ge '32768'-->
   <OrganizationalSetting id="V-224939" ValueData="32768" />
   <!-- Ensure ''V-224941'' -match '0|ShouldBeAbsent'-->
-  <OrganizationalSetting id="V-224941" ValueData="ShouldBeAbsent" />
+  <OrganizationalSetting id="V-224941" ValueData="0" />
   <!-- Ensure ''V-224942'' -match '0|ShouldBeAbsent'-->
-  <OrganizationalSetting id="V-224942" ValueData="ShouldBeAbsent" />
+  <OrganizationalSetting id="V-224942" ValueData="0" />
   <!-- Ensure ''V-224943'' -match '0|ShouldBeAbsent'-->
-  <OrganizationalSetting id="V-224943" ValueData="ShouldBeAbsent" />
+  <OrganizationalSetting id="V-224943" ValueData="0" />
   <!-- Ensure ''V-224951'' -match '0|ShouldBeAbsent'-->
-  <OrganizationalSetting id="V-224951" ValueData="ShouldBeAbsent" />
+  <OrganizationalSetting id="V-224951" ValueData="0" />
   <!-- Ensure ''V-224955'' -match '0|ShouldBeAbsent'-->
-  <OrganizationalSetting id="V-224955" ValueData="ShouldBeAbsent" />
+  <OrganizationalSetting id="V-224955" ValueData="0" />
   <!-- Ensure ''V-225011'' -le '4'-->
   <OrganizationalSetting id="V-225011" ValueData="4" />
   <!-- Ensure location for DoD Root CA 2 certificate is present-->
@@ -51,11 +51,11 @@
   <!-- Ensure ''V-225037'' -match '^(DoD Notice and Consent Banner|US Department of Defense Warning Statement)$'-->
   <OrganizationalSetting id="V-225037" ValueData="DoD Notice and Consent Banner" />
   <!-- Ensure ''V-225038'' -match '1|2'-->
-  <OrganizationalSetting id="V-225038" ValueData="1" />  
+  <OrganizationalSetting id="V-225038" ValueData="1" />
   <!-- Ensure ''V-225063'' -match '1|2'-->
-  <OrganizationalSetting id="V-225063" ValueData="2" />
+  <OrganizationalSetting id="V-225063" ValueData="1" />
   <!-- Ensure ''V-225069'' -match '2|ShouldBeAbsent'-->
-  <OrganizationalSetting id="V-225069" ValueData="ShouldBeAbsent" /> 
+  <OrganizationalSetting id="V-225069" ValueData="2" />
   <!-- Ensure ''V-224866'' -ge '15' -or ''V-224866'' -eq '0'-->
   <OrganizationalSetting id="V-224866" PolicyValue="15" />
   <!-- Ensure ''V-224867'' -le '3' -and ''V-224867'' -ne '0'-->
@@ -71,11 +71,11 @@
   <!-- Ensure ''V-224872'' -ge '14'-->
   <OrganizationalSetting id="V-224872" PolicyValue="14" />
   <!-- Ensure ''V-225015'' -match 'Enterprise Admins,Domain Admins,(Local account and member of Administrators group|Local account),Guests'-->
-  <OrganizationalSetting id="V-225015" Identity="Guests,Local account and member of Administrators group,USAFRICOM\Enterprise Admins,USAFRICOM\Domain Admins" />
+  <OrganizationalSetting id="V-225015" Identity="Enterprise Admins,Domain Admins,Local account and member of Administrators group,Guests" />
   <!-- Ensure ''V-225026'' -ne 'Administrator'-->
-  <OrganizationalSetting id="V-225026" OptionValue="x_Admin" />
+  <OrganizationalSetting id="V-225026" OptionValue="" />
   <!-- Ensure ''V-225027'' -ne 'Guest'-->
-  <OrganizationalSetting id="V-225027" OptionValue="Visitor" />
+  <OrganizationalSetting id="V-225027" OptionValue="" />
   <!-- Ensure ''V-225078'' -match '^(Administrators,NT Virtual Machine\\Virtual Machines|Administrators)$'-->
   <OrganizationalSetting id="V-225078" Identity="Administrators" />
 </OrganizationalSettings>

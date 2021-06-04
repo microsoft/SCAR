@@ -1,0 +1,6 @@
+@{
+    VulID       = "V-221584"
+    Status      = "NotReviewed"
+    Comments    = "EXAMPLE: This Comment was provided by the STIG Compliance Automation Repository. Modify Resources\Stig Data\Manual Checks\Chrome\Google_Chrome_Current_Windows-manualChecks.xml to customize the status/comments for this finding."
+}
+
